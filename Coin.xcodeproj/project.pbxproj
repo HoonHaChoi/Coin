@@ -3,22 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF39268F6A8D003FD161 /* NetworkError.swift */; };
+		BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF3C268F6C9F003FD161 /* EndPoint.swift */; };
+		BF22BF42268F6D96003FD161 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF41268F6D96003FD161 /* Coins.swift */; };
 		BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736052651697A00C3FAD0 /* AppDelegate.swift */; };
 		BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736072651697A00C3FAD0 /* SceneDelegate.swift */; };
 		BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736092651697A00C3FAD0 /* ViewController.swift */; };
 		BF87360D2651697A00C3FAD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF87360B2651697A00C3FAD0 /* Main.storyboard */; };
 		BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF87360E2651697C00C3FAD0 /* Assets.xcassets */; };
 		BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */; };
-		BF87361D26516AD600C3FAD0 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BF87361C26516AD600C3FAD0 /* RxRelay */; };
-		BF87361F26516AD600C3FAD0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF87361E26516AD600C3FAD0 /* RxSwift */; };
-		BF87362126516AD600C3FAD0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BF87362026516AD600C3FAD0 /* RxCocoa */; };
+		BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736282652946A00C3FAD0 /* NetwokManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF22BF39268F6A8D003FD161 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		BF22BF3C268F6C9F003FD161 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		BF22BF41268F6D96003FD161 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
 		BF8736022651697A00C3FAD0 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8736052651697A00C3FAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8736072651697A00C3FAD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,6 +31,7 @@
 		BF87360E2651697C00C3FAD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF8736112651697C00C3FAD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF8736132651697C00C3FAD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF8736282652946A00C3FAD0 /* NetwokManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,15 +39,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF87362126516AD600C3FAD0 /* RxCocoa in Frameworks */,
-				BF87361F26516AD600C3FAD0 /* RxSwift in Frameworks */,
-				BF87361D26516AD600C3FAD0 /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF22BF38268F6A7C003FD161 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BF22BF39268F6A8D003FD161 /* NetworkError.swift */,
+				BF8736282652946A00C3FAD0 /* NetwokManager.swift */,
+				BF22BF3C268F6C9F003FD161 /* EndPoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BF22BF40268F6CFB003FD161 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF22BF41268F6D96003FD161 /* Coins.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BF8735F92651697A00C3FAD0 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +85,8 @@
 				BF8736052651697A00C3FAD0 /* AppDelegate.swift */,
 				BF8736072651697A00C3FAD0 /* SceneDelegate.swift */,
 				BF8736092651697A00C3FAD0 /* ViewController.swift */,
+				BF22BF40268F6CFB003FD161 /* Model */,
+				BF22BF38268F6A7C003FD161 /* Network */,
 				BF87360B2651697A00C3FAD0 /* Main.storyboard */,
 				BF87360E2651697C00C3FAD0 /* Assets.xcassets */,
 				BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */,
@@ -90,9 +112,6 @@
 			);
 			name = Coin;
 			packageProductDependencies = (
-				BF87361C26516AD600C3FAD0 /* RxRelay */,
-				BF87361E26516AD600C3FAD0 /* RxSwift */,
-				BF87362026516AD600C3FAD0 /* RxCocoa */,
 			);
 			productName = Coin;
 			productReference = BF8736022651697A00C3FAD0 /* Coin.app */;
@@ -122,7 +141,6 @@
 			);
 			mainGroup = BF8735F92651697A00C3FAD0;
 			packageReferences = (
-				BF87361B26516AD600C3FAD0 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = BF8736032651697A00C3FAD0 /* Products */;
 			projectDirPath = "";
@@ -151,9 +169,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
+				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,
 				BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */,
+				BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
 				BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */,
+				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,35 +377,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BF87361B26516AD600C3FAD0 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.2.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BF87361C26516AD600C3FAD0 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BF87361B26516AD600C3FAD0 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		BF87361E26516AD600C3FAD0 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BF87361B26516AD600C3FAD0 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		BF87362026516AD600C3FAD0 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BF87361B26516AD600C3FAD0 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF8735FA2651697A00C3FAD0 /* Project object */;
 }

@@ -10,6 +10,8 @@
 		BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF39268F6A8D003FD161 /* NetworkError.swift */; };
 		BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF3C268F6C9F003FD161 /* EndPoint.swift */; };
 		BF22BF42268F6D96003FD161 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF41268F6D96003FD161 /* Coins.swift */; };
+		BF22BF48268F8119003FD161 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF47268F8119003FD161 /* URLSession+Extension.swift */; };
+		BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */; };
 		BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736052651697A00C3FAD0 /* AppDelegate.swift */; };
 		BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736072651697A00C3FAD0 /* SceneDelegate.swift */; };
 		BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736092651697A00C3FAD0 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 		BF22BF39268F6A8D003FD161 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		BF22BF3C268F6C9F003FD161 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BF22BF41268F6D96003FD161 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
+		BF22BF47268F8119003FD161 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoinsViewModel.swift; sourceTree = "<group>"; };
 		BF8736022651697A00C3FAD0 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8736052651697A00C3FAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8736072651697A00C3FAD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BF22BF46268F8108003FD161 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF22BF47268F8119003FD161 /* URLSession+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		BF8735F92651697A00C3FAD0 = {
 			isa = PBXGroup;
 			children = (
@@ -85,8 +97,10 @@
 				BF8736052651697A00C3FAD0 /* AppDelegate.swift */,
 				BF8736072651697A00C3FAD0 /* SceneDelegate.swift */,
 				BF8736092651697A00C3FAD0 /* ViewController.swift */,
+				BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,
+				BF22BF46268F8108003FD161 /* Extension */,
 				BF87360B2651697A00C3FAD0 /* Main.storyboard */,
 				BF87360E2651697C00C3FAD0 /* Assets.xcassets */,
 				BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */,
@@ -173,7 +187,9 @@
 				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,
 				BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */,
 				BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */,
+				BF22BF48268F8119003FD161 /* URLSession+Extension.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
+				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
 				BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */,
 				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 			);

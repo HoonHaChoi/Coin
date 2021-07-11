@@ -1,12 +1,13 @@
 import Foundation
 
-struct Coins: Codable {
+struct Coin: Codable {
     let uuid: String
     let exchange: Exchange
     let ticker: String
     let market: Market
     let koreanName, englishName: String
     let meta: Meta
+    let logo: String
 }
 
 enum Exchange: String, Codable {

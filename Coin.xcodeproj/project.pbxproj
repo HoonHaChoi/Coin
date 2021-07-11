@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */; };
 		BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */; };
+		BF1FA632269B309B00AC1AC2 /* SearchCoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1FA631269B309B00AC1AC2 /* SearchCoinCell.xib */; };
+		BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA633269B366A00AC1AC2 /* SearchCoinCell.swift */; };
+		BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */; };
 		BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF39268F6A8D003FD161 /* NetworkError.swift */; };
 		BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF3C268F6C9F003FD161 /* EndPoint.swift */; };
 		BF22BF42268F6D96003FD161 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF41268F6D96003FD161 /* Coins.swift */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		BF1FA631269B309B00AC1AC2 /* SearchCoinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCoinCell.xib; sourceTree = "<group>"; };
+		BF1FA633269B366A00AC1AC2 /* SearchCoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoinCell.swift; sourceTree = "<group>"; };
+		BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		BF22BF39268F6A8D003FD161 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		BF22BF3C268F6C9F003FD161 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BF22BF41268F6D96003FD161 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
@@ -61,6 +67,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		BF1FA630269B308200AC1AC2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF1FA631269B309B00AC1AC2 /* SearchCoinCell.xib */,
+				BF1FA633269B366A00AC1AC2 /* SearchCoinCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BF22BF38268F6A7C003FD161 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				BF22BF47268F8119003FD161 /* URLSession+Extension.swift */,
+				BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -112,6 +128,7 @@
 				BF8736092651697A00C3FAD0 /* ViewController.swift */,
 				BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */,
 				BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */,
+				BF1FA630269B308200AC1AC2 /* View */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,
 				BF22BF46268F8108003FD161 /* Extension */,
@@ -186,6 +203,7 @@
 			files = (
 				BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */,
 				BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */,
+				BF1FA632269B309B00AC1AC2 /* SearchCoinCell.xib in Resources */,
 				BF87360D2651697A00C3FAD0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,10 +221,12 @@
 				BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */,
 				BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */,
 				BF22BF48268F8119003FD161 /* URLSession+Extension.swift in Sources */,
+				BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
 				BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */,
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
 				BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */,
+				BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */,
 				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

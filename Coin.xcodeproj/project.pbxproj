@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */; };
 		BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF39268F6A8D003FD161 /* NetworkError.swift */; };
 		BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF3C268F6C9F003FD161 /* EndPoint.swift */; };
 		BF22BF42268F6D96003FD161 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF41268F6D96003FD161 /* Coins.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BF22BF39268F6A8D003FD161 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		BF22BF3C268F6C9F003FD161 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BF22BF41268F6D96003FD161 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				BF8736052651697A00C3FAD0 /* AppDelegate.swift */,
 				BF8736072651697A00C3FAD0 /* SceneDelegate.swift */,
 				BF8736092651697A00C3FAD0 /* ViewController.swift */,
+				BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */,
 				BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,
 				BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */,

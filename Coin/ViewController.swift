@@ -9,5 +9,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         vm.fetchSearchCoins()
     }
+    
+    @IBAction func moveSearchViewController(_ sender: Any) {
+        
+    }
 }
 

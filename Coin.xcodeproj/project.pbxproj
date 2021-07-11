@@ -13,6 +13,8 @@
 		BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA633269B366A00AC1AC2 /* SearchCoinCell.swift */; };
 		BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */; };
 		BF1FA63A269B419400AC1AC2 /* SearchCoinDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA639269B419400AC1AC2 /* SearchCoinDataSource.swift */; };
+		BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA63B269B616A00AC1AC2 /* CellReusable.swift */; };
+		BF1FA640269B62BB00AC1AC2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA63F269B62BB00AC1AC2 /* UITableView+Extension.swift */; };
 		BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF39268F6A8D003FD161 /* NetworkError.swift */; };
 		BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF3C268F6C9F003FD161 /* EndPoint.swift */; };
 		BF22BF42268F6D96003FD161 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF41268F6D96003FD161 /* Coins.swift */; };
@@ -34,6 +36,8 @@
 		BF1FA633269B366A00AC1AC2 /* SearchCoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoinCell.swift; sourceTree = "<group>"; };
 		BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		BF1FA639269B419400AC1AC2 /* SearchCoinDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoinDataSource.swift; sourceTree = "<group>"; };
+		BF1FA63B269B616A00AC1AC2 /* CellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReusable.swift; sourceTree = "<group>"; };
+		BF1FA63F269B62BB00AC1AC2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		BF22BF39268F6A8D003FD161 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		BF22BF3C268F6C9F003FD161 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BF22BF41268F6D96003FD161 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */,
+				BF1FA63B269B616A00AC1AC2 /* CellReusable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			children = (
 				BF22BF47268F8119003FD161 /* URLSession+Extension.swift */,
 				BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */,
+				BF1FA63F269B62BB00AC1AC2 /* UITableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 			files = (
 				BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
+				BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */,
 				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,
 				BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */,
 				BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */,
@@ -232,6 +239,7 @@
 				BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */,
 				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 				BF1FA63A269B419400AC1AC2 /* SearchCoinDataSource.swift in Sources */,
+				BF1FA640269B62BB00AC1AC2 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

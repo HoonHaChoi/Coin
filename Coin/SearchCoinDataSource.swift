@@ -20,11 +20,15 @@ class SearchCoinDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCoinCell.identifer, for: indexPath) as? SearchCoinCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCoinCell.reuseIdentifier, for: indexPath) as? SearchCoinCell else {
             return .init()
         }
         cell.configure(coin: coins[indexPath.row])
         return cell
+    }
+    
+    func updateDataSource(from coinList: [Coin]) {
+        self.coins = coinList
     }
 }
 

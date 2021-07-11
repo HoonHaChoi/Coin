@@ -8,6 +8,8 @@ final class SearchViewModel {
     private var cancell: AnyCancellable?
     private var cancellable = Set<AnyCancellable>()
     
+    @Published var coins: [Coin] = []
+    
     init(usecase: SearchUseCase = NetworkManager()) {
         self.searchUseCase = usecase
     }
@@ -19,7 +21,7 @@ final class SearchViewModel {
                 print(error)
             }
         } receiveValue: { (coins) in
-            print(coins)
+            self.coins = coins
         }
     }
 }

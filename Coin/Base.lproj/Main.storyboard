@@ -55,9 +55,24 @@
                     <view key="view" contentMode="scaleToFill" id="Cpd-LQ-O1I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jQ7-Mi-vGh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="DXq-rC-5pR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DXq-rC-5pR" firstAttribute="trailing" secondItem="jQ7-Mi-vGh" secondAttribute="trailing" id="GS0-Hc-44n"/>
+                            <constraint firstItem="jQ7-Mi-vGh" firstAttribute="leading" secondItem="DXq-rC-5pR" secondAttribute="leading" id="Ofh-Tp-FfQ"/>
+                            <constraint firstItem="DXq-rC-5pR" firstAttribute="bottom" secondItem="jQ7-Mi-vGh" secondAttribute="bottom" id="Q0y-vx-jLP"/>
+                            <constraint firstItem="jQ7-Mi-vGh" firstAttribute="top" secondItem="DXq-rC-5pR" secondAttribute="top" id="Z27-rc-3Kt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="coinListTableView" destination="jQ7-Mi-vGh" id="ijc-RH-SUe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5B-R4-Yi7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

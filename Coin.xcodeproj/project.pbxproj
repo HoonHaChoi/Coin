@@ -27,6 +27,7 @@
 		BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF87360E2651697C00C3FAD0 /* Assets.xcassets */; };
 		BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */; };
 		BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736282652946A00C3FAD0 /* NetwokManager.swift */; };
+		BF9D08E9269CAF17009B6AA0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D08E8269CAF17009B6AA0 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		BF8736112651697C00C3FAD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF8736132651697C00C3FAD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8736282652946A00C3FAD0 /* NetwokManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokManager.swift; sourceTree = "<group>"; };
+		BF9D08E8269CAF17009B6AA0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */,
+				BF9D08E8269CAF17009B6AA0 /* Coordinator.swift */,
 				BF1FA63B269B616A00AC1AC2 /* CellReusable.swift */,
 			);
 			path = Protocol;
@@ -234,6 +237,7 @@
 				BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
 				BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */,
+				BF9D08E9269CAF17009B6AA0 /* Coordinator.swift in Sources */,
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
 				BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */,
 				BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */,

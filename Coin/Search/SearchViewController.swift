@@ -26,9 +26,19 @@ class SearchViewController: UIViewController, Storyboarded {
     }
     
     @IBOutlet weak var coinListTableView: UITableView!
+    private let searchController: UISearchController = {
+        var search = UISearchController()
+        search.searchBar.placeholder = "코인명, 심볼명을 입력 해주세요"
+        search.obscuresBackgroundDuringPresentation = false
+        // 검색 segment 추가 예정
+        //search.searchBar.scopeButtonTitles
+        return search
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         coinListTableView.register(cell: SearchCoinCell.self)
         coinListTableView.dataSource = searchCoinDataSource
         update()

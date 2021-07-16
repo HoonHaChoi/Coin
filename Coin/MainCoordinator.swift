@@ -19,7 +19,7 @@ final class MainCoordinator: Coordinator {
             return ViewController(coder: coder)
         }
         viewController.coordinator = self
-        
+        viewController.navigationItem.backButtonTitle = ""
         navigationController.pushViewController(viewController, animated: true)
     }
     
@@ -33,7 +33,7 @@ final class MainCoordinator: Coordinator {
                                         viewModel: viewModel,
                                         dataSource: searchDataSourece)
         }
-        
+        searchViewController.title = "검색"
         navigationController.pushViewController(searchViewController,
                                                 animated: true)
     }

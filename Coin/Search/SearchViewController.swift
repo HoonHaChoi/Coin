@@ -14,6 +14,8 @@ class SearchViewController: UIViewController, Storyboarded {
     private let searchCoinDataSource: SearchCoinDataSource
     private var cancellable = Set<AnyCancellable>()
     
+    var keywordHandler: ((String) -> Void)?
+    
     init?(coder: NSCoder, viewModel: SearchViewModel,
           dataSource: SearchCoinDataSource) {
         self.viewModel = viewModel
@@ -41,21 +43,18 @@ class SearchViewController: UIViewController, Storyboarded {
         navigationItem.hidesSearchBarWhenScrolling = false
         coinListTableView.register(cell: SearchCoinCell.self)
         coinListTableView.dataSource = searchCoinDataSource
-        update()
-        bind()
     }
 
-    func update() {
-        viewModel.fetchSearchCoins()
+    func searchCoin() {
+        searchController.textFieldPublisher.sink { [weak self] keyword in
+            self?.keywordHandler?(keyword)
+        }.store(in: &cancellable)
     }
     
-    func bind() {
-        viewModel.$coins
-            .dropFirst()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] coins in
-                self?.searchCoinDataSource.updateDataSource(from: coins)
-                self?.coinListTableView.reloadData()
-        }.store(in: &cancellable)
+    func updateSearchResult(coinList: [Coin]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.searchCoinDataSource.updateDataSource(from: coinList)
+            self?.coinListTableView.reloadData()
+        }
     }
 }

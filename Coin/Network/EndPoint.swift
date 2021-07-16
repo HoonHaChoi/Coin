@@ -8,5 +8,5 @@
 import Foundation
 
 enum EndPoint {
-    static let searchURL = "http://34.64.77.122:8080/api/v1/tickers"
+    static let searchURL = "http://34.64.77.122:8080/api/v1/tickers?search="
 }

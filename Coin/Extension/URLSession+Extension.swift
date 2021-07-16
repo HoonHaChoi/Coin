@@ -2,11 +2,11 @@ import Foundation
 import Combine
 
 extension URLSession {
-    func requestResource<T: Decodable>(url: String) -> AnyPublisher<T, NetworkError> {
+    func requestResource<T: Decodable>(url: String, param: String) -> AnyPublisher<T, NetworkError> {
         let decode = JSONDecoder()
         decode.keyDecodingStrategy = .convertFromSnakeCase
         
-        guard let url = URL(string: url) else {
+        guard let url = URL(string: url + param) else {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         

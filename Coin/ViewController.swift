@@ -7,10 +7,9 @@ class ViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
     }
     
-    weak var coordinator: MainCoordinator?
+    var coordinator: MainCoordinator?
     
     @IBAction func moveSearchViewController(_ sender: Any) {
-        let searchViewController = SearchViewController.instantiate()
-        self.navigationController?.pushViewController(searchViewController, animated: true)
+        coordinator?.showSearchViewController()
     }
 }

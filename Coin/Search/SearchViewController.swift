@@ -10,9 +10,20 @@ import Combine
 
 class SearchViewController: UIViewController, Storyboarded {
 
-    private var vm = SearchViewModel()
-    private let searchCoinDataSource = SearchCoinDataSource()
+    private var viewModel: SearchViewModel
+    private let searchCoinDataSource: SearchCoinDataSource
     private var cancellable = Set<AnyCancellable>()
+    
+    init?(coder: NSCoder, viewModel: SearchViewModel,
+          dataSource: SearchCoinDataSource) {
+        self.viewModel = viewModel
+        self.searchCoinDataSource = dataSource
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     @IBOutlet weak var coinListTableView: UITableView!
     
@@ -25,11 +36,11 @@ class SearchViewController: UIViewController, Storyboarded {
     }
 
     func update() {
-        vm.fetchSearchCoins()
+        viewModel.fetchSearchCoins()
     }
     
     func bind() {
-        vm.$coins
+        viewModel.$coins
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] coins in

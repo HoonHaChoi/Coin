@@ -160,10 +160,7 @@
 				BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */,
 				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
 				BF8736092651697A00C3FAD0 /* ViewController.swift */,
-				BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */,
-				BF1FA639269B419400AC1AC2 /* SearchCoinDataSource.swift */,
-				BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */,
-				BF1FA630269B308200AC1AC2 /* View */,
+				BFA1541A26A160C100341A6D /* Search */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,
 				BF22BF46268F8108003FD161 /* Extension */,
@@ -182,6 +179,17 @@
 				BFA153FD26A0542D00341A6D /* ImageLoader.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		BFA1541A26A160C100341A6D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */,
+				BF1FA639269B419400AC1AC2 /* SearchCoinDataSource.swift */,
+				BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */,
+				BF1FA630269B308200AC1AC2 /* View */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

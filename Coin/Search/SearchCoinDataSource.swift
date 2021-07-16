@@ -10,9 +10,11 @@ import UIKit
 class SearchCoinDataSource: NSObject, UITableViewDataSource {
     
     private var coins: [Coin]
+    private let imageLoader: Loader
     
-    override init() {
+    init(imageLoader: Loader) {
         self.coins = []
+        self.imageLoader = imageLoader
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,7 +25,8 @@ class SearchCoinDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCoinCell.reuseIdentifier, for: indexPath) as? SearchCoinCell else {
             return .init()
         }
-        cell.configure(coin: coins[indexPath.row])
+        cell.configure(coin: coins[indexPath.row],
+                       imageLoader: imageLoader)
         return cell
     }
     

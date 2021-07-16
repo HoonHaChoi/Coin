@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 protocol SearchUseCase {
-    func requestSearchCoins(url: String, param: String) -> AnyPublisher<[Coin], NetworkError>
+    func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
 }
 
 final class NetworkManager: SearchUseCase {
@@ -13,7 +13,7 @@ final class NetworkManager: SearchUseCase {
         self.session = session
     }
     
-    func requestSearchCoins(url: String, param: String) -> AnyPublisher<[Coin], NetworkError> {
-        return self.session.requestResource(url: url, param: param)
+    func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError> {
+        return self.session.requestResource(url: url)
     }
 }

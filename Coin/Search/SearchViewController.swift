@@ -43,9 +43,10 @@ class SearchViewController: UIViewController, Storyboarded {
         navigationItem.hidesSearchBarWhenScrolling = false
         coinListTableView.register(cell: SearchCoinCell.self)
         coinListTableView.dataSource = searchCoinDataSource
+        searchCoin()
     }
 
-    func searchCoin() {
+    private func searchCoin() {
         searchController.textFieldPublisher.sink { [weak self] keyword in
             self?.keywordHandler?(keyword)
         }.store(in: &cancellable)

@@ -17,7 +17,8 @@ final class SearchViewModel {
     }
     
     func fetchSearchCoins(keyword: String) {
-        cancell = searchUseCase.requestSearchCoins(url: EndPoint.searchURL, param: keyword)
+        let url = EndPoint.searchURL(keyword: keyword)
+        cancell = searchUseCase.requestSearchCoins(url: url)
             .sink { (fail) in
             if case .failure(let error) = fail {
                 print(error)

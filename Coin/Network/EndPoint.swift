@@ -8,5 +8,13 @@
 import Foundation
 
 enum EndPoint {
-    static let searchURL = "http://34.64.77.122:8080/api/v1/tickers?search="
+    static func searchURL(keyword: String) -> URL? {
+        var component = URLComponents()
+        component.scheme = "http"
+        component.host = "34.64.77.122"
+        component.port = 8080
+        component.path = "/api/v1/tickers"
+        component.queryItems = [URLQueryItem(name: "search", value: keyword)]
+        return component.url
+    }
 }

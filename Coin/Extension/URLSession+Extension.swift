@@ -29,3 +29,12 @@ extension URLSession {
             }.eraseToAnyPublisher()
     }
 }
+
+extension URLSession: ImageRequset {
+    func request(url: URL) -> AnyPublisher<Data, Never> {
+        self.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .replaceError(with: Data())
+            .eraseToAnyPublisher()
+    }
+}

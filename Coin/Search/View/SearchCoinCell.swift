@@ -21,7 +21,7 @@ class SearchCoinCell: UITableViewCell {
         coinName.text = coin.koreanName
         imageLoad(loader: imageLoader, to: coin.logo)
         market.text = "\(coin.ticker)/\(coin.market)"
-        tradePrice.text = coin.meta.tradePrice
+        tradePrice.text = coin.meta.tradePrice.convertPriceKRW()
         updateCurrentRateLabel(to: coin)
     }
     
@@ -34,7 +34,7 @@ class SearchCoinCell: UITableViewCell {
     }
     
     private func updateCurrentRateLabel(to coin: Coin) {
-        currentRate.text = coin.changeCurrentRate()
+        currentRate.text = coin.meta.changeRate.convertPercentRate()
         switch coin.meta.change {
         case .even:
             currentRate.textColor = .black

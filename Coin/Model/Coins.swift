@@ -22,4 +22,11 @@ enum Exchange: String, Codable {
 struct Meta: Codable {
     let openingPrice, highPrice, lowPrice, tradePrice: String
     let changePrice, changeRate, accTradePrice24H: String
+    let change: Change
+}
+
+enum Change: String, Codable {
+    case fall = "FALL"
+    case even = "EVEN"
+    case rise = "RISE"
 }

@@ -22,7 +22,7 @@ class SearchCoinCell: UITableViewCell {
         imageLoad(loader: imageLoader, to: coin.logo)
         market.text = "\(coin.ticker)/\(coin.market)"
         tradePrice.text = coin.meta.tradePrice
-        currentRate.text = coin.changeCurrentRate()
+        updateCurrentRateLabel(to: coin)
     }
     
     private func imageLoad(loader: Loader, to logoURL: String) {
@@ -31,5 +31,17 @@ class SearchCoinCell: UITableViewCell {
             .sink { [weak self] uiImage in
                 self?.coinImageView.image = uiImage
             }
+    }
+    
+    private func updateCurrentRateLabel(to coin: Coin) {
+        currentRate.text = coin.changeCurrentRate()
+        switch coin.meta.change {
+        case .even:
+            currentRate.textColor = .black
+        case .fall:
+            currentRate.textColor = .systemRed
+        case .rise:
+            currentRate.textColor = .systemBlue
+        }
     }
 }

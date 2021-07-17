@@ -4,11 +4,7 @@ import Combine
 final class SearchViewModel {
     
     private let searchUseCase: SearchUseCase
-    
     private var cancell: AnyCancellable?
-    private var cancellable = Set<AnyCancellable>()
-    
-    @Published var coins: [Coin] = []
     
     var coinsHandler: (([Coin]) -> Void)?
     
@@ -25,7 +21,10 @@ final class SearchViewModel {
             }
         } receiveValue: { [weak self] (coins) in
             self?.coinsHandler?(coins)
-            self?.coins = coins
         }
+    }
+    
+    func updateHandlerRemove() {
+        coinsHandler = nil
     }
 }

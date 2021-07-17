@@ -15,8 +15,10 @@ class SearchViewController: UIViewController, Storyboarded {
     private var cancellable = Set<AnyCancellable>()
     
     var keywordHandler: ((String) -> Void)?
+    var removeHandler: (() -> Void)?
     
-    init?(coder: NSCoder, viewModel: SearchViewModel,
+    init?(coder: NSCoder,
+          viewModel: SearchViewModel,
           dataSource: SearchCoinDataSource) {
         self.viewModel = viewModel
         self.searchCoinDataSource = dataSource
@@ -46,6 +48,11 @@ class SearchViewController: UIViewController, Storyboarded {
         searchCoin()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeHandler?()
+    }
+    
     private func searchCoin() {
         searchController.textFieldPublisher.sink { [weak self] keyword in
             self?.keywordHandler?(keyword)

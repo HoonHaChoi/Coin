@@ -5,7 +5,7 @@ protocol SearchUseCase {
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
 }
 
-final class NetworkManager: SearchUseCase {
+struct NetworkManager: SearchUseCase {
     
     private let session: URLSession
     

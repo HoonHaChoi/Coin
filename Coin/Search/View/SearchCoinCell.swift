@@ -14,6 +14,7 @@ class SearchCoinCell: UITableViewCell {
     @IBOutlet weak var coinName: UILabel!
     @IBOutlet weak var market: UILabel!
     @IBOutlet weak var tradePrice: UILabel!
+    @IBOutlet weak var currentRate: UILabel!
     private var cancell: AnyCancellable?
     
     func configure(coin: Coin, imageLoader: Loader) {
@@ -21,6 +22,7 @@ class SearchCoinCell: UITableViewCell {
         imageLoad(loader: imageLoader, to: coin.logo)
         market.text = "\(coin.ticker)/\(coin.market)"
         tradePrice.text = coin.meta.tradePrice
+        currentRate.text = coin.changeCurrentRate()
     }
     
     private func imageLoad(loader: Loader, to logoURL: String) {

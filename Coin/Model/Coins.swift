@@ -8,6 +8,11 @@ struct Coin: Codable {
     let koreanName, englishName: String
     let meta: Meta
     let logo: String
+    
+    func changeCurrentRate() -> String {
+        let rate = (Double(meta.changeRate) ?? 0.0) * 100
+        return String(format: "%.2f",  rate) + "%"
+    }
 }
 
 enum Exchange: String, Codable {

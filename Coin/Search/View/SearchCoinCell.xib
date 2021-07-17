@@ -84,6 +84,7 @@
             <connections>
                 <outlet property="coinImageView" destination="eux-yg-68g" id="P8z-8d-m60"/>
                 <outlet property="coinName" destination="Nu1-VE-irg" id="PWO-wu-aah"/>
+                <outlet property="currentRate" destination="XUF-vV-9Hf" id="pdZ-4G-6Qo"/>
                 <outlet property="market" destination="8XL-40-50o" id="UXH-fA-esS"/>
                 <outlet property="tradePrice" destination="Fgz-aU-mWH" id="fvg-t6-VZi"/>
             </connections>

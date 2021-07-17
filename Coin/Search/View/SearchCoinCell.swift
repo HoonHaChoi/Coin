@@ -12,11 +12,15 @@ class SearchCoinCell: UITableViewCell {
 
     @IBOutlet weak var coinImageView: UIImageView!
     @IBOutlet weak var coinName: UILabel!
+    @IBOutlet weak var market: UILabel!
+    @IBOutlet weak var tradePrice: UILabel!
     private var cancell: AnyCancellable?
     
     func configure(coin: Coin, imageLoader: Loader) {
         coinName.text = coin.koreanName
         imageLoad(loader: imageLoader, to: coin.logo)
+        market.text = "\(coin.ticker)/\(coin.market)"
+        tradePrice.text = coin.meta.tradePrice
     }
     
     private func imageLoad(loader: Loader, to logoURL: String) {

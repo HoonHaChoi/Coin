@@ -34,14 +34,17 @@ class SearchCoinCell: UITableViewCell {
     }
     
     private func updateCurrentRateLabel(to coin: Coin) {
-        currentRate.text = coin.meta.changeRate.convertPercentRate()
+        var numberSymbol = ""
         switch coin.meta.change {
         case .even:
             currentRate.textColor = .black
         case .fall:
+            numberSymbol = "+ "
             currentRate.textColor = .systemRed
         case .rise:
+            numberSymbol = "- "
             currentRate.textColor = .systemBlue
         }
+        currentRate.text = numberSymbol + coin.meta.changeRate.convertPercentRate()
     }
 }

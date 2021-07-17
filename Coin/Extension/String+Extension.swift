@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     func convertPriceKRW() -> String {
-        let convertNSNumber = NSNumber(value: Int(self) ?? 0)
+        let convertNSNumber = NSNumber(value: Double(self) ?? 0.0)
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.maximumFractionDigits = 1

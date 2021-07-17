@@ -59,7 +59,7 @@ class SearchViewController: UIViewController, Storyboarded {
         }.store(in: &cancellable)
     }
     
-    func updateSearchResult(coinList: [Coin]) {
+    lazy var updateSearchResult: (([Coin]) -> ()) = { [weak self] coinList in
         DispatchQueue.main.async { [weak self] in
             self?.searchCoinDataSource.updateDataSource(from: coinList)
             self?.coinListTableView.reloadData()

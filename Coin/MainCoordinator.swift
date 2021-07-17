@@ -34,9 +34,8 @@ final class MainCoordinator: Coordinator {
                                         dataSource: searchDataSourece)
         }
         
-        viewModel.coinsHandler = searchViewController.updateSearchResult(coinList:)
+        viewModel.coinsHandler = searchViewController.updateSearchResult
         searchViewController.keywordHandler = viewModel.fetchSearchCoins(keyword:)
-        searchViewController.removeHandler = viewModel.updateHandlerRemove
         
         searchViewController.title = "검색"
         navigationController.pushViewController(searchViewController,

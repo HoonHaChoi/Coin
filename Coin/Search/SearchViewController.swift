@@ -15,7 +15,6 @@ class SearchViewController: UIViewController, Storyboarded {
     private var cancellable = Set<AnyCancellable>()
     
     var keywordHandler: ((String) -> Void)?
-    var removeHandler: (() -> Void)?
     
     init?(coder: NSCoder,
           viewModel: SearchViewModel,
@@ -46,11 +45,6 @@ class SearchViewController: UIViewController, Storyboarded {
         coinListTableView.register(cell: SearchCoinCell.self)
         coinListTableView.dataSource = searchCoinDataSource
         searchCoin()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        removeHandler?()
     }
     
     private func searchCoin() {

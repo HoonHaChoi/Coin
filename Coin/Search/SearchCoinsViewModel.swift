@@ -23,8 +23,4 @@ final class SearchViewModel {
             self?.coinsHandler?(coins)
         }
     }
-    
-    func updateHandlerRemove() {
-        coinsHandler = nil
-    }
 }

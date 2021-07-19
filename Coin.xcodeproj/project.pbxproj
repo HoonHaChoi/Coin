@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,7 @@
 		BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736282652946A00C3FAD0 /* NetwokManager.swift */; };
 		BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */; };
 		BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570C826A34830000BBAE9 /* String+Extension.swift */; };
+		BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = BF9570CB26A405F9000BBAE9 /* SocketIO */; };
 		BF9D08E9269CAF17009B6AA0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D08E8269CAF17009B6AA0 /* Coordinator.swift */; };
 		BF9D08EB269CAFCD009B6AA0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D08EA269CAFCD009B6AA0 /* AppCoordinator.swift */; };
 		BF9D08ED269CB0FB009B6AA0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */; };
@@ -83,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +220,7 @@
 			);
 			name = Coin;
 			packageProductDependencies = (
+				BF9570CB26A405F9000BBAE9 /* SocketIO */,
 			);
 			productName = Coin;
 			productReference = BF8736022651697A00C3FAD0 /* Coin.app */;
@@ -247,6 +250,7 @@
 			);
 			mainGroup = BF8735F92651697A00C3FAD0;
 			packageReferences = (
+				BF9570CA26A405F9000BBAE9 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = BF8736032651697A00C3FAD0 /* Products */;
 			projectDirPath = "";
@@ -505,6 +509,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BF9570CA26A405F9000BBAE9 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BF9570CB26A405F9000BBAE9 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF9570CA26A405F9000BBAE9 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF8735FA2651697A00C3FAD0 /* Project object */;
 }

@@ -5,11 +5,13 @@ import SocketIO
 class ViewController: UIViewController, Storyboarded {
   
     let manager =  SocketManager(socketURL: URL(string: "http://34.64.77.122:8080/socket")!,
-                                 config: [.log(true),
+                                 config: [.log(false),
                                           .forceWebsockets(true),
                                           .path("/socket")])
     
     lazy var socket:SocketIOClient = manager.defaultSocket
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +25,8 @@ class ViewController: UIViewController, Storyboarded {
     }
     
     func connectSocket() {
-        socket.on("message") { data, ack in
-            print("message",data,ack)
-        }
-    
         socket.on("tickers") { data, ack in
-            print("tickers",data,ack)
+            print("tickers",data)
         }
         
         socket.connect()

@@ -39,11 +39,11 @@ class SearchCoinCell: UITableViewCell {
         case .even:
             currentRate.textColor = .black
         case .fall:
-            numberSymbol = "+ "
-            currentRate.textColor = .systemRed
-        case .rise:
             numberSymbol = "- "
             currentRate.textColor = .systemBlue
+        case .rise:
+            numberSymbol = "+ "
+            currentRate.textColor = .systemRed
         }
         currentRate.text = numberSymbol + coin.meta.changeRate.convertPercentRate()
     }

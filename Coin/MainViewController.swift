@@ -3,7 +3,7 @@ import Combine
 import SocketIO
 import SwiftyJSON
 
-class ViewController: UIViewController, Storyboarded {
+class MainViewController: UIViewController, Storyboarded {
   
     let manager =  SocketManager(socketURL: URL(string: "http://34.64.77.122:8080/socket")!,
                                  config: [.log(false),

@@ -23,7 +23,7 @@
 		BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */; };
 		BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736052651697A00C3FAD0 /* AppDelegate.swift */; };
 		BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736072651697A00C3FAD0 /* SceneDelegate.swift */; };
-		BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736092651697A00C3FAD0 /* ViewController.swift */; };
+		BF87360A2651697A00C3FAD0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736092651697A00C3FAD0 /* MainViewController.swift */; };
 		BF87360D2651697A00C3FAD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF87360B2651697A00C3FAD0 /* Main.storyboard */; };
 		BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF87360E2651697C00C3FAD0 /* Assets.xcassets */; };
 		BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */; };
@@ -62,7 +62,7 @@
 		BF8736022651697A00C3FAD0 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8736052651697A00C3FAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF8736072651697A00C3FAD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF8736092651697A00C3FAD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF8736092651697A00C3FAD0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BF87360C2651697A00C3FAD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF87360E2651697C00C3FAD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF8736112651697C00C3FAD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 				BF9D08EA269CAFCD009B6AA0 /* AppCoordinator.swift */,
 				BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */,
 				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
-				BF8736092651697A00C3FAD0 /* ViewController.swift */,
+				BF8736092651697A00C3FAD0 /* MainViewController.swift */,
 				BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */,
 				BFA1541A26A160C100341A6D /* Search */,
 				BF22BF40268F6CFB003FD161 /* Model */,
@@ -294,7 +294,7 @@
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */,
 				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,
-				BF87360A2651697A00C3FAD0 /* ViewController.swift in Sources */,
+				BF87360A2651697A00C3FAD0 /* MainViewController.swift in Sources */,
 				BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */,
 				BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */,
 				BF9D08EB269CAFCD009B6AA0 /* AppCoordinator.swift in Sources */,

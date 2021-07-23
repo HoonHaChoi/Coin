@@ -15,8 +15,12 @@ final class MainCoordinator: Coordinator {
     }
     
     func start() {
+        let imageLoader = ImageLoader()
+        let mainDataSource = MainDataSourece(imageLoader: imageLoader)
         let viewController = ViewController.instantiate { coder in
-            return ViewController(coder: coder)
+            return ViewController(coder: coder,
+                                  imageLoader: imageLoader,
+                                  dataSource: mainDataSource)
         }
         viewController.coordinator = self
         viewController.navigationItem.backButtonTitle = ""

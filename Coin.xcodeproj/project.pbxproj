@@ -28,6 +28,7 @@
 		BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF87360E2651697C00C3FAD0 /* Assets.xcassets */; };
 		BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */; };
 		BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736282652946A00C3FAD0 /* NetwokManager.swift */; };
+		BF8AC82926AAC99C00D90C4C /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */; };
 		BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */; };
 		BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570C826A34830000BBAE9 /* String+Extension.swift */; };
 		BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = BF9570CB26A405F9000BBAE9 /* SocketIO */; };
@@ -67,6 +68,7 @@
 		BF8736112651697C00C3FAD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF8736132651697C00C3FAD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8736282652946A00C3FAD0 /* NetwokManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokManager.swift; sourceTree = "<group>"; };
+		BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
 		BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchController+Extension.swift"; sourceTree = "<group>"; };
 		BF9570C826A34830000BBAE9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		BF9D08E8269CAF17009B6AA0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */,
 				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
 				BF8736092651697A00C3FAD0 /* ViewController.swift */,
+				BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */,
 				BFA1541A26A160C100341A6D /* Search */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,
@@ -300,6 +303,7 @@
 				BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
 				BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */,
+				BF8AC82926AAC99C00D90C4C /* MainDataSource.swift in Sources */,
 				BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */,
 				BF9D08E9269CAF17009B6AA0 /* Coordinator.swift in Sources */,
 				BFA1541726A152F600341A6D /* Loader.swift in Sources */,

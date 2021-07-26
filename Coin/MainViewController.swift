@@ -34,7 +34,6 @@ class MainViewController: UIViewController, Storyboarded {
         
         tableView.dataSource = mainDataSource
         tableView.register(cell: SearchCoinCell.self)
-        tableView.rowHeight = 80
         connectSocket()
     }
     

@@ -28,7 +28,8 @@ final class MainCoordinator: Coordinator {
     }
     
     func showSearchViewController() {
-        let viewModel = SearchViewModel()
+        let endpoint = EndPoint()
+        let viewModel = SearchViewModel(endpoint: endpoint)
         let imageLoader = ImageLoader()
         let searchDataSourece = SearchCoinDataSource(imageLoader: imageLoader)
         

@@ -8,20 +8,20 @@
 import Foundation
 
 enum URLRouter {
-    case search
+    case search(String)
     case socket
 }
 
 protocol URLGenerator {
-    func url(path: URLRouter, keyword: String?) -> URL?
+    func url(path: URLRouter) -> URL?
 }
 
 struct EndPoint: URLGenerator {
     
-    func url(path: URLRouter, keyword: String? = nil) -> URL? {
+    func url(path: URLRouter) -> URL? {
         switch path {
-        case .search:
-            return searchURL(keyword: keyword ?? "")
+        case .search(let keyword):
+            return searchURL(keyword: keyword )
         case .socket:
             return socketURL
         }

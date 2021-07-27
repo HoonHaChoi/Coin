@@ -101,6 +101,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF1C04B426B0682000BC0A6B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BF8736092651697A00C3FAD0 /* MainViewController.swift */,
+				BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */,
+				BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		BF1FA62D269B2FAD00AC1AC2 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,9 +192,7 @@
 				BF9D08EA269CAFCD009B6AA0 /* AppCoordinator.swift */,
 				BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */,
 				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
-				BF8736092651697A00C3FAD0 /* MainViewController.swift */,
-				BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */,
-				BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */,
+				BF1C04B426B0682000BC0A6B /* Main */,
 				BFA1541A26A160C100341A6D /* Search */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,

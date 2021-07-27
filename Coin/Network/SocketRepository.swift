@@ -12,7 +12,7 @@ protocol SocketUseCase {
     func requestSocketCoins<T: Codable>(completion: @escaping (Result<[T], NetworkError>) ->())
 }
 
-struct SocketRepository {
+struct SocketRepository: SocketUseCase {
     
     private let socket:SocketRequest
     

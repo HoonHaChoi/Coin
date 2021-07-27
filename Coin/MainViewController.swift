@@ -1,16 +1,6 @@
 import UIKit
-import Combine
-import SocketIO
-import SwiftyJSON
 
 class MainViewController: UIViewController, Storyboarded {
-  
-    let manager =  SocketManager(socketURL: URL(string: "http://34.64.77.122:8080/socket")!,
-                                 config: [.log(false),
-                                          .forceWebsockets(true),
-                                          .path("/socket")])
-    
-    lazy var socket:SocketIOClient = manager.defaultSocket
     
     private let mainDataSource: MainDataSourece
     
@@ -25,31 +15,34 @@ class MainViewController: UIViewController, Storyboarded {
     }
     
     @IBOutlet weak var tableView: UITableView!
+    var fetchCoinsHandler: (() -> Void)?
+    var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = mainDataSource
         tableView.register(cell: SearchCoinCell.self)
-        connectSocket()
+        requestCoins()
     }
     
-    var coordinator: MainCoordinator?
+    private func requestCoins() {
+        fetchCoinsHandler?()
+    }
     
     @IBAction func moveSearchViewController(_ sender: Any) {
         coordinator?.showSearchViewController()
     }
     
-    func connectSocket() {
-        let decode = JSONDecoder()
-        decode.keyDecodingStrategy = .convertFromSnakeCase
-            
-        socket.on("tickers") { data, ack in
-            let data = try? JSON(data[0]).rawData()
-            let codabledata = try? decode.decode([Coin].self, from: data ?? Data())
-            self.mainDataSource.updateCoins(coins: codabledata ?? [])
+    lazy var showError: (NetworkError) -> () = { [weak self] error in
+        DispatchQueue.main.async {
+            print(error)
         }
-        
-        socket.connect()
+    }
+    
+    lazy var updateCoinList: ([Coin]) -> () = { [weak self] coins in
+        self?.mainDataSource.updateCoins(coins: coins)
+        DispatchQueue.main.async {
+            self?.tableView.reloadData()
+        }
     }
 }

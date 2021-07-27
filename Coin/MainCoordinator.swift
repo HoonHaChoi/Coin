@@ -17,10 +17,19 @@ final class MainCoordinator: Coordinator {
     func start() {
         let imageLoader = ImageLoader()
         let mainDataSource = MainDataSourece(imageLoader: imageLoader)
+        let endpoint = EndPoint()
+        let socket = Socket(url: endpoint.url(path: .socket)!)
+        let socketRepository = SocketRepository(socket: socket)
+        let mainViewModel = MainViewModel(usecase: socketRepository)
         let viewController = MainViewController.instantiate { coder in
             return MainViewController(coder: coder,
                                   dataSource: mainDataSource)
         }
+        
+        mainViewModel.errorHandler = viewController.showError
+        mainViewModel.coinListHandler = viewController.updateCoinList
+        viewController.fetchCoinsHandler = mainViewModel.fetchCoins
+        
         viewController.coordinator = self
         viewController.navigationItem.backButtonTitle = ""
         navigationController.pushViewController(viewController, animated: true)

@@ -8,18 +8,25 @@
 import Foundation
 import SocketIO
 
-final class Socket {
+protocol SocketRequest {
+    @discardableResult
+    func onEvent(_ event: Event, callback: @escaping NormalCallback) -> UUID
+    func connect()
+    func disconnect()
+}
+
+enum Event {
+    case tickers
     
-    enum Event {
-        case tickers
-        
-        var name: String {
-            switch self {
-            case .tickers:
-                return "tickers"
-            }
+    var name: String {
+        switch self {
+        case .tickers:
+            return "tickers"
         }
     }
+}
+
+final class Socket: SocketRequest {
     
     let manager: SocketManager
     let socketClient: SocketIOClient

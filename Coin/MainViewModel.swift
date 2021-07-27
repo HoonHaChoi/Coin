@@ -9,4 +9,16 @@ import Foundation
 
 class MainViewModel {
     
+    private let socketUseCase: SocketUseCase
+    
+    init(usecase: SocketUseCase) {
+        self.socketUseCase = usecase
+    }
+    
+    func fetchSocketCoins() {
+        socketUseCase.requestSocketCoins { (result: Result<[Coin], NetworkError>) in
+            
+        }
+            
+    }
 }

@@ -53,3 +53,33 @@ struct EndPoint: URLGenerator {
         return component.url
     }
 }
+
+enum Endpoint2 {
+    
+    private static let scheme = "http"
+    private static let host = "34.64.77.122"
+    private static let port = 8080
+    
+    static func searchURL(keyword: String) -> URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.port = port
+        component.path = "/api/v1/tickers"
+        component.queryItems = [
+            URLQueryItem(name: "search", value: keyword),
+            URLQueryItem(name: "market", value: "krw")
+        ]
+        return component.url
+
+    }
+    
+    static var socketURL: URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.port = port
+        component.path = "/socket"
+        return component.url
+    }
+}

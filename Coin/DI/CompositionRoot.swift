@@ -11,22 +11,21 @@ struct AppDependency {
     
     let imageLoader = ImageLoader()
     let endpoint = EndPoint()
-    
-    lazy var socket = Socket(url: endpoint.url(path: .socket))
-    lazy var socketRepository = SocketRepository(socket: socket)
+    let socket = Socket(url: Endpoint2.socketURL)
     
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
         return TabBarCoordinator(navigationController: navigation)
     }
     
     func makeMainCoordinator(navigation: UINavigationController) -> MainCoordinator {
-        return MainCoordinator()
+        return MainCoordinator(dependency: .init(mainViewControllerFactory: makeMainController,
+                                                 searchViewControllerFactory: makeSearchViewController))
     }
-       
 }
 
-extension AppDependency: MainCoordinatorDependencies {
-    mutating func makeMainController() -> MainViewController {
+extension AppDependency {
+    func makeMainController() -> MainViewController {
+        let socketRepository = SocketRepository(socket: socket)
         let mainDataSource = MainDataSourece(imageLoader: imageLoader)
         let mainViewModel = MainViewModel(usecase: socketRepository)
         let mainViewController = MainViewController.instantiate { coder in
@@ -41,5 +40,19 @@ extension AppDependency: MainCoordinatorDependencies {
         return mainViewController
     }
     
-    
+    func makeSearchViewController() -> SearchViewController {
+        let viewModel = SearchViewModel(endpoint: endpoint)
+        let searchDataSourece = SearchCoinDataSource(imageLoader: imageLoader)
+        let searchViewController = SearchViewController.instantiate { coder in
+            return SearchViewController(coder: coder,
+                                        viewModel: viewModel,
+                                        dataSource: searchDataSourece)
+        }
+        
+        viewModel.coinsHandler = searchViewController.updateSearchResult
+        searchViewController.keywordHandler = viewModel.fetchSearchCoins(keyword:)
+        
+        searchViewController.title = "검색"
+        return searchViewController
+    }
 }

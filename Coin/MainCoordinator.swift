@@ -7,15 +7,22 @@
 
 import UIKit
 
-protocol MainCoordinatorDependencies {
-    mutating func makeMainController() -> MainViewController
-}
-
 final class MainCoordinator: Coordinator {
     private let navigationController: UINavigationController
     
-    init(navigationController: UINavigationController = UINavigationController()) {
+    struct Dependency {
+        let mainViewControllerFactory: () -> MainViewController
+        let searchViewControllerFactory: () -> SearchViewController
+    }
+    
+    private let mainViewController: MainViewController
+    private let searchViewController: SearchViewController
+    
+    init(navigationController: UINavigationController = UINavigationController(),
+         dependency: Dependency) {
         self.navigationController = navigationController
+        self.mainViewController = dependency.mainViewControllerFactory()
+        self.searchViewController = dependency.searchViewControllerFactory()
     }
     
     func start() {

@@ -10,8 +10,7 @@ import UIKit
 struct AppDependency {
     
     let imageLoader = ImageLoader()
-    let endpoint = EndPoint()
-    let socket = Socket(url: Endpoint2.socketURL)
+    let socket = Socket(url: Endpoint.socketURL)
     
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
         return TabBarCoordinator(navigationController: navigation,
@@ -42,7 +41,7 @@ struct AppDependency {
     }
     
     private func makeSearchViewController() -> SearchViewController {
-        let viewModel = SearchViewModel(endpoint: endpoint)
+        let viewModel = SearchViewModel()
         let searchDataSourece = SearchCoinDataSource(imageLoader: imageLoader)
         let searchViewController = SearchViewController.instantiate { coder in
             return SearchViewController(coder: coder,

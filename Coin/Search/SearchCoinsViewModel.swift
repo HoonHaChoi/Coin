@@ -5,18 +5,15 @@ final class SearchViewModel {
     
     private let searchUseCase: SearchUseCase
     private var cancell: AnyCancellable?
-    private let endpoint: URLGenerator
     
     var coinsHandler: (([Coin]) -> Void)?
     
-    init(usecase: SearchUseCase = NetworkManager(),
-         endpoint: URLGenerator) {
+    init(usecase: SearchUseCase = NetworkManager()) {
         self.searchUseCase = usecase
-        self.endpoint = endpoint
     }
     
     func fetchSearchCoins(keyword: String) {
-        guard let url = endpoint.url(path: .search(keyword)) else {
+        guard let url = Endpoint.searchURL(keyword: keyword) else {
             return
         }
         

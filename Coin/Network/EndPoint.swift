@@ -7,54 +7,7 @@
 
 import Foundation
 
-enum URLRouter {
-    case search(String)
-    case socket
-}
-
-protocol URLGenerator {
-    func url(path: URLRouter) -> URL?
-}
-
-struct EndPoint: URLGenerator {
-    
-    func url(path: URLRouter) -> URL? {
-        switch path {
-        case .search(let keyword):
-            return searchURL(keyword: keyword )
-        case .socket:
-            return socketURL
-        }
-    }
-    
-    private let scheme = "http"
-    private let host = "34.64.77.122"
-    private let port = 8080
-    
-    private func searchURL(keyword: String) -> URL? {
-        var component = URLComponents()
-        component.scheme = scheme
-        component.host = host
-        component.port = port
-        component.path = "/api/v1/tickers"
-        component.queryItems = [
-            URLQueryItem(name: "search", value: keyword),
-            URLQueryItem(name: "market", value: "krw")
-        ]
-        return component.url
-    }
-    
-    private var socketURL: URL? {
-        var component = URLComponents()
-        component.scheme = scheme
-        component.host = host
-        component.port = port
-        component.path = "/socket"
-        return component.url
-    }
-}
-
-enum Endpoint2 {
+enum Endpoint {
     
     private static let scheme = "http"
     private static let host = "34.64.77.122"
@@ -83,3 +36,52 @@ enum Endpoint2 {
         return component.url
     }
 }
+
+// 다시 수정되어 사용할지 모르니 주석처리
+
+//enum URLRouter {
+//    case search(String)
+//    case socket
+//}
+//
+//protocol URLGenerator {
+//    func url(path: URLRouter) -> URL?
+//}
+//
+//struct EndPoint: URLGenerator {
+//
+//    func url(path: URLRouter) -> URL? {
+//        switch path {
+//        case .search(let keyword):
+//            return searchURL(keyword: keyword )
+//        case .socket:
+//            return socketURL
+//        }
+//    }
+//
+//    private let scheme = "http"
+//    private let host = "34.64.77.122"
+//    private let port = 8080
+//
+//    private func searchURL(keyword: String) -> URL? {
+//        var component = URLComponents()
+//        component.scheme = scheme
+//        component.host = host
+//        component.port = port
+//        component.path = "/api/v1/tickers"
+//        component.queryItems = [
+//            URLQueryItem(name: "search", value: keyword),
+//            URLQueryItem(name: "market", value: "krw")
+//        ]
+//        return component.url
+//    }
+//
+//    private var socketURL: URL? {
+//        var component = URLComponents()
+//        component.scheme = scheme
+//        component.host = host
+//        component.port = port
+//        component.path = "/socket"
+//        return component.url
+//    }
+//}

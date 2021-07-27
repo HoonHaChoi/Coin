@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol MainCoordinatorDependencies {
+    func makeMainController() -> MainViewController
+}
+
 final class MainCoordinator: Coordinator {
     private let navigationController: UINavigationController
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController = UINavigationController()) {
         self.navigationController = navigationController
     }
     

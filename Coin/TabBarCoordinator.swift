@@ -25,13 +25,10 @@ final class TabBarCoordinator: Coordinator {
     func start() {
         let tabBarController = UITabBarController()
         
-        let marketNavigationController = UINavigationController()
-        marketNavigationController.tabBarItem = UITabBarItem(title: "시세", image: UIImage(named: ""), selectedImage: UIImage())
-        let marketCoordinator = MainCoordinator(navigationController: marketNavigationController)
-        
-        tabBarController.viewControllers = [marketNavigationController]
+        tabBarController.viewControllers = [mainCoordinator.navigationController]
         tabBarController.modalPresentationStyle = .fullScreen
         navigationController.setViewControllers([tabBarController], animated: true)
-        coordinate(to: marketCoordinator)
+        
+        coordinate(to: mainCoordinator)
     }
 }

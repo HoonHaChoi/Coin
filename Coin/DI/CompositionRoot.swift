@@ -19,15 +19,13 @@ struct AppDependency {
                                     .init(mainCoordinatorFactory: makeMainCoordinator))
     }
     
-    func makeMainCoordinator() -> MainCoordinator {
+    private func makeMainCoordinator() -> MainCoordinator {
         return MainCoordinator(dependency:
                                 .init(mainViewControllerFactory: makeMainController,
                                       searchViewControllerFactory: makeSearchViewController))
     }
-}
-
-extension AppDependency {
-    func makeMainController() -> MainViewController {
+    
+    private func makeMainController() -> MainViewController {
         let socketRepository = SocketRepository(socket: socket)
         let mainDataSource = MainDataSourece(imageLoader: imageLoader)
         let mainViewModel = MainViewModel(usecase: socketRepository)
@@ -43,7 +41,7 @@ extension AppDependency {
         return mainViewController
     }
     
-    func makeSearchViewController() -> SearchViewController {
+    private func makeSearchViewController() -> SearchViewController {
         let viewModel = SearchViewModel(endpoint: endpoint)
         let searchDataSourece = SearchCoinDataSource(imageLoader: imageLoader)
         let searchViewController = SearchViewController.instantiate { coder in

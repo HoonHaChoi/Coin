@@ -8,20 +8,22 @@
 import UIKit
 
 final class AppCoordinator: Coordinator {
-    let window: UIWindow
     
-    init(window: UIWindow) {
-        self.window = window
+    let navigation: UINavigationController
+    
+    struct Dependency {
+        let tabBarCoordinatorFactory: (UINavigationController) -> TabBarCoordinator
+    }
+    
+    private let tabBarCoordinator: TabBarCoordinator
+    
+    init(navigationController: UINavigationController,
+        dependency: Dependency) {
+        self.navigation = navigationController
+        self.tabBarCoordinator = dependency.tabBarCoordinatorFactory(navigation)
     }
     
     func start() {
-        let navigationController = UINavigationController()
-        navigationController.isNavigationBarHidden = true
-        
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-        
-        let mainCoordinator = TabBarCoordinator(navigationController: navigationController)
-        coordinate(to: mainCoordinator)
+        coordinate(to: tabBarCoordinator)
     }
 }

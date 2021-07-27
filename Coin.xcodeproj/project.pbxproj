@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1C049B26AF494800BC0A6B /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049A26AF494800BC0A6B /* SocketManager.swift */; };
 		BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */; };
 		BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */; };
 		BF1FA632269B309B00AC1AC2 /* SearchCoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1FA631269B309B00AC1AC2 /* SearchCoinCell.xib */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF1C049A26AF494800BC0A6B /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BF1FA631269B309B00AC1AC2 /* SearchCoinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCoinCell.xib; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				BF22BF39268F6A8D003FD161 /* NetworkError.swift */,
 				BF8736282652946A00C3FAD0 /* NetwokManager.swift */,
 				BF22BF3C268F6C9F003FD161 /* EndPoint.swift */,
+				BF1C049A26AF494800BC0A6B /* SocketManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */,
 				BFA1541326A152BB00341A6D /* ImageRequest.swift in Sources */,
 				BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */,
+				BF1C049B26AF494800BC0A6B /* SocketManager.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */,
 				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,

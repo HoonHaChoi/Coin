@@ -12,13 +12,10 @@ class MainViewController: UIViewController, Storyboarded {
     
     lazy var socket:SocketIOClient = manager.defaultSocket
     
-    private var imageLoader: ImageLoader
     private let mainDataSource: MainDataSourece
     
     init?(coder: NSCoder,
-          imageLoader: ImageLoader,
           dataSource: MainDataSourece) {
-        self.imageLoader = imageLoader
         self.mainDataSource = dataSource
         super.init(coder: coder)
     }

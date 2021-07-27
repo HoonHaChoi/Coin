@@ -19,7 +19,6 @@ final class MainCoordinator: Coordinator {
         let mainDataSource = MainDataSourece(imageLoader: imageLoader)
         let viewController = MainViewController.instantiate { coder in
             return MainViewController(coder: coder,
-                                  imageLoader: imageLoader,
                                   dataSource: mainDataSource)
         }
         viewController.coordinator = self

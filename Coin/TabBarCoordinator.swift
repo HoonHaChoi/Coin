@@ -10,8 +10,16 @@ import UIKit
 final class TabBarCoordinator: Coordinator {
     let navigationController: UINavigationController
     
-    init(navigationController: UINavigationController) {
+    struct Dependency {
+        let mainCoordinatorFactory: () -> MainCoordinator
+    }
+    
+    private let mainCoordinator: MainCoordinator
+    
+    init(navigationController: UINavigationController,
+         dependency: Dependency) {
         self.navigationController = navigationController
+        self.mainCoordinator = dependency.mainCoordinatorFactory()
     }
     
     func start() {

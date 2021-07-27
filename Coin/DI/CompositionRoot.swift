@@ -14,12 +14,15 @@ struct AppDependency {
     let socket = Socket(url: Endpoint2.socketURL)
     
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
-        return TabBarCoordinator(navigationController: navigation)
+        return TabBarCoordinator(navigationController: navigation,
+                                 dependency:
+                                    .init(mainCoordinatorFactory: makeMainCoordinator))
     }
     
-    func makeMainCoordinator(navigation: UINavigationController) -> MainCoordinator {
-        return MainCoordinator(dependency: .init(mainViewControllerFactory: makeMainController,
-                                                 searchViewControllerFactory: makeSearchViewController))
+    func makeMainCoordinator() -> MainCoordinator {
+        return MainCoordinator(dependency:
+                                .init(mainViewControllerFactory: makeMainController,
+                                      searchViewControllerFactory: makeSearchViewController))
     }
 }
 
@@ -30,7 +33,7 @@ extension AppDependency {
         let mainViewModel = MainViewModel(usecase: socketRepository)
         let mainViewController = MainViewController.instantiate { coder in
             return MainViewController(coder: coder,
-                                  dataSource: mainDataSource)
+                                      dataSource: mainDataSource)
         }
         
         mainViewModel.errorHandler = mainViewController.showError

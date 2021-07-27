@@ -8,8 +8,12 @@
 import UIKit
 
 struct AppDependency {
+    
     let imageLoader = ImageLoader()
     let endpoint = EndPoint()
+    
+    lazy var socket = Socket(url: endpoint.url(path: .socket))
+    lazy var socketRepository = SocketRepository(socket: socket)
     
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
         return TabBarCoordinator(navigationController: navigation)
@@ -22,10 +26,8 @@ struct AppDependency {
 }
 
 extension AppDependency: MainCoordinatorDependencies {
-    func makeMainController() -> MainViewController {
+    mutating func makeMainController() -> MainViewController {
         let mainDataSource = MainDataSourece(imageLoader: imageLoader)
-        let socket = Socket(url: endpoint.url(path: .socket)!)
-        let socketRepository = SocketRepository(socket: socket)
         let mainViewModel = MainViewModel(usecase: socketRepository)
         let mainViewController = MainViewController.instantiate { coder in
             return MainViewController(coder: coder,

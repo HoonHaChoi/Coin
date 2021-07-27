@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainCoordinatorDependencies {
-    func makeMainController() -> MainViewController
+    mutating func makeMainController() -> MainViewController
 }
 
 final class MainCoordinator: Coordinator {

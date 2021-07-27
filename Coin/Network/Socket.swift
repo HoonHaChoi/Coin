@@ -28,26 +28,33 @@ enum Event {
 
 final class Socket: SocketRequest {
     
-    let manager: SocketManager
-    let socketClient: SocketIOClient
+    private var manager: SocketManager?
+    private var socketClient: SocketIOClient?
     
-    init(url: URL) {
+    init(url: URL?) {
+        configure(url: url)
+    }
+    
+    private func configure(url: URL?) {
+        guard let url = url else {
+            return
+        }
         self.manager = SocketManager(socketURL: url,
                                      config: [.log(false),
                                               .forceWebsockets(true),
                                               .path("/socket")])
-        self.socketClient = manager.defaultSocket
+        self.socketClient = manager?.defaultSocket
     }
     
     func onEvent(_ event: Event, callback: @escaping NormalCallback) -> UUID {
-        socketClient.on(event.name, callback: callback)
+        socketClient?.on(event.name, callback: callback) ?? .init()
     }
     
     func connect() {
-        socketClient.connect()
+        socketClient?.connect()
     }
     
     func disconnect() {
-        socketClient.disconnect()
+        socketClient?.disconnect()
     }
 }

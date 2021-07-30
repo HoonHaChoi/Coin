@@ -12,23 +12,28 @@ final class TabBarCoordinator: Coordinator {
     
     struct Dependency {
         let mainCoordinatorFactory: () -> MainCoordinator
+        let tradingLogCoordinatorFactory: () -> TradingLogCoordinator
     }
     
     private let mainCoordinator: MainCoordinator
+    private let tradingLogCoordinator: TradingLogCoordinator
     
     init(navigationController: UINavigationController,
          dependency: Dependency) {
         self.navigationController = navigationController
         self.mainCoordinator = dependency.mainCoordinatorFactory()
+        self.tradingLogCoordinator = dependency.tradingLogCoordinatorFactory()
     }
     
     func start() {
         let tabBarController = UITabBarController()
         
-        tabBarController.viewControllers = [mainCoordinator.navigationController]
+        tabBarController.viewControllers = [mainCoordinator.navigationController,
+                                            tradingLogCoordinator.navigationController]
         tabBarController.modalPresentationStyle = .fullScreen
         navigationController.setViewControllers([tabBarController], animated: true)
         
         coordinate(to: mainCoordinator)
+        coordinate(to: tradingLogCoordinator)
     }
 }

@@ -15,13 +15,18 @@ struct AppDependency {
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
         return TabBarCoordinator(navigationController: navigation,
                                  dependency:
-                                    .init(mainCoordinatorFactory: makeMainCoordinator))
+                                    .init(mainCoordinatorFactory: makeMainCoordinator,
+                                          tradingLogCoordinatorFactory: makeTradingLogCoordinator))
     }
     
     private func makeMainCoordinator() -> MainCoordinator {
         return MainCoordinator(dependency:
                                 .init(mainViewControllerFactory: makeMainController,
                                       searchViewControllerFactory: makeSearchViewController))
+    }
+    
+    private func makeTradingLogCoordinator() -> TradingLogCoordinator {
+        return TradingLogCoordinator()
     }
     
     private func makeMainController() -> MainViewController {

@@ -34,6 +34,8 @@
 		BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */; };
 		BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736282652946A00C3FAD0 /* NetwokManager.swift */; };
 		BF8AC82926AAC99C00D90C4C /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */; };
+		BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D126B4385F0033B773 /* CoreDataStorage.swift */; };
+		BF92D7D526B43B710033B773 /* TradingLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D426B43B710033B773 /* TradingLog.swift */; };
 		BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */; };
 		BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570C826A34830000BBAE9 /* String+Extension.swift */; };
 		BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = BF9570CB26A405F9000BBAE9 /* SocketIO */; };
@@ -79,6 +81,8 @@
 		BF8736132651697C00C3FAD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF8736282652946A00C3FAD0 /* NetwokManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokManager.swift; sourceTree = "<group>"; };
 		BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
+		BF92D7D126B4385F0033B773 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		BF92D7D426B43B710033B773 /* TradingLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLog.swift; sourceTree = "<group>"; };
 		BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchController+Extension.swift"; sourceTree = "<group>"; };
 		BF9570C826A34830000BBAE9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		BF9D08E8269CAF17009B6AA0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				BF22BF41268F6D96003FD161 /* Coins.swift */,
+				BF92D7D426B43B710033B773 /* TradingLog.swift */,
+				BF92D7D326B4386D0033B773 /* CoreDataStorage */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,9 +221,17 @@
 				BF87360E2651697C00C3FAD0 /* Assets.xcassets */,
 				BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */,
 				BF8736132651697C00C3FAD0 /* Info.plist */,
-				BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */,
 			);
 			path = Coin;
+			sourceTree = "<group>";
+		};
+		BF92D7D326B4386D0033B773 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				BF92D7D126B4385F0033B773 /* CoreDataStorage.swift */,
+				BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */,
+			);
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		BFA153FC26A045C600341A6D /* Utility */ = {
@@ -323,6 +337,7 @@
 				BFA1541326A152BB00341A6D /* ImageRequest.swift in Sources */,
 				BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */,
 				BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */,
+				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */,
 				BF1C04B626B068D200BC0A6B /* CompositionRoot.swift in Sources */,
@@ -335,6 +350,7 @@
 				BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */,
 				BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
+				BF92D7D526B43B710033B773 /* TradingLog.swift in Sources */,
 				BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */,
 				BF8AC82926AAC99C00D90C4C /* MainDataSource.swift in Sources */,
 				BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */,

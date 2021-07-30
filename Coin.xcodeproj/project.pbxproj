@@ -11,6 +11,7 @@
 		BF1C049D26AFD63900BC0A6B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */; };
 		BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049E26AFF84B00BC0A6B /* SocketRepository.swift */; };
 		BF1C04B626B068D200BC0A6B /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C04B526B068D200BC0A6B /* CompositionRoot.swift */; };
+		BF1C052226B3D66300BC0A6B /* TradingLogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */; };
 		BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */; };
 		BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */; };
 		BF1FA632269B309B00AC1AC2 /* SearchCoinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1FA631269B309B00AC1AC2 /* SearchCoinCell.xib */; };
@@ -53,6 +54,7 @@
 		BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		BF1C049E26AFF84B00BC0A6B /* SocketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketRepository.swift; sourceTree = "<group>"; };
 		BF1C04B526B068D200BC0A6B /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
+		BF1C052126B3D66300BC0A6B /* TradingLogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TradingLogModel.xcdatamodel; sourceTree = "<group>"; };
 		BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		BF1FA631269B309B00AC1AC2 /* SearchCoinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCoinCell.xib; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				BF87360E2651697C00C3FAD0 /* Assets.xcassets */,
 				BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */,
 				BF8736132651697C00C3FAD0 /* Info.plist */,
+				BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */,
 			);
 			path = Coin;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				BFA153FE26A0542D00341A6D /* ImageLoader.swift in Sources */,
 				BF9D08ED269CB0FB009B6AA0 /* MainCoordinator.swift in Sources */,
 				BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */,
+				BF1C052226B3D66300BC0A6B /* TradingLogModel.xcdatamodeld in Sources */,
 				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 				BF1FA63A269B419400AC1AC2 /* SearchCoinDataSource.swift in Sources */,
 				BF9D08EF269CB5A9009B6AA0 /* TabBarCoordinator.swift in Sources */,
@@ -581,6 +585,19 @@
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF1C052126B3D66300BC0A6B /* TradingLogModel.xcdatamodel */,
+			);
+			currentVersion = BF1C052126B3D66300BC0A6B /* TradingLogModel.xcdatamodel */;
+			path = TradingLogModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BF8735FA2651697A00C3FAD0 /* Project object */;
 }

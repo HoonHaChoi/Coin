@@ -8,14 +8,22 @@
 import UIKit
 import CoreData
 
-struct CoreDataStorage {
+protocol CoreDataStorage {
+    func fetch() -> [TradingLogMO]
+    func insert(start: Int, end: Int, date: Date) -> Bool
+    func update(index: Int, start: Int, end: Int) -> Bool
+    func delete(index: Int) -> Bool
+}
+
+struct CoreDataStorageManager: CoreDataStorage {
     
     private let container: NSPersistentContainer
     private let fetchRequest: NSFetchRequest<TradingLogMO>
     private let context: NSManagedObjectContext
     private let modelName: String
-    init(model: String) {
-        self.modelName = model
+    
+    init(modelName: String) {
+        self.modelName = modelName
         self.container = NSPersistentContainer(name: modelName)
         self.fetchRequest = TradingLogMO.fetchRequest()
         container.loadPersistentStores { store, error in

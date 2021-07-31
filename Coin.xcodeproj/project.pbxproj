@@ -37,6 +37,7 @@
 		BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D126B4385F0033B773 /* CoreDataStorage.swift */; };
 		BF92D7D526B43B710033B773 /* TradingLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D426B43B710033B773 /* TradingLog.swift */; };
 		BF92D7D726B46C910033B773 /* TradingLogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */; };
+		BF92D7E226B57DF20033B773 /* TradingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */; };
 		BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */; };
 		BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570C826A34830000BBAE9 /* String+Extension.swift */; };
 		BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = BF9570CB26A405F9000BBAE9 /* SocketIO */; };
@@ -85,6 +86,7 @@
 		BF92D7D126B4385F0033B773 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		BF92D7D426B43B710033B773 /* TradingLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLog.swift; sourceTree = "<group>"; };
 		BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogCoordinator.swift; sourceTree = "<group>"; };
+		BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogViewController.swift; sourceTree = "<group>"; };
 		BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchController+Extension.swift"; sourceTree = "<group>"; };
 		BF9570C826A34830000BBAE9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		BF9D08E8269CAF17009B6AA0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */,
 				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
 				BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */,
+				BF92D7E026B57DB10033B773 /* TradingLog */,
 				BF1C04B426B0682000BC0A6B /* Main */,
 				BFA1541A26A160C100341A6D /* Search */,
 				BF22BF40268F6CFB003FD161 /* Model */,
@@ -235,6 +238,14 @@
 				BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */,
 			);
 			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		BF92D7E026B57DB10033B773 /* TradingLog */ = {
+			isa = PBXGroup;
+			children = (
+				BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */,
+			);
+			path = TradingLog;
 			sourceTree = "<group>";
 		};
 		BFA153FC26A045C600341A6D /* Utility */ = {
@@ -342,6 +353,7 @@
 				BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */,
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
+				BF92D7E226B57DF20033B773 /* TradingLogViewController.swift in Sources */,
 				BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */,
 				BF1C04B626B068D200BC0A6B /* CompositionRoot.swift in Sources */,
 				BF92D7D726B46C910033B773 /* TradingLogCoordinator.swift in Sources */,

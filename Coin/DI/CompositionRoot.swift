@@ -60,4 +60,11 @@ struct AppDependency {
         searchViewController.title = "검색"
         return searchViewController
     }
+    
+    private func makeTradingLogViewController() -> TradingLogViewController {
+        let tradingLogViewController = TradingLogViewController.instantiate { coder in
+            return TradingLogViewController(coder: coder)
+        }
+        return tradingLogViewController
+    }
 }

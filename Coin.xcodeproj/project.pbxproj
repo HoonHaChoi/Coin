@@ -38,6 +38,7 @@
 		BF92D7D526B43B710033B773 /* TradingLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D426B43B710033B773 /* TradingLog.swift */; };
 		BF92D7D726B46C910033B773 /* TradingLogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */; };
 		BF92D7E226B57DF20033B773 /* TradingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */; };
+		BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */; };
 		BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */; };
 		BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570C826A34830000BBAE9 /* String+Extension.swift */; };
 		BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = BF9570CB26A405F9000BBAE9 /* SocketIO */; };
@@ -87,6 +88,7 @@
 		BF92D7D426B43B710033B773 /* TradingLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLog.swift; sourceTree = "<group>"; };
 		BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogCoordinator.swift; sourceTree = "<group>"; };
 		BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogViewController.swift; sourceTree = "<group>"; };
+		BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogViewController.storyboard; sourceTree = "<group>"; };
 		BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchController+Extension.swift"; sourceTree = "<group>"; };
 		BF9570C826A34830000BBAE9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		BF9D08E8269CAF17009B6AA0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */,
+				BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */,
 			);
 			path = TradingLog;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */,
 				BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */,
 				BF1FA632269B309B00AC1AC2 /* SearchCoinCell.xib in Resources */,
+				BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */,
 				BF87360D2651697A00C3FAD0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

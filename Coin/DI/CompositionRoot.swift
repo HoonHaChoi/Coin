@@ -26,7 +26,7 @@ struct AppDependency {
     }
     
     private func makeTradingLogCoordinator() -> TradingLogCoordinator {
-        return TradingLogCoordinator()
+        return TradingLogCoordinator(dependency: .init(tradingLogViewControllerFactory: makeTradingLogViewController))
     }
     
     private func makeMainController() -> MainViewController {

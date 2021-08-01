@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,68 +13,73 @@
             <objects>
                 <viewController storyboardIdentifier="TradingLogViewController" id="Y6W-OH-hqX" customClass="TradingLogViewController" customModule="Coin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RTQ-Lr-LZd">
-                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="634"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="aEq-8G-W4O">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNc-fj-gmr">
-                                            <rect key="frame" x="373" y="18" width="26" height="24"/>
+                                            <rect key="frame" x="336" y="18.333333333333336" width="24" height="23.333333333333336"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="Nw6-8H-GLY"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="square.and.pencil" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-ah-J7M">
-                                            <rect key="frame" x="8" y="18" width="24" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-si-SLg">
-                                            <rect key="frame" x="138" y="19" width="16" height="22"/>
-                                            <state key="normal" image="chevron.left" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guZ-SX-aGQ">
-                                            <rect key="frame" x="174" y="13.5" width="66" height="33"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                            <state key="normal" title="2021.08">
-                                                <color key="titleColor" systemColor="labelColor"/>
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="regular"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2C-LY-abs">
-                                            <rect key="frame" x="260" y="19" width="16" height="22"/>
-                                            <state key="normal" image="chevron.right" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ho-44-ayM">
-                                            <rect key="frame" x="15" y="18" width="26" height="24"/>
+                                            <rect key="frame" x="15" y="18" width="24" height="24"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="26" id="M2Y-DV-euo"/>
-                                                <constraint firstAttribute="height" constant="24" id="h4L-Do-EaP"/>
+                                                <constraint firstAttribute="width" constant="24" id="Sl9-ga-rTZ"/>
+                                                <constraint firstAttribute="height" constant="24" id="lvk-3S-OqF"/>
                                             </constraints>
-                                            <state key="normal" image="sortdown"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" image="line.horizontal.3.decrease" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                            </state>
                                         </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hyz-j6-zxU">
+                                            <rect key="frame" x="122.00000000000001" y="13.666666666666664" width="131.33333333333337" height="33"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-si-SLg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="14.666666666666666" height="33"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="chevron.left" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guZ-SX-aGQ">
+                                                    <rect key="frame" x="34.666666666666657" y="0.0" width="62" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <state key="normal" title="2021.08">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="regular"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2C-LY-abs">
+                                                    <rect key="frame" x="116.66666666666666" y="0.0" width="14.666666666666657" height="33"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="chevron.right" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="guZ-SX-aGQ" firstAttribute="leading" secondItem="Va8-si-SLg" secondAttribute="trailing" constant="20" id="00m-xO-DQ4"/>
-                                        <constraint firstItem="8Ho-44-ayM" firstAttribute="leading" secondItem="aEq-8G-W4O" secondAttribute="leading" constant="15" id="3yx-Sw-ep3"/>
-                                        <constraint firstItem="guZ-SX-aGQ" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="J8t-n5-heI"/>
-                                        <constraint firstItem="guZ-SX-aGQ" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="PtL-Hu-XO0"/>
+                                        <constraint firstItem="8Ho-44-ayM" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="0s9-6E-5an"/>
+                                        <constraint firstItem="8Ho-44-ayM" firstAttribute="leading" secondItem="aEq-8G-W4O" secondAttribute="leading" constant="15" id="HPz-O7-JvM"/>
+                                        <constraint firstItem="Hyz-j6-zxU" firstAttribute="centerX" secondItem="aEq-8G-W4O" secondAttribute="centerX" id="S3a-Pj-h6A"/>
+                                        <constraint firstItem="Hyz-j6-zxU" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="Tww-tb-1Hn"/>
                                         <constraint firstAttribute="trailing" secondItem="rNc-fj-gmr" secondAttribute="trailing" constant="15" id="dWd-P0-2rG"/>
-                                        <constraint firstItem="guZ-SX-aGQ" firstAttribute="centerX" secondItem="aEq-8G-W4O" secondAttribute="centerX" id="dZO-oS-P90"/>
-                                        <constraint firstItem="8Ho-44-ayM" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="sG1-Lg-wmy"/>
-                                        <constraint firstItem="B2C-LY-abs" firstAttribute="leading" secondItem="guZ-SX-aGQ" secondAttribute="trailing" constant="20" id="sIQ-lH-sgl"/>
-                                        <constraint firstItem="Va8-si-SLg" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="urH-H4-upi"/>
-                                        <constraint firstItem="rNc-fj-gmr" firstAttribute="centerY" secondItem="8Ho-44-ayM" secondAttribute="centerY" id="xsL-fM-54x"/>
-                                        <constraint firstItem="B2C-LY-abs" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="yeU-40-BTI"/>
+                                        <constraint firstItem="rNc-fj-gmr" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="mDM-aB-1BO"/>
                                     </constraints>
                                 </view>
                             </tableView>
@@ -100,7 +105,7 @@
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="sortdown" width="64" height="64"/>
+        <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

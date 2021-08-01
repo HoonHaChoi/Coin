@@ -9,8 +9,7 @@ import UIKit
 
 final class TradingLogViewController: UIViewController, Storyboarded {
  
-    
-    
+    @IBOutlet weak var tradingLogTableView: UITableView!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

@@ -12,7 +12,7 @@ struct ImageLoader: Loader {
  
     private let fileManager: FileImage
     private let urlSession: ImageRequset
-    private let thumbnailImage = UIImage(named: "thumbnailImage")
+    private let thumbnailImage = UIImage(systemName: "bitcoinsign.circle")
     
     init(session: ImageRequset = URLSession.shared,
          fileManager: FileImage = FileManager.default) {

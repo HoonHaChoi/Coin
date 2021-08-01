@@ -50,6 +50,7 @@
 		BF9D08ED269CB0FB009B6AA0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */; };
 		BF9D08EF269CB5A9009B6AA0 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */; };
 		BF9E249E26B69FBA00CCB49E /* TradingLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF9E249D26B69FBA00CCB49E /* TradingLogCell.xib */; };
+		BF9E24A026B6A76000CCB49E /* TradingLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9E249F26B6A76000CCB49E /* TradingLogCell.swift */; };
 		BFA153FE26A0542D00341A6D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA153FD26A0542D00341A6D /* ImageLoader.swift */; };
 		BFA1541326A152BB00341A6D /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541226A152BB00341A6D /* ImageRequest.swift */; };
 		BFA1541526A152D400341A6D /* FileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541426A152D400341A6D /* FileImage.swift */; };
@@ -101,6 +102,7 @@
 		BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		BF9E249D26B69FBA00CCB49E /* TradingLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TradingLogCell.xib; sourceTree = "<group>"; };
+		BF9E249F26B6A76000CCB49E /* TradingLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogCell.swift; sourceTree = "<group>"; };
 		BFA153FD26A0542D00341A6D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		BFA1541226A152BB00341A6D /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		BFA1541426A152D400341A6D /* FileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImage.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				BF9E249D26B69FBA00CCB49E /* TradingLogCell.xib */,
+				BF9E249F26B6A76000CCB49E /* TradingLogCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
 				BFA1541726A152F600341A6D /* Loader.swift in Sources */,
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
+				BF9E24A026B6A76000CCB49E /* TradingLogCell.swift in Sources */,
 				BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */,
 				BFA153FE26A0542D00341A6D /* ImageLoader.swift in Sources */,
 				BF9D08ED269CB0FB009B6AA0 /* MainCoordinator.swift in Sources */,

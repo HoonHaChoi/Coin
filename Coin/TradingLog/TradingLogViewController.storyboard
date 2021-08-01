@@ -45,7 +45,7 @@
                                             </state>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hyz-j6-zxU">
-                                            <rect key="frame" x="122.00000000000001" y="13.666666666666664" width="131.33333333333337" height="33"/>
+                                            <rect key="frame" x="120.33333333333333" y="13.666666666666664" width="134.33333333333337" height="33"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-si-SLg">
                                                     <rect key="frame" x="0.0" y="0.0" width="14.666666666666666" height="33"/>
@@ -55,15 +55,15 @@
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guZ-SX-aGQ">
-                                                    <rect key="frame" x="34.666666666666657" y="0.0" width="62" height="33"/>
+                                                    <rect key="frame" x="34.666666666666671" y="0.0" width="65" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="2021.08">
+                                                    <state key="normal" title="0000.00">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="regular"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2C-LY-abs">
-                                                    <rect key="frame" x="116.66666666666666" y="0.0" width="14.666666666666657" height="33"/>
+                                                    <rect key="frame" x="119.66666666666667" y="0.0" width="14.666666666666671" height="33"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="chevron.right" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>

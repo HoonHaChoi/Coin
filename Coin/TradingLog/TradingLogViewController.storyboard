@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RTQ-Lr-LZd">
-                                <rect key="frame" x="0.0" y="144" width="375" height="634"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="aEq-8G-W4O">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -89,7 +89,7 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RTQ-Lr-LZd" secondAttribute="trailing" id="32W-A6-QPZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="RTQ-Lr-LZd" secondAttribute="bottom" id="ZpE-CD-9oU"/>
-                            <constraint firstItem="RTQ-Lr-LZd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="j1a-wU-QJ8"/>
+                            <constraint firstItem="RTQ-Lr-LZd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="j1a-wU-QJ8"/>
                             <constraint firstItem="RTQ-Lr-LZd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yf3-Ag-ZL2"/>
                         </constraints>
                     </view>

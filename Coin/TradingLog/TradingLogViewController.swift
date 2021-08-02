@@ -10,14 +10,23 @@ import UIKit
 final class TradingLogViewController: UIViewController, Storyboarded {
  
     @IBOutlet weak var tradingLogTableView: UITableView!
+
+    private let dataSource: TradingLogDataSource
+    
+    init?(coder: NSCoder,
+          dataSource: TradingLogDataSource) {
+        self.dataSource = dataSource
+        super.init(coder: coder)
+    }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-//        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tradingLogTableView.register(cell: TradingLogCell.self)
+        tradingLogTableView.dataSource = dataSource
     }
 }
 

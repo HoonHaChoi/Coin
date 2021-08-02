@@ -19,10 +19,14 @@ class TradingLogDataSource: NSObject, UITableViewDataSource {
         return tradingLogs.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TradingLogCell.reuseIdentifier, for: indexPath) as? TradingLogCell else {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TradingLogCell.reuseIdentifier,
+                                                       for: indexPath) as? TradingLogCell else {
             return .init()
         }
+        
+        cell.configure(log: tradingLogs[indexPath.row])
         return cell
     }
 }

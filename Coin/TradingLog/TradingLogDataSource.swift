@@ -20,7 +20,7 @@ class TradingLogDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: , for: indexPath) as? TradingLogCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TradingLogCell.reuseIdentifier, for: indexPath) as? TradingLogCell else {
             return .init()
         }
         return cell

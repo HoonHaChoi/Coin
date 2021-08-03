@@ -35,6 +35,17 @@ struct CoreDataStorageManager: CoreDataStorage {
     }
     
     func fetch() -> [TradingLogMO] {
+        
+        // dummy 더미데이터
+        insert(start: 30000, end: 100000, date: Date())
+        insert(start: 300000, end: 1000000, date: Date())
+        insert(start: 100,
+               end: 200,
+               date: DateManager().turnOfBackward(date: Date()))
+        insert(start: 1000,
+               end: 20000,
+               date: DateManager().turnOfBackward(date: Date()))
+        
         guard let tradMO = try? context.fetch(fetchRequest) else {
             return []
         }

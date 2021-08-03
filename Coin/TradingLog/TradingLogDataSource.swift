@@ -9,10 +9,10 @@ import UIKit
 
 class TradingLogDataSource: NSObject, UITableViewDataSource {
     
-    private var tradingLogs: [TradingLogMO] = []
+    private var tradingLogs: [TradingLogMO]
     
-    init(tradingLogList: [TradingLogMO]) {
-        self.tradingLogs = tradingLogList
+    override init() {
+        self.tradingLogs = []
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

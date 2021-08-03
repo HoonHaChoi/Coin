@@ -32,6 +32,9 @@
                                             <state key="normal" image="square.and.pencil" catalog="system">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                             </state>
+                                            <connections>
+                                                <action selector="addTradingLogAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="o1P-8b-wcy"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ho-44-ayM">
                                             <rect key="frame" x="15" y="18" width="24" height="24"/>
@@ -43,6 +46,9 @@
                                             <state key="normal" image="line.horizontal.3.decrease" catalog="system">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                             </state>
+                                            <connections>
+                                                <action selector="changeOrderAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ymJ-Ry-fcA"/>
+                                            </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hyz-j6-zxU">
                                             <rect key="frame" x="120.33333333333333" y="13.666666666666664" width="134.33333333333337" height="33"/>
@@ -53,6 +59,9 @@
                                                     <state key="normal" image="chevron.left" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="previouseButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ha8-kh-Hfi"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guZ-SX-aGQ">
                                                     <rect key="frame" x="34.666666666666671" y="0.0" width="65" height="33"/>
@@ -61,6 +70,9 @@
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="regular"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="dateChangeButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7av-qX-eND"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2C-LY-abs">
                                                     <rect key="frame" x="119.66666666666667" y="0.0" width="14.666666666666671" height="33"/>
@@ -68,6 +80,9 @@
                                                     <state key="normal" image="chevron.right" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="nextButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Tmu-EP-5z9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -94,6 +109,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addTradingLogButton" destination="rNc-fj-gmr" id="Mfi-yb-AV9"/>
+                        <outlet property="currentDateButton" destination="guZ-SX-aGQ" id="mlb-he-T3R"/>
+                        <outlet property="orderChangeButton" destination="8Ho-44-ayM" id="YJq-2P-l9y"/>
                         <outlet property="tradingLogTableView" destination="RTQ-Lr-LZd" id="QBN-ud-0e2"/>
                     </connections>
                 </viewController>

@@ -1,0 +1,16 @@
+//
+//  TradingLogController+Extension.swift
+//  Coin
+//
+//  Created by HOONHA CHOI on 2021/08/04.
+//
+
+import Foundation
+
+extension TradingLogViewController {
+    enum Action {
+        case loadInitialData
+        case didTapForWardMonth
+        case didTapBackWardMonth
+    }
+}

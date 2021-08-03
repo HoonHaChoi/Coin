@@ -28,6 +28,8 @@
 		BF4F3A9426B86B30003B801A /* TradingLogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */; };
 		BF4F3A9626B8723D003B801A /* TradingLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9526B8723D003B801A /* TradingLogViewModel.swift */; };
 		BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9726B94C50003B801A /* DateManager.swift */; };
+		BF4F3AAD26B9960E003B801A /* TradingLogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AAC26B9960E003B801A /* TradingLogState.swift */; };
+		BF4F3AAF26B999DB003B801A /* TradingLogController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */; };
 		BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */; };
 		BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736052651697A00C3FAD0 /* AppDelegate.swift */; };
 		BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736072651697A00C3FAD0 /* SceneDelegate.swift */; };
@@ -83,6 +85,8 @@
 		BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogDataSource.swift; sourceTree = "<group>"; };
 		BF4F3A9526B8723D003B801A /* TradingLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogViewModel.swift; sourceTree = "<group>"; };
 		BF4F3A9726B94C50003B801A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		BF4F3AAC26B9960E003B801A /* TradingLogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogState.swift; sourceTree = "<group>"; };
+		BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TradingLogController+Extension.swift"; sourceTree = "<group>"; };
 		BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchTextField+Extension.swift"; sourceTree = "<group>"; };
 		BF8736022651697A00C3FAD0 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8736052651697A00C3FAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 				BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */,
 				BF4F3A9526B8723D003B801A /* TradingLogViewModel.swift */,
 				BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */,
+				BF4F3AAC26B9960E003B801A /* TradingLogState.swift */,
+				BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */,
 				BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */,
 			);
 			path = TradingLog;
@@ -396,7 +402,9 @@
 				BF1C04B626B068D200BC0A6B /* CompositionRoot.swift in Sources */,
 				BF92D7D726B46C910033B773 /* TradingLogCoordinator.swift in Sources */,
 				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,
+				BF4F3AAF26B999DB003B801A /* TradingLogController+Extension.swift in Sources */,
 				BF87360A2651697A00C3FAD0 /* MainViewController.swift in Sources */,
+				BF4F3AAD26B9960E003B801A /* TradingLogState.swift in Sources */,
 				BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */,
 				BF4F3A9626B8723D003B801A /* TradingLogViewModel.swift in Sources */,
 				BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */,

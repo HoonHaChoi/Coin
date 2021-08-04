@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 protocol CoreDataStorage {
-    func fetch() -> [TradingLogMO]
+    func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO]
     func insert(start: Int, end: Int, date: Date) -> Bool
     func update(index: Int, start: Int, end: Int) -> Bool
     func delete(index: Int) -> Bool
@@ -34,7 +34,7 @@ struct CoreDataStorageManager: CoreDataStorage {
         self.context = container.viewContext
     }
     
-    func fetch() -> [TradingLogMO] {
+    func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO] {
         
         // dummy 더미데이터
 //        insert(start: 30000, end: 100000, date: Date())
@@ -45,6 +45,10 @@ struct CoreDataStorageManager: CoreDataStorage {
 //        insert(start: 1000,
 //               end: 20000,
 //               date: DateManager().turnOfBackward(date: Date()))
+        
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ && date <= %@",
+                                             dates.start as NSDate,
+                                             dates.end as NSDate)
         
         guard let tradMO = try? context.fetch(fetchRequest) else {
             return []

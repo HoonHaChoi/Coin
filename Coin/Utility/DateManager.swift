@@ -24,18 +24,18 @@ final class DateManager {
         return dateFormattor.string(from: currentDate)
     }
     
-    private func turnOfBackward() -> Date {
+    func turnOfBackward() {
         guard let date = calendar.date(byAdding: .month, value: -1, to: currentDate) else {
-            return .init()
+            return
         }
-        return date
+        self.currentDate = date
     }
     
-    private func turnOfForward() -> Date {
+    func turnOfForward() {
         guard let date = calendar.date(byAdding: .month, value: +1, to: currentDate) else {
-            return currentDate
+            return
         }
-        return date
+        self.currentDate = date
     }
     
     func calculateMonthStartOfEnd() -> (start: Date, end: Date) {
@@ -46,18 +46,18 @@ final class DateManager {
     }
     
     func confirmNextMonth() -> Bool {
-        if Date() < turnOfForward() {
-            return true
-        }
-        self.currentDate = turnOfForward()
-        return false
+//        if calendar.date(byAdding: .month, value: +1, to: currentDate)! > Date() {
+//            return true
+//        }
+//        return false
+        calendar.date(byAdding: .month, value: +1, to: currentDate)! > Date() ? true : false
     }
     
-    func confirmPreviousMonth  () -> Bool {
-        if currentDate < calendar.date(byAdding: .year, value: -10, to: Date())! {
-            return true
-        }
-        self.currentDate = turnOfBackward()
-        return false
+    func confirmPreviousMonth() -> Bool {
+//        if currentDate < calendar.date(byAdding: .year, value: -10, to: Date())! {
+//            return true
+//        }
+//        return false
+        currentDate < calendar.date(byAdding: .year, value: -10, to: Date())! ? true : false
     }
 }

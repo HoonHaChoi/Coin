@@ -15,9 +15,9 @@ struct TradingLogViewModel {
         self.storage = storage
     }
     
-    func fetchLog() -> [TradingLogMO] {
-        return storage.fetch()
-    }
+//    func fetchLog() -> [TradingLogMO] {
+//        return storage.fetch()
+//    }
     
     func insertLog(start: Int, end: Int, date: Date) {
         storage.insert(start: start, end: end, date: date)

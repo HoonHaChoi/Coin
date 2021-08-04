@@ -35,7 +35,8 @@ class TradingLogStore {
             switch action {
             
             case .loadInitialData:
-                state.tradlog = environment.coreDataManager.fetch()
+                state.tradlog = environment.coreDataManager.fetch(
+                    dates: environment.dateManager.calculateMonthStartOfEnd())
                 state.nextButtonState = environment.dateManager.confirmNextMonth()
                 state.previousButtonState = environment.dateManager.confirmPreviousMonth()
                 state.currentDateString = environment.dateManager.currentDateString()

@@ -31,6 +31,8 @@ final class TradingLogViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         tradingLogTableView.register(cell: TradingLogCell.self)
         tradingLogTableView.dataSource = dataSource
+        tradingLogTableView.rowHeight = UITableView.automaticDimension
+        tradingLogTableView.estimatedRowHeight = 200
         dispatch?(.loadInitialData)
     }
     

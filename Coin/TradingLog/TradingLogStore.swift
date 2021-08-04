@@ -11,8 +11,14 @@ import Combine
 class TradingLogStore {
     
     struct State {
-        static var empty = Self(tradlog: [])
+        static var empty = Self(tradlog: [],
+                                nextButtonState: false,
+                                previousButtonState: false,
+                                currentDateString: "")
         var tradlog: [TradingLogMO]
+        var nextButtonState: Bool
+        var previousButtonState: Bool
+        var currentDateString: String
     }
 
     struct Environment {
@@ -30,6 +36,9 @@ class TradingLogStore {
             
             case .loadInitialData:
                 state.tradlog = environment.coreDataManager.fetch()
+                state.nextButtonState = environment.dateManager.confirmNextMonth()
+                state.previousButtonState = environment.dateManager.confirmPreviousMonth()
+                state.currentDateString = environment.dateManager.currentDateString()
             case .didTapForWardMonth:
                 break
             case .didTapBackWardMonth:

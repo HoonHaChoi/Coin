@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DateManager {
+final class DateManager {
     
     private var currentDate: Date
     private let calendar: Calendar
@@ -45,7 +45,7 @@ struct DateManager {
         return (start: month.start, end: month.end)
     }
     
-    mutating func confirmNextMonth() -> Bool {
+    func confirmNextMonth() -> Bool {
         if Date() < turnOfForward() {
             return true
         }
@@ -53,8 +53,8 @@ struct DateManager {
         return false
     }
     
-    mutating func confirmPreviousMonth  () -> Bool {
-        if currentDate < calendar.date(byAdding: .year, value: -10, to: currentDate)! {
+    func confirmPreviousMonth  () -> Bool {
+        if currentDate < calendar.date(byAdding: .year, value: -10, to: Date())! {
             return true
         }
         self.currentDate = turnOfBackward()

@@ -16,5 +16,8 @@ extension TradingLogViewController {
     
     struct ViewState {
         var tradlingLogs: [TradingLogMO]
+        var nextButtonState: Bool
+        var previousButtonState: Bool
+        var currentDateString: String
     }
 }

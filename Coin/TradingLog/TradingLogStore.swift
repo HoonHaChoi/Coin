@@ -74,5 +74,8 @@ class TradingLogStore {
 private extension TradingLogViewController.ViewState {
     init(state: TradingLogStore.State) {
         self.tradlingLogs = state.tradlog
+        self.nextButtonState = state.nextButtonState
+        self.previousButtonState = state.previousButtonState
+        self.currentDateString = state.currentDateString
     }
 }

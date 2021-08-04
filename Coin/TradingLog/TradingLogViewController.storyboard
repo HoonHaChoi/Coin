@@ -111,7 +111,9 @@
                     <connections>
                         <outlet property="addTradingLogButton" destination="rNc-fj-gmr" id="Mfi-yb-AV9"/>
                         <outlet property="currentDateButton" destination="guZ-SX-aGQ" id="mlb-he-T3R"/>
+                        <outlet property="nextButton" destination="B2C-LY-abs" id="2dr-ih-wLO"/>
                         <outlet property="orderChangeButton" destination="8Ho-44-ayM" id="YJq-2P-l9y"/>
+                        <outlet property="previousButton" destination="Va8-si-SLg" id="EAf-VT-ttj"/>
                         <outlet property="tradingLogTableView" destination="RTQ-Lr-LZd" id="QBN-ud-0e2"/>
                     </connections>
                 </viewController>

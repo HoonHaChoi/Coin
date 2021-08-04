@@ -20,7 +20,7 @@ final class DateManager {
     }
     
     func currentDateString() -> String {
-        dateFormattor.dateFormat = "yyyy.mm"
+        dateFormattor.dateFormat = "yyyy.MM"
         return dateFormattor.string(from: currentDate)
     }
     

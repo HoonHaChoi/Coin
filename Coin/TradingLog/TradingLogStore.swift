@@ -35,26 +35,22 @@ class TradingLogStore {
             switch action {
             
             case .loadInitialData:
-                state.tradlog = environment.coreDataManager.fetch(
-                    dates: environment.dateManager.calculateMonthStartOfEnd())
-                state.nextButtonState = environment.dateManager.confirmNextMonth()
-                state.previousButtonState = environment.dateManager.confirmPreviousMonth()
-                state.currentDateString = environment.dateManager.currentDateString()
+                stateUpdate(state: &state)
             case .didTapForWardMonth:
                 environment.dateManager.turnOfForward()
-                state.tradlog = environment.coreDataManager.fetch(
-                    dates: environment.dateManager.calculateMonthStartOfEnd())
-                state.nextButtonState = environment.dateManager.confirmNextMonth()
-                state.previousButtonState = environment.dateManager.confirmPreviousMonth()
-                state.currentDateString = environment.dateManager.currentDateString()
+                stateUpdate(state: &state)
             case .didTapBackWardMonth:
                 environment.dateManager.turnOfBackward()
-                state.tradlog = environment.coreDataManager.fetch(
-                    dates: environment.dateManager.calculateMonthStartOfEnd())
-                state.nextButtonState = environment.dateManager.confirmNextMonth()
-                state.previousButtonState = environment.dateManager.confirmPreviousMonth()
-                state.currentDateString = environment.dateManager.currentDateString()
+                stateUpdate(state: &state)
             }
+        }
+        
+        private func stateUpdate(state: inout State) {
+            state.tradlog = environment.coreDataManager.fetch(
+                dates: environment.dateManager.calculateMonthStartOfEnd())
+            state.nextButtonState = environment.dateManager.confirmNextMonth()
+            state.previousButtonState = environment.dateManager.confirmPreviousMonth()
+            state.currentDateString = environment.dateManager.currentDateString()
         }
     }
     

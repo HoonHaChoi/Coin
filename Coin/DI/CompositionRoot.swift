@@ -75,6 +75,9 @@ struct AppDependency {
             return TradingLogViewController(coder: coder,
                                             dataSource: tradingLogDataSource)
         }
+        
+        tradingLogViewController.dispatch = tradingLogStore.dispatch(_:)
+        tradingLogStore.updateState = tradingLogViewController.updateState(state:)
         return tradingLogViewController
     }
 }

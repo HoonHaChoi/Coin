@@ -44,12 +44,17 @@ class TradingLogStore {
     
     @Published private(set) var state: State
     private var environment: Environment
-    var updateState: (() -> Void)?
+    private var cancell: AnyCancellable?
+    var updateState: ((TradingLogViewController.ViewState) -> Void)?
     
     init(state: State,
          environment: Environment) {
         self.state = state
         self.environment = environment
+        
+        cancell = $state.sink(receiveValue: { [weak self] state in
+            self?.updateState?(TradingLogViewController.ViewState(state: state))
+        })
     }
     
     func dispatch(_ action: TradingLogViewController.Action) {
@@ -57,3 +62,8 @@ class TradingLogStore {
     }
 }
 
+private extension TradingLogViewController.ViewState {
+    init(state: TradingLogStore.State) {
+        self.tradlingLogs = state.tradlog
+    }
+}

@@ -29,6 +29,10 @@ class TradingLogDataSource: NSObject, UITableViewDataSource {
         cell.configure(log: tradingLogs[indexPath.row])
         return cell
     }
+    
+    func updateLog(logs: [TradingLogMO]) {
+        self.tradingLogs = logs
+    }
 }
 
 

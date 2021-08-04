@@ -13,4 +13,8 @@ extension TradingLogViewController {
         case didTapForWardMonth
         case didTapBackWardMonth
     }
+    
+    struct ViewState {
+        var tradlingLogs: [TradingLogMO]
+    }
 }

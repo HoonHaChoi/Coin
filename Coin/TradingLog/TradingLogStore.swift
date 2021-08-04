@@ -41,9 +41,19 @@ class TradingLogStore {
                 state.previousButtonState = environment.dateManager.confirmPreviousMonth()
                 state.currentDateString = environment.dateManager.currentDateString()
             case .didTapForWardMonth:
-                break
+                environment.dateManager.turnOfForward()
+                state.tradlog = environment.coreDataManager.fetch(
+                    dates: environment.dateManager.calculateMonthStartOfEnd())
+                state.nextButtonState = environment.dateManager.confirmNextMonth()
+                state.previousButtonState = environment.dateManager.confirmPreviousMonth()
+                state.currentDateString = environment.dateManager.currentDateString()
             case .didTapBackWardMonth:
-                break
+                environment.dateManager.turnOfBackward()
+                state.tradlog = environment.coreDataManager.fetch(
+                    dates: environment.dateManager.calculateMonthStartOfEnd())
+                state.nextButtonState = environment.dateManager.confirmNextMonth()
+                state.previousButtonState = environment.dateManager.confirmPreviousMonth()
+                state.currentDateString = environment.dateManager.currentDateString()
             }
         }
     }

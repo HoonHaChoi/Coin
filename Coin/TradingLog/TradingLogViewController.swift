@@ -43,11 +43,17 @@ final class TradingLogViewController: UIViewController, Storyboarded {
         currentDateButton.setTitle(state.currentDateString, for: .normal)
         nextButton.isHidden = state.nextButtonState
         previousButton.isHidden = state.previousButtonState
+        
+        tradingLogTableView.reloadData()
     }
     
     
-    @IBAction func nextButtonAction(_ sender: UIButton) {}
-    @IBAction func previouseButtonAction(_ sender: UIButton) {}
+    @IBAction func nextButtonAction(_ sender: UIButton) {
+        dispatch?(.didTapForWardMonth)
+    }
+    @IBAction func previouseButtonAction(_ sender: UIButton) {
+        dispatch?(.didTapBackWardMonth)
+    }
     @IBAction func dateChangeButtonAction(_ sender: UIButton) {}
     @IBAction func addTradingLogAction(_ sender: UIButton) {}
     @IBAction func changeOrderAction(_ sender: UIButton) {}

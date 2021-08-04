@@ -9,7 +9,7 @@ import Foundation
 
 struct DateManager {
     
-    private let currentDate: Date
+    private var currentDate: Date
     private let calendar: Calendar
     private let dateFormattor: DateFormatter
     
@@ -24,24 +24,40 @@ struct DateManager {
         return dateFormattor.string(from: currentDate)
     }
     
-    func turnOfBackward(date: Date) -> Date {
-        guard let date = calendar.date(byAdding: .month, value: -1, to: date) else {
+    private func turnOfBackward() -> Date {
+        guard let date = calendar.date(byAdding: .month, value: -1, to: currentDate) else {
             return .init()
         }
         return date
     }
     
-    func turnOfForward(date: Date) -> Date {
-        guard let date = calendar.date(byAdding: .month, value: +1, to: date) else {
-            return .init()
+    private func turnOfForward() -> Date {
+        guard let date = calendar.date(byAdding: .month, value: +1, to: currentDate) else {
+            return currentDate
         }
         return date
     }
     
-    func confirmCurrentMonth() -> Bool {
-        if turnOfForward(date: currentDate) > Date() {
+    func calculateMonthStartOfEnd() -> (start: Date, end: Date) {
+        guard let month = calendar.dateInterval(of: .month, for: currentDate) else {
+            return (.init() , .init())
+        }
+        return (start: month.start, end: month.end)
+    }
+    
+    mutating func confirmNextMonth() -> Bool {
+        if Date() < turnOfForward() {
             return true
         }
+        self.currentDate = turnOfForward()
+        return false
+    }
+    
+    mutating func confirmPreviousMonth  () -> Bool {
+        if currentDate < calendar.date(byAdding: .year, value: -10, to: currentDate)! {
+            return true
+        }
+        self.currentDate = turnOfBackward()
         return false
     }
 }

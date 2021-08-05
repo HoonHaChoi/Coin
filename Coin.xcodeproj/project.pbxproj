@@ -31,6 +31,7 @@
 		BF4F3AAD26B9960E003B801A /* TradingLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */; };
 		BF4F3AAF26B999DB003B801A /* TradingLogController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */; };
 		BF4F3AC626BB97B8003B801A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AC526BB97B8003B801A /* EmptyView.swift */; };
+		BF4F3AC826BBC499003B801A /* TradingLogAddViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4F3AC726BBC499003B801A /* TradingLogAddViewController.storyboard */; };
 		BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */; };
 		BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736052651697A00C3FAD0 /* AppDelegate.swift */; };
 		BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736072651697A00C3FAD0 /* SceneDelegate.swift */; };
@@ -89,6 +90,7 @@
 		BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStore.swift; sourceTree = "<group>"; };
 		BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TradingLogController+Extension.swift"; sourceTree = "<group>"; };
 		BF4F3AC526BB97B8003B801A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		BF4F3AC726BBC499003B801A /* TradingLogAddViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogAddViewController.storyboard; sourceTree = "<group>"; };
 		BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchTextField+Extension.swift"; sourceTree = "<group>"; };
 		BF8736022651697A00C3FAD0 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8736052651697A00C3FAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				BF9E249C26B69FAD00CCB49E /* View */,
 				BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */,
+				BF4F3AC726BBC499003B801A /* TradingLogAddViewController.storyboard */,
 				BF4F3A9526B8723D003B801A /* TradingLogViewModel.swift */,
 				BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */,
 				BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */,
@@ -376,6 +379,7 @@
 				BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */,
 				BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */,
 				BF1FA632269B309B00AC1AC2 /* SearchCoinCell.xib in Resources */,
+				BF4F3AC826BBC499003B801A /* TradingLogAddViewController.storyboard in Resources */,
 				BF92D7E826B589670033B773 /* SearchViewController.storyboard in Resources */,
 				BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */,
 				BF92D7E626B5894B0033B773 /* MainViewController.storyboard in Resources */,

@@ -26,6 +26,22 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         return picker
     }()
 
+    private lazy var toolbar: UIToolbar = {
+        let toolbar = UIToolbar()
+        let cancellButton = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                            target: nil,
+                                            action: #selector(cancellBarButtonPressed))
+        let flexspace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                        target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                         target: nil,
+                                         action: #selector(doneBarButtonPressed))
+        toolbar.setItems([cancellButton,flexspace,doneButton], animated: true)
+        cancellButton.tintColor = .systemRed
+        toolbar.sizeToFit()
+        return toolbar
+    }()
+    
     var dispatch: ((Action) -> ())?
     
     override func viewDidLoad() {
@@ -34,22 +50,24 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }
     
     private func setDatePickerTextField() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-       
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneBarButtonPressed))
-        toolbar.setItems([doneButton], animated: true)
-        
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
     }
     
     @objc private func doneBarButtonPressed() {
         dispatch?(.dateInput(datePicker.date))
-//        dateTextField.text = "\(datePicker.date)"
+    }
+    
+    @objc private func cancellBarButtonPressed() {
+        downkeyboard()
+    }
+    
+    private func downkeyboard() {
+        self.view.endEditing(true)
     }
     
     lazy var updateView: (ViewState) -> () = { [weak self] state in
+        self?.downkeyboard()
         self?.dateTextField.text = state.selectDate
     }
 }

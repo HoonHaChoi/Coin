@@ -18,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-Hh-C3W">
-                                <rect key="frame" x="15" y="15" width="28" height="21"/>
+                                <rect key="frame" x="15" y="15" width="345" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 금액" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-MY-dIR">
-                                <rect key="frame" x="15" y="67" width="59.5" height="21"/>
+                                <rect key="frame" x="15" y="67" width="340" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                             </textField>
@@ -32,7 +32,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xt1-hM-q1x">
                                 <rect key="frame" x="0.0" y="51" width="375" height="1"/>
@@ -42,9 +42,9 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="최종 금액" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-8U-dfU">
-                                <rect key="frame" x="15" y="119" width="60" height="21"/>
+                                <rect key="frame" x="15" y="119" width="340" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohx-7l-zBh">
                                 <rect key="frame" x="0.0" y="103" width="375" height="1"/>
@@ -72,12 +72,15 @@
                             <constraint firstItem="xt1-hM-q1x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AgA-rp-HvE"/>
                             <constraint firstItem="YaS-MY-dIR" firstAttribute="top" secondItem="xt1-hM-q1x" secondAttribute="bottom" constant="15" id="NqI-wo-uI1"/>
                             <constraint firstItem="6sa-8e-tkn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="OUN-4J-aa5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y2p-Hh-C3W" secondAttribute="trailing" constant="15" id="OUR-24-SaX"/>
                             <constraint firstItem="Cc5-8U-dfU" firstAttribute="top" secondItem="ohx-7l-zBh" secondAttribute="bottom" constant="15" id="QZs-DA-mBf"/>
                             <constraint firstItem="ohx-7l-zBh" firstAttribute="top" secondItem="YaS-MY-dIR" secondAttribute="bottom" constant="15" id="R0A-Vq-DK7"/>
                             <constraint firstItem="6sa-8e-tkn" firstAttribute="top" secondItem="Cc5-8U-dfU" secondAttribute="bottom" constant="15" id="VPh-bM-NYf"/>
                             <constraint firstItem="Cc5-8U-dfU" firstAttribute="leading" secondItem="Y2p-Hh-C3W" secondAttribute="leading" id="cXY-Os-HZB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Cc5-8U-dfU" secondAttribute="trailing" constant="20" id="f5A-gi-yDl"/>
                             <constraint firstItem="Y2p-Hh-C3W" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="hRb-lP-MfP"/>
                             <constraint firstItem="ohx-7l-zBh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="lsU-FH-36r"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YaS-MY-dIR" secondAttribute="trailing" constant="20" id="m8h-Zw-cJT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WJK-ES-12y" secondAttribute="bottom" constant="20" id="mgo-jT-Wts"/>
                             <constraint firstItem="xt1-hM-q1x" firstAttribute="top" secondItem="Y2p-Hh-C3W" secondAttribute="bottom" constant="15" id="nGQ-8C-xot"/>
                             <constraint firstItem="WJK-ES-12y" firstAttribute="top" secondItem="6sa-8e-tkn" secondAttribute="bottom" constant="15" id="skn-wG-5EA"/>

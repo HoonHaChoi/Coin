@@ -28,7 +28,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }()
 
     private lazy var toolbar: UIToolbar = {
-        let toolbar = UIToolbar()
+        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 44.0)))
         let cancellButton = UIBarButtonItem(title: "취소",
                                             style: .plain,
                                             target: nil,

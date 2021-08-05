@@ -27,7 +27,9 @@ struct AppDependency {
     }
     
     private func makeTradingLogCoordinator() -> TradingLogCoordinator {
-        return TradingLogCoordinator(dependency: .init(tradingLogViewControllerFactory: makeTradingLogViewController))
+        return TradingLogCoordinator(dependency:
+                                        .init(tradingLogViewControllerFactory: makeTradingLogViewController,
+                                              tradingLogAddViewControllerFactory: makeTradingLogAddViewController))
     }
     
     private func makeMainController() -> MainViewController {
@@ -69,7 +71,7 @@ struct AppDependency {
             environment: .init(dateManager: dateManager,
                                coreDataManager: coredata))
         
-//        let tradingLogViewModel = TradingLogViewModel(storage: coredata)
+        //        let tradingLogViewModel = TradingLogViewModel(storage: coredata)
         let tradingLogDataSource = TradingLogDataSource()
         let tradingLogViewController = TradingLogViewController.instantiate { coder in
             return TradingLogViewController(coder: coder,

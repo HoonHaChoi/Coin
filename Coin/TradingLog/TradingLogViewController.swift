@@ -18,6 +18,7 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     
     private let dataSource: TradingLogDataSource
     var dispatch: ((Action)->Void)?
+    var coordinator: TradingLogCoordinator?
     
     init?(coder: NSCoder,
           dataSource: TradingLogDataSource) {
@@ -55,7 +56,11 @@ final class TradingLogViewController: UIViewController, Storyboarded {
         dispatch?(.didTapBackWardMonth)
     }
     @IBAction func dateChangeButtonAction(_ sender: UIButton) {}
-    @IBAction func addTradingLogAction(_ sender: UIButton) {}
+    
+    @IBAction func addTradingLogAction(_ sender: UIButton) {
+        coordinator?.addTradingLogTapped()
+    }
+    
     @IBAction func changeOrderAction(_ sender: UIButton) {}
     
 }

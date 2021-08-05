@@ -31,10 +31,10 @@ final class TradingLogAddStore {
         
         func reduce(_ action: Action, state: inout State) {
             switch action {
-            case .dateInput(let date):
+            case let .dateInput(date):
                 state.selectDate = date
                 state.isFormValid = isFormValidCheck(state)
-            case .startAmountInput(let amount):
+            case let .startAmountInput(amount):
                 break
             case .endAmountInput(let amount):
                 break
@@ -58,8 +58,27 @@ final class TradingLogAddStore {
     @Published private(set) var state: State
     private var cancellable: AnyCancellable?
     
+    var updateView: ((TradingLogAddViewController.ViewState) -> ())?
+    
     init(state: State) {
         self.state = state
+        
+        cancellable = $state.sink(receiveValue: { [weak self] state in
+            self?.updateView?(TradingLogAddViewController.ViewState(state: state))
+        })
     }
     
+    func dispatch(_ action: TradingLogAddViewController.Action) {
+        reducer.reduce(action, state: &state)
+    }
+}
+
+private extension TradingLogAddViewController.ViewState {
+    init(state: TradingLogAddStore.State) {
+        self.selectDate = state.selectDate
+        self.startAmount = state.startAmount
+        self.endAmount = state.endAmount
+        self.memo = state.memo
+        self.isFormValid = state.isFormValid
+    }
 }

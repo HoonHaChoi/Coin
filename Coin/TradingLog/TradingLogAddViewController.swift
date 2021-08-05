@@ -26,6 +26,8 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         return picker
     }()
 
+    var dispatch: ((Action) -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDatePickerTextField()
@@ -43,6 +45,11 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }
     
     @objc private func doneBarButtonPressed() {
-        dateTextField.text = "\(datePicker.date)"
+        dispatch?(.dateInput("\(datePicker.date)"))
+//        dateTextField.text = "\(datePicker.date)"
+    }
+    
+    func updateView(state: ViewState) {
+        dateTextField.text = state.selectDate
     }
 }

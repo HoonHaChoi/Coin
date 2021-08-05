@@ -69,7 +69,7 @@ struct AppDependency {
             environment: .init(dateManager: dateManager,
                                coreDataManager: coredata))
         
-        let tradingLogViewModel = TradingLogViewModel(storage: coredata)
+//        let tradingLogViewModel = TradingLogViewModel(storage: coredata)
         let tradingLogDataSource = TradingLogDataSource()
         let tradingLogViewController = TradingLogViewController.instantiate { coder in
             return TradingLogViewController(coder: coder,
@@ -79,5 +79,17 @@ struct AppDependency {
         tradingLogViewController.dispatch = tradingLogStore.dispatch(_:)
         tradingLogStore.updateState = tradingLogViewController.updateState(state:)
         return tradingLogViewController
+    }
+    
+    private func makeTradingLogAddViewController() -> TradingLogAddViewController {
+        
+        let tradingLogAddStore = TradingLogAddStore(state: .empty)
+        let tradingLogAddViewController = TradingLogAddViewController.instantiate { coder in
+            return TradingLogAddViewController(coder: coder)
+        }
+        
+        tradingLogAddViewController.dispatch = tradingLogAddStore.dispatch(_:)
+        tradingLogAddStore.updateView = tradingLogAddViewController.updateView(state:)
+        return tradingLogAddViewController
     }
 }

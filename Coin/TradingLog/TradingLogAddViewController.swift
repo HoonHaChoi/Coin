@@ -45,7 +45,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }
     
     @objc private func doneBarButtonPressed() {
-        dispatch?(.dateInput("\(datePicker.date)"))
+        dispatch?(.dateInput(datePicker.date))
 //        dateTextField.text = "\(datePicker.date)"
     }
     

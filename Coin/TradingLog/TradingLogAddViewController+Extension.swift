@@ -10,7 +10,7 @@ import UIKit
 extension TradingLogAddViewController {
     
     enum Action {
-        case dateInput(String)
+        case dateInput(Date)
         case startAmountInput(String)
         case endAmountInput(String)
         case memoInput(String)

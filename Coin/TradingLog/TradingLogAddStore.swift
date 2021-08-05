@@ -32,7 +32,7 @@ final class TradingLogAddStore {
         func reduce(_ action: Action, state: inout State) {
             switch action {
             case let .dateInput(date):
-                state.selectDate = date
+                state.selectDate = date.convertString()
                 state.isFormValid = isFormValidCheck(state)
             case let .startAmountInput(amount):
                 break

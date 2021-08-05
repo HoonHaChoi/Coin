@@ -35,6 +35,8 @@
 		BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AC926BBE01C003B801A /* TradingLogAddViewController.swift */; };
 		BF4F3ACC26BC2B92003B801A /* TradingLogAddStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3ACB26BC2B92003B801A /* TradingLogAddStore.swift */; };
 		BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */; };
+		BF4F3AD026BC6A17003B801A /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3ACF26BC6A16003B801A /* DateFormatter+Extension.swift */; };
+		BF4F3AD226BC6DAB003B801A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD126BC6DAB003B801A /* Date+Extension.swift */; };
 		BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */; };
 		BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736052651697A00C3FAD0 /* AppDelegate.swift */; };
 		BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736072651697A00C3FAD0 /* SceneDelegate.swift */; };
@@ -97,6 +99,8 @@
 		BF4F3AC926BBE01C003B801A /* TradingLogAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogAddViewController.swift; sourceTree = "<group>"; };
 		BF4F3ACB26BC2B92003B801A /* TradingLogAddStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogAddStore.swift; sourceTree = "<group>"; };
 		BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TradingLogAddViewController+Extension.swift"; sourceTree = "<group>"; };
+		BF4F3ACF26BC6A16003B801A /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		BF4F3AD126BC6DAB003B801A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchTextField+Extension.swift"; sourceTree = "<group>"; };
 		BF8736022651697A00C3FAD0 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8736052651697A00C3FAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,11 +215,13 @@
 			children = (
 				BF22BF47268F8119003FD161 /* URLSession+Extension.swift */,
 				BF9570C826A34830000BBAE9 /* String+Extension.swift */,
+				BF4F3AD126BC6DAB003B801A /* Date+Extension.swift */,
 				BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */,
 				BFA1541826A153BC00341A6D /* FileManager+Extension.swift */,
 				BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */,
 				BF1FA63F269B62BB00AC1AC2 /* UITableView+Extension.swift */,
 				BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */,
+				BF4F3ACF26BC6A16003B801A /* DateFormatter+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
+				BF4F3AD026BC6A17003B801A /* DateFormatter+Extension.swift in Sources */,
 				BF92D7E226B57DF20033B773 /* TradingLogViewController.swift in Sources */,
 				BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */,
 				BF1C04B626B068D200BC0A6B /* CompositionRoot.swift in Sources */,
@@ -428,6 +435,7 @@
 				BF9D08EB269CAFCD009B6AA0 /* AppCoordinator.swift in Sources */,
 				BF22BF48268F8119003FD161 /* URLSession+Extension.swift in Sources */,
 				BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */,
+				BF4F3AD226BC6DAB003B801A /* Date+Extension.swift in Sources */,
 				BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
 				BF92D7D526B43B710033B773 /* TradingLog.swift in Sources */,

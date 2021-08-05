@@ -20,4 +20,9 @@ extension String {
         let rate = (Double(self) ?? 0.0) * 100
         return String(format: "%.2f",  rate) + "%"
     }
+    
+    func convertDate() -> Date {
+        let dateFormat = DateFormatter()
+        return dateFormat.convertStringToDate(dateString: self)
+    }
 }

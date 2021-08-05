@@ -37,6 +37,7 @@
 		BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */; };
 		BF4F3AD026BC6A17003B801A /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3ACF26BC6A16003B801A /* DateFormatter+Extension.swift */; };
 		BF4F3AD226BC6DAB003B801A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD126BC6DAB003B801A /* Date+Extension.swift */; };
+		BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD326BC843E003B801A /* UITextField+Extension.swift */; };
 		BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */; };
 		BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736052651697A00C3FAD0 /* AppDelegate.swift */; };
 		BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736072651697A00C3FAD0 /* SceneDelegate.swift */; };
@@ -101,6 +102,7 @@
 		BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TradingLogAddViewController+Extension.swift"; sourceTree = "<group>"; };
 		BF4F3ACF26BC6A16003B801A /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		BF4F3AD126BC6DAB003B801A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		BF4F3AD326BC843E003B801A /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchTextField+Extension.swift"; sourceTree = "<group>"; };
 		BF8736022651697A00C3FAD0 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8736052651697A00C3FAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				BF1FA63F269B62BB00AC1AC2 /* UITableView+Extension.swift */,
 				BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */,
 				BF4F3ACF26BC6A16003B801A /* DateFormatter+Extension.swift */,
+				BF4F3AD326BC843E003B801A /* UITextField+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				BF8AC82926AAC99C00D90C4C /* MainDataSource.swift in Sources */,
 				BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */,
 				BF9D08E9269CAF17009B6AA0 /* Coordinator.swift in Sources */,
+				BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */,
 				BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */,
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,

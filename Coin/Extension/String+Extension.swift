@@ -25,4 +25,13 @@ extension String {
         let dateFormat = DateFormatter()
         return dateFormat.convertStringToDate(dateString: self)
     }
+    
+    func limitTextCount() -> String {
+        if self.count > 10 {
+            var limitStringArray = Array.init(self).map { String($0) }
+            limitStringArray.removeLast()
+            return limitStringArray.joined().convertPriceKRW()
+        }
+        return self.convertPriceKRW()
+    }
 }

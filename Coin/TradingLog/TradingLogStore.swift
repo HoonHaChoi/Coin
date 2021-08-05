@@ -35,17 +35,17 @@ class TradingLogStore {
             switch action {
             
             case .loadInitialData:
-                stateUpdate(state: &state)
+                updateState(state: &state)
             case .didTapForWardMonth:
                 environment.dateManager.turnOfForward()
-                stateUpdate(state: &state)
+                updateState(state: &state)
             case .didTapBackWardMonth:
                 environment.dateManager.turnOfBackward()
-                stateUpdate(state: &state)
+                updateState(state: &state)
             }
         }
         
-        private func stateUpdate(state: inout State) {
+        private func updateState(state: inout State) {
             state.tradlog = environment.coreDataManager.fetch(
                 dates: environment.dateManager.calculateMonthStartOfEnd())
             state.nextButtonState = environment.dateManager.confirmNextMonth()

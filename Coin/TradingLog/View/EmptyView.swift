@@ -17,6 +17,14 @@ class EmptyView: UIView {
         return label
     }()
     
+    let imageView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "market")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -29,9 +37,12 @@ class EmptyView: UIView {
 
     func configure() {
         addSubview(titleLabel)
+        addSubview(imageView)
         
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    
+        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor,constant: 10).isActive = true
+        
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50).isActive = true
     }
 }

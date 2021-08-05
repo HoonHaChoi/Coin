@@ -23,21 +23,25 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         picker.minimumDate = Calendar.current.date(byAdding: .year,
                                                    value: -10,
                                                    to: Date())
+        picker.backgroundColor = .systemBackground
         return picker
     }()
 
     private lazy var toolbar: UIToolbar = {
         let toolbar = UIToolbar()
-        let cancellButton = UIBarButtonItem(barButtonSystemItem: .cancel,
+        let cancellButton = UIBarButtonItem(title: "취소",
+                                            style: .plain,
                                             target: nil,
                                             action: #selector(cancellBarButtonPressed))
         let flexspace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                         target: nil, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+        let doneButton = UIBarButtonItem(title: "확인",
+                                         style: .done,
                                          target: nil,
                                          action: #selector(doneBarButtonPressed))
         toolbar.setItems([cancellButton,flexspace,doneButton], animated: true)
         cancellButton.tintColor = .systemRed
+        toolbar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
         toolbar.sizeToFit()
         return toolbar
     }()

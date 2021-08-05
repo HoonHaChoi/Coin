@@ -91,7 +91,7 @@ struct AppDependency {
         }
         
         tradingLogAddViewController.dispatch = tradingLogAddStore.dispatch(_:)
-        tradingLogAddStore.updateView = tradingLogAddViewController.updateView(state:)
+        tradingLogAddStore.updateView = tradingLogAddViewController.updateView
         return tradingLogAddViewController
     }
 }

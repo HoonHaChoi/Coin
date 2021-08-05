@@ -49,7 +49,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
 //        dateTextField.text = "\(datePicker.date)"
     }
     
-    func updateView(state: ViewState) {
-        dateTextField.text = state.selectDate
+    lazy var updateView: (ViewState) -> () = { [weak self] state in
+        self?.dateTextField.text = state.selectDate
     }
 }

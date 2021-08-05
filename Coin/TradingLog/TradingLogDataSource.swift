@@ -16,6 +16,13 @@ class TradingLogDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if tradingLogs.isEmpty {
+            tableView.backgroundView = EmptyView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
+        } else {
+            tableView.backgroundView = nil
+        }
+        
         return tradingLogs.count
     }
     

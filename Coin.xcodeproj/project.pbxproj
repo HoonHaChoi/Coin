@@ -30,6 +30,7 @@
 		BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9726B94C50003B801A /* DateManager.swift */; };
 		BF4F3AAD26B9960E003B801A /* TradingLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */; };
 		BF4F3AAF26B999DB003B801A /* TradingLogController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */; };
+		BF4F3AC626BB97B8003B801A /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AC526BB97B8003B801A /* EmptyView.swift */; };
 		BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */; };
 		BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736052651697A00C3FAD0 /* AppDelegate.swift */; };
 		BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8736072651697A00C3FAD0 /* SceneDelegate.swift */; };
@@ -87,6 +88,7 @@
 		BF4F3A9726B94C50003B801A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStore.swift; sourceTree = "<group>"; };
 		BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TradingLogController+Extension.swift"; sourceTree = "<group>"; };
+		BF4F3AC526BB97B8003B801A /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchTextField+Extension.swift"; sourceTree = "<group>"; };
 		BF8736022651697A00C3FAD0 /* Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8736052651697A00C3FAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				BF9E249D26B69FBA00CCB49E /* TradingLogCell.xib */,
 				BF9E249F26B6A76000CCB49E /* TradingLogCell.swift */,
+				BF4F3AC526BB97B8003B801A /* EmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA1541526A152D400341A6D /* FileImage.swift in Sources */,
+				BF4F3AC626BB97B8003B801A /* EmptyView.swift in Sources */,
 				BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */,
 				BFA1541326A152BB00341A6D /* ImageRequest.swift in Sources */,
 				BF4F3A9426B86B30003B801A /* TradingLogDataSource.swift in Sources */,

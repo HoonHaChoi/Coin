@@ -40,8 +40,8 @@ final class TradingLogAddStore {
             case let .endAmountInput(amount):
                 state.endAmount = amount.limitTextCount()
                 state.isFormValid = isFormValidCheck(state)
-            case .memoInput(let memo):
-                break
+            case let .memoInput(memo):
+                state.memo = memo
             }
         }
         

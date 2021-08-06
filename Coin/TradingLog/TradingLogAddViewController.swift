@@ -54,7 +54,8 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setDatePickerTextField()
         configureStartEndtextField()
-        endAmountTextField.text = ""
+        memoTextView.delegate = self
+        setupTextView()
     }
     
     private func setDatePickerTextField() {
@@ -71,10 +72,15 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
             self?.dispatch?(.endAmountInput(string))
         }.store(in: &cancellable)
         
+        memoTextView.textPublisher.sink { [weak self] string in
+            self?.dispatch?(.memoInput(string))
+        }.store(in: &cancellable)
+        
     }
     
     @objc private func doneBarButtonPressed() {
         dispatch?(.dateInput(datePicker.date))
+        downkeyboard()
     }
     
     @objc private func cancellBarButtonPressed() {
@@ -89,5 +95,28 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         self?.dateTextField.text = state.selectDate
         self?.startAmountTextField.text = state.startAmount
         self?.endAmountTextField.text = state.endAmount
+        self?.memoTextView.text = state.memo
+    }
+}
+
+extension TradingLogAddViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        setupTextView()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            setupTextView()
+        }
+    }
+    
+    private func setupTextView() {
+        if memoTextView.text == "메모(선택사항)" {
+            memoTextView.text = ""
+            memoTextView.textColor = .black
+        } else if memoTextView.text == "" {
+            memoTextView.text = "메모(선택사항)"
+            memoTextView.textColor = .lightGray
+        }
     }
 }

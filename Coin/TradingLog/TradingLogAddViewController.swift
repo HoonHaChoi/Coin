@@ -14,7 +14,8 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     @IBOutlet weak var startAmountTextField: UITextField!
     @IBOutlet weak var endAmountTextField: UITextField!
     @IBOutlet weak var memoTextView: UITextView!
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     private lazy var datePicker: UIDatePicker = {
         var picker = UIDatePicker()
         picker.preferredDatePickerStyle = .wheels
@@ -43,7 +44,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         toolbar.setItems([cancellButton,flexspace,doneButton], animated: true)
         cancellButton.tintColor = .systemRed
         toolbar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
-        toolbar.sizeToFit()
+        toolbar.backgroundColor = .systemBackground
         return toolbar
     }()
     
@@ -54,8 +55,36 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setDatePickerTextField()
         configureStartEndtextField()
+        configureKeyboardNotification()
         memoTextView.delegate = self
         setupTextView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification,object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification,object: nil)
+    }
+    
+    private func configureKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        let contentInset = keyboardFrame.size.height * 0.8
+        scrollView.contentInset.bottom = contentInset
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
     }
     
     private func setDatePickerTextField() {
@@ -95,7 +124,6 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         self?.dateTextField.text = state.selectDate
         self?.startAmountTextField.text = state.startAmount
         self?.endAmountTextField.text = state.endAmount
-        self?.memoTextView.text = state.memo
     }
 }
 
@@ -108,6 +136,10 @@ extension TradingLogAddViewController: UITextViewDelegate {
         if textView.text == "" {
             setupTextView()
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        textView.sizeToFit()
     }
     
     private func setupTextView() {

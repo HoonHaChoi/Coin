@@ -67,6 +67,10 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
             self?.dispatch?(.startAmountInput(string))
         }.store(in: &cancellable)
         
+        endAmountTextField.textPublisher.sink { [weak self] string in
+            self?.dispatch?(.endAmountInput(string))
+        }.store(in: &cancellable)
+        
     }
     
     @objc private func doneBarButtonPressed() {
@@ -84,5 +88,6 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     lazy var updateView: (ViewState) -> () = { [weak self] state in
         self?.dateTextField.text = state.selectDate
         self?.startAmountTextField.text = state.startAmount
+        self?.endAmountTextField.text = state.endAmount
     }
 }

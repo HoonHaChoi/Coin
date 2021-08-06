@@ -37,8 +37,9 @@ final class TradingLogAddStore {
             case let .startAmountInput(amount):
                 state.startAmount = amount.limitTextCount()
                 state.isFormValid = isFormValidCheck(state)
-            case .endAmountInput(let amount):
-                break
+            case let .endAmountInput(amount):
+                state.endAmount = amount.limitTextCount()
+                state.isFormValid = isFormValidCheck(state)
             case .memoInput(let memo):
                 break
             }
@@ -48,7 +49,6 @@ final class TradingLogAddStore {
             return !state.selectDate.isEmpty &&
                 !state.startAmount.isEmpty &&
                 !state.endAmount.isEmpty
-
         }
     }
     

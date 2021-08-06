@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class TradingLogAddViewController: UIViewController, Storyboarded {
 
@@ -47,15 +48,25 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }()
     
     var dispatch: ((Action) -> ())?
+    private var cancellable = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setDatePickerTextField()
+        configureStartEndtextField()
+        endAmountTextField.text = ""
     }
     
     private func setDatePickerTextField() {
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
+    }
+    
+    private func configureStartEndtextField() {
+        startAmountTextField.textPublisher.sink { [weak self] string in
+            self?.dispatch?(.startAmountInput(string))
+        }.store(in: &cancellable)
+        
     }
     
     @objc private func doneBarButtonPressed() {
@@ -71,7 +82,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }
     
     lazy var updateView: (ViewState) -> () = { [weak self] state in
-        self?.downkeyboard()
         self?.dateTextField.text = state.selectDate
+        self?.startAmountTextField.text = state.startAmount
     }
 }

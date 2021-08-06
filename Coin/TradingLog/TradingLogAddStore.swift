@@ -35,7 +35,8 @@ final class TradingLogAddStore {
                 state.selectDate = date.convertString()
                 state.isFormValid = isFormValidCheck(state)
             case let .startAmountInput(amount):
-                break
+                state.startAmount = amount.limitTextCount()
+                state.isFormValid = isFormValidCheck(state)
             case .endAmountInput(let amount):
                 break
             case .memoInput(let memo):

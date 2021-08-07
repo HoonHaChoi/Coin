@@ -44,6 +44,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     
     var dispatch: ((Action) -> ())?
     private var cancellable = Set<AnyCancellable>()
+    private let textViewPlaceHolderText = "메모(선택사항)"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +134,7 @@ extension TradingLogAddViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == "" {
+        if textView.text.isEmpty {
             setupTextView()
         }
     }
@@ -143,11 +144,11 @@ extension TradingLogAddViewController: UITextViewDelegate {
     }
     
     private func setupTextView() {
-        if memoTextView.text == "메모(선택사항)" {
-            memoTextView.text = ""
+        if memoTextView.text == textViewPlaceHolderText {
+            memoTextView.text = nil
             memoTextView.textColor = .black
-        } else if memoTextView.text == "" {
-            memoTextView.text = "메모(선택사항)"
+        } else if memoTextView.text.isEmpty {
+            memoTextView.text = textViewPlaceHolderText
             memoTextView.textColor = .lightGray
         }
     }

@@ -28,24 +28,11 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         picker.backgroundColor = .systemBackground
         return picker
     }()
-
-    private lazy var toolbar: UIToolbar = {
-        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 44.0)))
-        let cancellButton = UIBarButtonItem(title: "취소",
-                                            style: .plain,
-                                            target: nil,
-                                            action: #selector(cancellBarButtonPressed))
-        let flexspace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                        target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "확인",
-                                         style: .done,
-                                         target: nil,
-                                         action: #selector(doneBarButtonPressed))
-        toolbar.setItems([cancellButton,flexspace,doneButton], animated: true)
-        cancellButton.tintColor = .systemRed
-        toolbar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
-        toolbar.backgroundColor = .systemBackground
-        toolbar.sizeToFit()
+    
+    private lazy var datePickerToolBar: UIToolbar = {
+        let toolbar = UIToolbar(width: view.frame.width,
+                                leftAction: #selector(cancellBarButtonPressed),
+                                rightAction: #selector(doneBarButtonPressed))
         return toolbar
     }()
     
@@ -91,7 +78,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }
     
     private func setDatePickerTextField() {
-        dateTextField.inputAccessoryView = toolbar
+        dateTextField.inputAccessoryView = datePickerToolBar
         dateTextField.inputView = datePicker
     }
     

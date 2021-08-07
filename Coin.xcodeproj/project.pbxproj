@@ -70,6 +70,7 @@
 		BFA1541526A152D400341A6D /* FileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541426A152D400341A6D /* FileImage.swift */; };
 		BFA1541726A152F600341A6D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541626A152F600341A6D /* Loader.swift */; };
 		BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541826A153BC00341A6D /* FileManager+Extension.swift */; };
+		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 		BFA1541426A152D400341A6D /* FileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImage.swift; sourceTree = "<group>"; };
 		BFA1541626A152F600341A6D /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		BFA1541826A153BC00341A6D /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				BF4F3ACF26BC6A16003B801A /* DateFormatter+Extension.swift */,
 				BF4F3AD326BC843E003B801A /* UITextField+Extension.swift */,
 				BF4F3AD526BD2438003B801A /* UITextView+Extension.swift */,
+				BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				BF4F3AAD26B9960E003B801A /* TradingLogStore.swift in Sources */,
 				BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */,
 				BF4F3A9626B8723D003B801A /* TradingLogViewModel.swift in Sources */,
+				BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */,
 				BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */,
 				BF9D08EB269CAFCD009B6AA0 /* AppCoordinator.swift in Sources */,
 				BF22BF48268F8119003FD161 /* URLSession+Extension.swift in Sources */,

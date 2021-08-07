@@ -45,6 +45,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         cancellButton.tintColor = .systemRed
         toolbar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
         toolbar.backgroundColor = .systemBackground
+        toolbar.sizeToFit()
         return toolbar
     }()
     
@@ -80,6 +81,8 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         }
         let contentInset = keyboardFrame.size.height * 0.8
         scrollView.contentInset.bottom = contentInset
+        scrollView.verticalScrollIndicatorInsets =
+            UIEdgeInsets(top: .zero, left: .zero, bottom: contentInset, right: .zero)
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {

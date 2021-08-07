@@ -36,12 +36,18 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         return toolbar
     }()
     
+    private lazy var cancellToolbar: UIToolbar = {
+        let toolbar = UIToolbar(width: view.frame.width,
+                                cancellAction: #selector(cancellBarButtonPressed))
+        return toolbar
+    }()
+    
     var dispatch: ((Action) -> ())?
     private var cancellable = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDatePickerTextField()
+        setTextFieldToolbar()
         configureStartEndtextField()
         configureKeyboardNotification()
         memoTextView.delegate = self
@@ -77,9 +83,13 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         scrollView.scrollIndicatorInsets = .zero
     }
     
-    private func setDatePickerTextField() {
+    private func setTextFieldToolbar() {
         dateTextField.inputAccessoryView = datePickerToolBar
         dateTextField.inputView = datePicker
+        
+        startAmountTextField.inputAccessoryView = cancellToolbar
+        endAmountTextField.inputAccessoryView = cancellToolbar
+        memoTextView.inputAccessoryView = cancellToolbar
     }
     
     private func configureStartEndtextField() {

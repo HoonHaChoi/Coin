@@ -38,7 +38,11 @@ class TradingLogStore {
             viewController.navigationController?
                 .pushViewController(tradingLogAddViewController,
                                     animated: true)
-            return subject.eraseToAnyPublisher()
+            return subject
+                .map { log -> TradingLog in
+                    viewController.navigationController?.popViewController(animated: true)
+                return log
+            }.eraseToAnyPublisher()
         }
     }
     

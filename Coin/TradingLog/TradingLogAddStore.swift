@@ -26,6 +26,7 @@ final class TradingLogAddStore {
     
     struct Environment {
         let onDismissSubject: PassthroughSubject<TradingLog, Never>
+        let existData: (Date) -> Bool
     }
     
     struct Reducer {
@@ -36,8 +37,12 @@ final class TradingLogAddStore {
         func reduce(_ action: Action, state: inout State) {
             switch action {
             case let .dateInput(date):
-                state.selectDate = date.convertString()
-                state.isFormValid = isFormValidCheck(state)
+                if environment.existData(date.removeTimeStamp()) {
+
+                } else {
+                    state.selectDate = date.convertString()
+                    state.isFormValid = isFormValidCheck(state)
+                }
             case let .startAmountInput(amount):
                 state.startAmount = amount.limitTextCount()
                 state.isFormValid = isFormValidCheck(state)

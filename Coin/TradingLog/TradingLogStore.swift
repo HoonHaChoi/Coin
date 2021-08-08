@@ -23,11 +23,13 @@ class TradingLogStore {
     
     struct Navigator {
         let viewController: UIViewController
+        let findDataHandler: (Date) -> Bool
         
         func pushTradingLogAddView() -> AnyPublisher<TradingLog, Never> {
             let subject: PassthroughSubject<TradingLog, Never> = .init()
             let tradingLogAddStore = TradingLogAddStore(state: .empty,
-                                                        environment: .init(onDismissSubject: subject))
+                                                        environment: .init(onDismissSubject: subject,
+                                                                           existData: findDataHandler))
             let tradingLogAddViewController = TradingLogAddViewController.instantiate { coder in
                 return TradingLogAddViewController(coder: coder)
             }
@@ -41,8 +43,8 @@ class TradingLogStore {
             return subject
                 .map { log -> TradingLog in
                     viewController.navigationController?.popViewController(animated: true)
-                return log
-            }.eraseToAnyPublisher()
+                    return log
+                }.eraseToAnyPublisher()
         }
     }
     
@@ -69,7 +71,8 @@ class TradingLogStore {
                 environment.dateManager.turnOfBackward()
                 updateState(state: &state)
             case .didTapAddTradingLog:
-                return Navigator(viewController: environment.addTradingView)
+                return Navigator(viewController: environment.addTradingView,
+                                 findDataHandler: environment.coreDataManager.find(date:))
                     .pushTradingLogAddView()
                     .map { _ in Action.loadInitialData }
                     .eraseToAnyPublisher()

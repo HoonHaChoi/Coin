@@ -13,6 +13,7 @@ protocol CoreDataStorage {
     func insert(start: Int, end: Int, date: Date) -> Bool
     func update(index: Int, start: Int, end: Int) -> Bool
     func delete(index: Int) -> Bool
+    func find(date: Date) -> Bool
 }
 
 struct CoreDataStorageManager: CoreDataStorage {
@@ -37,14 +38,8 @@ struct CoreDataStorageManager: CoreDataStorage {
     func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO] {
         
         // dummy 더미데이터
-//        insert(start: 30000, end: 100000, date: Date())
+//        insert(start: 30000, end: 100000, date: Date().removeTimeStamp())
 //        insert(start: 300000, end: 1000000, date: Date())
-//        insert(start: 100,
-//               end: 200,
-//               date: DateManager().turnOfBackward(date: Date()))
-//        insert(start: 1000,
-//               end: 20000,
-//               date: DateManager().turnOfBackward(date: Date()))
         
         fetchRequest.predicate = NSPredicate(format: "date >= %@ && date <= %@",
                                              dates.start as NSDate,
@@ -98,6 +93,15 @@ struct CoreDataStorageManager: CoreDataStorage {
         context.delete(object)
         
         return save()
+    }
+    
+    func find(date: Date) -> Bool {
+        fetchRequest.predicate = NSPredicate(format: "date == %@",
+                                             date as NSDate)
+        guard let tradMO = try? context.fetch(fetchRequest) else {
+            return true
+        }
+        return tradMO.isEmpty ? false : true
     }
     
     private func save() -> Bool {

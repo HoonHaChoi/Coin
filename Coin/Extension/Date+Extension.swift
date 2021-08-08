@@ -12,4 +12,11 @@ extension Date {
         let dateFormat = DateFormatter()
         return dateFormat.convertDateToString(date: self)
     }
+    
+    func removeTimeStamp() -> Date {
+        guard let date = Calendar.current.date(from: Calendar.current.dateComponents([.year,.month,.day], from: self)) else {
+            return Date()
+        }
+        return date
+    }
 }

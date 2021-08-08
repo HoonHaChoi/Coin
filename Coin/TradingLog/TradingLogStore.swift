@@ -5,7 +5,7 @@
 //  Created by HOONHA CHOI on 2021/08/04.
 //
 
-import Foundation
+import UIKit
 import Combine
 
 class TradingLogStore {
@@ -20,10 +20,32 @@ class TradingLogStore {
         var previousButtonState: Bool
         var currentDateString: String
     }
-
+    
+    struct Navigator {
+        let viewController: UIViewController
+        
+        func pushTradingLogAddView() -> AnyPublisher<TradingLog, Never> {
+            let subject: PassthroughSubject<TradingLog, Never> = .init()
+            let tradingLogAddStore = TradingLogAddStore(state: .empty,
+                                                        environment: .init(onDismissSubject: subject))
+            let tradingLogAddViewController = TradingLogAddViewController.instantiate { coder in
+                return TradingLogAddViewController(coder: coder)
+            }
+            
+            tradingLogAddViewController.dispatch = tradingLogAddStore.dispatch(_:)
+            tradingLogAddStore.updateView = tradingLogAddViewController.updateView
+            
+            viewController.navigationController?
+                .pushViewController(tradingLogAddViewController,
+                                    animated: true)
+            return subject.eraseToAnyPublisher()
+        }
+    }
+    
     struct Environment {
         var dateManager: DateManager
         var coreDataManager: CoreDataStorage
+        var addTradingView: UIViewController
     }
     
     struct Reducer {
@@ -31,7 +53,7 @@ class TradingLogStore {
         
         let environment: Environment
         
-        func reduce(_ action: Action, state: inout State) {
+        func reduce(_ action: Action, state: inout State) -> AnyPublisher<Action, Never>? {
             switch action {
             
             case .loadInitialData:
@@ -42,7 +64,13 @@ class TradingLogStore {
             case .didTapBackWardMonth:
                 environment.dateManager.turnOfBackward()
                 updateState(state: &state)
+            case .didTapAddTradingLog:
+                return Navigator(viewController: environment.addTradingView)
+                    .pushTradingLogAddView()
+                    .map { _ in Action.loadInitialData }
+                    .eraseToAnyPublisher()
             }
+            return nil
         }
         
         private func updateState(state: inout State) {
@@ -60,7 +88,7 @@ class TradingLogStore {
     
     @Published private(set) var state: State
     private var environment: Environment
-    private var cancell: AnyCancellable?
+    private var cancell = Set<AnyCancellable>()
     var updateState: ((TradingLogViewController.ViewState) -> Void)?
     
     init(state: State,
@@ -68,13 +96,18 @@ class TradingLogStore {
         self.state = state
         self.environment = environment
         
-        cancell = $state.sink(receiveValue: { [weak self] state in
+        $state.sink(receiveValue: { [weak self] state in
             self?.updateState?(TradingLogViewController.ViewState(state: state))
-        })
+        }).store(in: &cancell)
     }
     
     func dispatch(_ action: TradingLogViewController.Action) {
         reducer.reduce(action, state: &state)
+            .map { action in
+                action.sink { [weak self] action in
+                    self?.dispatch(action)
+                }.store(in: &cancell)
+            }
     }
 }
 

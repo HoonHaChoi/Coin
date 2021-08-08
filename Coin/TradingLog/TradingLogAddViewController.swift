@@ -41,6 +41,12 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
                                 cancellAction: #selector(cancellBarButtonPressed))
         return toolbar
     }()
+    private lazy var addBarButton: UIBarButtonItem = {
+        let addBarButton = UIBarButtonItem(title: "등록", style: .done,
+                                           target: self, action: #selector(addDoneButtonPressed))
+        addBarButton.isEnabled = false
+        return addBarButton
+    }()
     
     var dispatch: ((Action) -> ())?
     private var cancellable = Set<AnyCancellable>()
@@ -51,6 +57,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         setTextFieldToolbar()
         configureStartEndtextField()
         configureKeyboardNotification()
+        configureNavigationAddItem()
         memoTextView.delegate = self
         setupTextView()
     }
@@ -82,6 +89,14 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     @objc func keyboardWillHide(_ notification: Notification) {
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero
+    }
+    
+    private func configureNavigationAddItem() {
+        navigationItem.rightBarButtonItem = addBarButton
+    }
+    
+    @objc func addDoneButtonPressed() {
+        dispatch?(.addTradingLog)
     }
     
     private func setTextFieldToolbar() {
@@ -125,6 +140,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         self?.dateTextField.text = state.selectDate
         self?.startAmountTextField.text = state.startAmount
         self?.endAmountTextField.text = state.endAmount
+        self?.addBarButton.isEnabled = state.isFormValid
     }
 }
 

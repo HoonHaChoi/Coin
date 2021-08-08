@@ -24,10 +24,14 @@ final class TradingLogAddStore {
         var isFormValid: Bool
     }
     
-    struct Environment {}
+    struct Environment {
+        let onDismissSubject: PassthroughSubject<TradingLog, Never>
+    }
     
     struct Reducer {
         typealias Action = TradingLogAddViewController.Action
+        
+        let environment: Environment
         
         func reduce(_ action: Action, state: inout State) {
             switch action {
@@ -42,10 +46,15 @@ final class TradingLogAddStore {
                 state.isFormValid = isFormValidCheck(state)
             case let .memoInput(memo):
                 state.memo = memo
+            case .addTradingLog:
+                environment.onDismissSubject
+                    .send(TradingLog(startPrice: Int(state.startAmount) ?? 0,
+                                     endPrice: Int(state.endAmount) ?? 0,
+                                     date: state.selectDate.convertDate()))
             }
         }
         
-        private var isFormValidCheck: (State) -> Bool = { state in
+        var isFormValidCheck: (State) -> Bool = { state in
             return !state.selectDate.isEmpty &&
                 !state.startAmount.isEmpty &&
                 !state.endAmount.isEmpty
@@ -53,16 +62,18 @@ final class TradingLogAddStore {
     }
     
     private var reducer: Reducer {
-        return Reducer()
+        return Reducer(environment: environment)
     }
     
     @Published private(set) var state: State
     private var cancellable: AnyCancellable?
-    
+    private var environment: Environment
     var updateView: ((TradingLogAddViewController.ViewState) -> ())?
     
-    init(state: State) {
+    init(state: State,
+         environment: Environment) {
         self.state = state
+        self.environment = environment
         
         cancellable = $state.sink(receiveValue: { [weak self] state in
             self?.updateView?(TradingLogAddViewController.ViewState(state: state))

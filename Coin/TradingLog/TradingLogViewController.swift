@@ -58,7 +58,8 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     @IBAction func dateChangeButtonAction(_ sender: UIButton) {}
     
     @IBAction func addTradingLogAction(_ sender: UIButton) {
-        coordinator?.addTradingLogTapped()
+        dispatch?(.didTapAddTradingLog)
+//        coordinator?.addTradingLogTapped()
     }
     
     @IBAction func changeOrderAction(_ sender: UIButton) {}

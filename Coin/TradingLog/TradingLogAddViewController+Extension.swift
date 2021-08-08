@@ -14,6 +14,7 @@ extension TradingLogAddViewController {
         case startAmountInput(String)
         case endAmountInput(String)
         case memoInput(String)
+        case addTradingLog
     }
     
     struct ViewState {

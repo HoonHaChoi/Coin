@@ -34,6 +34,7 @@ final class TradingLogViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         tradingLogTableView.register(cell: TradingLogCell.self)
         tradingLogTableView.dataSource = dataSource
+        tradingLogTableView.delegate = self
         tradingLogTableView.rowHeight = UITableView.automaticDimension
         tradingLogTableView.estimatedRowHeight = 200
         dispatch?(.loadInitialData)
@@ -66,3 +67,13 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     
 }
 
+extension TradingLogViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "",handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+        })
+        deleteAction.backgroundColor = .systemBackground
+        deleteAction.image = UIImage(systemName: "trash")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+}

@@ -69,8 +69,15 @@ final class TradingLogViewController: UIViewController, Storyboarded {
 
 extension TradingLogViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .normal, title: "",handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-        })
+        let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, _  in
+            guard let row = self?.dataSource.fetchTradingLog(index: indexPath.row),
+                  let tradinglogDate = row.date else {
+                return
+            }
+            
+            self?.dispatch?(.deleteTradingLog(tradinglogDate))
+        }
+        
         deleteAction.backgroundColor = .systemBackground
         deleteAction.image = UIImage(systemName: "trash")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
         

@@ -94,6 +94,10 @@ class TradingLogStore {
             case let .addTradingLog(log):
                 environment.coreDataManager.insert(tradingLog: log)
                 updateState(state: &state)
+                
+            case let .deleteTradingLog(date):
+                environment.coreDataManager.delete(date: date)
+                updateState(state: &state)
             }
             return nil
         }

@@ -40,6 +40,10 @@ class TradingLogDataSource: NSObject, UITableViewDataSource {
     func updateLog(logs: [TradingLogMO]) {
         self.tradingLogs = logs
     }
+    
+    func fetchTradingLog(index: Int) -> TradingLogMO {
+        return tradingLogs[index]
+    }
 }
 
 

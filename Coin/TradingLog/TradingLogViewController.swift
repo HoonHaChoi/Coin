@@ -80,9 +80,16 @@ extension TradingLogViewController: UITableViewDelegate {
             self?.present(alert, animated: true, completion: nil)
         }
         
+        let editAction = UIContextualAction(style: .normal, title: "") { _, _, _ in
+            
+        }
+        
         deleteAction.backgroundColor = .systemBackground
         deleteAction.image = UIImage(systemName: "trash")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
         
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        editAction.backgroundColor = .systemBackground
+        editAction.image = UIImage(systemName: "square.and.pencil")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }

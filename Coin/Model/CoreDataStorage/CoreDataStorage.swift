@@ -12,7 +12,7 @@ protocol CoreDataStorage {
     func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO]
     func insert(tradingLog: TradingLog) -> Bool
     func update(index: Int, start: Int, end: Int) -> Bool
-    func delete(index: Int) -> Bool
+    func delete(date: Date) -> Bool
     func find(date: Date) -> Bool
 }
 
@@ -83,12 +83,17 @@ struct CoreDataStorageManager: CoreDataStorage {
         return save()
     }
     
-    func delete(index: Int) -> Bool {
-        guard let tradMO = try? context.fetch(fetchRequest) else {
+    func delete(date: Date) -> Bool {
+        
+        fetchRequest.predicate = NSPredicate(format: "date == %@",
+                                             date as NSDate)
+        
+        guard let tradMO = try? context.fetch(fetchRequest),
+              let tradMOfirst = tradMO.first else {
             return false
         }
 
-        let object = context.object(with: tradMO[index].objectID)
+        let object = context.object(with: tradMOfirst.objectID)
         context.delete(object)
         
         return save()

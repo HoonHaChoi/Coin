@@ -28,7 +28,7 @@ struct TradingLogViewModel {
         storage.update(index: index, start: start, end: end)
     }
     
-    func deleteLog(index: Int) {
-        storage.delete(index: index)
-    }
+//    func deleteLog(index: Int) {
+//        storage.delete(index: index)
+//    }
 }

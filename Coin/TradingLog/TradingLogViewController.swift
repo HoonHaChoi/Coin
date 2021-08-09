@@ -74,8 +74,10 @@ extension TradingLogViewController: UITableViewDelegate {
                   let tradinglogDate = row.date else {
                 return
             }
-            
-            self?.dispatch?(.deleteTradingLog(tradinglogDate))
+            let alert = UIAlertController { _ in
+                self?.dispatch?(.deleteTradingLog(tradinglogDate))
+            }
+            self?.present(alert, animated: true, completion: nil)
         }
         
         deleteAction.backgroundColor = .systemBackground

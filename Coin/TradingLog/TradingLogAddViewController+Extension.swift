@@ -15,6 +15,7 @@ extension TradingLogAddViewController {
         case endAmountInput(String)
         case memoInput(String)
         case addTradingLog
+        case alertDissmiss
     }
     
     struct ViewState {
@@ -23,6 +24,7 @@ extension TradingLogAddViewController {
         var endAmount: String?
         var memo: String?
         var isFormValid: Bool
+        var alert: UIAlertController?
     }
 }
 

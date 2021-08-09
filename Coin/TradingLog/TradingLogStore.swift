@@ -27,9 +27,23 @@ class TradingLogStore {
         
         func pushTradingLogAddView() -> AnyPublisher<TradingLog, Never> {
             let subject: PassthroughSubject<TradingLog, Never> = .init()
-            let tradingLogAddStore = TradingLogAddStore(state: .empty,
-                                                        environment: .init(onDismissSubject: subject,
-                                                                           existData: findDataHandler))
+            
+            var tradingErrorAlert: UIAlertController {
+                let alert = UIAlertController(title: "이미 해당날이 일지가 존재합니다",
+                                              message: "다른날을 선택해주세요!",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                return alert
+            }
+            
+            let tradingLogAddStore =
+                TradingLogAddStore(state: .empty,
+                                   environment:
+                                    .init(onDismissSubject: subject,
+                                          existData: findDataHandler,
+                                          alert: tradingErrorAlert)
+                )
+            
             let tradingLogAddViewController = TradingLogAddViewController.instantiate { coder in
                 return TradingLogAddViewController(coder: coder)
             }

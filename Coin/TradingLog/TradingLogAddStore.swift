@@ -5,7 +5,7 @@
 //  Created by HOONHA CHOI on 2021/08/05.
 //
 
-import Foundation
+import UIKit
 import Combine
 
 final class TradingLogAddStore {
@@ -22,11 +22,13 @@ final class TradingLogAddStore {
         var endAmount: String
         var memo: String?
         var isFormValid: Bool
+        var errorAlert: UIAlertController?
     }
     
     struct Environment {
         let onDismissSubject: PassthroughSubject<TradingLog, Never>
         let existData: (Date) -> Bool
+        let alert: UIAlertController
     }
     
     struct Reducer {
@@ -38,7 +40,8 @@ final class TradingLogAddStore {
             switch action {
             case let .dateInput(date):
                 if environment.existData(date.removeTimeStamp()) {
-
+                    state.selectDate = ""
+                    state.errorAlert = environment.alert
                 } else {
                     state.selectDate = date.convertString()
                     state.isFormValid = isFormValidCheck(state)
@@ -56,6 +59,8 @@ final class TradingLogAddStore {
                     .send(TradingLog(startPrice: Int(state.startAmount) ?? 0,
                                      endPrice: Int(state.endAmount) ?? 0,
                                      date: state.selectDate.convertDate()))
+            case .alertDissmiss:
+                state.errorAlert = nil
             }
         }
         
@@ -97,5 +102,6 @@ private extension TradingLogAddViewController.ViewState {
         self.endAmount = state.endAmount
         self.memo = state.memo
         self.isFormValid = state.isFormValid
+        self.alert = state.errorAlert
     }
 }

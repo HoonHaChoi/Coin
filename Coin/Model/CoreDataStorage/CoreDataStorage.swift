@@ -10,7 +10,7 @@ import CoreData
 
 protocol CoreDataStorage {
     func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO]
-    func insert(start: Int, end: Int, date: Date) -> Bool
+    func insert(tradingLog: TradingLog) -> Bool
     func update(index: Int, start: Int, end: Int) -> Bool
     func delete(index: Int) -> Bool
     func find(date: Date) -> Bool
@@ -52,19 +52,18 @@ struct CoreDataStorageManager: CoreDataStorage {
     }
     
     @discardableResult
-    func insert(start: Int, end: Int, date: Date) -> Bool {
-        var trading = TradingLog(startPrice: start, endPrice: end, date: date)
-        
+    func insert(tradingLog: TradingLog) -> Bool {
+
         guard let object = NSEntityDescription.insertNewObject(forEntityName: "TradingLog", into: context) as? TradingLogMO else {
             return false
         }
         
-        object.startPrice = Int64(trading.startPrice)
-        object.endPrice = Int64(trading.endPrice)
-        object.date = trading.date
-        object.rate = trading.rate
-        object.profit = Int64(trading.profit)
-        object.marketState = trading.market.state
+        object.startPrice = Int64(tradingLog.startPrice)
+        object.endPrice = Int64(tradingLog.endPrice)
+        object.date = tradingLog.date.removeTimeStamp()
+        object.rate = tradingLog.rate()
+        object.profit = Int64(tradingLog.profit())
+        object.marketState = tradingLog.market.state
         
         return save()
     }
@@ -77,8 +76,8 @@ struct CoreDataStorageManager: CoreDataStorage {
         
         tradMO[index].startPrice = Int64(dummyTrading.startPrice)
         tradMO[index].endPrice = Int64(dummyTrading.endPrice)
-        tradMO[index].rate = dummyTrading.rate
-        tradMO[index].profit = Int64(dummyTrading.profit)
+        tradMO[index].rate = dummyTrading.rate()
+        tradMO[index].profit = Int64(dummyTrading.profit())
         tradMO[index].marketState = dummyTrading.market.state
         
         return save()

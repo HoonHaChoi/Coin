@@ -30,8 +30,13 @@ struct TradingLog {
     var endPrice: Int
     var date: Date
     
-    lazy var rate: Double = Double((endPrice - startPrice)) / Double(startPrice) * 100
-    lazy var profit: Int = endPrice - startPrice
+    func rate() -> Double {
+        return Double((endPrice - startPrice)) / Double(startPrice) * 100
+    }
+
+    func profit() -> Int {
+        return endPrice - startPrice
+    }
     
     var market: Market {
         if endPrice - startPrice > 0 {

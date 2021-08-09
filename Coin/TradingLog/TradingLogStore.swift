@@ -88,8 +88,12 @@ class TradingLogStore {
                 return Navigator(viewController: environment.addTradingView,
                                  findDataHandler: environment.coreDataManager.find(date:))
                     .pushTradingLogAddView()
-                    .map { _ in Action.loadInitialData }
+                    .map { log in Action.addTradingLog(log) }
                     .eraseToAnyPublisher()
+                
+            case let .addTradingLog(log):
+                environment.coreDataManager.insert(tradingLog: log)
+                updateState(state: &state)
             }
             return nil
         }

@@ -19,9 +19,9 @@ struct TradingLogViewModel {
 //        return storage.fetch()
 //    }
     
-    func insertLog(start: Int, end: Int, date: Date) {
-        storage.insert(start: start, end: end, date: date)
-    }
+//    func insertLog(start: Int, end: Int, date: Date) {
+//        storage.insert(start: start, end: end, date: date)
+//    }
     
     func updateLog(index: Int, start: Int,
                    end: Int) {

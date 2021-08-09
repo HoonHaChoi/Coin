@@ -20,12 +20,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-Hh-C3W">
                                 <rect key="frame" x="15" y="15" width="345" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 금액" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-MY-dIR">
                                 <rect key="frame" x="15" y="67" width="340" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xt1-hM-q1x">
                                 <rect key="frame" x="0.0" y="51" width="375" height="1"/>

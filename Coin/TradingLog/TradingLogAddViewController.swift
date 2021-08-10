@@ -74,12 +74,18 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         configureStartEndtextField()
         configureKeyboardNotification()
         configureNavigationAddItem()
+        configureViewForm()
         memoTextView.delegate = self
         setupTextView()
+    }
+    
+    func configureViewForm() {
         switch viewForm {
         case .add:
             break
         case .edit(let date):
+            dateTextField.isEnabled = false
+            dateTextField.textColor = .lightGray
             dispatch?(.editInput(date))
         }
     }

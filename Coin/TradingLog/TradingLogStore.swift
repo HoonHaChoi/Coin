@@ -104,6 +104,8 @@ class TradingLogStore {
             case let .editTradingLog(log):
                 environment.coreDataManager.update(tradingLog: log)
                 updateState(state: &state)
+            case .didTapDateAscending:
+                break
             }
             return Empty().eraseToAnyPublisher()
         }

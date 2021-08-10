@@ -54,7 +54,9 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     @IBAction func previouseButtonAction(_ sender: UIButton) {
         dispatch?(.didTapBackWardMonth)
     }
-    @IBAction func dateChangeButtonAction(_ sender: UIButton) {}
+    @IBAction func ascendDateButtonAction(_ sender: UIButton) {
+        dispatch?(.didTapDateAscending)
+    }
     
     @IBAction func addTradingLogAction(_ sender: UIButton) {
         dispatch?(.didTapAddTradingLog)

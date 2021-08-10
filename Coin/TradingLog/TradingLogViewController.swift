@@ -83,7 +83,7 @@ extension TradingLogViewController: UITableViewDelegate {
         }
         
         let editAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, _ in
-            self?.dispatch?(.editTradingLog)
+            self?.dispatch?(.didTapEditTradingLog(tradinglogDate))
         }
         
         deleteAction.backgroundColor = .systemBackground

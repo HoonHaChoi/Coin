@@ -61,8 +61,13 @@ final class TradingLogAddStore {
                                      date: state.selectDate.convertDate()))
             case .alertDissmiss:
                 state.errorAlert = nil
-            case .editInput:
-                break
+            case let .editInput(date):
+                let data = environment.existData(date.removeTimeStamp())
+                guard let log = data.first else { return }
+                state.selectDate = log.date?.convertString() ?? ""
+                state.startAmount = "\(log.startPrice)".limitTextCount()
+                state.endAmount = "\(log.endPrice)".limitTextCount()
+                state.isFormValid = isFormValidCheck(state)
             }
         }
         

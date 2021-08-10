@@ -25,7 +25,7 @@ class TradingLogStore {
         let viewController: UIViewController
         let findDataHandler: (Date) -> [TradingLogMO]
         
-        func pushTradingLogAddView() -> AnyPublisher<TradingLog, Never> {
+        func pushTradingLogAddView(style: FormStyle) -> AnyPublisher<TradingLog, Never> {
             let subject: PassthroughSubject<TradingLog, Never> = .init()
                     
             let tradingErrorAlert = UIAlertController(
@@ -41,7 +41,7 @@ class TradingLogStore {
                 )
             
             let tradingLogAddViewController = TradingLogAddViewController.instantiate { coder in
-                return TradingLogAddViewController(coder: coder)
+                return TradingLogAddViewController(coder: coder, style: style)
             }
             
             tradingLogAddViewController.dispatch = tradingLogAddStore.dispatch(_:)
@@ -83,7 +83,7 @@ class TradingLogStore {
             case .didTapAddTradingLog:
                 return Navigator(viewController: environment.addTradingView,
                                  findDataHandler: environment.coreDataManager.find(date:))
-                    .pushTradingLogAddView()
+                    .pushTradingLogAddView(style: .add)
                     .map { log in Action.addTradingLog(log) }
                     .eraseToAnyPublisher()
                 
@@ -95,7 +95,10 @@ class TradingLogStore {
                 environment.coreDataManager.delete(date: date)
                 updateState(state: &state)
                 
-            case .editTradingLog:
+            case let .didTapEditTradingLog(date):
+                Navigator(viewController: environment.addTradingView,
+                          findDataHandler: environment.coreDataManager.find(date:)).pushTradingLogAddView(style: .edit(date))
+                
                 break
             }
             return nil

@@ -16,7 +16,7 @@ extension TradingLogAddViewController {
         case memoInput(String)
         case addTradingLog
         case alertDissmiss
-        case editInput
+        case editInput(Date)
     }
     
     struct ViewState {

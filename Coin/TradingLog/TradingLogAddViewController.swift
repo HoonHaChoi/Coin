@@ -8,8 +8,24 @@
 import UIKit
 import Combine
 
+enum FormStyle {
+    case add
+    case edit(Date)
+}
+
 class TradingLogAddViewController: UIViewController, Storyboarded {
 
+    private var viewForm: FormStyle
+    
+    init?(coder: NSCoder, style: FormStyle) {
+        viewForm = style
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var startAmountTextField: UITextField!
     @IBOutlet weak var endAmountTextField: UITextField!
@@ -60,6 +76,12 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         configureNavigationAddItem()
         memoTextView.delegate = self
         setupTextView()
+        switch viewForm {
+        case .add:
+            break
+        case .edit(let date):
+            dispatch?(.editInput(date))
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -29,6 +29,7 @@ struct TradingLog {
     var startPrice: Int
     var endPrice: Int
     var date: Date
+    var memo: String?
     
     func rate() -> Double {
         return Double((endPrice - startPrice)) / Double(startPrice) * 100

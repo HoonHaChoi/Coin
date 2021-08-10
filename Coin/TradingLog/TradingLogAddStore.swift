@@ -58,7 +58,8 @@ final class TradingLogAddStore {
                 environment.onDismissSubject
                     .send(TradingLog(startPrice: Int(state.startAmount) ?? 0,
                                      endPrice: Int(state.endAmount) ?? 0,
-                                     date: state.selectDate.convertDate()))
+                                     date: state.selectDate.convertDate(),
+                                     memo: state.memo))
             case .alertDissmiss:
                 state.errorAlert = nil
             case let .editInput(date):
@@ -68,6 +69,7 @@ final class TradingLogAddStore {
                 state.startAmount = "\(log.startPrice)".limitTextCount()
                 state.endAmount = "\(log.endPrice)".limitTextCount()
                 state.isFormValid = isFormValidCheck(state)
+                state.memo = log.memo
             }
         }
         

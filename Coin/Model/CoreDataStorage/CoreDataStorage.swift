@@ -60,7 +60,7 @@ struct CoreDataStorageManager: CoreDataStorage {
         object.rate = tradingLog.rate()
         object.profit = Int64(tradingLog.profit())
         object.marketState = tradingLog.market.state
-        
+        object.memo = tradingLog.memo
         return save()
     }
     
@@ -77,6 +77,7 @@ struct CoreDataStorageManager: CoreDataStorage {
         log.rate = tradingLog.rate()
         log.profit = Int64(tradingLog.profit())
         log.marketState = tradingLog.market.state
+        log.memo = tradingLog.memo!
         return save()
     }
     

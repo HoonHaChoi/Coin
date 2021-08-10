@@ -17,11 +17,14 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     @IBOutlet weak var previousButton: UIButton!
     
     private let dataSource: TradingLogDataSource
+    private let userSettingChange: UserSettingChangeable
     var dispatch: ((Action)->Void)?
     
     init?(coder: NSCoder,
-          dataSource: TradingLogDataSource) {
+          dataSource: TradingLogDataSource,
+          userSettingChange: UserSettingChangeable) {
         self.dataSource = dataSource
+        self.userSettingChange = userSettingChange
         super.init(coder: coder)
     }
     
@@ -54,15 +57,16 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     @IBAction func previouseButtonAction(_ sender: UIButton) {
         dispatch?(.didTapBackWardMonth)
     }
-    @IBAction func ascendDateButtonAction(_ sender: UIButton) {
-        dispatch?(.didTapDateAscending)
-    }
+    @IBAction func ascendDateButtonAction(_ sender: UIButton) {}
     
     @IBAction func addTradingLogAction(_ sender: UIButton) {
         dispatch?(.didTapAddTradingLog)
     }
     
-    @IBAction func changeOrderAction(_ sender: UIButton) {}
+    @IBAction func changeOrderAction(_ sender: UIButton) {
+        userSettingChange.changeAsceding()
+        dispatch?(.didTapDateAscending)
+    }
     
 }
 

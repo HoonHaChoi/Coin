@@ -105,7 +105,7 @@ class TradingLogStore {
                 environment.coreDataManager.update(tradingLog: log)
                 updateState(state: &state)
             case .didTapDateAscending:
-                break
+                updateState(state: &state)
             }
             return Empty().eraseToAnyPublisher()
         }

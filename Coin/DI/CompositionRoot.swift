@@ -73,7 +73,8 @@ struct AppDependency {
         let tradingLogDataSource = TradingLogDataSource()
         let tradingLogViewController = TradingLogViewController.instantiate { coder in
             return TradingLogViewController(coder: coder,
-                                            dataSource: tradingLogDataSource)
+                                            dataSource: tradingLogDataSource,
+                                            userSettingChange: userSetting)
         }
         
         let tradingLogStore = TradingLogStore(

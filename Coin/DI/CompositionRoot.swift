@@ -11,7 +11,12 @@ struct AppDependency {
     
     let imageLoader = ImageLoader()
     let socket = Socket(url: Endpoint.socketURL)
-    let coredata = CoreDataStorageManager(modelName: "TradingLogModel")
+    let userSetting = UserSetting()
+    
+    private func makeTradingLogCoreData() -> CoreDataStorageManager {
+        return CoreDataStorageManager(modelName: "TradingLogModel",
+                                          userSettingfetch: userSetting)
+    }
     
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
         return TabBarCoordinator(navigationController: navigation,
@@ -74,7 +79,7 @@ struct AppDependency {
         let tradingLogStore = TradingLogStore(
             state: .empty,
             environment: .init(dateManager: dateManager,
-                               coreDataManager: coredata,
+                               coreDataManager: makeTradingLogCoreData(),
                                addTradingView: tradingLogViewController))
         
         

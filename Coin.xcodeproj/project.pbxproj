@@ -71,6 +71,7 @@
 		BFA1541726A152F600341A6D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541626A152F600341A6D /* Loader.swift */; };
 		BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541826A153BC00341A6D /* FileManager+Extension.swift */; };
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
+		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		BFA1541626A152F600341A6D /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		BFA1541826A153BC00341A6D /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
+		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 			children = (
 				BFA153FD26A0542D00341A6D /* ImageLoader.swift */,
 				BF4F3A9726B94C50003B801A /* DateManager.swift */,
+				BFD5199626C2D24E00226FF8 /* UserSetting.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */,
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,
+				BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF4F3AD026BC6A17003B801A /* DateFormatter+Extension.swift in Sources */,
 				BF92D7E226B57DF20033B773 /* TradingLogViewController.swift in Sources */,

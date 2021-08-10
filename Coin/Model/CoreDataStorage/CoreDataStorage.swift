@@ -11,7 +11,7 @@ import CoreData
 protocol CoreDataStorage {
     func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO]
     func insert(tradingLog: TradingLog) -> Bool
-    func update(index: Int, start: Int, end: Int) -> Bool
+    func update(tradingLog: TradingLog) -> Bool
     func delete(date: Date) -> Bool
     func find(date: Date) -> [TradingLogMO]
 }
@@ -36,10 +36,6 @@ struct CoreDataStorageManager: CoreDataStorage {
     }
     
     func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO] {
-        
-        // dummy 더미데이터
-//        insert(start: 30000, end: 100000, date: Date().removeTimeStamp())
-//        insert(start: 300000, end: 1000000, date: Date())
         
         fetchRequest.predicate = NSPredicate(format: "date >= %@ && date <= %@",
                                              dates.start as NSDate,
@@ -68,18 +64,19 @@ struct CoreDataStorageManager: CoreDataStorage {
         return save()
     }
     
-    func update(index: Int, start: Int, end: Int) -> Bool {
-        guard let tradMO = try? context.fetch(fetchRequest) else {
+    func update(tradingLog: TradingLog) -> Bool {
+        
+        fetchRequest.predicate = NSPredicate(format: "date == %@",
+                                             tradingLog.date as NSDate)
+        guard let tradingLogs = try? context.fetch(fetchRequest),
+              let log = tradingLogs.first else {
             return false
         }
-        var dummyTrading = TradingLog(startPrice: start, endPrice: end, date: Date())
-        
-        tradMO[index].startPrice = Int64(dummyTrading.startPrice)
-        tradMO[index].endPrice = Int64(dummyTrading.endPrice)
-        tradMO[index].rate = dummyTrading.rate()
-        tradMO[index].profit = Int64(dummyTrading.profit())
-        tradMO[index].marketState = dummyTrading.market.state
-        
+        log.startPrice = Int64(tradingLog.startPrice)
+        log.endPrice = Int64(tradingLog.endPrice)
+        log.rate = tradingLog.rate()
+        log.profit = Int64(tradingLog.profit())
+        log.marketState = tradingLog.market.state
         return save()
     }
     

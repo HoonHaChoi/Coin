@@ -16,6 +16,7 @@ extension TradingLogViewController {
         case addTradingLog(TradingLog)
         case deleteTradingLog(Date)
         case didTapEditTradingLog(Date)
+        case editTradingLog(TradingLog)
     }
     
     struct ViewState {

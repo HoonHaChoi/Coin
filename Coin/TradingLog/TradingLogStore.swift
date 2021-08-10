@@ -96,10 +96,14 @@ class TradingLogStore {
                 updateState(state: &state)
                 
             case let .didTapEditTradingLog(date):
-                Navigator(viewController: environment.addTradingView,
+                return Navigator(viewController: environment.addTradingView,
                           findDataHandler: environment.coreDataManager.find(date:)).pushTradingLogAddView(style: .edit(date))
+                    .map { log in Action.editTradingLog(log) }
+                    .eraseToAnyPublisher()
                 
-                break
+            case let .editTradingLog(log):
+                environment.coreDataManager.update(tradingLog: log)
+                updateState(state: &state)
             }
             return nil
         }

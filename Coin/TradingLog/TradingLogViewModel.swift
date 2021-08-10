@@ -23,10 +23,10 @@ struct TradingLogViewModel {
 //        storage.insert(start: start, end: end, date: date)
 //    }
     
-    func updateLog(index: Int, start: Int,
-                   end: Int) {
-        storage.update(index: index, start: start, end: end)
-    }
+//    func updateLog(index: Int, start: Int,
+//                   end: Int) {
+//        storage.update(index: index, start: start, end: end)
+//    }
     
 //    func deleteLog(index: Int) {
 //        storage.delete(index: index)

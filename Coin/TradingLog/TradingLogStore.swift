@@ -105,7 +105,7 @@ class TradingLogStore {
                 environment.coreDataManager.update(tradingLog: log)
                 updateState(state: &state)
             }
-            return nil
+            return Empty().eraseToAnyPublisher()
         }
         
         private func updateState(state: inout State) {

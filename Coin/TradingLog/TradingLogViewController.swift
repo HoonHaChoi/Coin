@@ -18,7 +18,6 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     
     private let dataSource: TradingLogDataSource
     var dispatch: ((Action)->Void)?
-    var coordinator: TradingLogCoordinator?
     
     init?(coder: NSCoder,
           dataSource: TradingLogDataSource) {
@@ -45,7 +44,6 @@ final class TradingLogViewController: UIViewController, Storyboarded {
         currentDateButton.setTitle(state.currentDateString, for: .normal)
         nextButton.isHidden = state.nextButtonState
         previousButton.isHidden = state.previousButtonState
-        
         tradingLogTableView.reloadData()
     }
     
@@ -60,7 +58,6 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     
     @IBAction func addTradingLogAction(_ sender: UIButton) {
         dispatch?(.didTapAddTradingLog)
-//        coordinator?.addTradingLogTapped()
     }
     
     @IBAction func changeOrderAction(_ sender: UIButton) {}

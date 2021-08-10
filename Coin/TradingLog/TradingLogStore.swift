@@ -23,7 +23,7 @@ class TradingLogStore {
     
     struct Navigator {
         let viewController: UIViewController
-        let findDataHandler: (Date) -> Bool
+        let findDataHandler: (Date) -> [TradingLogMO]
         
         func pushTradingLogAddView() -> AnyPublisher<TradingLog, Never> {
             let subject: PassthroughSubject<TradingLog, Never> = .init()
@@ -94,6 +94,9 @@ class TradingLogStore {
             case let .deleteTradingLog(date):
                 environment.coreDataManager.delete(date: date)
                 updateState(state: &state)
+                
+            case .editTradingLog:
+                break
             }
             return nil
         }

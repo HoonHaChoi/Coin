@@ -13,7 +13,7 @@ protocol CoreDataStorage {
     func insert(tradingLog: TradingLog) -> Bool
     func update(index: Int, start: Int, end: Int) -> Bool
     func delete(date: Date) -> Bool
-    func find(date: Date) -> Bool
+    func find(date: Date) -> [TradingLogMO]
 }
 
 struct CoreDataStorageManager: CoreDataStorage {
@@ -99,13 +99,13 @@ struct CoreDataStorageManager: CoreDataStorage {
         return save()
     }
     
-    func find(date: Date) -> Bool {
+    func find(date: Date) -> [TradingLogMO] {
         fetchRequest.predicate = NSPredicate(format: "date == %@",
                                              date as NSDate)
         guard let tradMO = try? context.fetch(fetchRequest) else {
-            return true
+            return []
         }
-        return tradMO.isEmpty ? false : true
+        return tradMO
     }
     
     private func save() -> Bool {

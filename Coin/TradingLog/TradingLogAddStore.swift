@@ -27,7 +27,7 @@ final class TradingLogAddStore {
     
     struct Environment {
         let onDismissSubject: PassthroughSubject<TradingLog, Never>
-        let existData: (Date) -> Bool
+        let existData: (Date) -> [TradingLogMO]
         let alert: UIAlertController
     }
     
@@ -39,12 +39,12 @@ final class TradingLogAddStore {
         func reduce(_ action: Action, state: inout State) {
             switch action {
             case let .dateInput(date):
-                if environment.existData(date.removeTimeStamp()) {
-                    state.selectDate = ""
-                    state.errorAlert = environment.alert
-                } else {
+                if environment.existData(date.removeTimeStamp()).isEmpty {
                     state.selectDate = date.convertString()
                     state.isFormValid = isFormValidCheck(state)
+                } else {
+                    state.selectDate = ""
+                    state.errorAlert = environment.alert
                 }
             case let .startAmountInput(amount):
                 state.startAmount = amount.limitTextCount()
@@ -61,6 +61,8 @@ final class TradingLogAddStore {
                                      date: state.selectDate.convertDate()))
             case .alertDissmiss:
                 state.errorAlert = nil
+            case .editInput:
+                break
             }
         }
         

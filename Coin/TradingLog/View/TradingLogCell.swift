@@ -30,10 +30,11 @@ class TradingLogCell: UITableViewCell {
     
     func configure(log: TradingLogMO) {
         configureDate(from: log.date)
+        configureRate(from: log.rate)
         self.startPriceLabel.text = "\(log.startPrice)"
         self.endPriceLabel.text = "\(log.endPrice)"
         self.proceedsLabel.text = "\(log.profit)"
-        self.yieldLabel.text = "\(log.rate)"
+        
     }
 
     private func configureDate(from: Date?) {
@@ -42,4 +43,8 @@ class TradingLogCell: UITableViewCell {
         self.dayOfTheWeekLabel.text = DayOfWeek(rawValue: date.showCurrentDayOfWeek())!.description
     }
     
+    private func configureRate(from: Double) {
+        let value = String(format: "%.1f", from) + "%"
+        self.yieldLabel.text = value
+    }
 }

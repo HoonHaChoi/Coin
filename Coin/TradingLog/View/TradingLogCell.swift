@@ -35,7 +35,6 @@ class TradingLogCell: UITableViewCell {
         configureMemo(from: log.memo)
         setColor(from: log.marketState)
         makeLogStateViewCorner()
-        makeContentViewShadow()
         self.startPriceLabel.text = "\(log.startPrice)원"
         self.endPriceLabel.text = "\(log.endPrice)원"
         self.proceedsLabel.text = "\(log.profit)원"
@@ -91,16 +90,15 @@ class TradingLogCell: UITableViewCell {
         logStateView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
     }
     
-    private func makeContentViewShadow() {
-        backView.clipsToBounds = true
+    override func layoutSubviews() {
+          super.layoutSubviews()
         backView.layer.cornerRadius = 10
-
-        contentView.layer.cornerRadius = 8
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        contentView.layer.shadowOpacity = 0.2
-        contentView.layer.shadowRadius = 4.0
-    }
+        backView.layer.shadowColor = UIColor.black.cgColor
+        backView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        backView.layer.shadowOpacity = 0.2
+        backView.layer.shadowRadius = 4.0
+        backView.layer.shadowPath = UIBezierPath(rect: backView.bounds).cgPath
+      }
 
     override func prepareForReuse() {
         memoStackView.isHidden = false

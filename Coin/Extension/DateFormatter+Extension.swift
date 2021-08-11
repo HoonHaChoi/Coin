@@ -20,7 +20,7 @@ extension DateFormatter {
     }
     
     func convertStringDay(date: Date) -> String {
-        self.dateFormat = "d"
+        self.dateFormat = "d일"
         return self.string(from: date)
     }
 }

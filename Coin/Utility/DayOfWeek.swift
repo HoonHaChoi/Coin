@@ -19,19 +19,19 @@ enum DayOfWeek: Int, CustomStringConvertible {
     var description: String {
         switch self {
         case .sun:
-            return "일"
+            return "(일)"
         case .mon:
-            return "월"
+            return "(월)"
         case .tue:
-            return "화"
+            return "(화)"
         case .wed:
-            return "수"
+            return "(수)"
         case .thur:
-            return "목"
+            return "(목)"
         case .fir:
-            return "금"
+            return "(금)"
         case .sat:
-            return "토"
+            return "(토)"
         }
     }
 }

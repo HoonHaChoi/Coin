@@ -14,7 +14,7 @@ final class TradingLogAddStore {
         static let empty = Self(selectDate: "",
                                 startAmount: "",
                                 endAmount: "",
-                                memo: "",
+                                memo: nil,
                                 isFormValid: false
                                 )
         var selectDate: String
@@ -56,8 +56,8 @@ final class TradingLogAddStore {
                 state.memo = memo
             case .addTradingLog:
                 environment.onDismissSubject
-                    .send(TradingLog(startPrice: Int(state.startAmount) ?? 0,
-                                     endPrice: Int(state.endAmount) ?? 0,
+                    .send(TradingLog(startPrice: state.startAmount.convertRegexInt(),
+                                     endPrice: state.endAmount.convertRegexInt(),
                                      date: state.selectDate.convertDate(),
                                      memo: state.memo))
             case .alertDissmiss:

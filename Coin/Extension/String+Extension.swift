@@ -27,17 +27,21 @@ extension String {
     }
     
     func limitTextCount() -> String {
+        let matchNumber = matchStringNumber()
+        return matchNumber.count < 11 ? matchNumber.convertPriceKRW() : "9999999999".convertPriceKRW()
+    }
+    
+    func convertRegexInt() -> Int {
+        return Int(matchStringNumber()) ?? 0
+    }
+    
+    private func matchStringNumber() -> String {
         let regex = try? NSRegularExpression(pattern: "[0-9]")
         let results = regex?.matches(in: self,
                                     range: NSRange(self.startIndex..., in: self))
         let result = results?.compactMap {
             String(self[Range($0.range, in: self)!])
         }.filter { $0 != "" } ?? []
-        
-        if result.count < 10 {
-            return result[0..<result.count].joined().convertPriceKRW()
-        } else {
-            return result[0..<10].joined().convertPriceKRW()
-        }
+        return result.joined()
     }
 }

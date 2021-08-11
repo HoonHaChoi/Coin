@@ -31,10 +31,9 @@ class TradingLogCell: UITableViewCell {
     func configure(log: TradingLogMO) {
         configureDate(from: log.date)
         configureRate(from: log.rate)
-        self.startPriceLabel.text = "\(log.startPrice)"
-        self.endPriceLabel.text = "\(log.endPrice)"
-        self.proceedsLabel.text = "\(log.profit)"
-        
+        self.startPriceLabel.text = "\(log.startPrice)원"
+        self.endPriceLabel.text = "\(log.endPrice)원"
+        self.proceedsLabel.text = "\(log.profit)원"
     }
 
     private func configureDate(from: Date?) {

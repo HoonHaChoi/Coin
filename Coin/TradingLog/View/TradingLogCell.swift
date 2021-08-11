@@ -31,6 +31,7 @@ class TradingLogCell: UITableViewCell {
     func configure(log: TradingLogMO) {
         configureDate(from: log.date)
         configureRate(from: log.rate)
+        configureMemo(from: log.memo)
         self.startPriceLabel.text = "\(log.startPrice)원"
         self.endPriceLabel.text = "\(log.endPrice)원"
         self.proceedsLabel.text = "\(log.profit)원"
@@ -45,5 +46,18 @@ class TradingLogCell: UITableViewCell {
     private func configureRate(from: Double) {
         let value = String(format: "%.1f", from) + "%"
         self.yieldLabel.text = value
+    }
+    
+    private func configureMemo(from: String?) {
+        guard let memo = from, !(memo.isEmpty) else {
+            memoStackView.isHidden = true
+            return
+        }
+        memoStackView.isHidden = false
+        memoLabel.text = memo
+    }
+
+    override func prepareForReuse() {
+        memoStackView.isHidden = false
     }
 }

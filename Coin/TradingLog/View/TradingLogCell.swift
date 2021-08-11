@@ -9,6 +9,7 @@ import UIKit
 
 class TradingLogCell: UITableViewCell {
 
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var logStateView: UIView!
     @IBOutlet weak var numberOfDaysLabel: UILabel!
     @IBOutlet weak var dayOfTheWeekLabel: UILabel!
@@ -33,6 +34,8 @@ class TradingLogCell: UITableViewCell {
         configureRate(from: log.rate)
         configureMemo(from: log.memo)
         setColor(from: log.marketState)
+        makeLogStateViewCorner()
+        makeContentViewShadow()
         self.startPriceLabel.text = "\(log.startPrice)원"
         self.endPriceLabel.text = "\(log.endPrice)원"
         self.proceedsLabel.text = "\(log.profit)원"
@@ -80,6 +83,23 @@ class TradingLogCell: UITableViewCell {
             proceedsLabel.textColor = proceedsColor
             yieldLabel.textColor = yieldColor
         }
+    }
+    
+    private func makeLogStateViewCorner() {
+        logStateView.clipsToBounds = true
+        logStateView.layer.cornerRadius = 10
+        logStateView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+    }
+    
+    private func makeContentViewShadow() {
+        backView.clipsToBounds = true
+        backView.layer.cornerRadius = 10
+
+        contentView.layer.cornerRadius = 8
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        contentView.layer.shadowOpacity = 0.2
+        contentView.layer.shadowRadius = 4.0
     }
 
     override func prepareForReuse() {

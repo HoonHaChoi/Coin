@@ -9,7 +9,7 @@ import UIKit
 
 class TradingLogCell: UITableViewCell {
 
-    @IBOutlet weak var logStateIView: UIView!
+    @IBOutlet weak var logStateView: UIView!
     @IBOutlet weak var numberOfDaysLabel: UILabel!
     @IBOutlet weak var dayOfTheWeekLabel: UILabel!
     @IBOutlet weak var startPriceLabel: UILabel!
@@ -44,9 +44,8 @@ class TradingLogCell: UITableViewCell {
         self.dayOfTheWeekLabel.text = DayOfWeek(rawValue: date.showCurrentDayOfWeek())!.description
     }
     
-    private func configureRate(from: Double) {
-        let value = String(format: "%.1f", from) + "%"
-        self.yieldLabel.text = value
+    private func configureRate(from yield: Double) {
+        self.yieldLabel.text = String(format: "%.1f", yield)+"%"
     }
     
     private func configureMemo(from: String?) {
@@ -59,12 +58,27 @@ class TradingLogCell: UITableViewCell {
     }
     
     private func setColor(from markState: String?) {
-        guard let stateString = markState else {
-            return
+        guard let stateString = markState else { return }
+        let state = Market.selectType(stateString)
+        switch state {
+        case .rise:
+            changeColor(stateColor: .riseColor,
+                        proceedsColor: .riseColor,
+                        yieldColor: .riseColor)
+        case .fall:
+            changeColor(stateColor: .fallColor,
+                        proceedsColor: .fallColor,
+                        yieldColor: .fallColor)
+        case .even:
+            changeColor()
         }
-        if stateString == "RISE" {
-        } else if stateString == "FALL" {
-        } else {
+        
+        func changeColor(stateColor: UIColor = .weakGrayColor,
+                         proceedsColor: UIColor = .basicColor,
+                         yieldColor: UIColor = .basicColor) {
+            logStateView.backgroundColor = stateColor
+            proceedsLabel.textColor = proceedsColor
+            yieldLabel.textColor = yieldColor
         }
     }
 

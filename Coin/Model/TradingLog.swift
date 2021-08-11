@@ -9,23 +9,6 @@ import Foundation
 
 struct TradingLog {
     
-    enum Market {
-        case fall
-        case even
-        case rise
-        
-        var state: String {
-            switch self {
-            case .even:
-                return "EVEN"
-            case .fall:
-                return "FALL"
-            case .rise:
-                return "RISE"
-            }
-        }
-    }
-    
     var startPrice: Int
     var endPrice: Int
     var date: Date

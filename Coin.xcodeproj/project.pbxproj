@@ -73,6 +73,8 @@
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 		BFD5199926C3505D00226FF8 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199826C3505D00226FF8 /* DayOfWeek.swift */; };
+		BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
+		BFD5199F26C39D3300226FF8 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199E26C39D3300226FF8 /* Market.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +144,8 @@
 		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		BFD5199826C3505D00226FF8 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
+		BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BFD5199E26C39D3300226FF8 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +240,7 @@
 				BF4F3AD526BD2438003B801A /* UITextView+Extension.swift */,
 				BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */,
 				BF987C4326C1402E003DBDB0 /* UIAlertController+Extension.swift */,
+				BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				BF4F3A9726B94C50003B801A /* DateManager.swift */,
 				BFD5199626C2D24E00226FF8 /* UserSetting.swift */,
 				BFD5199826C3505D00226FF8 /* DayOfWeek.swift */,
+				BFD5199E26C39D3300226FF8 /* Market.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				BF4F3A9426B86B30003B801A /* TradingLogDataSource.swift in Sources */,
 				BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */,
 				BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */,
+				BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */,
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,
 				BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */,
@@ -465,6 +472,7 @@
 				BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */,
 				BF4F3AD626BD2439003B801A /* UITextView+Extension.swift in Sources */,
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
+				BFD5199F26C39D3300226FF8 /* Market.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,
 				BFA1541726A152F600341A6D /* Loader.swift in Sources */,
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,

@@ -148,7 +148,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="dayOfTheWeekLabel" destination="kkU-Lj-JKx" id="c2f-Sh-Anx"/>
+                <outlet property="dayOfTheWeekLabel" destination="PiR-ou-dVj" id="vco-Yo-p2r"/>
                 <outlet property="endPriceLabel" destination="RiS-IL-Uc6" id="hgA-qF-Q7h"/>
                 <outlet property="logStateIView" destination="GiV-Cq-ymM" id="dLv-LB-PDW"/>
                 <outlet property="memoLabel" destination="x0X-m1-CEo" id="oS1-Wg-0JD"/>

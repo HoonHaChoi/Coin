@@ -18,4 +18,9 @@ extension DateFormatter {
         self.dateFormat = "yyyy년 MM월 dd일"
         return self.date(from: dateString) ?? Date()
     }
+    
+    func convertStringDay(date: Date) -> String {
+        self.dateFormat = "d"
+        return self.string(from: date)
+    }
 }

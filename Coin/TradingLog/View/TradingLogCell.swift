@@ -35,9 +35,9 @@ class TradingLogCell: UITableViewCell {
         configureMemo(from: log.memo)
         setColor(from: log.marketState)
         makeLogStateViewCorner()
-        self.startPriceLabel.text = "\(log.startPrice)원"
-        self.endPriceLabel.text = "\(log.endPrice)원"
-        self.proceedsLabel.text = "\(log.profit)원"
+        self.startPriceLabel.text = log.startPrice.convertPriceKRW()
+        self.endPriceLabel.text = log.endPrice.convertPriceKRW()
+        self.proceedsLabel.text = log.profit.convertPriceKRW()
     }
 
     private func configureDate(from: Date?) {

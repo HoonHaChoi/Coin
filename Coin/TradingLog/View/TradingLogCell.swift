@@ -32,6 +32,7 @@ class TradingLogCell: UITableViewCell {
         configureDate(from: log.date)
         configureRate(from: log.rate)
         configureMemo(from: log.memo)
+        setColor(from: log.marketState)
         self.startPriceLabel.text = "\(log.startPrice)원"
         self.endPriceLabel.text = "\(log.endPrice)원"
         self.proceedsLabel.text = "\(log.profit)원"
@@ -55,6 +56,16 @@ class TradingLogCell: UITableViewCell {
         }
         memoStackView.isHidden = false
         memoLabel.text = memo
+    }
+    
+    private func setColor(from markState: String?) {
+        guard let stateString = markState else {
+            return
+        }
+        if stateString == "RISE" {
+        } else if stateString == "FALL" {
+        } else {
+        }
     }
 
     override func prepareForReuse() {

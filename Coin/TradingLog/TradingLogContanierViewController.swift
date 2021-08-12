@@ -22,7 +22,9 @@ class TradingLogContanierViewController: UIViewController, Storyboarded {
     }
     
     @IBOutlet weak var topContainerView: UIView!
+    @IBOutlet weak var tradingLogScrollView: UIScrollView!
     @IBOutlet weak var tradingLogContainerView: UIView!
+    @IBOutlet weak var tradingLogResultView: UIView!
     private lazy var segmentControl: UISegmentedControl = {
         let segment = UISegmentedControl()
         segment.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
@@ -99,6 +101,8 @@ class TradingLogContanierViewController: UIViewController, Storyboarded {
         let leadingDistance = segmentWidth * segmentIndex
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.leadingDistance.constant = leadingDistance
+            self?.tradingLogScrollView.contentOffset.x = self?.tradingLogScrollView.contentOffset.x == 0 ?
+                (self?.view.frame.width ?? 0) : 0
             self?.view.layoutIfNeeded()
         })
     }

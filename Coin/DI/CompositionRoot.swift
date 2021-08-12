@@ -15,9 +15,10 @@ struct AppDependency {
     
     private func makeTradingLogCoreData() -> CoreDataStorageManager {
         return CoreDataStorageManager(modelName: "TradingLogModel",
-                                          userSettingfetch: userSetting)
+                                      userSettingfetch: userSetting)
     }
     
+    // MARK: Coordinator
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
         return TabBarCoordinator(navigationController: navigation,
                                  dependency:
@@ -36,6 +37,12 @@ struct AppDependency {
                                         .init(tradingLogViewControllerFactory: makeTradingLogViewController))
     }
     
+    private func makeTradingLogContainerCoordinator() -> TradingLogContanierCoordinator {
+        return TradingLogContanierCoordinator(dependency: .init(tradingLogContainerViewControllerFactory: makeTradingLogContainerController,
+                                                                tradingLogViewControllerFactory: makeTradingLogViewController))
+    }
+    
+    // MARK: Controller
     private func makeMainController() -> MainViewController {
         let socketRepository = SocketRepository(socket: socket)
         let mainDataSource = MainDataSourece(imageLoader: imageLoader)
@@ -87,5 +94,11 @@ struct AppDependency {
         tradingLogViewController.dispatch = tradingLogStore.dispatch(_:)
         tradingLogStore.updateState = tradingLogViewController.updateState(state:)
         return tradingLogViewController
+    }
+    
+    private func makeTradingLogContainerController() -> TradingLogContanierViewController {
+        return TradingLogContanierViewController.instantiate { coder in
+            return TradingLogContanierViewController(coder: coder)
+        }
     }
 }

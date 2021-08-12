@@ -42,6 +42,10 @@ final class TradingLogViewController: UIViewController, Storyboarded {
         dispatch?(.loadInitialData)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     func updateState(state: ViewState) {
         dataSource.updateLog(logs: state.tradlingLogs)
         currentDateButton.setTitle(state.currentDateString, for: .normal)

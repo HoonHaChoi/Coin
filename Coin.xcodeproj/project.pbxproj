@@ -71,6 +71,9 @@
 		BFA1541726A152F600341A6D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541626A152F600341A6D /* Loader.swift */; };
 		BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541826A153BC00341A6D /* FileManager+Extension.swift */; };
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
+		BFB9430226C5611A0053C212 /* TradingLogContanierViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */; };
+		BFB9430426C5640C0053C212 /* TradingLogContanierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */; };
+		BFB9430626C565A20053C212 /* TradingLogContanierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 		BFD5199926C3505D00226FF8 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199826C3505D00226FF8 /* DayOfWeek.swift */; };
 		BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
@@ -145,6 +148,9 @@
 		BFA1541626A152F600341A6D /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		BFA1541826A153BC00341A6D /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
+		BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogContanierViewController.storyboard; sourceTree = "<group>"; };
+		BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierViewController.swift; sourceTree = "<group>"; };
+		BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierCoordinator.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		BFD5199826C3505D00226FF8 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -311,6 +317,9 @@
 			children = (
 				BF9E249C26B69FAD00CCB49E /* View */,
 				BF4F3AC726BBC499003B801A /* TradingLogAddViewController.storyboard */,
+				BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */,
+				BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */,
+				BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */,
 				BF4F3AC926BBE01C003B801A /* TradingLogAddViewController.swift */,
 				BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */,
 				BF4F3ACB26BC2B92003B801A /* TradingLogAddStore.swift */,
@@ -424,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB9430226C5611A0053C212 /* TradingLogContanierViewController.storyboard in Resources */,
 				BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */,
 				BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */,
 				BF1FA632269B309B00AC1AC2 /* SearchCoinCell.xib in Resources */,
@@ -457,7 +467,9 @@
 				BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF4F3AD026BC6A17003B801A /* DateFormatter+Extension.swift in Sources */,
+				BFB9430626C565A20053C212 /* TradingLogContanierCoordinator.swift in Sources */,
 				BF92D7E226B57DF20033B773 /* TradingLogViewController.swift in Sources */,
+				BFB9430426C5640C0053C212 /* TradingLogContanierViewController.swift in Sources */,
 				BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */,
 				BF1C04B626B068D200BC0A6B /* CompositionRoot.swift in Sources */,
 				BF92D7D726B46C910033B773 /* TradingLogCoordinator.swift in Sources */,

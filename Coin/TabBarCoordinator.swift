@@ -12,11 +12,11 @@ final class TabBarCoordinator: Coordinator {
     
     struct Dependency {
         let mainCoordinatorFactory: () -> MainCoordinator
-        let tradingLogCoordinatorFactory: () -> TradingLogCoordinator
+        let tradingLogCoordinatorFactory: () -> TradingLogContanierCoordinator
     }
     
     private let mainCoordinator: MainCoordinator
-    private let tradingLogCoordinator: TradingLogCoordinator
+    private let tradingLogCoordinator: TradingLogContanierCoordinator
     
     init(navigationController: UINavigationController,
          dependency: Dependency) {

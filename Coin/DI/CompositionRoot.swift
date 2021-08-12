@@ -23,7 +23,7 @@ struct AppDependency {
         return TabBarCoordinator(navigationController: navigation,
                                  dependency:
                                     .init(mainCoordinatorFactory: makeMainCoordinator,
-                                          tradingLogCoordinatorFactory: makeTradingLogCoordinator))
+                                          tradingLogCoordinatorFactory: makeTradingLogContainerCoordinator))
     }
     
     private func makeMainCoordinator() -> MainCoordinator {
@@ -97,8 +97,10 @@ struct AppDependency {
     }
     
     private func makeTradingLogContainerController() -> TradingLogContanierViewController {
-        return TradingLogContanierViewController.instantiate { coder in
-            return TradingLogContanierViewController(coder: coder)
+        let tradingLogContanierViewController = TradingLogContanierViewController.instantiate { coder in
+            return TradingLogContanierViewController(coder: coder,
+                                                     tradingLogController: makeTradingLogViewController())
         }
+        return tradingLogContanierViewController
     }
 }

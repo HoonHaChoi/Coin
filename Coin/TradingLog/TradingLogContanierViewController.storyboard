@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="75" id="3qm-4u-eUv"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZW-8Q-R5h">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZW-8Q-R5h">
                                 <rect key="frame" x="0.0" y="119" width="414" height="743"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6N-63-hRs" userLabel="ContentView">
@@ -102,6 +102,9 @@
                             <constraint firstItem="voY-zQ-K7x" firstAttribute="width" secondItem="LTL-G7-X75" secondAttribute="width" id="sce-TF-xIj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tradingLogContainerView" destination="W3p-zM-T9T" id="kbc-dc-1dd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQd-y4-HDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

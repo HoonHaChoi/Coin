@@ -76,6 +76,8 @@
 		BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
 		BFD5199F26C39D3300226FF8 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199E26C39D3300226FF8 /* Market.swift */; };
 		BFD519A126C3FE4C00226FF8 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */; };
+		BFD519A426C4878B00226FF8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BFD519A326C4878B00226FF8 /* FirebaseMessaging */; };
+		BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +150,8 @@
 		BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		BFD5199E26C39D3300226FF8 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extension.swift"; sourceTree = "<group>"; };
+		BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFD519A726C4A4CF00226FF8 /* Coin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coin.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD519A426C4878B00226FF8 /* FirebaseMessaging in Frameworks */,
 				BF9570E426A69CF9000BBAE9 /* SwiftyJSON in Frameworks */,
 				BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */,
 			);
@@ -267,6 +272,7 @@
 		BF8736042651697A00C3FAD0 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				BFD519A726C4A4CF00226FF8 /* Coin.entitlements */,
 				BF1FA62D269B2FAD00AC1AC2 /* Protocol */,
 				BF8736052651697A00C3FAD0 /* AppDelegate.swift */,
 				BF8736072651697A00C3FAD0 /* SceneDelegate.swift */,
@@ -286,6 +292,7 @@
 				BF87360E2651697C00C3FAD0 /* Assets.xcassets */,
 				BF8736102651697C00C3FAD0 /* LaunchScreen.storyboard */,
 				BF8736132651697C00C3FAD0 /* Info.plist */,
+				BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */,
 			);
 			path = Coin;
 			sourceTree = "<group>";
@@ -369,6 +376,7 @@
 			packageProductDependencies = (
 				BF9570CB26A405F9000BBAE9 /* SocketIO */,
 				BF9570E326A69CF9000BBAE9 /* SwiftyJSON */,
+				BFD519A326C4878B00226FF8 /* FirebaseMessaging */,
 			);
 			productName = Coin;
 			productReference = BF8736022651697A00C3FAD0 /* Coin.app */;
@@ -400,6 +408,7 @@
 			packageReferences = (
 				BF9570CA26A405F9000BBAE9 /* XCRemoteSwiftPackageReference "socket" */,
 				BF9570E226A69CF9000BBAE9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = BF8736032651697A00C3FAD0 /* Products */;
 			projectDirPath = "";
@@ -422,6 +431,7 @@
 				BF92D7E826B589670033B773 /* SearchViewController.storyboard in Resources */,
 				BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */,
 				BF92D7E626B5894B0033B773 /* MainViewController.storyboard in Resources */,
+				BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */,
 				BF9E249E26B69FBA00CCB49E /* TradingLogCell.xib in Resources */,
 				BF87360D2651697A00C3FAD0 /* Main.storyboard in Resources */,
 			);
@@ -638,6 +648,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Coin/Coin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27BW92Z482;
 				INFOPLIST_FILE = Coin/Info.plist;
@@ -657,6 +668,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Coin/Coin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27BW92Z482;
 				INFOPLIST_FILE = Coin/Info.plist;
@@ -711,6 +723,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -723,6 +743,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF9570E226A69CF9000BBAE9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		BFD519A326C4878B00226FF8 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 

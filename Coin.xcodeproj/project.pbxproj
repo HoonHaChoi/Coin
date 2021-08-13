@@ -287,6 +287,7 @@
 				BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */,
 				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
 				BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */,
+				BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */,
 				BF92D7E026B57DB10033B773 /* TradingLog */,
 				BF1C04B426B0682000BC0A6B /* Main */,
 				BFA1541A26A160C100341A6D /* Search */,
@@ -316,18 +317,9 @@
 			isa = PBXGroup;
 			children = (
 				BF9E249C26B69FAD00CCB49E /* View */,
-				BF4F3AC726BBC499003B801A /* TradingLogAddViewController.storyboard */,
-				BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */,
-				BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */,
-				BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */,
-				BF4F3AC926BBE01C003B801A /* TradingLogAddViewController.swift */,
-				BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */,
-				BF4F3ACB26BC2B92003B801A /* TradingLogAddStore.swift */,
-				BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */,
-				BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */,
-				BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */,
-				BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */,
-				BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */,
+				BFB9430726C61D220053C212 /* Container */,
+				BFB9430826C61D2F0053C212 /* Add */,
+				BFB9430926C61D4F0053C212 /* Main */,
 			);
 			path = TradingLog;
 			sourceTree = "<group>";
@@ -364,6 +356,38 @@
 				BF1FA630269B308200AC1AC2 /* View */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		BFB9430726C61D220053C212 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */,
+				BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		BFB9430826C61D2F0053C212 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				BF4F3AC726BBC499003B801A /* TradingLogAddViewController.storyboard */,
+				BF4F3AC926BBE01C003B801A /* TradingLogAddViewController.swift */,
+				BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */,
+				BF4F3ACB26BC2B92003B801A /* TradingLogAddStore.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		BFB9430926C61D4F0053C212 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */,
+				BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */,
+				BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */,
+				BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */,
+				BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

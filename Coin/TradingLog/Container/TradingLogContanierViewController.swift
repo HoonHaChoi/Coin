@@ -10,10 +10,12 @@ import UIKit
 class TradingLogContanierViewController: UIViewController, Storyboarded {
 
     private let tradingLogViewController: UIViewController
-
+    private let tradingLogStatsViewController: UIViewController
     init?(coder: NSCoder,
-          tradingLogController: UIViewController) {
+          tradingLogController: UIViewController,
+          tradingLogStatsController: UIViewController) {
         self.tradingLogViewController = tradingLogController
+        self.tradingLogStatsViewController = tradingLogStatsController
         super.init(coder: coder)
     }
     
@@ -24,7 +26,7 @@ class TradingLogContanierViewController: UIViewController, Storyboarded {
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var tradingLogScrollView: UIScrollView!
     @IBOutlet weak var tradingLogContainerView: UIView!
-    @IBOutlet weak var tradingLogResultView: UIView!
+    @IBOutlet weak var tradingLogStatsView: UIView!
     private lazy var segmentControl: UISegmentedControl = {
         let segment = UISegmentedControl()
         segment.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)

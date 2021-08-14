@@ -13,17 +13,14 @@ final class TradingLogContanierCoordinator: Coordinator {
     
     struct Dependency {
         let tradingLogContainerViewControllerFactory: () -> TradingLogContanierViewController
-        let tradingLogViewControllerFactory: () -> TradingLogViewController
     }
     
     private let tradingLogContainerViewController: TradingLogContanierViewController
-    private let tradingLogViewController: TradingLogViewController
     
     init(navigation: UINavigationController = UINavigationController(),
          dependency: Dependency) {
         self.navigationController = navigation
         self.tradingLogContainerViewController = dependency.tradingLogContainerViewControllerFactory()
-        self.tradingLogViewController = dependency.tradingLogViewControllerFactory()
     }
     
     func start() {

@@ -38,8 +38,7 @@ struct AppDependency {
     }
     
     private func makeTradingLogContainerCoordinator() -> TradingLogContanierCoordinator {
-        return TradingLogContanierCoordinator(dependency: .init(tradingLogContainerViewControllerFactory: makeTradingLogContainerController,
-                                                                tradingLogViewControllerFactory: makeTradingLogViewController))
+        return TradingLogContanierCoordinator(dependency: .init(tradingLogContainerViewControllerFactory: makeTradingLogContainerController))
     }
     
     // MARK: Controller
@@ -106,7 +105,8 @@ struct AppDependency {
     private func makeTradingLogContainerController() -> TradingLogContanierViewController {
         let tradingLogContanierViewController = TradingLogContanierViewController.instantiate { coder in
             return TradingLogContanierViewController(coder: coder,
-                                                     tradingLogController: makeTradingLogViewController())
+                                                     tradingLogController: makeTradingLogViewController(),
+                                                     tradingLogStatsController: makeTradingLogStatsViewController())
         }
         return tradingLogContanierViewController
     }

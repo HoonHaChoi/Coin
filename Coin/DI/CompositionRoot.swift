@@ -13,7 +13,7 @@ struct AppDependency {
     let socket = Socket(url: Endpoint.socketURL)
     let userSetting = UserSetting()
     
-    private func makeTradingLogCoreData() -> CoreDataStorageManager {
+    var tradingLogCoreData: CoreDataStorageManager {
         return CoreDataStorageManager(modelName: "TradingLogModel",
                                       userSettingfetch: userSetting)
     }
@@ -86,7 +86,7 @@ struct AppDependency {
         let tradingLogStore = TradingLogStore(
             state: .empty,
             environment: .init(dateManager: dateManager,
-                               coreDataManager: makeTradingLogCoreData(),
+                               coreDataManager: tradingLogCoreData,
                                addTradingView: tradingLogViewController))
         
         

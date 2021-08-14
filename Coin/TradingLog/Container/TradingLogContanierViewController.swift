@@ -26,7 +26,7 @@ class TradingLogContanierViewController: UIViewController, Storyboarded {
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var tradingLogScrollView: UIScrollView!
     @IBOutlet weak var tradingLogContainerView: UIView!
-    @IBOutlet weak var tradingLogStatsView: UIView!
+    @IBOutlet weak var tradingLogStatsContainerView: UIView!
     private lazy var segmentControl: UISegmentedControl = {
         let segment = UISegmentedControl()
         segment.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
@@ -77,6 +77,11 @@ class TradingLogContanierViewController: UIViewController, Storyboarded {
         tradingLogContainerView.addSubview(tradingLogViewController.view)
         addChild(tradingLogViewController)
         tradingLogViewController.didMove(toParent: self)
+        
+        tradingLogStatsViewController.view.frame = tradingLogStatsContainerView.bounds
+        tradingLogStatsContainerView.addSubview(tradingLogStatsViewController.view)
+        addChild(tradingLogStatsViewController)
+        tradingLogStatsViewController.didMove(toParent: self)
     }
     
     private func headerViewConfigure() {

@@ -106,7 +106,7 @@
                         <outlet property="topContainerView" destination="9PC-UM-CJu" id="fiu-jB-A7b"/>
                         <outlet property="tradingLogContainerView" destination="W3p-zM-T9T" id="kbc-dc-1dd"/>
                         <outlet property="tradingLogScrollView" destination="bZW-8Q-R5h" id="6a7-oH-V0h"/>
-                        <outlet property="tradingLogStatsView" destination="ZJ0-JK-DCj" id="jC8-gq-mwL"/>
+                        <outlet property="tradingLogStatsContainerView" destination="ZJ0-JK-DCj" id="jC8-gq-mwL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQd-y4-HDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

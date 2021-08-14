@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class TradingLogStatsViewController: UIViewController {
+final class TradingLogStatsViewController: UIViewController, Storyboarded {
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

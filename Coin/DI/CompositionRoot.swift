@@ -96,6 +96,13 @@ struct AppDependency {
         return tradingLogViewController
     }
     
+    private func makeTradingLogStatsViewController() -> TradingLogStatsViewController {
+        let tradingLogStatsViewController = TradingLogStatsViewController.instantiate { coder in
+            return TradingLogStatsViewController(coder: coder)
+        }
+        return tradingLogStatsViewController
+    }
+    
     private func makeTradingLogContainerController() -> TradingLogContanierViewController {
         let tradingLogContanierViewController = TradingLogContanierViewController.instantiate { coder in
             return TradingLogContanierViewController(coder: coder,

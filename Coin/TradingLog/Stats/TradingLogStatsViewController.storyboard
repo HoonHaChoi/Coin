@@ -15,18 +15,53 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-dU-9Yf">
+                                <rect key="frame" x="20" y="74" width="374" height="269"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20XX.XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMV-3Q-WGa">
+                                <rect key="frame" x="172.5" y="373" width="69" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-3V-h6a">
+                                <rect key="frame" x="106.5" y="368.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-FD-gdC">
+                                <rect key="frame" x="261.5" y="368.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FMV-3Q-WGa" firstAttribute="leading" secondItem="BKk-3V-h6a" secondAttribute="trailing" constant="20" id="BgZ-e5-qze"/>
+                            <constraint firstItem="FMV-3Q-WGa" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="HLd-ae-jjh"/>
+                            <constraint firstItem="XEE-FD-gdC" firstAttribute="leading" secondItem="FMV-3Q-WGa" secondAttribute="trailing" constant="20" id="HfC-PT-yCj"/>
+                            <constraint firstItem="wCb-dU-9Yf" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.3" id="Jcn-Jn-Mo6"/>
+                            <constraint firstItem="FMV-3Q-WGa" firstAttribute="centerY" secondItem="BKk-3V-h6a" secondAttribute="centerY" id="PR8-Hl-ytx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wCb-dU-9Yf" secondAttribute="trailing" constant="20" id="cX4-85-35R"/>
+                            <constraint firstItem="wCb-dU-9Yf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="l5w-Xj-JDn"/>
+                            <constraint firstItem="wCb-dU-9Yf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="lmg-vA-q6G"/>
+                            <constraint firstItem="XEE-FD-gdC" firstAttribute="centerY" secondItem="FMV-3Q-WGa" secondAttribute="centerY" id="lnO-6S-y3v"/>
+                            <constraint firstItem="FMV-3Q-WGa" firstAttribute="top" secondItem="wCb-dU-9Yf" secondAttribute="bottom" constant="30" id="xxJ-Cf-HXv"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="138"/>
+            <point key="canvasLocation" x="82.608695652173921" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -31,6 +31,8 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         return statsStackView
     }()
     
+    var moveMonthAction: ((MonthMoveAction) -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         constraintUI()
@@ -51,6 +53,11 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         ])
     }
     
-    @IBAction func nextButtonAction(_ sender: UIButton) {}
-    @IBAction func previousButtonAction(_ sender: UIButton) {}
+    @IBAction func nextButtonAction(_ sender: UIButton) {
+        moveMonthAction?(.next)
+    }
+    
+    @IBAction func previousButtonAction(_ sender: UIButton) {
+        moveMonthAction?(.previous)
+    }
 }

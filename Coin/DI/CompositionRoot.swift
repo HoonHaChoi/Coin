@@ -103,7 +103,7 @@ struct AppDependency {
             return TradingLogStatsViewController(coder: coder)
         }
         
-        
+        tradingLogStatsViewController.moveMonthAction = tradingLogStatsViewModel.moveMonth(action:)
         return tradingLogStatsViewController
     }
     

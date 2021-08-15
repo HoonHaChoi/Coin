@@ -15,9 +15,16 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var currentDateLabel: UILabel!
     
-    private var statsStackView: StatsStackView = {
+    private var statsTopStackView: StatsStackView = {
        let statsStackView = StatsStackView()
         statsStackView.setStatsTitle(leftTitle: "최종 금액", rightTitle: "수익률")
+        statsStackView.translatesAutoresizingMaskIntoConstraints = false
+        return statsStackView
+    }()
+    
+    private var statsBottomStackView: StatsStackView = {
+       let statsStackView = StatsStackView()
+        statsStackView.setStatsTitle(leftTitle: "기록 일수", rightTitle: "수익금")
         statsStackView.translatesAutoresizingMaskIntoConstraints = false
         return statsStackView
     }()
@@ -28,10 +35,17 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }
     
     private func constraintUI() {
-        view.addSubview(statsStackView)
+        view.addSubview(statsTopStackView)
+        view.addSubview(statsBottomStackView)
         
-        statsStackView.topAnchor.constraint(equalTo: currentDateLabel.bottomAnchor, constant: 30).isActive = true
-        statsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        statsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        NSLayoutConstraint.activate([
+            statsTopStackView.topAnchor.constraint(equalTo: currentDateLabel.bottomAnchor, constant: 30),
+            statsTopStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            statsTopStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            statsBottomStackView.topAnchor.constraint(equalTo: statsTopStackView.bottomAnchor, constant: 10),
+            statsBottomStackView.leadingAnchor.constraint(equalTo: statsTopStackView.leadingAnchor),
+            statsBottomStackView.trailingAnchor.constraint(equalTo: statsTopStackView.trailingAnchor)
+        ])
     }
 }

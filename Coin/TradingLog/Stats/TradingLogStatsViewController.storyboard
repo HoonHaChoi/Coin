@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,22 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-dU-9Yf">
-                                <rect key="frame" x="20" y="74" width="374" height="269"/>
+                                <rect key="frame" x="20" y="74" width="374" height="313.5"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20XX.XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMV-3Q-WGa">
-                                <rect key="frame" x="172.5" y="373" width="69" height="21"/>
+                                <rect key="frame" x="172.5" y="417.5" width="69" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-3V-h6a">
-                                <rect key="frame" x="106.5" y="368.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-3V-h6a">
+                                <rect key="frame" x="138" y="417" width="14.5" height="22"/>
+                                <color key="tintColor" name="191919"/>
+                                <state key="normal" image="chevron.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-FD-gdC">
-                                <rect key="frame" x="261.5" y="368.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-FD-gdC">
+                                <rect key="frame" x="261.5" y="417" width="14.5" height="22"/>
+                                <color key="tintColor" name="191919"/>
+                                <state key="normal" image="chevron.right" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -41,7 +48,7 @@
                             <constraint firstItem="FMV-3Q-WGa" firstAttribute="leading" secondItem="BKk-3V-h6a" secondAttribute="trailing" constant="20" id="BgZ-e5-qze"/>
                             <constraint firstItem="FMV-3Q-WGa" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="HLd-ae-jjh"/>
                             <constraint firstItem="XEE-FD-gdC" firstAttribute="leading" secondItem="FMV-3Q-WGa" secondAttribute="trailing" constant="20" id="HfC-PT-yCj"/>
-                            <constraint firstItem="wCb-dU-9Yf" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.3" id="Jcn-Jn-Mo6"/>
+                            <constraint firstItem="wCb-dU-9Yf" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.35" id="Jcn-Jn-Mo6"/>
                             <constraint firstItem="FMV-3Q-WGa" firstAttribute="centerY" secondItem="BKk-3V-h6a" secondAttribute="centerY" id="PR8-Hl-ytx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wCb-dU-9Yf" secondAttribute="trailing" constant="20" id="cX4-85-35R"/>
                             <constraint firstItem="wCb-dU-9Yf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="l5w-Xj-JDn"/>
@@ -60,6 +67,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <namedColor name="191919">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

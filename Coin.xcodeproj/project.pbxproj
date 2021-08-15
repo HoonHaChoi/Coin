@@ -328,7 +328,7 @@
 				BF9E249C26B69FAD00CCB49E /* View */,
 				BFB9430726C61D220053C212 /* Container */,
 				BFB9430826C61D2F0053C212 /* Add */,
-				BFB9430926C61D4F0053C212 /* Main */,
+				BFB9430926C61D4F0053C212 /* Log */,
 			);
 			path = TradingLog;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 			path = Add;
 			sourceTree = "<group>";
 		};
-		BFB9430926C61D4F0053C212 /* Main */ = {
+		BFB9430926C61D4F0053C212 /* Log */ = {
 			isa = PBXGroup;
 			children = (
 				BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */,
@@ -398,7 +398,7 @@
 				BF4F3AAE26B999DB003B801A /* TradingLogController+Extension.swift */,
 				BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */,
 			);
-			path = Main;
+			path = Log;
 			sourceTree = "<group>";
 		};
 		BFB9430A26C61E290053C212 /* Stats */ = {

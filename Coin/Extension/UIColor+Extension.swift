@@ -9,8 +9,7 @@ import UIKit
 
 extension UIColor {
     
-    
-    // MARK: BackgroundColor
+    // MARK: ProFitBackgroundColor
     static var fallColor: UIColor {
         return UIColor(named: "FALLColor")!
     }
@@ -27,5 +26,18 @@ extension UIColor {
     }
     static var weakGrayColor: UIColor {
         return UIColor(named: "999999")!
+    }
+    
+    // MARK: ViewBackgroundColor
+    static var DEDEDE: UIColor {
+        return UIColor(named: "DEDEDE")!
+    }
+    
+    static var EDEDED: UIColor {
+        return UIColor(named: "EDEDED")!
+    }
+    
+    static var StatsBackground: UIColor {
+        return UIColor(named: "StatsBackground")!
     }
 }

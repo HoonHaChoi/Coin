@@ -16,7 +16,11 @@ protocol CoreDataStorage {
     func find(date: Date) -> [TradingLogMO]
 }
 
-struct CoreDataStorageManager: CoreDataStorage {
+protocol CoreDataFetching {
+    func fetchAscent(dates: (start: Date,end: Date)) -> [TradingLogMO]
+}
+
+struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
     
     private let container: NSPersistentContainer
     private let fetchRequest: NSFetchRequest<TradingLogMO>
@@ -46,6 +50,20 @@ struct CoreDataStorageManager: CoreDataStorage {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date",
                                                          ascending: userSetting.fetchAscendingBool())]
         
+        guard let tradMO = try? context.fetch(fetchRequest) else {
+            return []
+        }
+        return tradMO
+    }
+    
+    func fetchAscent(dates: (start: Date,end: Date)) -> [TradingLogMO] {
+
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ && date <= %@",
+                                             dates.start as NSDate,
+                                             dates.end as NSDate)
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date",
+                                                         ascending: true)]
         guard let tradMO = try? context.fetch(fetchRequest) else {
             return []
         }

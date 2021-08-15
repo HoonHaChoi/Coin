@@ -22,11 +22,11 @@ struct CoreDataStorageManager: CoreDataStorage {
     private let fetchRequest: NSFetchRequest<TradingLogMO>
     private let context: NSManagedObjectContext
     private let modelName: String
-    private let isAscending: Bool
+    private let userSetting: UserSettingFetching
     
-    init(modelName: String, ascending: Bool) {
+    init(modelName: String, userSetting: UserSettingFetching) {
         self.modelName = modelName
-        self.isAscending = ascending
+        self.userSetting = userSetting
         self.container = NSPersistentContainer(name: modelName)
         self.fetchRequest = TradingLogMO.fetchRequest()
         container.loadPersistentStores { store, error in
@@ -44,7 +44,7 @@ struct CoreDataStorageManager: CoreDataStorage {
                                              dates.end as NSDate)
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date",
-                                                         ascending: isAscending)]
+                                                         ascending: userSetting.fetchAscendingBool())]
         
         guard let tradMO = try? context.fetch(fetchRequest) else {
             return []

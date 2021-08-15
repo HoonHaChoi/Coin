@@ -15,7 +15,7 @@ struct AppDependency {
     
     var tradingLogCoreData: CoreDataStorageManager {
         return CoreDataStorageManager(modelName: "TradingLogModel",
-                                      ascending: userSetting.fetchAscendingBool())
+                                      userSetting: userSetting)
     }
     
     // MARK: Coordinator

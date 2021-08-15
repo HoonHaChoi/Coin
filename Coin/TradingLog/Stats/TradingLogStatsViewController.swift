@@ -48,4 +48,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
             statsBottomStackView.trailingAnchor.constraint(equalTo: statsTopStackView.trailingAnchor)
         ])
     }
+    
+    @IBAction func nextButtonAction(_ sender: UIButton) {}
+    @IBAction func previouseButtonAction(_ sender: UIButton) {}
 }

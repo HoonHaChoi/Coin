@@ -14,6 +14,8 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }
     
     @IBOutlet weak var currentDateLabel: UILabel!
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     private var statsTopStackView: StatsStackView = {
        let statsStackView = StatsStackView()
@@ -50,5 +52,5 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func nextButtonAction(_ sender: UIButton) {}
-    @IBAction func previouseButtonAction(_ sender: UIButton) {}
+    @IBAction func previousButtonAction(_ sender: UIButton) {}
 }

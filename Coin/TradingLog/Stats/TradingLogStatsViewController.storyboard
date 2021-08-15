@@ -50,6 +50,9 @@
                             <constraint firstItem="FMV-3Q-WGa" firstAttribute="top" secondItem="wCb-dU-9Yf" secondAttribute="bottom" constant="30" id="xxJ-Cf-HXv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentDateLabel" destination="FMV-3Q-WGa" id="OxA-U8-dkf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

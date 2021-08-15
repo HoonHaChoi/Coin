@@ -9,9 +9,9 @@ import Foundation
 
 struct TradingLogStatsViewModel {
     
-    private var statsState: TradingLogStatsState
+    private var statsState: TradingLogStatsDTO
         
-    init(state: TradingLogStatsState = .empty) {
+    init(state: TradingLogStatsDTO = .empty) {
         statsState = state
     }
     

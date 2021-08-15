@@ -12,18 +12,10 @@ final class TradingLogStatsService {
     private let dateManager: DateManager
     private let coreDataManager: CoreDataStorage
     
-    private var firstLog: TradingLogMO?
-    private var lastLog: TradingLogMO?
-    private var logRegistedCount: Int
-    private var finishPrice: Int
-    
     init(dateManager: DateManager,
          coreDataManager: CoreDataStorage) {
         self.dateManager = dateManager
         self.coreDataManager = coreDataManager
-        
-        self.logRegistedCount = 0
-        self.finishPrice = 0
     }
 
     func moveNextMonth() {
@@ -34,35 +26,14 @@ final class TradingLogStatsService {
         dateManager.turnOfBackward()
     }
     
-    private func fetch() {
+    private func fetch() -> TradingLogStatsDTO {
         let logs = coreDataManager.fetch(dates: dateManager.calculateMonthStartOfEnd())
 
         guard let first = logs.first,let firstDate = first.date,
               let last = logs.last,let lastDate = last.date else {
-            
-            return
+            return .empty
         }
-        
-        if firstDate < lastDate {
-            firstLog = logs.first
-            lastLog = logs.last
-        } else {
-            firstLog = logs.last
-            lastLog = logs.first
-        }
-        
-        logRegistedCount = logs.count
-        finishPrice = Int(last.endPrice)
-    }
-    
-    private func statsProfit(first: TradingLogMO,
-                             last: TradingLogMO) -> Int {
-        return Int(last.endPrice - first.startPrice)
-    }
-    
-    private func statsRate(first: TradingLogMO,
-                           last: TradingLogMO) -> Double {
-        return Double((last.endPrice - first.startPrice)) / Double(first.startPrice) * 100
+        return .empty
     }
     
 }

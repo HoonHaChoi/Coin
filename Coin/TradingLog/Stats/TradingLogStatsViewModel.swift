@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum MonthMoveAction {
+    case next
+    case previous
+}
+
 struct TradingLogStatsViewModel {
     
     private let dateManager: DateManager
@@ -18,12 +23,13 @@ struct TradingLogStatsViewModel {
         self.coreDataManager = coreDataManager
     }
 
-    func moveNextMonth() {
-        dateManager.turnOfForward()
-    }
-    
-    func movePreviousMonth() {
-        dateManager.turnOfBackward()
+    func moveMonth(action: MonthMoveAction) {
+        switch action {
+        case .next:
+            dateManager.turnOfForward()
+        case .previous:
+            dateManager.turnOfBackward()
+        }
     }
     
     func fetch() -> TradingLogStatsDTO {

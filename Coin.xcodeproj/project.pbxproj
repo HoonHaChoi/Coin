@@ -411,8 +411,8 @@
 		BFB9430A26C61E290053C212 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
-				BFB9430B26C61E460053C212 /* TradingLogStatsViewController.swift */,
 				BFB9430D26C61E780053C212 /* TradingLogStatsViewController.storyboard */,
+				BFB9430B26C61E460053C212 /* TradingLogStatsViewController.swift */,
 				BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */,
 				BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */,
 			);

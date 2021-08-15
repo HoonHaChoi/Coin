@@ -38,6 +38,9 @@ class StatsTextView: UIView {
     }
     
     private func configure() {
+        layer.cornerRadius = 10
+        backgroundColor = .statsBackground
+        
         addSubview(statsTitleLabel)
         addSubview(statsLabel)
         
@@ -46,7 +49,7 @@ class StatsTextView: UIView {
             statsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             
             statsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            statsLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            statsLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     

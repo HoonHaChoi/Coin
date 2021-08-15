@@ -37,7 +37,7 @@ extension UIColor {
         return UIColor(named: "EDEDED")!
     }
     
-    static var StatsBackground: UIColor {
+    static var statsBackground: UIColor {
         return UIColor(named: "StatsBackground")!
     }
 }

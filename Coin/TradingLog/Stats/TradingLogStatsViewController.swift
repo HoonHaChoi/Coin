@@ -16,9 +16,10 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var currentDateLabel: UILabel!
     
     private var statsStackView: StatsStackView = {
-       let recordView = StatsStackView()
-        recordView.translatesAutoresizingMaskIntoConstraints = false
-        return recordView
+       let statsStackView = StatsStackView()
+        statsStackView.setStatsTitle(leftTitle: "최종 금액", rightTitle: "수익률")
+        statsStackView.translatesAutoresizingMaskIntoConstraints = false
+        return statsStackView
     }()
     
     override func viewDidLoad() {

@@ -11,14 +11,12 @@ class StatsStackView: UIStackView {
     
     private let statsFinalAmountView: StatsTextView = {
         let view = StatsTextView()
-        view.setTitleLabel(name: "최종 금액")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private let statsRateView: StatsTextView = {
         let view = StatsTextView()
-        view.setTitleLabel(name: "수익률")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -48,5 +46,10 @@ class StatsStackView: UIStackView {
         spacing = 10
         distribution = .fillEqually
         translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setStatsTitle(leftTitle: String, rightTitle: String) {
+        statsFinalAmountView.setTitleLabel(name: leftTitle)
+        statsRateView.setTitleLabel(name: rightTitle)
     }
 }

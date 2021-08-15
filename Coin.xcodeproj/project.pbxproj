@@ -70,8 +70,7 @@
 		BFA1541526A152D400341A6D /* FileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541426A152D400341A6D /* FileImage.swift */; };
 		BFA1541726A152F600341A6D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541626A152F600341A6D /* Loader.swift */; };
 		BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541826A153BC00341A6D /* FileManager+Extension.swift */; };
-		BFB427D626C97CD4001D4C91 /* TradingLogStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D526C97CD4001D4C91 /* TradingLogStatsViewModel.swift */; };
-		BFB427D826C97CE0001D4C91 /* TradingLogStatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D726C97CE0001D4C91 /* TradingLogStatsService.swift */; };
+		BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */; };
 		BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */; };
 		BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */; };
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
@@ -155,8 +154,7 @@
 		BFA1541426A152D400341A6D /* FileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImage.swift; sourceTree = "<group>"; };
 		BFA1541626A152F600341A6D /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		BFA1541826A153BC00341A6D /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
-		BFB427D526C97CD4001D4C91 /* TradingLogStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsViewModel.swift; sourceTree = "<group>"; };
-		BFB427D726C97CE0001D4C91 /* TradingLogStatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsService.swift; sourceTree = "<group>"; };
+		BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsViewModel.swift; sourceTree = "<group>"; };
 		BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsDTO.swift; sourceTree = "<group>"; };
 		BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDTO.swift; sourceTree = "<group>"; };
 		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
@@ -415,8 +413,7 @@
 			children = (
 				BFB9430B26C61E460053C212 /* TradingLogStatsViewController.swift */,
 				BFB9430D26C61E780053C212 /* TradingLogStatsViewController.storyboard */,
-				BFB427D526C97CD4001D4C91 /* TradingLogStatsViewModel.swift */,
-				BFB427D726C97CE0001D4C91 /* TradingLogStatsService.swift */,
+				BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */,
 				BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */,
 			);
 			path = Stats;
@@ -546,7 +543,7 @@
 				BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */,
 				BF4F3AD226BC6DAB003B801A /* Date+Extension.swift in Sources */,
 				BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */,
-				BFB427D826C97CE0001D4C91 /* TradingLogStatsService.swift in Sources */,
+				BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
 				BF92D7D526B43B710033B773 /* TradingLog.swift in Sources */,
 				BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */,
@@ -577,7 +574,6 @@
 				BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */,
 				BF1FA640269B62BB00AC1AC2 /* UITableView+Extension.swift in Sources */,
 				BF1C049D26AFD63900BC0A6B /* MainViewModel.swift in Sources */,
-				BFB427D626C97CD4001D4C91 /* TradingLogStatsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

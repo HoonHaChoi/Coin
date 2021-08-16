@@ -60,4 +60,9 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     @IBAction func previousButtonAction(_ sender: UIButton) {
         moveMonthAction?(.previous)
     }
+    
+    func updateUI(dto: TradingLogStatsDTO) {
+        
+    }
+    
 }

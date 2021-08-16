@@ -12,10 +12,12 @@ enum MonthMoveAction {
     case previous
 }
 
-struct TradingLogStatsViewModel {
+final class TradingLogStatsViewModel {
     
     private let dateManager: DateManager
     private let coreDataManager: CoreDataFetching
+    
+    var updateDTOHandler: ((TradingLogStatsDTO) -> Void)?
     
     init(dateManager: DateManager,
          coreDataManager: CoreDataFetching) {
@@ -30,21 +32,23 @@ struct TradingLogStatsViewModel {
         case .previous:
             dateManager.turnOfBackward()
         }
+        fetchStats()
     }
     
-    func fetch() -> TradingLogStatsDTO {
+    func fetchStats() {
         let logs = coreDataManager.fetchAscent(dates: dateManager.calculateMonthStartOfEnd())
 
         guard let first = logs.first, let last = logs.last else {
-            return .empty
+            updateDTOHandler?(.empty)
+            return
         }
         
-        return .init(stats: .init(startPrice: Int(first.startPrice),
+        updateDTOHandler?(.init(stats: .init(startPrice: Int(first.startPrice),
                                   endPrice: Int(last.endPrice),
                                   logCount: logs.count),
                      nextButtonState: dateManager.confirmNextMonth(),
                      previousButtonState: dateManager.confirmPreviousMonth(),
-                     currentDateString: dateManager.currentDateString())
+                     currentDateString: dateManager.currentDateString()))
     }
     
 }

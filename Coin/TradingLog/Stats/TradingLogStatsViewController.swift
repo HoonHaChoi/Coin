@@ -32,10 +32,12 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }()
     
     var moveMonthAction: ((MonthMoveAction) -> ())?
+    var requestStats: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         constraintUI()
+        requestStats?()
     }
     
     private func constraintUI() {
@@ -62,7 +64,6 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }
     
     func updateUI(dto: TradingLogStatsDTO) {
-        
     }
     
 }

@@ -105,6 +105,7 @@ struct AppDependency {
         
         tradingLogStatsViewController.moveMonthAction = tradingLogStatsViewModel.moveMonth(action:)
         tradingLogStatsViewModel.updateDTOHandler = tradingLogStatsViewController.updateUI(dto:)
+        tradingLogStatsViewController.requestStats = tradingLogStatsViewModel.fetchStats
         return tradingLogStatsViewController
     }
     

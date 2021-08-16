@@ -23,7 +23,7 @@ class StatsTextView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .basicColor
         label.text = "0"
-        label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     

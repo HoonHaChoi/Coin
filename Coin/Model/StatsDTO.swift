@@ -17,12 +17,21 @@ struct StatsDTO {
     var endPrice: Int
     var logCount: Int
     
-    func rate() -> Double {
-        return Double((endPrice - startPrice)) / Double(startPrice) * 100
+    func endPirceString() -> String {
+        return endPrice.convertPriceKRW()
+    }
+    
+    func logCountString() -> String {
+        return "\(logCount)"+"일"
+    }
+    
+    func rate() -> String {
+        let rate = Double((endPrice - startPrice)) / Double(startPrice) * 100
+        return rate.convertRateString()
     }
 
-    func profit() -> Int {
-        return endPrice - startPrice
+    func profit() -> String {
+        return (endPrice - startPrice).convertPriceKRW()
     }
     
     var market: Market {

@@ -9,13 +9,13 @@ import UIKit
 
 class StatsStackView: UIStackView {
     
-    private let statsFinalAmountView: StatsTextView = {
+    private let statsLeftView: StatsTextView = {
         let view = StatsTextView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    private let statsRateView: StatsTextView = {
+    private let statsRightView: StatsTextView = {
         let view = StatsTextView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -34,10 +34,10 @@ class StatsStackView: UIStackView {
     }
     
     private func configure() {
-        addArrangedSubview(statsFinalAmountView)
-        addArrangedSubview(statsRateView)
+        addArrangedSubview(statsLeftView)
+        addArrangedSubview(statsRightView)
         
-        statsFinalAmountView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        statsLeftView.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
     private func setProperty() {
@@ -49,7 +49,12 @@ class StatsStackView: UIStackView {
     }
     
     func setStatsTitle(leftTitle: String, rightTitle: String) {
-        statsFinalAmountView.setTitleLabel(name: leftTitle)
-        statsRateView.setTitleLabel(name: rightTitle)
+        statsLeftView.setTitleLabel(name: leftTitle)
+        statsRightView.setTitleLabel(name: rightTitle)
+    }
+    
+    func setStatsLabel(left: String, right: String) {
+        statsLeftView.setStatsLabel(stats: left)
+        statsRightView.setStatsLabel(stats: right)
     }
 }

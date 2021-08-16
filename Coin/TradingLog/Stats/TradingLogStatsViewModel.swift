@@ -39,7 +39,9 @@ final class TradingLogStatsViewModel {
         let logs = coreDataManager.fetchAscent(dates: dateManager.calculateMonthStartOfEnd())
 
         guard let first = logs.first, let last = logs.last else {
-            updateDTOHandler?(.empty)
+            updateDTOHandler?(.init(nextButtonState: dateManager.confirmNextMonth(),
+                                    previousButtonState: dateManager.confirmPreviousMonth(),
+                                    currentDateString: dateManager.currentDateString()))
             return
         }
         

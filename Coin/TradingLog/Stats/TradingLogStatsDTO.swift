@@ -8,13 +8,19 @@
 import Foundation
 
 struct TradingLogStatsDTO {
-    static var empty = Self(stats: .empty,
-                            nextButtonState: false,
-                            previousButtonState: false,
-                            currentDateString: "")
-    
     var stats: StatsDTO
     var nextButtonState: Bool
     var previousButtonState: Bool
     var currentDateString: String
+}
+
+extension TradingLogStatsDTO {
+    init(nextButtonState: Bool,
+         previousButtonState: Bool,
+         currentDateString: String) {
+        stats = .empty
+        self.nextButtonState = nextButtonState
+        self.previousButtonState = previousButtonState
+        self.currentDateString = currentDateString
+    }
 }

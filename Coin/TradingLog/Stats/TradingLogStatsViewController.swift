@@ -15,14 +15,20 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var tempChartView: UIView!
     
-    private var statsTopStackView: StatsStackView = {
+    private let chartView: ChartView = {
+        let chart = ChartView()
+        chart.translatesAutoresizingMaskIntoConstraints = false
+        return chart
+    }()
+    
+    private let statsTopStackView: StatsStackView = {
        let statsStackView = StatsStackView()
         statsStackView.setStatsTitle(leftTitle: "최종 금액", rightTitle: "수익률")
         statsStackView.translatesAutoresizingMaskIntoConstraints = false
         return statsStackView
     }()
     
-    private var statsBottomStackView: StatsStackView = {
+    private let statsBottomStackView: StatsStackView = {
        let statsStackView = StatsStackView()
         statsStackView.setStatsTitle(leftTitle: "기록 일수", rightTitle: "수익금")
         statsStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,6 +73,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }
     
     private func constraintUI() {
+        view.addSubview(chartView)
         view.addSubview(currentDateLabel)
         view.addSubview(nextButton)
         view.addSubview(previousButton)
@@ -74,7 +81,12 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         view.addSubview(statsBottomStackView)
         
         NSLayoutConstraint.activate([
-            currentDateLabel.topAnchor.constraint(equalTo: tempChartView.bottomAnchor, constant: 30),
+            chartView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            chartView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35),
+            
+            currentDateLabel.topAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 30),
             currentDateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             nextButton.leadingAnchor.constraint(equalTo: currentDateLabel.trailingAnchor, constant: 20),

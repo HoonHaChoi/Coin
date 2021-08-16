@@ -37,7 +37,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                 </state>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-dU-9Yf">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-dU-9Yf">
                                 <rect key="frame" x="20" y="74" width="374" height="313.5"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                             </view>

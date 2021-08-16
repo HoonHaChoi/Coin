@@ -75,6 +75,8 @@
 		BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */; };
 		BFB427DE26CA7D2A001D4C91 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DD26CA7D2A001D4C91 /* Int+Extension.swift */; };
 		BFB427E026CA7D33001D4C91 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DF26CA7D33001D4C91 /* Double+Extension.swift */; };
+		BFB427E326CAE023001D4C91 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = BFB427E226CAE023001D4C91 /* Charts */; };
+		BFB427E526CAE062001D4C91 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427E426CAE062001D4C91 /* ChartView.swift */; };
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
 		BFB9430226C5611A0053C212 /* TradingLogContanierViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */; };
 		BFB9430426C5640C0053C212 /* TradingLogContanierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */; };
@@ -161,6 +163,7 @@
 		BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDTO.swift; sourceTree = "<group>"; };
 		BFB427DD26CA7D2A001D4C91 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		BFB427DF26CA7D33001D4C91 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		BFB427E426CAE062001D4C91 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
 		BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogContanierViewController.storyboard; sourceTree = "<group>"; };
 		BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 				BFD519A426C4878B00226FF8 /* FirebaseMessaging in Frameworks */,
 				BF9570E426A69CF9000BBAE9 /* SwiftyJSON in Frameworks */,
 				BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */,
+				BFB427E326CAE023001D4C91 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +358,7 @@
 				BF4F3AC526BB97B8003B801A /* EmptyView.swift */,
 				BFBCE42026C8767B0077A521 /* StatsStackView.swift */,
 				BFBCE42226C8804E0077A521 /* StatsTextView.swift */,
+				BFB427E426CAE062001D4C91 /* ChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				BF9570CB26A405F9000BBAE9 /* SocketIO */,
 				BF9570E326A69CF9000BBAE9 /* SwiftyJSON */,
 				BFD519A326C4878B00226FF8 /* FirebaseMessaging */,
+				BFB427E226CAE023001D4C91 /* Charts */,
 			);
 			productName = Coin;
 			productReference = BF8736022651697A00C3FAD0 /* Coin.app */;
@@ -477,6 +483,7 @@
 				BF9570CA26A405F9000BBAE9 /* XCRemoteSwiftPackageReference "socket" */,
 				BF9570E226A69CF9000BBAE9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BFB427E126CAE022001D4C91 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = BF8736032651697A00C3FAD0 /* Products */;
 			projectDirPath = "";
@@ -561,6 +568,7 @@
 				BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */,
 				BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */,
 				BF4F3AD626BD2439003B801A /* UITextView+Extension.swift in Sources */,
+				BFB427E526CAE062001D4C91 /* ChartView.swift in Sources */,
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
 				BFD5199F26C39D3300226FF8 /* Market.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,
@@ -803,6 +811,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		BFB427E126CAE022001D4C91 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HoonHaChoi/Charts.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -823,6 +839,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF9570E226A69CF9000BBAE9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		BFB427E226CAE023001D4C91 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFB427E126CAE022001D4C91 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 		BFD519A326C4878B00226FF8 /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;

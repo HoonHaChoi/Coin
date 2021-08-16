@@ -13,9 +13,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         super.init(coder: coder)
     }
     
-    @IBOutlet weak var currentDateLabel: UILabel!
-    @IBOutlet weak var previousButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var tempChartView: UIView!
     
     private var statsTopStackView: StatsStackView = {
        let statsStackView = StatsStackView()
@@ -31,20 +29,60 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         return statsStackView
     }()
     
+    private let currentDateLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .basicColor
+        label.text = "0000.00"
+        label.font = .systemFont(ofSize: 20)
+        return label
+    }()
+    
+    private let nextButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: .zero, weight: .regular, scale: .large), forImageIn: .normal)
+        button.tintColor = .basicColor
+        button.addTarget(self, action: #selector(nextDidTapAction), for: .touchUpInside)
+        return button
+    }()
+    
+    private let previousButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: .zero, weight: .regular, scale: .large), forImageIn: .normal)
+        button.tintColor = .basicColor
+        button.addTarget(self, action: #selector(previousDidTapAction(_:)       ), for: .touchUpInside)
+        return button
+    }()
+    
     var moveMonthAction: ((MonthMoveAction) -> ())?
     var requestStats: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         constraintUI()
-        requestStats?()
     }
     
     private func constraintUI() {
+        view.addSubview(currentDateLabel)
+        view.addSubview(nextButton)
+        view.addSubview(previousButton)
         view.addSubview(statsTopStackView)
         view.addSubview(statsBottomStackView)
         
         NSLayoutConstraint.activate([
+            currentDateLabel.topAnchor.constraint(equalTo: tempChartView.bottomAnchor, constant: 30),
+            currentDateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            nextButton.leadingAnchor.constraint(equalTo: currentDateLabel.trailingAnchor, constant: 20),
+            nextButton.centerYAnchor.constraint(equalTo: currentDateLabel.centerYAnchor),
+            
+            previousButton.trailingAnchor.constraint(equalTo: currentDateLabel.leadingAnchor, constant: -20),
+            previousButton.centerYAnchor.constraint(equalTo: currentDateLabel.centerYAnchor),
+            
             statsTopStackView.topAnchor.constraint(equalTo: currentDateLabel.bottomAnchor, constant: 30),
             statsTopStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             statsTopStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -55,11 +93,11 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         ])
     }
     
-    @IBAction func nextButtonAction(_ sender: UIButton) {
+    @objc func nextDidTapAction(_ sender: UIButton) {
         moveMonthAction?(.next)
     }
     
-    @IBAction func previousButtonAction(_ sender: UIButton) {
+    @objc func previousDidTapAction(_ sender: UIButton) {
         moveMonthAction?(.previous)
     }
     

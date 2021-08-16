@@ -17,31 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMV-3Q-WGa">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMV-3Q-WGa">
                                 <rect key="frame" x="169" y="417.5" width="76.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="191919"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-3V-h6a">
-                                <rect key="frame" x="134.5" y="419.5" width="14.5" height="20.5"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-3V-h6a">
+                                <rect key="frame" x="136.5" y="419.5" width="14.5" height="20.5"/>
                                 <color key="tintColor" name="191919"/>
                                 <state key="normal" image="chevron.left" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                 </state>
-                                <connections>
-                                    <action selector="previousButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ojm-mN-8Ei"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-FD-gdC">
-                                <rect key="frame" x="265.5" y="419.5" width="14.5" height="20.5"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-FD-gdC">
+                                <rect key="frame" x="265.5" y="420" width="21.5" height="19.5"/>
                                 <color key="tintColor" name="191919"/>
-                                <state key="normal" image="chevron.right" catalog="system">
+                                <state key="normal" image="pencil" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                 </state>
-                                <connections>
-                                    <action selector="nextButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4OU-BI-BQE"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-dU-9Yf">
                                 <rect key="frame" x="20" y="74" width="374" height="313.5"/>
@@ -64,9 +58,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentDateLabel" destination="FMV-3Q-WGa" id="B9T-El-gJ0"/>
-                        <outlet property="nextButton" destination="XEE-FD-gdC" id="BeF-Cy-nEx"/>
-                        <outlet property="previousButton" destination="BKk-3V-h6a" id="Hlg-At-Wrh"/>
+                        <outlet property="tempChartView" destination="wCb-dU-9Yf" id="oXi-Pp-rz9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -76,7 +68,7 @@
     </scenes>
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <namedColor name="191919">
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -19,6 +19,7 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     private let dataSource: TradingLogDataSource
     private let userSettingChange: UserSettingChangeable
     var dispatch: ((Action)->Void)?
+    var statsViewUpdateHandler: (() -> Void)?
     
     init?(coder: NSCoder,
           dataSource: TradingLogDataSource,
@@ -52,6 +53,7 @@ final class TradingLogViewController: UIViewController, Storyboarded {
         nextButton.isHidden = state.nextButtonState
         previousButton.isHidden = state.previousButtonState
         tradingLogTableView.reloadData()
+        statsViewUpdateHandler?()
     }
     
     

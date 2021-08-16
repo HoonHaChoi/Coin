@@ -76,7 +76,6 @@
 		BFB427DE26CA7D2A001D4C91 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DD26CA7D2A001D4C91 /* Int+Extension.swift */; };
 		BFB427E026CA7D33001D4C91 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DF26CA7D33001D4C91 /* Double+Extension.swift */; };
 		BFB427E326CAE023001D4C91 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = BFB427E226CAE023001D4C91 /* Charts */; };
-		BFB427E526CAE062001D4C91 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427E426CAE062001D4C91 /* ChartView.swift */; };
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
 		BFB9430226C5611A0053C212 /* TradingLogContanierViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */; };
 		BFB9430426C5640C0053C212 /* TradingLogContanierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */; };
@@ -163,7 +162,6 @@
 		BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDTO.swift; sourceTree = "<group>"; };
 		BFB427DD26CA7D2A001D4C91 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		BFB427DF26CA7D33001D4C91 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
-		BFB427E426CAE062001D4C91 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
 		BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogContanierViewController.storyboard; sourceTree = "<group>"; };
 		BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierViewController.swift; sourceTree = "<group>"; };
@@ -358,7 +356,6 @@
 				BF4F3AC526BB97B8003B801A /* EmptyView.swift */,
 				BFBCE42026C8767B0077A521 /* StatsStackView.swift */,
 				BFBCE42226C8804E0077A521 /* StatsTextView.swift */,
-				BFB427E426CAE062001D4C91 /* ChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -568,7 +565,6 @@
 				BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */,
 				BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */,
 				BF4F3AD626BD2439003B801A /* UITextView+Extension.swift in Sources */,
-				BFB427E526CAE062001D4C91 /* ChartView.swift in Sources */,
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
 				BFD5199F26C39D3300226FF8 /* Market.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,

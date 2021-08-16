@@ -64,6 +64,15 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }
     
     func updateUI(dto: TradingLogStatsDTO) {
+        
+        hideMoveButton(nextHideState: dto.nextButtonState,
+                       previousHideState: dto.previousButtonState)
+        currentDateLabel.text = dto.currentDateString
+        print(dto)
     }
     
+    private func hideMoveButton(nextHideState: Bool, previousHideState: Bool) {
+        nextButton.isHidden = nextHideState
+        previousButton.isHidden = previousHideState
+    }
 }

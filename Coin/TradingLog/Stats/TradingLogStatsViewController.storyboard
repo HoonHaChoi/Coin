@@ -21,14 +21,14 @@
                                 <rect key="frame" x="20" y="74" width="374" height="313.5"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20XX.XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMV-3Q-WGa">
-                                <rect key="frame" x="172.5" y="417.5" width="69" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMV-3Q-WGa">
+                                <rect key="frame" x="169" y="417.5" width="76.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="191919"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-3V-h6a">
-                                <rect key="frame" x="138" y="418" width="14.5" height="20.5"/>
+                                <rect key="frame" x="134.5" y="419.5" width="14.5" height="20.5"/>
                                 <color key="tintColor" name="191919"/>
                                 <state key="normal" image="chevron.left" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-FD-gdC">
-                                <rect key="frame" x="261.5" y="418" width="14.5" height="20.5"/>
+                                <rect key="frame" x="265.5" y="419.5" width="14.5" height="20.5"/>
                                 <color key="tintColor" name="191919"/>
                                 <state key="normal" image="chevron.right" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
@@ -64,7 +64,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="currentDateLabel" destination="FMV-3Q-WGa" id="OxA-U8-dkf"/>
+                        <outlet property="currentDateLabel" destination="FMV-3Q-WGa" id="B9T-El-gJ0"/>
                         <outlet property="nextButton" destination="XEE-FD-gdC" id="BeF-Cy-nEx"/>
                         <outlet property="previousButton" destination="BKk-3V-h6a" id="Hlg-At-Wrh"/>
                     </connections>

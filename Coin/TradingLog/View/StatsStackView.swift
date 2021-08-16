@@ -57,4 +57,8 @@ class StatsStackView: UIStackView {
         statsLeftView.setStatsLabel(stats: left)
         statsRightView.setStatsLabel(stats: right)
     }
+    
+    func changeStatsLabelColor(state: UIColor) {
+        statsRightView.changeStatsLabelColor(color: state)
+    }
 }

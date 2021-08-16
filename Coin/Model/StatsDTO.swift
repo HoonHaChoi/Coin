@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct StatsDTO {
     
@@ -34,13 +35,13 @@ struct StatsDTO {
         return (endPrice - startPrice).convertPriceKRW()
     }
     
-    var market: Market {
+    var stateColor: UIColor {
         if endPrice - startPrice > 0 {
-            return .rise
+            return .riseColor
         } else if endPrice - startPrice == 0 {
-            return .even
+            return .basicColor
         } else {
-            return .fall
+            return .fallColor
         }
     }
 }

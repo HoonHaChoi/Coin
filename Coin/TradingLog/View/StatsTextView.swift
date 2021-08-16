@@ -61,4 +61,7 @@ class StatsTextView: UIView {
         statsLabel.text = stats
     }
     
+    func changeStatsLabelColor(color: UIColor) {
+        statsLabel.textColor = color
+    }
 }

@@ -71,6 +71,8 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         hideMoveButton(nextHideState: dto.nextButtonState,
                        previousHideState: dto.previousButtonState)
         currentDateLabel.text = dto.currentDateString
+        statsTopStackView.changeStatsLabelColor(state: dto.stats.stateColor)
+        statsBottomStackView.changeStatsLabelColor(state: dto.stats.stateColor)
     }
     
     private func hideMoveButton(nextHideState: Bool, previousHideState: Bool) {

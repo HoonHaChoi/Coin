@@ -9,7 +9,7 @@ import Foundation
 
 final class DateManager {
     
-    private var currentDate: Date
+    private(set) var currentDate: Date
     private let calendar: Calendar
     private let dateFormattor: DateFormatter
     

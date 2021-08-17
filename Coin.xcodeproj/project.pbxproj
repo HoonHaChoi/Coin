@@ -77,6 +77,8 @@
 		BFB427E026CA7D33001D4C91 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DF26CA7D33001D4C91 /* Double+Extension.swift */; };
 		BFB427E326CAE023001D4C91 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = BFB427E226CAE023001D4C91 /* Charts */; };
 		BFB427E926CB257C001D4C91 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427E826CB257C001D4C91 /* ChartView.swift */; };
+		BFB427EB26CB3F4B001D4C91 /* ChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427EA26CB3F4B001D4C91 /* ChartHelper.swift */; };
+		BFB427ED26CB4436001D4C91 /* TradingLogStatsChartDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427EC26CB4436001D4C91 /* TradingLogStatsChartDTO.swift */; };
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
 		BFB9430226C5611A0053C212 /* TradingLogContanierViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */; };
 		BFB9430426C5640C0053C212 /* TradingLogContanierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */; };
@@ -164,6 +166,8 @@
 		BFB427DD26CA7D2A001D4C91 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		BFB427DF26CA7D33001D4C91 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		BFB427E826CB257C001D4C91 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		BFB427EA26CB3F4B001D4C91 /* ChartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHelper.swift; sourceTree = "<group>"; };
+		BFB427EC26CB4436001D4C91 /* TradingLogStatsChartDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsChartDTO.swift; sourceTree = "<group>"; };
 		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
 		BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogContanierViewController.storyboard; sourceTree = "<group>"; };
 		BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierViewController.swift; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 				BFD5199626C2D24E00226FF8 /* UserSetting.swift */,
 				BFD5199826C3505D00226FF8 /* DayOfWeek.swift */,
 				BFD5199E26C39D3300226FF8 /* Market.swift */,
+				BFB427EA26CB3F4B001D4C91 /* ChartHelper.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				BFB9430B26C61E460053C212 /* TradingLogStatsViewController.swift */,
 				BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */,
 				BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */,
+				BFB427EC26CB4436001D4C91 /* TradingLogStatsChartDTO.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -567,9 +573,11 @@
 				BF9D08E9269CAF17009B6AA0 /* Coordinator.swift in Sources */,
 				BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */,
 				BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */,
+				BFB427EB26CB3F4B001D4C91 /* ChartHelper.swift in Sources */,
 				BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */,
 				BF4F3AD626BD2439003B801A /* UITextView+Extension.swift in Sources */,
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
+				BFB427ED26CB4436001D4C91 /* TradingLogStatsChartDTO.swift in Sources */,
 				BFD5199F26C39D3300226FF8 /* Market.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,
 				BFA1541726A152F600341A6D /* Loader.swift in Sources */,

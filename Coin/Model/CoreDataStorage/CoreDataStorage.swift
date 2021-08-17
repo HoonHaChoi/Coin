@@ -43,7 +43,7 @@ struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
     
     func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO] {
         
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ && date <= %@",
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ && date < %@",
                                              dates.start as NSDate,
                                              dates.end as NSDate)
         
@@ -58,7 +58,7 @@ struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
     
     func fetchAscent(dates: (start: Date,end: Date)) -> [TradingLogMO] {
 
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ && date <= %@",
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ && date < %@",
                                              dates.start as NSDate,
                                              dates.end as NSDate)
         

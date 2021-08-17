@@ -16,13 +16,15 @@ final class TradingLogStatsViewModel {
     
     private let dateManager: DateManager
     private let coreDataManager: CoreDataFetching
-    
+    private let chartDTOFactory : ChartDTOFactory
     var updateDTOHandler: ((TradingLogStatsDTO) -> Void)?
     
     init(dateManager: DateManager,
-         coreDataManager: CoreDataFetching) {
+         coreDataManager: CoreDataFetching,
+         chartDTOFactory: ChartDTOFactory) {
         self.dateManager = dateManager
         self.coreDataManager = coreDataManager
+        self.chartDTOFactory = chartDTOFactory
     }
 
     func moveMonth(action: MonthMoveAction) {
@@ -53,4 +55,7 @@ final class TradingLogStatsViewModel {
                      currentDateString: dateManager.currentDateString()))
     }
     
+    private func makeChartDTO(date: Date) -> TradingLogStatsChartDTO {
+        return chartDTOFactory.makeChartDTO(date: date)
+    }
 }

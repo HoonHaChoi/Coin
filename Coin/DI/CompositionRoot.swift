@@ -97,8 +97,11 @@ struct AppDependency {
     
     private func makeTradingLogStatsViewController() -> TradingLogStatsViewController {
         let dateManager = DateManager()
+        let chartHelper = ChartHelper(date: dateManager.currentDate,
+                             manager: tradingLogCoreData)
         let tradingLogStatsViewModel = TradingLogStatsViewModel(dateManager: dateManager,
-                                                                coreDataManager: tradingLogCoreData)
+                                                                coreDataManager: tradingLogCoreData,
+                                                                chartDTOFactory: chartHelper)
         let tradingLogStatsViewController = TradingLogStatsViewController.instantiate { coder in
             return TradingLogStatsViewController(coder: coder)
         }

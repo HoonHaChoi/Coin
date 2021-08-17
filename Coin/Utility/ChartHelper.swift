@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct ChartHelper {
+protocol ChartDTOFactory {
+    func makeChartDTO(date: Date) -> TradingLogStatsChartDTO
+}
+
+struct ChartHelper: ChartDTOFactory {
     
     let date: Date
     let manager: CoreDataFetching

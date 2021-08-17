@@ -26,7 +26,7 @@ final class TradingLogStatsViewModel {
         self.coreDataManager = coreDataManager
         self.chartDTOFactory = chartDTOFactory
     }
-
+    
     func moveMonth(action: MonthMoveAction) {
         switch action {
         case .next:
@@ -39,7 +39,7 @@ final class TradingLogStatsViewModel {
     
     func fetchStats() {
         let logs = coreDataManager.fetchAscent(dates: dateManager.calculateMonthStartOfEnd())
-
+        
         guard let first = logs.first, let last = logs.last else {
             updateDTOHandler?(.init(nextButtonState: dateManager.confirmNextMonth(),
                                     previousButtonState: dateManager.confirmPreviousMonth(),
@@ -48,11 +48,12 @@ final class TradingLogStatsViewModel {
         }
         
         updateDTOHandler?(.init(stats: .init(startPrice: Int(first.startPrice),
-                                  endPrice: Int(last.endPrice),
-                                  logCount: logs.count),
-                     nextButtonState: dateManager.confirmNextMonth(),
-                     previousButtonState: dateManager.confirmPreviousMonth(),
-                     currentDateString: dateManager.currentDateString()))
+                                             endPrice: Int(last.endPrice),
+                                             logCount: logs.count),
+                                chartStats: makeChartDTO(date: dateManager.currentDate),
+                                nextButtonState: dateManager.confirmNextMonth(),
+                                previousButtonState: dateManager.confirmPreviousMonth(),
+                                currentDateString: dateManager.currentDateString()))
     }
     
     private func makeChartDTO(date: Date) -> TradingLogStatsChartDTO {

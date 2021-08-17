@@ -9,6 +9,7 @@ import Foundation
 
 struct TradingLogStatsDTO {
     var stats: StatsDTO
+    var chartStats: TradingLogStatsChartDTO
     var nextButtonState: Bool
     var previousButtonState: Bool
     var currentDateString: String
@@ -19,6 +20,7 @@ extension TradingLogStatsDTO {
          previousButtonState: Bool,
          currentDateString: String) {
         stats = .empty
+        chartStats = .empty
         self.nextButtonState = nextButtonState
         self.previousButtonState = previousButtonState
         self.currentDateString = currentDateString

@@ -13,7 +13,6 @@ protocol ChartDTOFactory {
 
 struct ChartHelper: ChartDTOFactory {
     
-    let date: Date
     let manager: CoreDataFetching
     
     func makeChartDTO(date: Date) -> TradingLogStatsChartDTO {

@@ -29,8 +29,8 @@ struct ChartHelper: ChartDTOFactory {
                 return .empty
             }
             
-            percentages.append(calculatePercentResult(from: month.start, to: month.end))
-            months.append(dateToMonthString(from: date))
+            percentages.insert(calculatePercentResult(from: month.start, to: month.end), at: 0)
+            months.insert(dateToMonthString(from: date), at: 0)
         }
         return TradingLogStatsChartDTO(months: months,
                                        percentages: percentages)
@@ -53,11 +53,7 @@ struct ChartHelper: ChartDTOFactory {
     
     private func calculatePercent(from startPrice: Int, to endPrice: Int) -> Double {
         let percent = Double(endPrice - startPrice) / Double(startPrice) * 100
-        
-        if percent.isFinite {
-            return percent
-        }
-        return .zero
+        return percent.cutDecimalPoint()
     }
         
 }

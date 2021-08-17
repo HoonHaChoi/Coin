@@ -16,11 +16,12 @@ struct TradingLogStatsDTO {
 }
 
 extension TradingLogStatsDTO {
-    init(nextButtonState: Bool,
+    init(chartStats: TradingLogStatsChartDTO,
+        nextButtonState: Bool,
          previousButtonState: Bool,
          currentDateString: String) {
         stats = .empty
-        chartStats = .empty
+        self.chartStats = chartStats
         self.nextButtonState = nextButtonState
         self.previousButtonState = previousButtonState
         self.currentDateString = currentDateString

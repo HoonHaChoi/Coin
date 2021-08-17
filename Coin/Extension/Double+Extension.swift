@@ -14,4 +14,11 @@ extension Double {
         }
         return "0.0%"
     }
+    
+    func cutDecimalPoint() -> Double {
+        if self.isFinite {
+            return Double(String(format: "%.1f", self)) ?? .zero
+        }
+        return .zero
+    }
 }

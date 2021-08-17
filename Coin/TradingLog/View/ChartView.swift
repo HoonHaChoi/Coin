@@ -10,10 +10,6 @@ import Charts
 
 class ChartView: BarChartView {
     
-    // dummyData
-//    var dummyMonths = ["1월","2월","3월","4월","5월","6월"]
-//    var dummyData = [13.0, 20.0, -3.0, 37.0, -36.0, 230.0]
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -69,7 +65,6 @@ class ChartView: BarChartView {
             dataEntries.append(BarChartDataEntry(x: Double(i), y: values[i]))
         }
         
-        // even 일때 색 필요
         let colors = dataEntries.map { (entry) -> UIColor in
             return entry.y > 0 ? .riseColor : .fallColor
         }
@@ -84,6 +79,7 @@ class ChartView: BarChartView {
 
         // 바 넓이 수정
         // chartData.barWidth = Double(0.5)
+        
         self.data = chartData
     }
 }

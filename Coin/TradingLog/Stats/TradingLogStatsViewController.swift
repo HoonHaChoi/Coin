@@ -123,6 +123,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         currentDateLabel.text = dto.currentDateString
         statsTopStackView.changeStatsLabelColor(state: dto.stats.stateColor)
         statsBottomStackView.changeStatsLabelColor(state: dto.stats.stateColor)
+        chartView.setChart(labels: dto.chartStats.months, values: dto.chartStats.percentages)
     }
     
     private func hideMoveButton(nextHideState: Bool, previousHideState: Bool) {

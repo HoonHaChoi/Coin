@@ -114,13 +114,15 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         }
         let contentInset = keyboardFrame.size.height * 0.8
         scrollView.contentInset.bottom = contentInset
-        scrollView.verticalScrollIndicatorInsets =
-            UIEdgeInsets(top: .zero, left: .zero, bottom: contentInset, right: .zero)
+        scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: .zero,
+                                                                left: .zero,
+                                                                bottom: contentInset,
+                                                                right: .zero)
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
         scrollView.contentInset = .zero
-        scrollView.scrollIndicatorInsets = .zero
+        scrollView.verticalScrollIndicatorInsets = .zero
     }
     
     private func configureNavigationAddItem() {

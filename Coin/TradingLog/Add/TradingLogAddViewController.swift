@@ -173,7 +173,11 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         self?.startAmountTextField.text = state.startAmount
         self?.endAmountTextField.text = state.endAmount
         self?.addBarButton.isEnabled = state.isFormValid
-        self?.memoTextView.text = state.memo
+        
+        if state.memo != ""  {
+            self?.memoTextView.text = state.memo
+        }
+        
         if let alert = state.alert {
             self?.present(alert, animated: true) { [weak self] in
                 self?.dispatch?(.alertDissmiss)

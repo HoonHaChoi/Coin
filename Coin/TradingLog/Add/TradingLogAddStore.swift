@@ -14,13 +14,13 @@ final class TradingLogAddStore {
         static let empty = Self(selectDate: "",
                                 startAmount: "",
                                 endAmount: "",
-                                memo: nil,
+                                memo: "",
                                 isFormValid: false
                                 )
         var selectDate: String
         var startAmount: String
         var endAmount: String
-        var memo: String?
+        var memo: String
         var isFormValid: Bool
         var errorAlert: UIAlertController?
     }
@@ -69,7 +69,7 @@ final class TradingLogAddStore {
                 state.startAmount = "\(log.startPrice)".limitTextCount()
                 state.endAmount = "\(log.endPrice)".limitTextCount()
                 state.isFormValid = isFormValidCheck(state)
-                state.memo = log.memo
+                state.memo = log.memo ?? ""
             }
         }
         

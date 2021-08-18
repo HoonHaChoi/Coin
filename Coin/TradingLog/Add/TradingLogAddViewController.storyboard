@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-Hh-C3W">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-Hh-C3W" customClass="MenuDisableTextField" customModule="Coin" customModuleProvider="target">
                                 <rect key="frame" x="15" y="15" width="345" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 금액" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-MY-dIR">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 금액" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaS-MY-dIR" customClass="MenuDisableTextField" customModule="Coin" customModuleProvider="target">
                                 <rect key="frame" x="15" y="67" width="340" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xt1-hM-q1x">
                                 <rect key="frame" x="0.0" y="51" width="375" height="1"/>
@@ -34,13 +34,13 @@
                                     <constraint firstAttribute="height" constant="1" id="dQk-fx-6Dv"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="최종 금액" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-8U-dfU">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="최종 금액" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-8U-dfU" customClass="MenuDisableTextField" customModule="Coin" customModuleProvider="target">
                                 <rect key="frame" x="15" y="119" width="340" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohx-7l-zBh">
-                                <rect key="frame" x="-1" y="103" width="375" height="1"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohx-7l-zBh">
+                                <rect key="frame" x="0.0" y="103" width="375" height="1"/>
                                 <color key="backgroundColor" name="lineColor(DEDEDE)"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="lvl-D3-Fut"/>
@@ -90,10 +90,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Q1f-Va-fTj"/>
                     <connections>
-                        <outlet property="dateTextField" destination="Y2p-Hh-C3W" id="e0I-Wq-RII"/>
-                        <outlet property="endAmountTextField" destination="Cc5-8U-dfU" id="fDH-Ud-8am"/>
                         <outlet property="memoTextView" destination="WJK-ES-12y" id="vu5-Tg-e7u"/>
-                        <outlet property="startAmountTextField" destination="YaS-MY-dIR" id="BQq-ND-d57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -114,11 +111,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xED-pC-c1U" userLabel="Content">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="225.5"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wID-bK-rvj">
-                                                <rect key="frame" x="15" y="15" width="345" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yk4-BQ-cMH">
                                                 <rect key="frame" x="15" y="174" width="345" height="36.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -126,10 +118,15 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                             </textView>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="최종 금액" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9po-st-GSh">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="최종 금액" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9po-st-GSh" customClass="MenuDisableTextField" customModule="Coin" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="121" width="345" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" name="999999"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3H3-3t-81Z">
                                                 <rect key="frame" x="15" y="105" width="345" height="1"/>
@@ -152,10 +149,25 @@
                                                     <constraint firstAttribute="height" constant="1" id="wSj-Tw-hoY"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 금액" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euH-J1-2db">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="시작 금액" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euH-J1-2db" customClass="MenuDisableTextField" customModule="Coin" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="68" width="345" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" name="999999"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="날짜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wID-bK-rvj" customClass="MenuDisableTextField" customModule="Coin" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="15" width="345" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                        <color key="value" name="999999"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -207,19 +219,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="GHx-pz-ubH"/>
                     <connections>
-                        <outlet property="dateTextField" destination="wID-bK-rvj" id="JOc-EN-Lvc"/>
-                        <outlet property="endAmountTextField" destination="9po-st-GSh" id="4YS-Aw-NOZ"/>
+                        <outlet property="dateTextField" destination="wID-bK-rvj" id="0BO-Ou-36e"/>
+                        <outlet property="endAmountTextField" destination="9po-st-GSh" id="ag0-Xy-kFH"/>
                         <outlet property="memoTextView" destination="yk4-BQ-cMH" id="7x3-gb-IrZ"/>
                         <outlet property="scrollView" destination="UR5-Iz-rek" id="AAt-wU-l7U"/>
-                        <outlet property="startAmountTextField" destination="euH-J1-2db" id="RMn-34-hHb"/>
+                        <outlet property="startAmountTextField" destination="euH-J1-2db" id="d0U-VM-dIZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tzr-A8-kpW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="114.69265367316342"/>
+            <point key="canvasLocation" x="2201" y="151"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="999999">
+            <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="lineColor(DEDEDE)">
             <color red="0.87099999189376831" green="0.87099999189376831" blue="0.87099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

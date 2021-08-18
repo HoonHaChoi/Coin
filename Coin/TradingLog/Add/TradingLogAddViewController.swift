@@ -26,9 +26,9 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         fatalError()
     }
     
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var startAmountTextField: UITextField!
-    @IBOutlet weak var endAmountTextField: UITextField!
+    @IBOutlet weak var dateTextField: MenuDisableTextField!
+    @IBOutlet weak var startAmountTextField: MenuDisableTextField!
+    @IBOutlet weak var endAmountTextField: MenuDisableTextField!
     @IBOutlet weak var memoTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     

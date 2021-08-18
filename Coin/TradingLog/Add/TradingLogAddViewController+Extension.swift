@@ -23,7 +23,7 @@ extension TradingLogAddViewController {
         var selectDate: String?
         var startAmount: String?
         var endAmount: String?
-        var memo: String?
+        var memo: String
         var isFormValid: Bool
         var alert: UIAlertController?
     }

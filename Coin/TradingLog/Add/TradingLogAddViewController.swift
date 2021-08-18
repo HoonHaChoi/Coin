@@ -60,7 +60,15 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     private lazy var addBarButton: UIBarButtonItem = {
         let addBarButton = UIBarButtonItem(title: "등록", style: .done,
                                            target: self, action: #selector(addDoneButtonPressed))
+        addBarButton.tintColor = .basicColor
         addBarButton.isEnabled = false
+        return addBarButton
+    }()
+    
+    private lazy var cancelButton: UIBarButtonItem = {
+        let addBarButton = UIBarButtonItem(title: "취소", style: .done,
+                                           target: self, action: #selector(onDissmiss))
+        addBarButton.tintColor = .basicColor
         return addBarButton
     }()
     
@@ -126,7 +134,12 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }
     
     private func configureNavigationAddItem() {
+        navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = addBarButton
+    }
+
+    @objc func onDissmiss() {
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func addDoneButtonPressed() {

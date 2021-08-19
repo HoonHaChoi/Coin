@@ -86,6 +86,7 @@
 		BFB9430626C565A20053C212 /* TradingLogContanierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */; };
 		BFB9430C26C61E460053C212 /* TradingLogStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430B26C61E460053C212 /* TradingLogStatsViewController.swift */; };
 		BFB9430E26C61E780053C212 /* TradingLogStatsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB9430D26C61E780053C212 /* TradingLogStatsViewController.storyboard */; };
+		BFBA259E26CDED960088D26B /* TradingLogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA259D26CDED960088D26B /* TradingLogDetailViewController.swift */; };
 		BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFBCE42326C8804E0077A521 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
@@ -176,6 +177,7 @@
 		BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierCoordinator.swift; sourceTree = "<group>"; };
 		BFB9430B26C61E460053C212 /* TradingLogStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsViewController.swift; sourceTree = "<group>"; };
 		BFB9430D26C61E780053C212 /* TradingLogStatsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogStatsViewController.storyboard; sourceTree = "<group>"; };
+		BFBA259D26CDED960088D26B /* TradingLogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogDetailViewController.swift; sourceTree = "<group>"; };
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 		BF92D7E026B57DB10033B773 /* TradingLog */ = {
 			isa = PBXGroup;
 			children = (
+				BFBA259C26CDED7F0088D26B /* Detail */,
 				BFB9430A26C61E290053C212 /* Stats */,
 				BF9E249C26B69FAD00CCB49E /* View */,
 				BFB9430726C61D220053C212 /* Container */,
@@ -437,6 +440,14 @@
 				BFB427EC26CB4436001D4C91 /* TradingLogStatsChartDTO.swift */,
 			);
 			path = Stats;
+			sourceTree = "<group>";
+		};
+		BFBA259C26CDED7F0088D26B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BFBA259D26CDED960088D26B /* TradingLogDetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,6 +550,7 @@
 				BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */,
 				BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */,
 				BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */,
+				BFBA259E26CDED960088D26B /* TradingLogDetailViewController.swift in Sources */,
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,
 				BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */,

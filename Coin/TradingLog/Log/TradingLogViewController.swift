@@ -103,4 +103,8 @@ extension TradingLogViewController: UITableViewDelegate {
         
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.present(TradingLogDetailViewController(), animated: true, completion: nil)
+    }
 }

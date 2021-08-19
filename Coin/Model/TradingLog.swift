@@ -5,7 +5,7 @@
 //  Created by HOONHA CHOI on 2021/07/30.
 //
 
-import Foundation
+import UIKit
 
 struct TradingLog {
     
@@ -30,6 +30,17 @@ struct TradingLog {
             return .even
         } else {
             return .fall
+        }
+    }
+    
+    func marketColor() -> UIColor {
+        switch market{
+        case .rise:
+            return .riseColor
+        case .fall:
+            return .fallColor
+        case .even:
+            return .basicColor
         }
     }
 }

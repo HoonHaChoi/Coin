@@ -12,6 +12,7 @@ class TradingLogDetailViewController: UIViewController {
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.showsVerticalScrollIndicator = false
         return scroll
     }()
     
@@ -33,6 +34,7 @@ class TradingLogDetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .basicColor
+        label.numberOfLines = 0
         return label
     }()
     

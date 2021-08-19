@@ -40,4 +40,8 @@ extension UIColor {
     static var statsBackground: UIColor {
         return UIColor(named: "StatsBackground")!
     }
+    
+    static var basicBackground: UIColor {
+        return UIColor(named: "BasicBackground")!
+    }
 }

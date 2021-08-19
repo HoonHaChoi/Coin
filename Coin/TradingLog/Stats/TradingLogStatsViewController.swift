@@ -17,7 +17,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     
     private let chartContainerView: ChartContainerView  = {
         let chart = ChartContainerView()
-        chart.backgroundColor = .systemBackground
+        chart.backgroundColor = .basicBackground
         chart.translatesAutoresizingMaskIntoConstraints = false
         return chart
     }()

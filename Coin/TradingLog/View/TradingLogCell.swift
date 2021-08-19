@@ -23,6 +23,7 @@ class TradingLogCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backView.backgroundColor = .basicBackground
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -88,7 +89,6 @@ class TradingLogCell: UITableViewCell {
     }
     
     private func makeLogStateViewCorner() {
-        logStateView.clipsToBounds = true
         logStateView.layer.cornerRadius = 10
         logStateView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
     }
@@ -100,7 +100,6 @@ class TradingLogCell: UITableViewCell {
         backView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         backView.layer.shadowOpacity = 0.2
         backView.layer.shadowRadius = 4.0
-        backView.layer.shadowPath = UIBezierPath(rect: backView.bounds).cgPath
       }
 
     override func prepareForReuse() {

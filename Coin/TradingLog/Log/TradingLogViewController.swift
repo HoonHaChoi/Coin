@@ -105,6 +105,7 @@ extension TradingLogViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.present(TradingLogDetailViewController(), animated: true, completion: nil)
+        let toPresntView = UINavigationController(rootViewController: TradingLogDetailViewController())
+        self.present(toPresntView, animated: true, completion: nil)
     }
 }

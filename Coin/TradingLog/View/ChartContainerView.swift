@@ -14,15 +14,20 @@ class ChartContainerView: UIView {
         chart.translatesAutoresizingMaskIntoConstraints = false
         return chart
     }()
+    private let cornerRadius: CGFloat = 10
+    private let opacity: Float = 0.2
+    private let shadowHeight: Double = 0.2
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
+        configureShadow()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureUI()
+        configureShadow()
     }
 
     private func configureUI() {
@@ -34,6 +39,15 @@ class ChartContainerView: UIView {
             chartView.trailingAnchor.constraint(equalTo: trailingAnchor),
             chartView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    private func configureShadow() {
+        self.layer.cornerRadius = cornerRadius
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: .zero, height: shadowHeight)
+        self.layer.shadowRadius = cornerRadius
+        self.layer.shadowOpacity = opacity
     }
     
     func updateChartUI(dto: TradingLogStatsDTO) {

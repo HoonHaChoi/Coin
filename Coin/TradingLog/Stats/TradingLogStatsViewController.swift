@@ -15,8 +15,9 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var tempChartView: UIView!
     
-    private let chartView: ChartView = {
-        let chart = ChartView()
+    private let chartContainerView: ChartContainerView  = {
+        let chart = ChartContainerView()
+        chart.backgroundColor = .statsBackground
         chart.translatesAutoresizingMaskIntoConstraints = false
         return chart
     }()
@@ -73,7 +74,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }
     
     private func constraintUI() {
-        view.addSubview(chartView)
+        view.addSubview(chartContainerView)
         view.addSubview(currentDateLabel)
         view.addSubview(nextButton)
         view.addSubview(previousButton)
@@ -81,12 +82,12 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         view.addSubview(statsBottomStackView)
         
         NSLayoutConstraint.activate([
-            chartView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            chartView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35),
+            chartContainerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            chartContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            chartContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            chartContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35),
             
-            currentDateLabel.topAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 30),
+            currentDateLabel.topAnchor.constraint(equalTo: chartContainerView.bottomAnchor, constant: 30),
             currentDateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             nextButton.leadingAnchor.constraint(equalTo: currentDateLabel.trailingAnchor, constant: 20),
@@ -123,7 +124,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         currentDateLabel.text = dto.currentDateString
         statsTopStackView.changeStatsLabelColor(state: dto.stats.stateColor)
         statsBottomStackView.changeStatsLabelColor(state: dto.stats.stateColor)
-        chartView.setChart(labels: dto.chartStats.months, values: dto.chartStats.percentages)
+        chartContainerView.updateChartUI(dto: dto)
     }
     
     private func hideMoveButton(nextHideState: Bool, previousHideState: Bool) {

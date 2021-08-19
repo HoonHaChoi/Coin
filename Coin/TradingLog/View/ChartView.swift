@@ -20,7 +20,7 @@ class ChartView: BarChartView {
         configure()
     }
     
-    func configure() {
+    private func configure() {
         self.noDataText = "데이터가 없습니다..!"
         self.noDataFont = .boldSystemFont(ofSize: 20)
         self.noDataTextColor = .middleGrayColor

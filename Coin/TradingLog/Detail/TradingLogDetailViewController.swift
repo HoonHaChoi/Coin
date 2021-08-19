@@ -13,7 +13,7 @@ class TradingLogDetailViewController: UIViewController {
     
     init(log: TradingLog) {
         self.log = log
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -29,19 +29,19 @@ class TradingLogDetailViewController: UIViewController {
     
     private let statsTopStackView: StatsStackView = {
         let statsStackView = StatsStackView()
-        statsStackView.setStatsTitle(leftTitle: "최종 금액", rightTitle: "수익률")
+        statsStackView.setStatsTitle(leftTitle: "시작 금액", rightTitle: "수익률")
         statsStackView.translatesAutoresizingMaskIntoConstraints = false
         return statsStackView
     }()
     
     private let statsBottomStackView: StatsStackView = {
         let statsStackView = StatsStackView()
-        statsStackView.setStatsTitle(leftTitle: "기록 일수", rightTitle: "수익금")
+        statsStackView.setStatsTitle(leftTitle: "최종 금액", rightTitle: "수익금")
         statsStackView.translatesAutoresizingMaskIntoConstraints = false
         return statsStackView
     }()
     
-    private let memoLabel: UILabel = {
+    private var memoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .basicColor
@@ -63,6 +63,7 @@ class TradingLogDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureConstraintUI()
+        updateUI()
         self.navigationItem.leftBarButtonItem = cancellButton
     }
     
@@ -92,5 +93,14 @@ class TradingLogDetailViewController: UIViewController {
             memoLabel.trailingAnchor.constraint(equalTo: statsTopStackView.trailingAnchor),
             memoLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20)
         ])
+    }
+    
+    private func updateUI() {
+        statsTopStackView.setStatsLabel(left: log.startPrice.convertPriceKRW(),
+                                        right: log.rate().convertRateString())
+        statsBottomStackView.setStatsLabel(left: log.endPrice.convertPriceKRW(),
+                                           right: log.profit().convertPriceKRW())
+        self.title = log.date.convertString()
+        self.memoLabel.text = log.memo
     }
 }

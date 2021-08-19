@@ -17,7 +17,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     
     private let chartContainerView: ChartContainerView  = {
         let chart = ChartContainerView()
-        chart.backgroundColor = .statsBackground
+        chart.backgroundColor = .systemBackground
         chart.translatesAutoresizingMaskIntoConstraints = false
         return chart
     }()
@@ -85,7 +85,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
             chartContainerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             chartContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             chartContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            chartContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35),
+            chartContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45),
             
             currentDateLabel.topAnchor.constraint(equalTo: chartContainerView.bottomAnchor, constant: 30),
             currentDateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),

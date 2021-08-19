@@ -52,8 +52,11 @@ class ChartView: BarChartView {
         self.leftAxis.drawGridLinesEnabled = false
         
         self.legend.enabled = false
-        self.xAxis.labelFont = .systemFont(ofSize: 16, weight: .medium)
+        self.xAxis.labelFont = .systemFont(ofSize: 14, weight: .medium)
         self.xAxis.yOffset = 20
+        
+        self.extraTopOffset = 20
+        self.extraBottomOffset = 20
     }
     
     func setChart(labels: [String], values: [Double]) {
@@ -73,7 +76,7 @@ class ChartView: BarChartView {
         chartSet.drawValuesEnabled = true
         chartSet.drawIconsEnabled = false
         chartSet.colors = colors
-        chartSet.valueFont = NSUIFont.boldSystemFont(ofSize: 16)
+        chartSet.valueFont = NSUIFont.boldSystemFont(ofSize: 14)
         
         let chartData = BarChartData(dataSet: chartSet)
 

@@ -9,6 +9,17 @@ import UIKit
 
 class TradingLogDetailViewController: UIViewController {
     
+    private let log: TradingLog
+    
+    init(log: TradingLog) {
+        self.log = log
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false

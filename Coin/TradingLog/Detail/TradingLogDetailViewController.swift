@@ -38,10 +38,21 @@ class TradingLogDetailViewController: UIViewController {
         return label
     }()
     
+    private lazy var cancellButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(onDissmiss(_:)))
+        button.tintColor = .basicColor
+        return button
+    }()
+    
+    @objc func onDissmiss(_ action: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureConstraintUI()
+        self.navigationItem.leftBarButtonItem = cancellButton
     }
     
     private func configureConstraintUI() {

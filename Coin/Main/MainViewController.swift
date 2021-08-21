@@ -15,14 +15,37 @@ class MainViewController: UIViewController, Storyboarded {
     }
     
     @IBOutlet weak var tableView: UITableView!
+    
+    private var segmentContainerView: SegmentContainerView = {
+        let segmentContainerView = SegmentContainerView()
+        segmentContainerView.translatesAutoresizingMaskIntoConstraints = false
+        return segmentContainerView
+    }()
+    
     var fetchCoinsHandler: (() -> Void)?
     var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         tableView.dataSource = mainDataSource
         tableView.register(cell: SearchCoinCell.self)
         requestCoins()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    private func configureUI() {
+        view.addSubview(segmentContainerView)
+        
+        NSLayoutConstraint.activate([
+            segmentContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 20),
+            segmentContainerView.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: 0),
+            segmentContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            segmentContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.55)
+        ])
     }
     
     private func requestCoins() {

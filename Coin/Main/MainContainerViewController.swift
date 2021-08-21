@@ -9,6 +9,20 @@ import UIKit
 
 class MainContainerViewController: UIViewController {
     
+    private let interestCoinView: UIViewController
+    private let marketCoinView: UIViewController
+    
+    init(interest: UIViewController,
+         market: UIViewController) {
+        self.interestCoinView = interest
+        self.marketCoinView = market
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     private var segmentContainerView: SegmentContainerView = {
         let segmentContainerView = SegmentContainerView()
         segmentContainerView.translatesAutoresizingMaskIntoConstraints = false

@@ -25,8 +25,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WjT-j8-Kn2" firstAttribute="leading" secondItem="01o-dr-2AO" secondAttribute="leading" id="79Z-oa-v7z"/>
-                            <constraint firstItem="WjT-j8-Kn2" firstAttribute="top" secondItem="01o-dr-2AO" secondAttribute="top" id="EjA-0d-TQC"/>
                             <constraint firstItem="01o-dr-2AO" firstAttribute="bottom" secondItem="WjT-j8-Kn2" secondAttribute="bottom" id="hsE-Ve-LYl"/>
+                            <constraint firstItem="WjT-j8-Kn2" firstAttribute="top" secondItem="01o-dr-2AO" secondAttribute="top" id="o6g-o9-QrB"/>
                             <constraint firstItem="01o-dr-2AO" firstAttribute="trailing" secondItem="WjT-j8-Kn2" secondAttribute="trailing" id="pel-Hk-ax0"/>
                         </constraints>
                     </view>
@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Vx-um-Utk" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897" y="89"/>
+            <point key="canvasLocation" x="1895.6521739130437" y="88.392857142857139"/>
         </scene>
     </scenes>
     <resources>

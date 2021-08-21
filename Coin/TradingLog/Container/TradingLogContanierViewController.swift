@@ -27,24 +27,8 @@ class TradingLogContanierViewController: UIViewController, Storyboarded {
     @IBOutlet weak var tradingLogScrollView: UIScrollView!
     @IBOutlet weak var tradingLogContainerView: UIView!
     @IBOutlet weak var tradingLogStatsContainerView: UIView!
-    private lazy var segmentControl: UISegmentedControl = {
-        let segment = UISegmentedControl()
-        segment.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
-        segment.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-        
-        segment.insertSegment(withTitle: "일별 기록", at: 0, animated: true)
-        segment.insertSegment(withTitle: "기간별 기록", at: 1, animated: true)
-        
-        segment.selectedSegmentIndex = 0
-        segment.setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor.middleGrayColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .regular)
-        ], for: .normal)
-        segment.setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor.fallColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .bold)
-        ], for: .selected)
-        
+    private lazy var segmentControl: PageSegmentControl = {
+        let segment = PageSegmentControl(items: ["일별 기록", "기간별 기록"])
         segment.addTarget(self, action: #selector(changeSegmentedControlLinePosition), for: .valueChanged)
         segment.translatesAutoresizingMaskIntoConstraints = false
         return segment

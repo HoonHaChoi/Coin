@@ -9,13 +9,10 @@ import UIKit
 
 class MainContainerViewController: UIViewController {
     
-    private let interestCoinView: UIViewController
-    private let marketCoinView: UIViewController
+    private let pageViews: [UIViewController]
     
-    init(interest: UIViewController,
-         market: UIViewController) {
-        self.interestCoinView = interest
-        self.marketCoinView = market
+    init(viewControllers: [UIViewController]) {
+        self.pageViews = viewControllers
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -69,4 +66,14 @@ class MainContainerViewController: UIViewController {
         pageViewController.didMove(toParent: self)
     }
     
+    private func setupPageViewController() {
+        guard let pageFirst = pageViews.first else {
+            return
+        }
+        
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
+        
+        pageViewController.setViewControllers([pageFirst], direction: .forward, animated: true, completion: nil)
+    }
 }

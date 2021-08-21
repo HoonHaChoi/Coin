@@ -77,3 +77,36 @@ class MainContainerViewController: UIViewController {
         pageViewController.setViewControllers([pageFirst], direction: .forward, animated: true, completion: nil)
     }
 }
+
+extension MainContainerViewController: UIPageViewControllerDelegate,UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = pageViews.firstIndex(of: viewController) else {
+            return nil
+        }
+        if index == 0 {
+            return nil
+        }
+        let previous = index-1
+        return pageViews[previous]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = pageViews.firstIndex(of: viewController) else {
+            return nil
+        }
+        if index == pageViews.count-1 {
+            return nil
+        }
+        let next = index+1
+        return pageViews[next]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let viewController = pageViewController.viewControllers?.first,
+              let index = pageViews.firstIndex(of: viewController) else {
+            return
+        }
+        segmentContainerView.updateSelectIndex(to: index)
+    }
+}

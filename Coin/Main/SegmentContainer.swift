@@ -65,4 +65,8 @@ final class SegmentContainerView: UIView {
             self?.layoutIfNeeded()
         })
     }
+    
+    func updateSelectIndex(to index: Int) {
+        segmentControl.selectedSegmentIndex = index
+    }
 }

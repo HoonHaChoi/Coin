@@ -100,7 +100,6 @@
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 		BFD5199926C3505D00226FF8 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199826C3505D00226FF8 /* DayOfWeek.swift */; };
 		BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
-		BFD5199F26C39D3300226FF8 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199E26C39D3300226FF8 /* Market.swift */; };
 		BFD519A126C3FE4C00226FF8 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */; };
 		BFD519A426C4878B00226FF8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BFD519A326C4878B00226FF8 /* FirebaseMessaging */; };
 		BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */; };
@@ -199,7 +198,6 @@
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		BFD5199826C3505D00226FF8 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		BFD5199E26C39D3300226FF8 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extension.swift"; sourceTree = "<group>"; };
 		BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFD519A726C4A4CF00226FF8 /* Coin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coin.entitlements; sourceTree = "<group>"; };
@@ -400,7 +398,6 @@
 				BF4F3A9726B94C50003B801A /* DateManager.swift */,
 				BFD5199626C2D24E00226FF8 /* UserSetting.swift */,
 				BFD5199826C3505D00226FF8 /* DayOfWeek.swift */,
-				BFD5199E26C39D3300226FF8 /* Market.swift */,
 				BFB427EA26CB3F4B001D4C91 /* ChartHelper.swift */,
 			);
 			path = Utility;
@@ -639,7 +636,6 @@
 				BF4F3AD626BD2439003B801A /* UITextView+Extension.swift in Sources */,
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
 				BFB427ED26CB4436001D4C91 /* TradingLogStatsChartDTO.swift in Sources */,
-				BFD5199F26C39D3300226FF8 /* Market.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,
 				BFA1541726A152F600341A6D /* Loader.swift in Sources */,
 				BFB7954A26D209E600A89BC7 /* MarketButtonsStackView.swift in Sources */,

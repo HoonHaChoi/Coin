@@ -20,8 +20,29 @@ struct Meta: Codable {
     let change: Change
 }
 
-enum Change: String, Codable {
+enum Change: String,CustomStringConvertible, Codable {
     case fall = "FALL"
     case even = "EVEN"
     case rise = "RISE"
+    
+    static func selectType(_ state: String) -> Self {
+        if state == "FALL" {
+            return .fall
+        } else if state == "RISE" {
+            return .rise
+        } else{
+            return .even
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .fall:
+            return "FALL"
+        case .rise:
+            return "RISE"
+        case .even:
+            return "EVEN"
+        }
+    }
 }

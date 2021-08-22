@@ -65,7 +65,7 @@ class TradingLogCell: UITableViewCell {
     
     private func setColor(from markState: String?) {
         guard let stateString = markState else { return }
-        let state = Market.selectType(stateString)
+        let state = Change.selectType(stateString)
         switch state {
         case .rise:
             changeColor(stateColor: .riseColor,

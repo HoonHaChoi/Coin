@@ -82,7 +82,7 @@ struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
         object.date = tradingLog.date.removeTimeStamp()
         object.rate = tradingLog.rate()
         object.profit = Int64(tradingLog.profit())
-        object.marketState = tradingLog.market.state
+        object.marketState = tradingLog.change.description
         object.memo = tradingLog.memo
         return save()
     }
@@ -99,7 +99,7 @@ struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
         log.endPrice = Int64(tradingLog.endPrice)
         log.rate = tradingLog.rate()
         log.profit = Int64(tradingLog.profit())
-        log.marketState = tradingLog.market.state
+        log.marketState = tradingLog.change.description
         log.memo = tradingLog.memo ?? ""
         return save()
     }

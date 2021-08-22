@@ -23,7 +23,7 @@ struct TradingLog {
         return endPrice - startPrice
     }
     
-    var market: Market {
+    var change: Change {
         if endPrice - startPrice > 0 {
             return .rise
         } else if endPrice - startPrice == 0 {
@@ -33,8 +33,8 @@ struct TradingLog {
         }
     }
     
-    func marketColor() -> UIColor {
-        switch market{
+    func changeColor() -> UIColor {
+        switch change{
         case .rise:
             return .riseColor
         case .fall:

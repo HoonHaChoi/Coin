@@ -7,14 +7,22 @@
 
 import UIKit
 
+protocol MarketButtonTapDelegate {
+    func passCurrentTitle(to title: String)
+}
+
 final class MarketButton: UIButton {
+    
+    private var delegate: MarketButtonTapDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configure()
     }
     
     override var intrinsicContentSize: CGSize {
@@ -27,5 +35,10 @@ final class MarketButton: UIButton {
         self.setTitleColor(.weakGrayColor, for: .normal)
         self.setTitleColor(.basicColor, for: .selected)
         self.backgroundColor = .statsBackground
+        self.addTarget(self, action: #selector(buttonTapAction(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func buttonTapAction(_ sender: UIButton) {
+        delegate?.passCurrentTitle(to: currentTitle ?? "")
     }
 }

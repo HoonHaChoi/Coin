@@ -85,8 +85,9 @@
 		BFB7954326D1232B00A89BC7 /* SegmentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */; };
 		BFB7954526D1B10900A89BC7 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954426D1B10900A89BC7 /* MainContainerViewController.swift */; };
 		BFB7954826D2007E00A89BC7 /* MaketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954726D2007E00A89BC7 /* MaketsViewController.swift */; };
-		BFB7954A26D209E600A89BC7 /* MarketButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954926D209E600A89BC7 /* MarketButtonsView.swift */; };
+		BFB7954A26D209E600A89BC7 /* MarketButtonsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954926D209E600A89BC7 /* MarketButtonsStackView.swift */; };
 		BFB7954D26D20A4A00A89BC7 /* MarketButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954C26D20A4A00A89BC7 /* MarketButton.swift */; };
+		BFB7954F26D2798000A89BC7 /* MarketButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954E26D2798000A89BC7 /* MarketButtonFactory.swift */; };
 		BFB9430226C5611A0053C212 /* TradingLogContanierViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */; };
 		BFB9430426C5640C0053C212 /* TradingLogContanierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */; };
 		BFB9430626C565A20053C212 /* TradingLogContanierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */; };
@@ -183,8 +184,9 @@
 		BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentContainer.swift; sourceTree = "<group>"; };
 		BFB7954426D1B10900A89BC7 /* MainContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewController.swift; sourceTree = "<group>"; };
 		BFB7954726D2007E00A89BC7 /* MaketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketsViewController.swift; sourceTree = "<group>"; };
-		BFB7954926D209E600A89BC7 /* MarketButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketButtonsView.swift; sourceTree = "<group>"; };
+		BFB7954926D209E600A89BC7 /* MarketButtonsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketButtonsStackView.swift; sourceTree = "<group>"; };
 		BFB7954C26D20A4A00A89BC7 /* MarketButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketButton.swift; sourceTree = "<group>"; };
+		BFB7954E26D2798000A89BC7 /* MarketButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketButtonFactory.swift; sourceTree = "<group>"; };
 		BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogContanierViewController.storyboard; sourceTree = "<group>"; };
 		BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierViewController.swift; sourceTree = "<group>"; };
 		BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierCoordinator.swift; sourceTree = "<group>"; };
@@ -428,7 +430,8 @@
 		BFB7954B26D20A2E00A89BC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BFB7954926D209E600A89BC7 /* MarketButtonsView.swift */,
+				BFB7954926D209E600A89BC7 /* MarketButtonsStackView.swift */,
+				BFB7954E26D2798000A89BC7 /* MarketButtonFactory.swift */,
 				BFB7954C26D20A4A00A89BC7 /* MarketButton.swift */,
 			);
 			path = View;
@@ -620,6 +623,7 @@
 				BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */,
 				BF4F3AD226BC6DAB003B801A /* Date+Extension.swift in Sources */,
 				BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */,
+				BFB7954F26D2798000A89BC7 /* MarketButtonFactory.swift in Sources */,
 				BFB7954526D1B10900A89BC7 /* MainContainerViewController.swift in Sources */,
 				BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
@@ -638,7 +642,7 @@
 				BFD5199F26C39D3300226FF8 /* Market.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,
 				BFA1541726A152F600341A6D /* Loader.swift in Sources */,
-				BFB7954A26D209E600A89BC7 /* MarketButtonsView.swift in Sources */,
+				BFB7954A26D209E600A89BC7 /* MarketButtonsStackView.swift in Sources */,
 				BFB7954126D0A89B00A89BC7 /* PageSegmentControl.swift in Sources */,
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
 				BFB9430C26C61E460053C212 /* TradingLogStatsViewController.swift in Sources */,

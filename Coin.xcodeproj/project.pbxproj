@@ -84,6 +84,9 @@
 		BFB7954126D0A89B00A89BC7 /* PageSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954026D0A89B00A89BC7 /* PageSegmentControl.swift */; };
 		BFB7954326D1232B00A89BC7 /* SegmentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */; };
 		BFB7954526D1B10900A89BC7 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954426D1B10900A89BC7 /* MainContainerViewController.swift */; };
+		BFB7954826D2007E00A89BC7 /* MaketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954726D2007E00A89BC7 /* MaketsViewController.swift */; };
+		BFB7954A26D209E600A89BC7 /* MarketButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954926D209E600A89BC7 /* MarketButtonsView.swift */; };
+		BFB7954D26D20A4A00A89BC7 /* MarketButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954C26D20A4A00A89BC7 /* MarketButton.swift */; };
 		BFB9430226C5611A0053C212 /* TradingLogContanierViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */; };
 		BFB9430426C5640C0053C212 /* TradingLogContanierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */; };
 		BFB9430626C565A20053C212 /* TradingLogContanierCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */; };
@@ -179,6 +182,9 @@
 		BFB7954026D0A89B00A89BC7 /* PageSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSegmentControl.swift; sourceTree = "<group>"; };
 		BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentContainer.swift; sourceTree = "<group>"; };
 		BFB7954426D1B10900A89BC7 /* MainContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerViewController.swift; sourceTree = "<group>"; };
+		BFB7954726D2007E00A89BC7 /* MaketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketsViewController.swift; sourceTree = "<group>"; };
+		BFB7954926D209E600A89BC7 /* MarketButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketButtonsView.swift; sourceTree = "<group>"; };
+		BFB7954C26D20A4A00A89BC7 /* MarketButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketButton.swift; sourceTree = "<group>"; };
 		BFB9430126C5611A0053C212 /* TradingLogContanierViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogContanierViewController.storyboard; sourceTree = "<group>"; };
 		BFB9430326C5640C0053C212 /* TradingLogContanierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierViewController.swift; sourceTree = "<group>"; };
 		BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogContanierCoordinator.swift; sourceTree = "<group>"; };
@@ -215,6 +221,7 @@
 		BF1C04B426B0682000BC0A6B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				BFB7954626D2006A00A89BC7 /* Markets */,
 				BF8736092651697A00C3FAD0 /* MainViewController.swift */,
 				BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */,
 				BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */,
@@ -409,6 +416,24 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		BFB7954626D2006A00A89BC7 /* Markets */ = {
+			isa = PBXGroup;
+			children = (
+				BFB7954B26D20A2E00A89BC7 /* View */,
+				BFB7954726D2007E00A89BC7 /* MaketsViewController.swift */,
+			);
+			path = Markets;
+			sourceTree = "<group>";
+		};
+		BFB7954B26D20A2E00A89BC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFB7954926D209E600A89BC7 /* MarketButtonsView.swift */,
+				BFB7954C26D20A4A00A89BC7 /* MarketButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BFB9430726C61D220053C212 /* Container */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,6 +591,7 @@
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,
 				BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */,
+				BFB7954826D2007E00A89BC7 /* MaketsViewController.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF4F3AD026BC6A17003B801A /* DateFormatter+Extension.swift in Sources */,
 				BFB9430626C565A20053C212 /* TradingLogContanierCoordinator.swift in Sources */,
@@ -612,6 +638,7 @@
 				BFD5199F26C39D3300226FF8 /* Market.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,
 				BFA1541726A152F600341A6D /* Loader.swift in Sources */,
+				BFB7954A26D209E600A89BC7 /* MarketButtonsView.swift in Sources */,
 				BFB7954126D0A89B00A89BC7 /* PageSegmentControl.swift in Sources */,
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
 				BFB9430C26C61E460053C212 /* TradingLogStatsViewController.swift in Sources */,
@@ -628,6 +655,7 @@
 				BF1FA63A269B419400AC1AC2 /* SearchCoinDataSource.swift in Sources */,
 				BF9D08EF269CB5A9009B6AA0 /* TabBarCoordinator.swift in Sources */,
 				BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */,
+				BFB7954D26D20A4A00A89BC7 /* MarketButton.swift in Sources */,
 				BF1FA640269B62BB00AC1AC2 /* UITableView+Extension.swift in Sources */,
 				BF1C049D26AFD63900BC0A6B /* MainViewModel.swift in Sources */,
 			);

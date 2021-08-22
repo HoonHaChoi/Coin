@@ -28,8 +28,9 @@ struct AppDependency {
     
     private func makeMainCoordinator() -> MainCoordinator {
         return MainCoordinator(dependency:
-                                .init(mainViewControllerFactory: makeMainController,
-                                      searchViewControllerFactory: makeSearchViewController))
+                                .init(mainContainerViewControllerFactory: makeMainContainerViewController,
+                                      searchViewControllerFactory: makeSearchViewController
+                                      ))
     }
     
     private func makeTradingLogCoordinator() -> TradingLogCoordinator {
@@ -42,6 +43,14 @@ struct AppDependency {
     }
     
     // MARK: Controller
+    private func makeMainContainerViewController() -> MainContainerViewController {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .blue
+        let mainViewController = makeMainController()
+        let mainContainerViewController = MainContainerViewController(viewControllers: [mainViewController, vc])
+        return mainContainerViewController
+    }
+    
     private func makeMainController() -> MainViewController {
         let socketRepository = SocketRepository(socket: socket)
         let mainDataSource = MainDataSourece(imageLoader: imageLoader)

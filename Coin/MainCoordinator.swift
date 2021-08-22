@@ -11,25 +11,24 @@ final class MainCoordinator: Coordinator {
     let navigationController: UINavigationController
     
     struct Dependency {
-        let mainViewControllerFactory: () -> MainViewController
+        let mainContainerViewControllerFactory: () -> MainContainerViewController
         let searchViewControllerFactory: () -> SearchViewController
     }
     
-    private let mainViewController: MainViewController
     private let searchViewController: SearchViewController
+    private let mainContainerViewController: MainContainerViewController
     
     init(navigationController: UINavigationController = UINavigationController(),
          dependency: Dependency) {
         self.navigationController = navigationController
-        self.mainViewController = dependency.mainViewControllerFactory()
         self.searchViewController = dependency.searchViewControllerFactory()
+        self.mainContainerViewController = dependency.mainContainerViewControllerFactory()
     }
     
     func start() {
-        mainViewController.coordinator = self
-        mainViewController.navigationItem.backButtonTitle = ""
+        mainContainerViewController.navigationItem.backButtonTitle = ""
         navigationController.tabBarItem = UITabBarItem(title: "시세", image: UIImage(), selectedImage: UIImage())
-        navigationController.pushViewController(mainViewController, animated: true)
+        navigationController.pushViewController(mainContainerViewController, animated: true)
     }
     
     func showSearchViewController() {

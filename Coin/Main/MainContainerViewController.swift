@@ -43,29 +43,34 @@ class MainContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         configureUI()
+        setupPageViewController()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func configureUI() {
         view.addSubview(segmentContainerView)
         view.addSubview(searchButton)
-        addChild(pageViewController)
         view.addSubview(pageViewController.view)
-                
+
         NSLayoutConstraint.activate([
             segmentContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 20),
             segmentContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             segmentContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.55),
-            
+            segmentContainerView.heightAnchor.constraint(equalToConstant: 40)
+,
             searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            searchButton.centerXAnchor.constraint(equalTo: segmentContainerView.centerXAnchor),
+            searchButton.centerYAnchor.constraint(equalTo: segmentContainerView.centerYAnchor),
         
             pageViewController.view.topAnchor.constraint(equalTo: segmentContainerView.bottomAnchor, constant: 20),
             pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             pageViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-        pageViewController.didMove(toParent: self)
     }
     
     private func setupPageViewController() {

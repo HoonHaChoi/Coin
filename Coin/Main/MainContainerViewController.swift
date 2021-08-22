@@ -9,6 +9,7 @@ import UIKit
 
 class MainContainerViewController: UIViewController {
     
+    private var currentPageIndex = 0
     private let pageViews: [UIViewController]
     
     init(viewControllers: [UIViewController]) {
@@ -20,8 +21,9 @@ class MainContainerViewController: UIViewController {
         fatalError()
     }
     
-    private var segmentContainerView: SegmentContainerView = {
+    private lazy var segmentContainerView: SegmentContainerView = {
         let segmentContainerView = SegmentContainerView()
+        segmentContainerView.delegate = self
         segmentContainerView.translatesAutoresizingMaskIntoConstraints = false
         return segmentContainerView
     }()
@@ -74,7 +76,19 @@ class MainContainerViewController: UIViewController {
         pageViewController.delegate = self
         pageViewController.dataSource = self
         
-        pageViewController.setViewControllers([pageFirst], direction: .forward, animated: true, completion: nil)
+        setPageViewController(controller: [pageFirst], direction: .forward)
+    }
+    
+    private func setPageViewController(controller: [UIViewController], direction: UIPageViewController.NavigationDirection) {
+        pageViewController.setViewControllers(controller, direction: direction, animated: true, completion: nil)
+    }
+}
+
+extension MainContainerViewController: SegmentDelegate {
+    func didSelectSegmentIndex(to index: Int) {
+        index > currentPageIndex ?
+            setPageViewController(controller: [pageViews[index]], direction: .forward) :
+            setPageViewController(controller: [pageViews[index]], direction: .reverse)
     }
 }
 
@@ -107,6 +121,7 @@ extension MainContainerViewController: UIPageViewControllerDelegate,UIPageViewCo
               let index = pageViews.firstIndex(of: viewController) else {
             return
         }
+        currentPageIndex = index
         segmentContainerView.updateSelectIndex(to: index)
     }
 }

@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol SegmentDelegate {
+    func didSelectSegmentIndex(to index: Int)
+}
+
 final class SegmentContainerView: UIView {
+    
+    var delegate: SegmentDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,6 +66,7 @@ final class SegmentContainerView: UIView {
         let segmentIndex = CGFloat(segmentControl.selectedSegmentIndex)
         let segmentWidth = segmentControl.frame.width / CGFloat(segmentControl.numberOfSegments)
         let leadingDistance = segmentWidth * segmentIndex
+        delegate?.didSelectSegmentIndex(to: segmentControl.selectedSegmentIndex)
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.leadingDistance.constant = leadingDistance
             self?.layoutIfNeeded()

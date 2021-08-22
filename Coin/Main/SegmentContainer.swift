@@ -63,17 +63,23 @@ final class SegmentContainerView: UIView {
     
     
     @objc private func changeSegmentedControlLinePosition() {
+        delegate?.didSelectSegmentIndex(to: segmentControl.selectedSegmentIndex)
+        changeSegmentControlLine()
+    }
+    
+
+    func updateSelectIndex(to index: Int) {
+        segmentControl.selectedSegmentIndex = index
+        changeSegmentControlLine()
+    }
+    
+    private func changeSegmentControlLine(){
         let segmentIndex = CGFloat(segmentControl.selectedSegmentIndex)
         let segmentWidth = segmentControl.frame.width / CGFloat(segmentControl.numberOfSegments)
         let leadingDistance = segmentWidth * segmentIndex
-        delegate?.didSelectSegmentIndex(to: segmentControl.selectedSegmentIndex)
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.leadingDistance.constant = leadingDistance
             self?.layoutIfNeeded()
         })
-    }
-    
-    func updateSelectIndex(to index: Int) {
-        segmentControl.selectedSegmentIndex = index
     }
 }

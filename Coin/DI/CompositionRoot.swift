@@ -44,10 +44,9 @@ struct AppDependency {
     
     // MARK: Controller
     private func makeMainContainerViewController() -> MainContainerViewController {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .blue
+        let exchangeViewController = ExchangeViewController()
         let mainViewController = makeMainController()
-        let mainContainerViewController = MainContainerViewController(viewControllers: [mainViewController, vc])
+        let mainContainerViewController = MainContainerViewController(viewControllers: [mainViewController, exchangeViewController])
         return mainContainerViewController
     }
     

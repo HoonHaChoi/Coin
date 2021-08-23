@@ -10,14 +10,16 @@ struct Coin: Codable {
     let logo: String
 }
 
-enum Exchange: String, Codable {
-    case upbit = "UPBIT"
-}
-
 struct Meta: Codable {
     let openingPrice, highPrice, lowPrice, tradePrice: String
     let changePrice, changeRate, accTradePrice24H: String
     let change: Change
+}
+
+enum Exchange: String, CaseIterable ,Codable {
+    case upbit = "UPBIT"
+    case coinone = "COINONE"
+    case bithumb = "BITHUMB"
 }
 
 enum Change: String,CustomStringConvertible, Codable {

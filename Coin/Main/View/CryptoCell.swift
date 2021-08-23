@@ -28,9 +28,9 @@ class CryptoCell: UITableViewCell {
     }
     
     func configure(coin: Coin, imageLoader: Loader) {
-        currentLabel.text = coin.koreanName
+        currentLabel.text = coin.ticker
         imageLoad(loader: imageLoader, to: coin.logo)
-        symbolDescriptionLabel.text = "\(coin.ticker)/\(coin.market)"
+        symbolDescriptionLabel.text = coin.exchange.rawValue + "/" + coin.market
         changePriceLabel.text = coin.meta.tradePrice.convertPriceKRW()
         updateCurrentRateLabel(to: coin)
     }

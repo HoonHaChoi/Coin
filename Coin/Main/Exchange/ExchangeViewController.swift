@@ -9,6 +9,8 @@ import UIKit
 
 class ExchangeViewController: UIViewController {
 
+    typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
+    
     private lazy var exchangeSegment: UISegmentedControl = {
         let segment = UISegmentedControl(items: Exchange.allCases.map { "\($0)".capitalized })
         segment.translatesAutoresizingMaskIntoConstraints = false
@@ -46,22 +48,13 @@ class ExchangeViewController: UIViewController {
             cryptoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cryptoView.topAnchor.constraint(equalTo: exchangeSegment.bottomAnchor, constant: 10)
         ])
-        
-        cryptoView.cryptoTableView.dataSource = self
+        let datasource = cryptoDataSource.init() { cell, model in
+            cell.configure(coin: model, imageLoader: ImageLoader())
+        }
+        cryptoView.cryptoTableView.dataSource = datasource
         cryptoView.cryptoTableView.register(cell: CryptoCell.self)
     }
     
     @objc private func selectExchangeItem(_ sender: UISegmentedControl) {}
     
-}
-
-extension ExchangeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CryptoCell.reuseIdentifier, for: indexPath) as! CryptoCell
-        return cell
-    }
 }

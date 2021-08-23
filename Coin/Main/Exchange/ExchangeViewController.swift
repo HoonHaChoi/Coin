@@ -46,8 +46,22 @@ class ExchangeViewController: UIViewController {
             cryptoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cryptoView.topAnchor.constraint(equalTo: exchangeSegment.bottomAnchor, constant: 10)
         ])
+        
+        cryptoView.cryptoTableView.dataSource = self
+        cryptoView.cryptoTableView.register(cell: CryptoCell.self)
     }
     
     @objc private func selectExchangeItem(_ sender: UISegmentedControl) {}
     
+}
+
+extension ExchangeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CryptoCell.reuseIdentifier, for: indexPath) as! CryptoCell
+        return cell
+    }
 }

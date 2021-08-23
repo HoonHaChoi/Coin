@@ -26,6 +26,8 @@
 		BF22BF48268F8119003FD161 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF47268F8119003FD161 /* URLSession+Extension.swift */; };
 		BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */; };
 		BF2F9D7626D337D7006A0077 /* CryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F9D7526D337D7006A0077 /* CryptoView.swift */; };
+		BF2F9D7826D34450006A0077 /* CryptoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2F9D7726D34450006A0077 /* CryptoCell.xib */; };
+		BF2F9D7A26D34B24006A0077 /* CryptoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F9D7926D34B24006A0077 /* CryptoCell.swift */; };
 		BF4F3A9426B86B30003B801A /* TradingLogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */; };
 		BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9726B94C50003B801A /* DateManager.swift */; };
 		BF4F3AAD26B9960E003B801A /* TradingLogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */; };
@@ -123,6 +125,8 @@
 		BF22BF47268F8119003FD161 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoinsViewModel.swift; sourceTree = "<group>"; };
 		BF2F9D7526D337D7006A0077 /* CryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoView.swift; sourceTree = "<group>"; };
+		BF2F9D7726D34450006A0077 /* CryptoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CryptoCell.xib; sourceTree = "<group>"; };
+		BF2F9D7926D34B24006A0077 /* CryptoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCell.swift; sourceTree = "<group>"; };
 		BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogDataSource.swift; sourceTree = "<group>"; };
 		BF4F3A9726B94C50003B801A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		BF4F3AAC26B9960E003B801A /* TradingLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStore.swift; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				BF2F9D7526D337D7006A0077 /* CryptoView.swift */,
+				BF2F9D7726D34450006A0077 /* CryptoCell.xib */,
+				BF2F9D7926D34B24006A0077 /* CryptoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB9430E26C61E780053C212 /* TradingLogStatsViewController.storyboard in Resources */,
+				BF2F9D7826D34450006A0077 /* CryptoCell.xib in Resources */,
 				BFB9430226C5611A0053C212 /* TradingLogContanierViewController.storyboard in Resources */,
 				BF8736122651697C00C3FAD0 /* LaunchScreen.storyboard in Resources */,
 				BF87360F2651697C00C3FAD0 /* Assets.xcassets in Resources */,
@@ -642,6 +649,7 @@
 				BF9D08ED269CB0FB009B6AA0 /* MainCoordinator.swift in Sources */,
 				BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */,
 				BF1C052226B3D66300BC0A6B /* TradingLogModel.xcdatamodeld in Sources */,
+				BF2F9D7A26D34B24006A0077 /* CryptoCell.swift in Sources */,
 				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 				BF4F3ACC26BC2B92003B801A /* TradingLogAddStore.swift in Sources */,
 				BFB427E026CA7D33001D4C91 /* Double+Extension.swift in Sources */,

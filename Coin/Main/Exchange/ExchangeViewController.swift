@@ -19,6 +19,12 @@ class ExchangeViewController: UIViewController {
         return segment
     }()
     
+    private var cryptoView: CryptoView = {
+        let view = CryptoView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -27,11 +33,18 @@ class ExchangeViewController: UIViewController {
     
     private func configure() {
         view.addSubview(exchangeSegment)
+        view.addSubview(cryptoView)
+        
         NSLayoutConstraint.activate([
             exchangeSegment.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
             exchangeSegment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             exchangeSegment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            exchangeSegment.heightAnchor.constraint(equalToConstant: 30)
+            exchangeSegment.heightAnchor.constraint(equalToConstant: 30),
+            
+            cryptoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            cryptoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            cryptoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            cryptoView.topAnchor.constraint(equalTo: exchangeSegment.bottomAnchor, constant: 10)
         ])
     }
     

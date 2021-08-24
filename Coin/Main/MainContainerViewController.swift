@@ -9,7 +9,6 @@ import UIKit
 
 class MainContainerViewController: UIViewController {
     
-    private var currentPageIndex = 0
     private let pageViews: [UIViewController]
     
     init(viewControllers: [UIViewController]) {
@@ -90,10 +89,10 @@ class MainContainerViewController: UIViewController {
 }
 
 extension MainContainerViewController: SegmentDelegate {
-    func didSelectSegmentIndex(to index: Int) {
-        index > currentPageIndex ?
-            setPageViewController(controller: [pageViews[index]], direction: .forward) :
-            setPageViewController(controller: [pageViews[index]], direction: .reverse)
+    func didSelectSegmentIndex(to index: SegmentMenuIndex) {
+        index == .exchangeViewIndex ?
+            setPageViewController(controller: [pageViews[index.value]], direction: .forward) :
+            setPageViewController(controller: [pageViews[index.value]], direction: .reverse)
     }
 }
 
@@ -126,7 +125,6 @@ extension MainContainerViewController: UIPageViewControllerDelegate,UIPageViewCo
               let index = pageViews.firstIndex(of: viewController) else {
             return
         }
-        currentPageIndex = index
         segmentContainerView.updateSelectIndex(to: index)
     }
 }

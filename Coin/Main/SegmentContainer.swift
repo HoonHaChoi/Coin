@@ -7,8 +7,17 @@
 
 import UIKit
 
+enum SegmentMenuIndex: Int {
+    case interestViewIndex = 0
+    case exchangeViewIndex = 1
+    
+    var value: Int {
+        return self.rawValue
+    }
+}
+
 protocol SegmentDelegate {
-    func didSelectSegmentIndex(to index: Int)
+    func didSelectSegmentIndex(to index: SegmentMenuIndex)
 }
 
 final class SegmentContainerView: UIView {
@@ -63,7 +72,7 @@ final class SegmentContainerView: UIView {
     
     
     @objc private func changeSegmentedControlLinePosition() {
-        delegate?.didSelectSegmentIndex(to: segmentControl.selectedSegmentIndex)
+        delegate?.didSelectSegmentIndex(to: SegmentMenuIndex(rawValue: segmentControl.selectedSegmentIndex) ?? .interestViewIndex)
         changeSegmentControlLine()
     }
     

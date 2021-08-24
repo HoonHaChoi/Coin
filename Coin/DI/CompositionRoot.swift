@@ -59,7 +59,9 @@ struct AppDependency {
         let exchangeViewModel = ExchangeViewModel(usecase: networkManager)
         let exchangeViewController = ExchangeViewController(dataSource: dataSource)
         
-        
+        exchangeViewController.requestExchange = exchangeViewModel.fetchCoins(from:)
+        exchangeViewModel.coinsHandler = exchangeViewController.updateTableView(coins:)
+        exchangeViewModel.failErrorHandler = exchangeViewController.onAlertError(message:)
         
         return exchangeViewController
     }

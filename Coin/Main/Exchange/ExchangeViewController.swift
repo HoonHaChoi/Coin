@@ -38,10 +38,13 @@ class ExchangeViewController: UIViewController {
         return view
     }()
     
+    var requestExchange: ((Exchange) -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configure()
+        requestExchange?(.upbit)
     }
     
     private func configure() {
@@ -61,6 +64,16 @@ class ExchangeViewController: UIViewController {
         ])
         cryptoView.cryptoTableView.dataSource = dataSource
         cryptoView.cryptoTableView.register(cell: CryptoCell.self)
+    }
+    
+    func updateTableView(coins: [Coin]) {
+        dataSource.updateDataSource(from: coins)
+        cryptoView.cryptoTableView.reloadData()
+    }
+    
+    func onAlertError(message: NetworkError) {
+        let alert = UIAlertController(title: "에러", message: message.description)
+        self.present(alert, animated: true)
     }
     
     @objc private func selectExchangeItem(_ sender: UISegmentedControl) {}

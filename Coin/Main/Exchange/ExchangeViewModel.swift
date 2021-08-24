@@ -7,17 +7,21 @@
 
 import Foundation
 import Combine
+import SwiftyJSON
 
 final class ExchangeViewModel {
     
     private let searchUseCase: SearchUseCase
+    private let socketUseCase: SocketUseCase
     private var cancell: AnyCancellable?
     
     var coinsHandler: (([Coin]) -> Void)?
     var failErrorHandler: ((NetworkError) -> Void)?
     
-    init(usecase: SearchUseCase = NetworkManager()) {
-        self.searchUseCase = usecase
+    init(searchUsecase: SearchUseCase = NetworkManager(),
+         socketUsecase : SocketUseCase) {
+        self.searchUseCase = searchUsecase
+        self.socketUseCase = socketUsecase
     }
     
     func fetchCoins(from market: Exchange) {
@@ -26,12 +30,23 @@ final class ExchangeViewModel {
         }
         
         cancell = searchUseCase.requestSearchCoins(url: url)
-            .sink { (fail) in
+            .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
-                    print(error)
+                    self?.failErrorHandler?(error)
                 }
             } receiveValue: { [weak self] (coins) in
                 self?.coinsHandler?(coins)
             }
+    }
+    
+    func fetchSocketExchangeMeta() {
+        socketUseCase.requestSocketCoins() { [weak self] (result: Result<[Coin], NetworkError>) in
+            switch result {
+            case .success(let meta):
+                break
+            case .failure(let error):
+                self?.failErrorHandler?(error)
+            }
+        }
     }
 }

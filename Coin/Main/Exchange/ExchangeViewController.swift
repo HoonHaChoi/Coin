@@ -77,7 +77,9 @@ class ExchangeViewController: UIViewController {
     
     func onAlertError(message: NetworkError) {
         let alert = UIAlertController(title: "에러", message: message.description)
-        self.present(alert, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
+        }
     }
     
     @objc private func selectExchangeItem(_ sender: UISegmentedControl) {

@@ -10,20 +10,9 @@ import SocketIO
 
 protocol SocketRequest {
     @discardableResult
-    func onEvent(_ event: Event, callback: @escaping NormalCallback) -> UUID
+    func onEvent(_ event: String, callback: @escaping NormalCallback) -> UUID
     func connect()
     func disconnect()
-}
-
-enum Event {
-    case tickers
-    
-    var name: String {
-        switch self {
-        case .tickers:
-            return "tickers"
-        }
-    }
 }
 
 final class Socket: SocketRequest {
@@ -46,8 +35,8 @@ final class Socket: SocketRequest {
         self.socketClient = manager?.defaultSocket
     }
     
-    func onEvent(_ event: Event, callback: @escaping NormalCallback) -> UUID {
-        socketClient?.on(event.name, callback: callback) ?? .init()
+    func onEvent(_ event: String, callback: @escaping NormalCallback) -> UUID {
+        socketClient?.on(event, callback: callback) ?? .init()
     }
     
     func connect() {

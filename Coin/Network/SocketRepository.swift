@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 
 protocol SocketUseCase {
-    func requestSocketCoins<T: Codable>(completion: @escaping (Result<[T], NetworkError>) ->())
+    func requestSocketExchange<T: Codable>(from exchange: Exchange, completion: @escaping (Result<[T], NetworkError>) ->())
 }
 
 struct SocketRepository: SocketUseCase {
@@ -20,11 +20,11 @@ struct SocketRepository: SocketUseCase {
         self.socket = socket
     }
     
-    func requestSocketCoins<T: Codable>(completion: @escaping (Result<[T], NetworkError>) -> Void) {
+    func requestSocketExchange<T: Codable>(from exchange: Exchange, completion: @escaping (Result<[T], NetworkError>) -> Void) {
         let decode = JSONDecoder()
         decode.keyDecodingStrategy = .convertFromSnakeCase
     
-        socket.onEvent(.tickers) { data, ack in
+        socket.onEvent(exchange.toString) { data, ack in
             do {
                 let data = try JSON(data.first ?? Any.self).rawData()
                 let codabledata = try decode.decode([T].self,
@@ -36,5 +36,24 @@ struct SocketRepository: SocketUseCase {
         }
         socket.connect()
     }
+    
+//    func requestUUID<T: Codable>(uuid: [String], completion: @escaping (Result<[T], NetworkError>) -> Void) {
+//        let decode = JSONDecoder()
+//        decode.keyDecodingStrategy = .convertFromSnakeCase
+//
+//        uuid.forEach { id in
+//            socket.onEvent(id) { data, act in
+//                do {
+//                    let data = try JSON(data).rawData()
+//                    let codabledata = try decode.decode([T].self,
+//                                                    from: data)
+//                    completion(.success(codabledata))
+//                } catch {
+//                    completion(.failure(.invalidResponse))
+//                }
+//            }
+//        }
+//        socket.connect()
+//    }
 }
 

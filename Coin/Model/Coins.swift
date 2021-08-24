@@ -20,6 +20,10 @@ enum Exchange: String, CaseIterable ,Codable {
     case upbit = "UPBIT"
     case coinone = "COINONE"
     case bithumb = "BITHUMB"
+    
+    var toString: String {
+        return self.rawValue
+    }
 }
 
 enum Change: String,CustomStringConvertible, Codable {

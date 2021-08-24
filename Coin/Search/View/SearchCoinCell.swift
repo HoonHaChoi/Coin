@@ -18,7 +18,7 @@ class SearchCoinCell: UITableViewCell {
     private var cancell: AnyCancellable?
     
     func configure(coin: Coin, imageLoader: Loader) {
-        coinName.text = coin.koreanName
+//        coinName.text = coin.koreanName
         imageLoad(loader: imageLoader, to: coin.logo)
         market.text = "\(coin.ticker)/\(coin.market)"
         tradePrice.text = coin.meta.tradePrice.convertPriceKRW()

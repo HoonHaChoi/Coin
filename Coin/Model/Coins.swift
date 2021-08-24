@@ -5,14 +5,13 @@ struct Coin: Codable {
     let exchange: Exchange
     let ticker: String
     let market: String
-    let koreanName, englishName: String
+    let englishName: String
     let meta: Meta
     let logo: String
 }
 
 struct Meta: Codable {
-    let openingPrice, highPrice, lowPrice, tradePrice: String
-    let changePrice, changeRate, accTradePrice24H: String
+    let tradePrice, changePrice, changeRate, accTradePrice24H: String
     let change: Change
 }
 
@@ -42,13 +41,6 @@ enum Change: String,CustomStringConvertible, Codable {
     }
     
     var description: String {
-        switch self {
-        case .fall:
-            return "FALL"
-        case .rise:
-            return "RISE"
-        case .even:
-            return "EVEN"
-        }
+        self.rawValue
     }
 }

@@ -12,7 +12,8 @@ class ExchangeViewController: UIViewController {
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
     
     private let dataSource: cryptoDataSource
-    //private let exchangeMapper: [Int: Exchange] = [:]
+    private let exchangeMapper = EnumMapper(key: Array(0..<Exchange.allCases.count),
+                                      item: Exchange.allCases)
     
     init(dataSource: cryptoDataSource) {
         self.dataSource = dataSource
@@ -80,11 +81,10 @@ class ExchangeViewController: UIViewController {
     }
     
     @objc private func selectExchangeItem(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            requestExchange?(.upbit)
-        } else if sender.selectedSegmentIndex == 1 {
-            requestExchange?(.coinone)
+        guard let exchange = exchangeMapper[sender.selectedSegmentIndex] else {
+            return
         }
+        requestExchange?(exchange)
     }
     
 }

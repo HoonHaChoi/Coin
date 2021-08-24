@@ -15,3 +15,9 @@ extension Int {
         return (numberFormatter.string(from: convertNSNumber) ?? "0") + "원"
     }
 }
+
+extension Int: Sequence{
+    public func makeIterator() -> CountableRange<Int>.Iterator {
+            return (0..<self).makeIterator()
+    }
+}

@@ -12,7 +12,7 @@ struct ImageLoader: Loader {
  
     private let fileManager: FileImage
     private let urlSession: ImageRequset
-    private let thumbnailImage = UIImage(systemName: "bitcoinsign.circle")
+    private let thumbnailImage = UIImage(systemName: "circle.dashed")
     
     init(session: ImageRequset = URLSession.shared,
          fileManager: FileImage = FileManager.default) {
@@ -21,7 +21,7 @@ struct ImageLoader: Loader {
     }
     
     func load(urlString: String) -> AnyPublisher<UIImage?, Never> {
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: urlString), urlString != "null" else {
             return Just(thumbnailImage).eraseToAnyPublisher()
         }
         let path = fileManager.cacheDirectory.appendingPathComponent(url.lastPathComponent)

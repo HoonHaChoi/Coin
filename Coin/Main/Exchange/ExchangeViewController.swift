@@ -12,6 +12,7 @@ class ExchangeViewController: UIViewController {
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
     
     private let dataSource: cryptoDataSource
+    //private let exchangeMapper: [Int: Exchange] = [:]
     
     init(dataSource: cryptoDataSource) {
         self.dataSource = dataSource
@@ -68,7 +69,9 @@ class ExchangeViewController: UIViewController {
     
     func updateTableView(coins: [Coin]) {
         dataSource.updateDataSource(from: coins)
-        cryptoView.cryptoTableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.cryptoView.cryptoTableView.reloadData()
+        }
     }
     
     func onAlertError(message: NetworkError) {
@@ -76,6 +79,12 @@ class ExchangeViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    @objc private func selectExchangeItem(_ sender: UISegmentedControl) {}
+    @objc private func selectExchangeItem(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            requestExchange?(.upbit)
+        } else if sender.selectedSegmentIndex == 1 {
+            requestExchange?(.coinone)
+        }
+    }
     
 }

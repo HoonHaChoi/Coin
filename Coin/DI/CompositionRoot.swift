@@ -12,6 +12,7 @@ struct AppDependency {
     let imageLoader = ImageLoader()
     let socket = Socket(url: Endpoint.socketURL)
     let userSetting = UserSetting()
+    let networkManager = NetworkManager()
     
     var tradingLogCoreData: CoreDataStorageManager {
         return CoreDataStorageManager(modelName: "TradingLogModel",
@@ -44,10 +45,23 @@ struct AppDependency {
     
     // MARK: Controller
     private func makeMainContainerViewController() -> MainContainerViewController {
-        let exchangeViewController = ExchangeViewController()
+        let exchangeViewController = makeExchangeViewController()
         let mainViewController = makeMainController()
         let mainContainerViewController = MainContainerViewController(viewControllers: [mainViewController, exchangeViewController])
         return mainContainerViewController
+    }
+    
+    typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
+    private func makeExchangeViewController() -> ExchangeViewController {
+        let dataSource = cryptoDataSource.init() { cell, model in
+            cell.configure(coin: model, imageLoader: imageLoader)
+        }
+        let exchangeViewModel = ExchangeViewModel(usecase: networkManager)
+        let exchangeViewController = ExchangeViewController(dataSource: dataSource)
+        
+        
+        
+        return exchangeViewController
     }
     
     private func makeMainController() -> MainViewController {

@@ -15,6 +15,7 @@ class ExchangeViewController: UIViewController {
     
     init(dataSource: cryptoDataSource) {
         self.dataSource = dataSource
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -37,10 +38,6 @@ class ExchangeViewController: UIViewController {
         return view
     }()
     
-//    let datasource = cryptoDataSource.init() { cell, model in
-//        cell.configure(coin: model, imageLoader: ImageLoader())
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -62,7 +59,7 @@ class ExchangeViewController: UIViewController {
             cryptoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cryptoView.topAnchor.constraint(equalTo: exchangeSegment.bottomAnchor, constant: 10)
         ])
-        cryptoView.cryptoTableView.dataSource = datasource
+        cryptoView.cryptoTableView.dataSource = dataSource
         cryptoView.cryptoTableView.register(cell: CryptoCell.self)
     }
     

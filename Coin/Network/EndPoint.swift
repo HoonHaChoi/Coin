@@ -26,7 +26,7 @@ enum Endpoint {
         return component.url
     }
     
-    static func exchangeURL(market: String) -> URL? {
+    static func exchangeURL(market: Exchange) -> URL? {
         var component = URLComponents()
         component.scheme = scheme
         component.host = host
@@ -34,7 +34,7 @@ enum Endpoint {
         component.path = "/api/v1/tickers"
         component.queryItems = [
             URLQueryItem(name: "market", value: "krw"),
-            URLQueryItem(name: "exchange", value: market),
+            URLQueryItem(name: "exchange", value: market.toString),
         ]
         return component.url
     }

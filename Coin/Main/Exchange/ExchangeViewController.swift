@@ -11,6 +11,16 @@ class ExchangeViewController: UIViewController {
 
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
     
+    private let dataSource: cryptoDataSource
+    
+    init(dataSource: cryptoDataSource) {
+        self.dataSource = dataSource
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     private lazy var exchangeSegment: UISegmentedControl = {
         let segment = UISegmentedControl(items: Exchange.allCases.map { "\($0)".capitalized })
         segment.translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +36,10 @@ class ExchangeViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+//    let datasource = cryptoDataSource.init() { cell, model in
+//        cell.configure(coin: model, imageLoader: ImageLoader())
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +62,6 @@ class ExchangeViewController: UIViewController {
             cryptoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cryptoView.topAnchor.constraint(equalTo: exchangeSegment.bottomAnchor, constant: 10)
         ])
-        let datasource = cryptoDataSource.init() { cell, model in
-            cell.configure(coin: model, imageLoader: ImageLoader())
-        }
         cryptoView.cryptoTableView.dataSource = datasource
         cryptoView.cryptoTableView.register(cell: CryptoCell.self)
     }

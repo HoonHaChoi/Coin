@@ -41,12 +41,28 @@ class ExchangeViewController: UIViewController {
     }()
     
     var requestExchange: ((Exchange) -> ())?
-    
+    var requestSocketMeta: ((Exchange) ->())?
+    var requestDisConnectSocket: (() -> ())?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configure()
         requestExchange?(.upbit)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSource.isExistModel { [weak self] exist in
+            if exist, let exchange = self?.exchangeMapper[exchangeSegment.selectedSegmentIndex] {
+                self?.requestSocketMeta?(exchange)
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        requestDisConnectSocket?()
     }
     
     private func configure() {
@@ -91,11 +107,16 @@ class ExchangeViewController: UIViewController {
         }
     }
     
+    private func changeExchange(from exchange: Exchange) {
+        requestDisConnectSocket?()
+        requestExchange?(exchange)
+    }
+    
     @objc private func selectExchangeItem(_ sender: UISegmentedControl) {
         guard let exchange = exchangeMapper[sender.selectedSegmentIndex] else {
             return
         }
-        requestExchange?(exchange)
+        changeExchange(from: exchange)
     }
     
 }

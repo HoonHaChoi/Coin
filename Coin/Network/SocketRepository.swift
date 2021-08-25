@@ -11,6 +11,7 @@ import SwiftyJSON
 protocol SocketUseCase {
     func requestSocketExchange<T: Codable>(from exchange: Exchange, completion: @escaping (Result<[T], NetworkError>) ->())
     func requestSocketUUIDS<T: Codable>(from uuids: [String], completion: @escaping (Result<[T], NetworkError>) -> ())
+    func onDisConnect()
 }
 
 struct SocketRepository: SocketUseCase {
@@ -55,6 +56,10 @@ struct SocketRepository: SocketUseCase {
             }
         }
         socket.connect()
+    }
+    
+    func onDisConnect() {
+        socket.disconnect()
     }
 }
 

@@ -51,4 +51,8 @@ final class ExchangeViewModel {
             }
         }
     }
+    
+    func disConnectSocket() {
+        socketUseCase.onDisConnect()
+    }
 }

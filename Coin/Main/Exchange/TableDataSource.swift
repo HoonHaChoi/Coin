@@ -33,6 +33,9 @@ class TableDataSource<CellType: UITableViewCell, Model>: NSObject, UITableViewDa
         self.model = coinList
     }
     
+    func isExistModel(handler: (Bool) -> ()) {
+        handler(!model.isEmpty)
+    }
 }
 
 extension TableDataSource where Model == Coin {
@@ -54,7 +57,7 @@ extension TableDataSource where Model == Coin {
     
     func makeIndexPath(indexes: [Int]) -> [IndexPath] {
         indexes.reduce([]) { currentResult,
-                                    currentIndex -> [IndexPath] in
+                             currentIndex -> [IndexPath] in
             if currentIndex < model.count {
                 return currentResult + [IndexPath(row: currentIndex,
                                                   section: 0)]

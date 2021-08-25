@@ -68,6 +68,9 @@ struct AppDependency {
         exchangeViewModel.metaHandler = exchangeViewController.updateMeta(metaList:)
         exchangeViewModel.failErrorHandler = exchangeViewController.onAlertError(message:)
         
+        exchangeViewController.requestDisConnectSocket = exchangeViewModel.disConnectSocket
+        exchangeViewController.requestSocketMeta = exchangeViewModel.fetchSocketExchangeMeta(from:)
+        
         return exchangeViewController
     }
     

@@ -12,7 +12,7 @@ extension String {
         let convertNSNumber = NSNumber(value: Double(self) ?? 0.0)
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 1
+        numberFormatter.maximumFractionDigits = 2
         return numberFormatter.string(from: convertNSNumber) ?? ""
     }
     

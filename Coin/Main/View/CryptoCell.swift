@@ -28,11 +28,11 @@ class CryptoCell: UITableViewCell {
     }
     
     func configure(coin: Coin, imageLoader: Loader) {
-        currentLabel.text = coin.ticker
+        symbolNameLabel.text = coin.ticker
+        currentLabel.text = coin.meta.tradePrice
         imageLoad(loader: imageLoader, to: coin.logo)
         symbolDescriptionLabel.text = coin.exchange.rawValue + "/" + coin.market
-        changePriceLabel.text = coin.meta.tradePrice.convertPriceKRW()
-        updateCurrentRateLabel(to: coin)
+        updateChangePriceRateLabel(to: coin)
     }
     
     private func imageLoad(loader: Loader, to logoURL: String) {
@@ -43,18 +43,20 @@ class CryptoCell: UITableViewCell {
             }
     }
     
-    private func updateCurrentRateLabel(to coin: Coin) {
+    private func updateChangePriceRateLabel(to coin: Coin) {
+        
         var numberSymbol = ""
         switch coin.meta.change {
         case .even:
-            changeRateLabel.textColor = .black
+            changeRateLabel.textColor = .basicColor
         case .fall:
-            numberSymbol = "- "
-            changeRateLabel.textColor = .systemBlue
+            numberSymbol = "-"
+            changeRateLabel.textColor = .fallColor
         case .rise:
-            numberSymbol = "+ "
-            changeRateLabel.textColor = .systemRed
+            numberSymbol = "+"
+            changeRateLabel.textColor = .riseColor
         }
         changeRateLabel.text = numberSymbol + coin.meta.changeRate.convertPercentRate()
+        changePriceLabel.text = coin.meta.changePrice.convertPriceKRW()
     }
 }

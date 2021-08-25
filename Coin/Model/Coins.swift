@@ -25,7 +25,7 @@ enum Exchange: String, CaseIterable ,Codable {
     }
 }
 
-enum Change: String,CustomStringConvertible, Codable {
+enum Change: String,CustomStringConvertible, Codable, CaseIterable {
     case fall = "FALL"
     case even = "EVEN"
     case rise = "RISE"

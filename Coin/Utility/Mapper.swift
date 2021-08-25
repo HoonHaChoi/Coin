@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EnumMapper<key: Hashable, item> where key: Sequence {
+struct EnumMapper<key: Hashable, item> {
 
     private let map: [key: item]
     

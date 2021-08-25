@@ -27,7 +27,8 @@ class CryptoCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(coin: Coin, imageLoader: Loader) {
+    func configure(coin: Coin, imageLoader: Loader,
+                   colorMapper: EnumMapper<Change, UIColor>) {
         symbolNameLabel.text = coin.ticker
         currentLabel.text = coin.meta.tradePrice
         imageLoad(loader: imageLoader, to: coin.logo)

@@ -22,6 +22,11 @@ struct AppDependency {
         return SocketRepository(socket: socket)
     }
     
+    let changeColorMapper = EnumMapper(key: Change.allCases,
+                                  item: [UIColor.fallColor,
+                                         UIColor.basicColor,
+                                         UIColor.riseColor])
+    
     // MARK: Coordinator
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
         return TabBarCoordinator(navigationController: navigation,
@@ -57,7 +62,8 @@ struct AppDependency {
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
     private func makeExchangeViewController() -> ExchangeViewController {
         let dataSource = cryptoDataSource.init() { cell, model in
-            cell.configure(coin: model, imageLoader: imageLoader)
+            cell.configure(coin: model, imageLoader: imageLoader,
+                           colorMapper: changeColorMapper)
         }
         let exchangeViewModel = ExchangeViewModel(searchUsecase: networkManager,
                                                   socketUsecase: socketRepository)

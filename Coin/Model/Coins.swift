@@ -21,7 +21,7 @@ enum Exchange: String, CaseIterable ,Codable {
     case bithumb = "BITHUMB"
     
     var toString: String {
-        return self.rawValue
+        return self.rawValue.lowercased()
     }
 }
 

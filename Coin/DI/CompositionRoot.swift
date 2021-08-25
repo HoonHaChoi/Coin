@@ -65,6 +65,7 @@ struct AppDependency {
         
         exchangeViewController.requestExchange = exchangeViewModel.fetchCoins(from:)
         exchangeViewModel.coinsHandler = exchangeViewController.updateTableView(coins:)
+        exchangeViewModel.metaHandler = exchangeViewController.updateMeta(metaList:)
         exchangeViewModel.failErrorHandler = exchangeViewController.onAlertError(message:)
         
         return exchangeViewController

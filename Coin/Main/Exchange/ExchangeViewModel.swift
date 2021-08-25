@@ -17,6 +17,7 @@ final class ExchangeViewModel {
     
     var coinsHandler: (([Coin]) -> Void)?
     var failErrorHandler: ((NetworkError) -> Void)?
+    var metaHandler: (([CoinMeta]) -> Void)?
     
     init(searchUsecase: SearchUseCase = NetworkManager(),
          socketUsecase : SocketUseCase) {
@@ -36,14 +37,15 @@ final class ExchangeViewModel {
                 }
             } receiveValue: { [weak self] (coins) in
                 self?.coinsHandler?(coins)
+                self?.fetchSocketExchangeMeta(from: market)
             }
     }
     
     func fetchSocketExchangeMeta(from exchange: Exchange) {
-        socketUseCase.requestSocketExchange(from: exchange) { [weak self] (result: Result<[Coin], NetworkError>) in
+        socketUseCase.requestSocketExchange(from: exchange) { [weak self] (result: Result<[CoinMeta], NetworkError>) in
             switch result {
             case .success(let meta):
-                break
+                self?.metaHandler?(meta)
             case .failure(let error):
                 self?.failErrorHandler?(error)
             }

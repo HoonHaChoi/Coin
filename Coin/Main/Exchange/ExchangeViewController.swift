@@ -75,6 +75,10 @@ class ExchangeViewController: UIViewController {
         }
     }
     
+    func updateMeta(metaList: [CoinMeta]) {
+        
+    }
+    
     func onAlertError(message: NetworkError) {
         let alert = UIAlertController(title: "에러", message: message.description)
         DispatchQueue.main.async { [weak self] in

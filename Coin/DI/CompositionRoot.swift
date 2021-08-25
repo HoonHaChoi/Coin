@@ -18,6 +18,9 @@ struct AppDependency {
         return CoreDataStorageManager(modelName: "TradingLogModel",
                                       userSetting: userSetting)
     }
+    var socketRepository: SocketRepository {
+        return SocketRepository(socket: socket)
+    }
     
     // MARK: Coordinator
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
@@ -56,7 +59,8 @@ struct AppDependency {
         let dataSource = cryptoDataSource.init() { cell, model in
             cell.configure(coin: model, imageLoader: imageLoader)
         }
-        let exchangeViewModel = ExchangeViewModel(usecase: networkManager)
+        let exchangeViewModel = ExchangeViewModel(searchUsecase: networkManager,
+                                                  socketUsecase: socketRepository)
         let exchangeViewController = ExchangeViewController(dataSource: dataSource)
         
         exchangeViewController.requestExchange = exchangeViewModel.fetchCoins(from:)
@@ -67,6 +71,7 @@ struct AppDependency {
     }
     
     private func makeMainController() -> MainViewController {
+        // socket 수정 필요
         let socketRepository = SocketRepository(socket: socket)
         let mainDataSource = MainDataSourece(imageLoader: imageLoader)
         let mainViewModel = MainViewModel(usecase: socketRepository)

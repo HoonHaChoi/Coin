@@ -10,6 +10,7 @@ import SwiftyJSON
 
 protocol SocketUseCase {
     func requestSocketExchange<T: Codable>(from exchange: Exchange, completion: @escaping (Result<[T], NetworkError>) ->())
+    func requestSocketUUIDS<T: Codable>(from uuids: [String], completion: @escaping (Result<[T], NetworkError>) -> ())
 }
 
 struct SocketRepository: SocketUseCase {
@@ -26,7 +27,7 @@ struct SocketRepository: SocketUseCase {
     
         socket.onEvent(exchange.toString) { data, ack in
             do {
-                let data = try JSON(data.first ?? Any.self).rawData()
+                let data = try JSON(data[0]).rawData()
                 let codabledata = try decode.decode([T].self,
                                                 from: data)
                 completion(.success(codabledata))
@@ -37,23 +38,23 @@ struct SocketRepository: SocketUseCase {
         socket.connect()
     }
     
-//    func requestUUID<T: Codable>(uuid: [String], completion: @escaping (Result<[T], NetworkError>) -> Void) {
-//        let decode = JSONDecoder()
-//        decode.keyDecodingStrategy = .convertFromSnakeCase
-//
-//        uuid.forEach { id in
-//            socket.onEvent(id) { data, act in
-//                do {
-//                    let data = try JSON(data).rawData()
-//                    let codabledata = try decode.decode([T].self,
-//                                                    from: data)
-//                    completion(.success(codabledata))
-//                } catch {
-//                    completion(.failure(.invalidResponse))
-//                }
-//            }
-//        }
-//        socket.connect()
-//    }
+    func requestSocketUUIDS<T: Codable>(from uuids: [String], completion: @escaping (Result<[T], NetworkError>) -> Void) {
+        let decode = JSONDecoder()
+        decode.keyDecodingStrategy = .convertFromSnakeCase
+
+        uuids.forEach { id in
+            socket.onEvent(id) { data, act in
+                do {
+                    let data = try JSON(data).rawData()
+                    let codabledata = try decode.decode([T].self,
+                                                    from: data)
+                    completion(.success(codabledata))
+                } catch {
+                    completion(.failure(.invalidResponse))
+                }
+            }
+        }
+        socket.connect()
+    }
 }
 

@@ -39,8 +39,8 @@ final class ExchangeViewModel {
             }
     }
     
-    func fetchSocketExchangeMeta() {
-        socketUseCase.requestSocketCoins() { [weak self] (result: Result<[Coin], NetworkError>) in
+    func fetchSocketExchangeMeta(from exchange: Exchange) {
+        socketUseCase.requestSocketExchange(from: exchange) { [weak self] (result: Result<[Coin], NetworkError>) in
             switch result {
             case .success(let meta):
                 break

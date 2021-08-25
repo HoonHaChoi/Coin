@@ -13,9 +13,9 @@ final class CryptoView: UIView {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableFooterView = UIView()
-        table.rowHeight = UITableView.automaticDimension
-        table.estimatedRowHeight = 130
-        table.sectionHeaderHeight = UITableView.automaticDimension
+        table.rowHeight = 70
+        table.estimatedRowHeight = 70
+        table.sectionHeaderHeight = 50
         table.estimatedSectionHeaderHeight = 50
         return table
     }()

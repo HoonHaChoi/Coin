@@ -76,7 +76,12 @@ class ExchangeViewController: UIViewController {
     }
     
     func updateMeta(metaList: [CoinMeta]) {
-        
+        let findIndex = dataSource.findIndexes(metaList: metaList)
+        dataSource.updateModel(indexes: findIndex, metaList: metaList)
+        let indexPath = dataSource.makeIndexPath(indexes: findIndex)
+        DispatchQueue.main.async { [weak self] in
+            self?.cryptoView.cryptoTableView.reloadRows(at: indexPath, with: .none)
+        }
     }
     
     func onAlertError(message: NetworkError) {

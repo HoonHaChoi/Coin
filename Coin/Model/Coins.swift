@@ -6,7 +6,7 @@ struct Coin: Codable {
     let ticker: String
     let market: String
     let englishName: String
-    let meta: Meta
+    var meta: Meta
     let logo: String
 }
 
@@ -42,5 +42,11 @@ enum Change: String,CustomStringConvertible, Codable {
     
     var description: String {
         self.rawValue
+    }
+}
+
+extension Coin: Equatable {
+    static func == (lhs: Coin, rhs: Coin) -> Bool {
+        return lhs.uuid == rhs.uuid
     }
 }

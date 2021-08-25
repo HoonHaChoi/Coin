@@ -7,29 +7,59 @@
 
 import UIKit
 
-final class TableDataSource<CellType: UITableViewCell, Model>: NSObject, UITableViewDataSource {
+class TableDataSource<CellType: UITableViewCell, Model>: NSObject, UITableViewDataSource {
     
-    private var coins: [Model]
+    private var model: [Model]
     let configure:(CellType,Model) -> ()
     
     init(configure: @escaping (CellType,Model) -> ()) {
-        self.coins = []
+        self.model = []
         self.configure = configure
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coins.count
+        return model.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellType.reuseIdentifier, for: indexPath) as? CellType else {
             return .init()
         }
-        configure(cell, coins[indexPath.row])
+        configure(cell, model[indexPath.row])
         return cell
     }
     
     func updateDataSource(from coinList: [Model]) {
-        self.coins = coinList
+        self.model = coinList
+    }
+    
+}
+
+extension TableDataSource where Model == Coin {
+    func findIndexes(metaList: [CoinMeta]) -> [Int] {
+        metaList.reduce([]) { currentResult, currentMeta in
+            if let coin = self.model.firstIndex(
+                where: { coin in coin.uuid == currentMeta.uuid}) {
+                return currentResult + [coin]
+            }
+            return currentResult
+        }
+    }
+    
+    func updateModel(indexes: [Int], metaList: [CoinMeta]) {
+        for i in 0..<indexes.count {
+            self.model[indexes[i]].meta = metaList[i].meta
+        }
+    }
+    
+    func makeIndexPath(indexes: [Int]) -> [IndexPath] {
+        indexes.reduce([]) { currentResult,
+                                    currentIndex -> [IndexPath] in
+            if currentIndex < model.count {
+                return currentResult + [IndexPath(row: currentIndex,
+                                                  section: 0)]
+            }
+            return currentResult
+        }
     }
 }

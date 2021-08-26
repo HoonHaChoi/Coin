@@ -9,5 +9,5 @@ import UIKit
 import Combine
 
 protocol Loader {
-    func load(urlString: String) -> AnyPublisher<UIImage?, Never>
+    func load(urlString: String?) -> AnyPublisher<UIImage?, Never>
 }

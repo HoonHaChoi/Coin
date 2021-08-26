@@ -7,7 +7,7 @@ struct Coin: Codable {
     let market: String
     let englishName: String
     var meta: Meta
-    let logo: String
+    let logo: String?
 }
 
 struct Meta: Codable {

@@ -41,7 +41,7 @@ class CryptoCell: UITableViewCell {
         updateChangeColor(to: coin, mapper: colorMapper)
     }
     
-    private func imageLoad(loader: Loader, to logoURL: String) {
+    private func imageLoad(loader: Loader, to logoURL: String?) {
         cancell = loader.load(urlString: logoURL)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] uiImage in

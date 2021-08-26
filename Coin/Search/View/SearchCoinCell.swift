@@ -25,7 +25,7 @@ class SearchCoinCell: UITableViewCell {
         updateCurrentRateLabel(to: coin)
     }
     
-    private func imageLoad(loader: Loader, to logoURL: String) {
+    private func imageLoad(loader: Loader, to logoURL: String?) {
         cancell = loader.load(urlString: logoURL)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] uiImage in

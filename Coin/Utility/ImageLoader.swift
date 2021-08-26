@@ -20,8 +20,11 @@ struct ImageLoader: Loader {
         self.fileManager = fileManager
     }
     
-    func load(urlString: String) -> AnyPublisher<UIImage?, Never> {
-        guard let url = URL(string: urlString), urlString != "null" else {
+    func load(urlString: String?) -> AnyPublisher<UIImage?, Never> {
+        // urlString != "null" 제거 예정
+        guard let urlString = urlString,
+              let url = URL(string: urlString),
+              urlString != "null" else {
             return Just(thumbnailImage).eraseToAnyPublisher()
         }
         let path = fileManager.cacheDirectory.appendingPathComponent(url.lastPathComponent)

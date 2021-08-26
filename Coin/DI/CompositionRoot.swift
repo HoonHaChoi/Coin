@@ -13,6 +13,7 @@ struct AppDependency {
     let socket = Socket(url: Endpoint.socketURL)
     let userSetting = UserSetting()
     let networkManager = NetworkManager()
+    let coinSortHelper = CoinSortHelper()
     
     var tradingLogCoreData: CoreDataStorageManager {
         return CoreDataStorageManager(modelName: "TradingLogModel",
@@ -70,7 +71,8 @@ struct AppDependency {
         }
         let exchangeViewModel = ExchangeViewModel(searchUsecase: networkManager,
                                                   socketUsecase: socketRepository)
-        let exchangeViewController = ExchangeViewController(dataSource: dataSource)
+        let exchangeViewController = ExchangeViewController(dataSource: dataSource,
+                                                            coinSortHelper: coinSortHelper)
         
         exchangeViewController.requestExchange = exchangeViewModel.fetchCoins(from:)
         exchangeViewModel.coinsHandler = exchangeViewController.updateTableView(coins:)

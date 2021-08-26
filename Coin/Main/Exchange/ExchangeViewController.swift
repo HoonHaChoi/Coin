@@ -14,10 +14,12 @@ class ExchangeViewController: UIViewController {
     private let dataSource: cryptoDataSource
     private let exchangeMapper = EnumMapper(key: Array(0..<Exchange.allCases.count),
                                       item: Exchange.allCases)
-    private let sortHelper = CoinSortHelper()
+    private let sortHelper: CoinSortHelper
     
-    init(dataSource: cryptoDataSource) {
+    init(dataSource: cryptoDataSource,
+         coinSortHelper: CoinSortHelper) {
         self.dataSource = dataSource
+        self.sortHelper = coinSortHelper
         super.init(nibName: nil, bundle: nil)
     }
     

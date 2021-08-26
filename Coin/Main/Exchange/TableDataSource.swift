@@ -49,6 +49,23 @@ extension TableDataSource where Model == Coin {
         }
     }
     
+    func compareMeta(indexes: [Int], metaList: [CoinMeta]) -> [Change] {
+        var changes: [Change] = []
+        for i in 0..<indexes.count {
+            let currentModel = Double(self.model[indexes[i]].meta.tradePrice) ?? 0.0
+            let changeModel = Double(metaList[i].meta.tradePrice) ?? 0.0
+            
+            if currentModel > changeModel {
+                changes.append(.fall)
+            } else if currentModel < changeModel {
+                changes.append(.rise)
+            } else {
+                changes.append(.even)
+            }
+        }
+        return changes
+    }
+    
     func updateModel(indexes: [Int], metaList: [CoinMeta]) {
         for i in 0..<indexes.count {
             self.model[indexes[i]].meta = metaList[i].meta

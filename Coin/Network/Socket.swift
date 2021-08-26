@@ -45,5 +45,6 @@ final class Socket: SocketRequest {
     
     func disconnect() {
         socketClient?.disconnect()
+        socketClient?.removeAllHandlers()
     }
 }

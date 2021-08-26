@@ -7,10 +7,15 @@
 
 import UIKit
 
-protocol CryptoHeaderViewDelegate {
-    func didNameSortAction()
-    func didCurrentPriceSortAction()
-    func didChangeSortAction()
+protocol CryptoHeaderViewDelegate: AnyObject {
+    func didTickerSortAction(action: PlusMinusAction)
+    func didCurrentPriceSortAction(action: PlusMinusAction)
+    func didChangeSortAction(action: PlusMinusAction)
+}
+
+enum PlusMinusAction {
+    case plus
+    case minus
 }
 
 class CryptoHeaderView: UITableViewHeaderFooterView {
@@ -21,7 +26,7 @@ class CryptoHeaderView: UITableViewHeaderFooterView {
     
     static var nib = UINib(nibName: identifier, bundle: nil)
 
-    var delegate: CryptoHeaderViewDelegate?
+    weak var delegate: CryptoHeaderViewDelegate?
     
     @IBOutlet weak var nameSortButton: UIButton!
     @IBOutlet weak var currentPriceSortButton: UIButton!
@@ -30,21 +35,24 @@ class CryptoHeaderView: UITableViewHeaderFooterView {
     @IBOutlet var sortButtons: [UIButton]!
     
     @IBAction func nameSortButtonTapped(_ sender: UIButton) {
-        delegate?.didNameSortAction()
         changeButtonState(sender: sender)
-        changeButtonImage(sender: sender)
+        changeButtonImageAndHandler(sender: sender) { action in
+            delegate?.didTickerSortAction(action: action)
+        }
     }
     
     @IBAction func currentPriceSortButtonTapped(_ sender: UIButton) {
-        delegate?.didCurrentPriceSortAction()
         changeButtonState(sender: sender)
-        changeButtonImage(sender: sender)
+        changeButtonImageAndHandler(sender: sender) { action in
+            delegate?.didCurrentPriceSortAction(action: action)
+        }
     }
     
     @IBAction func changeSortButtonTapped(_ sender: UIButton) {
-        delegate?.didChangeSortAction()
         changeButtonState(sender: sender)
-        changeButtonImage(sender: sender)
+        changeButtonImageAndHandler(sender: sender) { action in
+            delegate?.didChangeSortAction(action: action)
+        }
     }
     
     private func changeButtonState(sender: UIButton) {
@@ -59,11 +67,14 @@ class CryptoHeaderView: UITableViewHeaderFooterView {
         }
     }
     
-    private func changeButtonImage(sender: UIButton) {
+    private func changeButtonImageAndHandler(sender: UIButton,
+                                   handler: ((PlusMinusAction) -> ())) {
         if sender.currentImage == UIImage(systemName: "arrow.up") {
             sender.setImage(UIImage(systemName: "arrow.down"), for: .normal)
+            handler(.minus)
         } else {
             sender.setImage(UIImage(systemName: "arrow.up"), for: .normal)
+            handler(.plus)
         }
     }
     

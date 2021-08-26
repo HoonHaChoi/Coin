@@ -9,7 +9,7 @@ import UIKit
 
 class TableDataSource<CellType: UITableViewCell, Model>: NSObject, UITableViewDataSource {
     
-    private var model: [Model]
+    private(set) var model: [Model]
     let configure:(CellType,Model) -> ()
     
     init(configure: @escaping (CellType,Model) -> ()) {

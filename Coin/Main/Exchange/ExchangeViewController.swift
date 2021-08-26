@@ -14,6 +14,7 @@ class ExchangeViewController: UIViewController {
     private let dataSource: cryptoDataSource
     private let exchangeMapper = EnumMapper(key: Array(0..<Exchange.allCases.count),
                                       item: Exchange.allCases)
+    private let sortHelper = CoinSortHelper()
     
     init(dataSource: cryptoDataSource) {
         self.dataSource = dataSource
@@ -138,6 +139,40 @@ extension ExchangeViewController: UITableViewDelegate {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CryptoHeaderView.identifier) as? CryptoHeaderView else {
             return .init()
         }
+        headerView.delegate = self
         return headerView
     }
+}
+
+extension ExchangeViewController: CryptoHeaderViewDelegate {
+    func didTickerSortAction(action: PlusMinusAction) {
+        sortHelper.sortTicker(coins: dataSource.model, action: action)
+        { [weak self] sortCoin in
+            dataSource.updateDataSource(from: sortCoin)
+            DispatchQueue.main.async {
+                self?.cryptoView.cryptoTableView.reloadData()
+            }
+        }
+    }
+    
+    func didCurrentPriceSortAction(action: PlusMinusAction) {
+        sortHelper.sortTradePrice(coins: dataSource.model, action: action)
+        { [weak self] sortCoin in
+            dataSource.updateDataSource(from: sortCoin)
+            DispatchQueue.main.async {
+                self?.cryptoView.cryptoTableView.reloadData()
+            }
+        }
+    }
+    
+    func didChangeSortAction(action: PlusMinusAction) {
+        sortHelper.sortChangeRate(coins: dataSource.model, action: action)
+        { [weak self] sortCoin in
+            dataSource.updateDataSource(from: sortCoin)
+            DispatchQueue.main.async {
+                self?.cryptoView.cryptoTableView.reloadData()
+            }
+        }
+    }
+    
 }

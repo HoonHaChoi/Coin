@@ -39,6 +39,7 @@
                             <state key="normal" title="현재가">
                                 <color key="titleColor" name="767676"/>
                                 <imageReference key="image" image="arrow.up" catalog="system" symbolScale="small" renderingMode="template"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                             </state>
                             <connections>
                                 <action selector="currentPriceSortButtonTapped:" destination="Qs4-k5-u0e" eventType="touchUpInside" id="KH6-es-MaW"/>
@@ -51,6 +52,7 @@
                             <state key="normal" title="변동률">
                                 <color key="titleColor" name="767676"/>
                                 <imageReference key="image" image="arrow.up" catalog="system" symbolScale="small" renderingMode="template"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                             </state>
                             <connections>
                                 <action selector="changeSortButtonTapped:" destination="Qs4-k5-u0e" eventType="touchUpInside" id="iga-I4-8LK"/>

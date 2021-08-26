@@ -16,7 +16,7 @@ class CryptoCell: UITableViewCell {
     @IBOutlet weak var symbolImageView: UIImageView!
     @IBOutlet weak var symbolNameLabel: UILabel!
     @IBOutlet weak var symbolDescriptionLabel: UILabel!
-    @IBOutlet weak var currentLabel: UILabel!
+    @IBOutlet weak var currentPriceLabel: UILabel!
     @IBOutlet weak var changeRateLabel: UILabel!
     @IBOutlet weak var changePriceLabel: UILabel!
     
@@ -34,7 +34,7 @@ class CryptoCell: UITableViewCell {
                    colorMapper: colorMap,
                    signMapper: signMap) {
         symbolNameLabel.text = coin.ticker
-        currentLabel.text = coin.meta.tradePrice
+        currentPriceLabel.text = coin.meta.tradePrice.convertPriceKRW()
         imageLoad(loader: imageLoader, to: coin.logo)
         symbolDescriptionLabel.text = coin.exchange.rawValue + "/" + coin.market
         updateChangePriceRateLabel(to: coin, mapper: signMapper)

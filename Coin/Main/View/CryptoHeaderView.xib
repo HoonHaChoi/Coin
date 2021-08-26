@@ -26,7 +26,11 @@
                             <state key="normal" title="코인명">
                                 <color key="titleColor" name="767676"/>
                                 <imageReference key="image" image="arrow.up" catalog="system" symbolScale="small" renderingMode="template"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="regular"/>
                             </state>
+                            <connections>
+                                <action selector="nameSortButtonTapped:" destination="Qs4-k5-u0e" eventType="touchUpInside" id="bfH-OQ-xAu"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dND-Mb-2e2">
                             <rect key="frame" x="258" y="16" width="53" height="18"/>
@@ -36,6 +40,9 @@
                                 <color key="titleColor" name="767676"/>
                                 <imageReference key="image" image="arrow.up" catalog="system" symbolScale="small" renderingMode="template"/>
                             </state>
+                            <connections>
+                                <action selector="currentPriceSortButtonTapped:" destination="Qs4-k5-u0e" eventType="touchUpInside" id="KH6-es-MaW"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18E-l1-FWh">
                             <rect key="frame" x="351" y="16" width="53" height="18"/>
@@ -45,6 +52,9 @@
                                 <color key="titleColor" name="767676"/>
                                 <imageReference key="image" image="arrow.up" catalog="system" symbolScale="small" renderingMode="template"/>
                             </state>
+                            <connections>
+                                <action selector="changeSortButtonTapped:" destination="Qs4-k5-u0e" eventType="touchUpInside" id="iga-I4-8LK"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,6 +77,14 @@
                 <constraint firstItem="nbL-W0-5PV" firstAttribute="leading" secondItem="X8b-gC-xaz" secondAttribute="leading" id="ksm-zr-Vdl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="changeSortButton" destination="18E-l1-FWh" id="xpq-4M-7RZ"/>
+                <outlet property="currentPriceSortButton" destination="dND-Mb-2e2" id="YyB-gs-ivB"/>
+                <outlet property="nameSortButton" destination="d5T-bH-050" id="xAv-dt-ZWb"/>
+                <outletCollection property="sortButtons" destination="d5T-bH-050" collectionClass="NSMutableArray" id="Bdf-Kh-NIg"/>
+                <outletCollection property="sortButtons" destination="dND-Mb-2e2" collectionClass="NSMutableArray" id="8Wy-Dx-juU"/>
+                <outletCollection property="sortButtons" destination="18E-l1-FWh" collectionClass="NSMutableArray" id="4kE-Xa-rMt"/>
+            </connections>
             <point key="canvasLocation" x="236.80000000000001" y="-158.32083958020991"/>
         </view>
     </objects>

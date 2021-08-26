@@ -81,7 +81,7 @@ class ExchangeViewController: UIViewController {
             cryptoView.topAnchor.constraint(equalTo: exchangeSegment.bottomAnchor, constant: 10)
         ])
         cryptoView.cryptoTableView.dataSource = dataSource
-        cryptoView.cryptoTableView.register(cell: CryptoCell.self)
+        cryptoView.cryptoTableView.delegate = self
     }
     
     func updateTableView(coins: [Coin]) {
@@ -131,4 +131,13 @@ class ExchangeViewController: UIViewController {
         changeExchange(from: exchange)
     }
     
+}
+
+extension ExchangeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CryptoHeaderView.identifier) as? CryptoHeaderView else {
+            return .init()
+        }
+        return headerView
+    }
 }

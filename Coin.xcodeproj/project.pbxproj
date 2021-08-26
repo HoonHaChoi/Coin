@@ -77,6 +77,8 @@
 		BFA1541526A152D400341A6D /* FileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541426A152D400341A6D /* FileImage.swift */; };
 		BFA1541726A152F600341A6D /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541626A152F600341A6D /* Loader.swift */; };
 		BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541826A153BC00341A6D /* FileManager+Extension.swift */; };
+		BFB0A51126D7378D004F04AE /* CryptoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB0A51026D7378D004F04AE /* CryptoHeaderView.xib */; };
+		BFB0A51326D73C2B004F04AE /* CryptoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A51226D73C2B004F04AE /* CryptoHeaderView.swift */; };
 		BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */; };
 		BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */; };
 		BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */; };
@@ -180,6 +182,8 @@
 		BFA1541426A152D400341A6D /* FileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImage.swift; sourceTree = "<group>"; };
 		BFA1541626A152F600341A6D /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		BFA1541826A153BC00341A6D /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		BFB0A51026D7378D004F04AE /* CryptoHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CryptoHeaderView.xib; sourceTree = "<group>"; };
+		BFB0A51226D73C2B004F04AE /* CryptoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHeaderView.swift; sourceTree = "<group>"; };
 		BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsViewModel.swift; sourceTree = "<group>"; };
 		BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsDTO.swift; sourceTree = "<group>"; };
 		BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDTO.swift; sourceTree = "<group>"; };
@@ -325,6 +329,8 @@
 				BF2F9D7526D337D7006A0077 /* CryptoView.swift */,
 				BF2F9D7726D34450006A0077 /* CryptoCell.xib */,
 				BF2F9D7926D34B24006A0077 /* CryptoCell.swift */,
+				BFB0A51026D7378D004F04AE /* CryptoHeaderView.xib */,
+				BFB0A51226D73C2B004F04AE /* CryptoHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,6 +582,7 @@
 				BF1FA632269B309B00AC1AC2 /* SearchCoinCell.xib in Resources */,
 				BF4F3AC826BBC499003B801A /* TradingLogAddViewController.storyboard in Resources */,
 				BF92D7E826B589670033B773 /* SearchViewController.storyboard in Resources */,
+				BFB0A51126D7378D004F04AE /* CryptoHeaderView.xib in Resources */,
 				BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */,
 				BF92D7E626B5894B0033B773 /* MainViewController.storyboard in Resources */,
 				BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */,
@@ -649,6 +656,7 @@
 				BFB427EB26CB3F4B001D4C91 /* ChartHelper.swift in Sources */,
 				BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */,
 				BF4F3AD626BD2439003B801A /* UITextView+Extension.swift in Sources */,
+				BFB0A51326D73C2B004F04AE /* CryptoHeaderView.swift in Sources */,
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
 				BFB427ED26CB4436001D4C91 /* TradingLogStatsChartDTO.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,

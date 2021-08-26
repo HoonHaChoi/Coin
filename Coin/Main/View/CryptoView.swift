@@ -15,8 +15,7 @@ final class CryptoView: UIView {
         table.tableFooterView = UIView()
         table.rowHeight = 70
         table.estimatedRowHeight = 70
-        table.sectionHeaderHeight = 50
-        table.estimatedSectionHeaderHeight = 50
+        table.sectionHeaderHeight = 30
         return table
     }()
     
@@ -32,6 +31,9 @@ final class CryptoView: UIView {
     
     private func configure() {
         addSubview(cryptoTableView)
+        
+        cryptoTableView.register(cell: CryptoCell.self)
+        cryptoTableView.register(CryptoHeaderView.nib, forHeaderFooterViewReuseIdentifier: CryptoHeaderView.identifier)
         
         NSLayoutConstraint.activate([
             cryptoTableView.topAnchor.constraint(equalTo: topAnchor),

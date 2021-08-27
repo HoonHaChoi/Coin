@@ -22,7 +22,18 @@ final class MainViewModel: CryptoBaseViewModel {
                     self?.failErrorHandler?(error)
                 }
             } receiveValue: { [weak self] coins in
-                self?.coinsHandler?(coins)
+                self?.coinsHandler?(self?.sortCoins(uuids: uuids,
+                                                    coins: coins) ?? [])
             }
+    }
+    
+    private func sortCoins(uuids: [String], coins: [Coin]) -> [Coin] {
+        return coins.sorted { first, second in
+            if let first = uuids.firstIndex(of: first.uuid),
+               let second = uuids.firstIndex(of: second.uuid) {
+                return first < second
+            }
+            return false
+        }
     }
 }

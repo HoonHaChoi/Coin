@@ -10,7 +10,7 @@ import Combine
 
 final class MainViewModel: CryptoBaseViewModel {
     
-    func fetchCoins(uuids: [String]) {
+    func fetchFavoriteCoins(uuids: [String]) {
         let requests = uuids.map { uuid in
             return searchUseCase.requestFavoriteCoins(uuidString: uuid)
         }
@@ -24,6 +24,7 @@ final class MainViewModel: CryptoBaseViewModel {
             } receiveValue: { [weak self] coins in
                 self?.coinsHandler?(self?.sortCoins(uuids: uuids,
                                                     coins: coins) ?? [])
+                self?.fetchSocketFavoriteMeta(uuids: uuids)
             }
     }
     
@@ -34,6 +35,17 @@ final class MainViewModel: CryptoBaseViewModel {
                 return first < second
             }
             return false
+        }
+    }
+    
+    func fetchSocketFavoriteMeta(uuids: [String]) {
+        socketUseCase.requestSocketUUIDS(from: uuids) { [weak self] (result: Result<[CoinMeta], NetworkError>) in
+            switch result {
+            case .success(let meta):
+                self?.metaHandler?(meta)
+            case .failure(let error):
+                self?.failErrorHandler?(error)
+            }
         }
     }
 }

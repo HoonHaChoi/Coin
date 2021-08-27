@@ -96,7 +96,9 @@ struct AppDependency {
         
         mainViewModel.failErrorHandler = mainViewController.showError
         mainViewModel.coinsHandler = mainViewController.updateCoinList
-        mainViewController.fetchCoinsHandler = mainViewModel.fetchCoins
+        mainViewController.fetchCoinsHandler = mainViewModel.fetchFavoriteCoins
+        
+        mainViewModel.metaHandler = mainViewController.updateMeta(metaList:)
         
         return mainViewController
     }

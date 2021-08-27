@@ -3,10 +3,10 @@ import UIKit
 class MainViewController: UIViewController, Storyboarded {
     
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
-    private let mainDataSource: cryptoDataSource
+    private let dataSource: cryptoDataSource
     
     init(dataSource: cryptoDataSource) {
-        self.mainDataSource = dataSource
+        self.dataSource = dataSource
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,7 +32,7 @@ class MainViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configure()
-        cryptoView.cryptoTableView.dataSource = mainDataSource
+        cryptoView.cryptoTableView.dataSource = dataSource
         fetchCoinsHandler?(uuids)
     }
     
@@ -55,9 +55,20 @@ class MainViewController: UIViewController, Storyboarded {
     }
     
     lazy var updateCoinList: ([Coin]) -> () = { [weak self] coins in
-        self?.mainDataSource.updateDataSource(from: coins)
+        self?.dataSource.updateDataSource(from: coins)
         DispatchQueue.main.async {
             self?.cryptoView.cryptoTableView.reloadData()
+        }
+    }
+    
+    func updateMeta(metaList: [CoinMeta]) {
+        let findIndex = dataSource.findIndexes(metaList: metaList)
+        let changes = dataSource.compareMeta(indexes: findIndex, metaList: metaList)
+        dataSource.updateModel(indexes: findIndex, metaList: metaList)
+        let indexPath = dataSource.makeIndexPath(indexes: findIndex)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.cryptoView.reloadRows(at: indexPath, to: changes)
         }
     }
 }

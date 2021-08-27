@@ -43,5 +43,15 @@ final class CryptoView: UIView {
         ])
     }
     
+    func reloadRows(at indexPath: [IndexPath],to changes: [Change]) {
+        cryptoTableView.reloadRows(at: indexPath, with: .none)
+        updateChangeBackground(indexPaths: indexPath, changes: changes)
+    }
     
+    private func updateChangeBackground(indexPaths: [IndexPath], changes: [Change]) {
+        for index in 0..<indexPaths.count {
+            cryptoTableView.cellForRow(at: indexPaths[index])?
+                    .updateBackgroundAnimation(change: changes[index])
+        }
+    }
 }

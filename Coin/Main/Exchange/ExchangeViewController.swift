@@ -100,18 +100,8 @@ class ExchangeViewController: UIViewController {
         dataSource.updateModel(indexes: findIndex, metaList: metaList)
         let indexPath = dataSource.makeIndexPath(indexes: findIndex)
         
-        cryptoView.cryptoTableView.performBatchUpdates({
-            DispatchQueue.main.async { [weak self] in
-                self?.cryptoView.cryptoTableView.reloadRows(at: indexPath, with: .none)
-                self?.updateChangeBackground(indexPaths: indexPath, changes: changes)
-            }
-        }) { _ in }
-    }
-    
-    private func updateChangeBackground(indexPaths: [IndexPath], changes: [Change]) {
-        for i in 0..<indexPaths.count {
-            self.cryptoView.cryptoTableView.cellForRow(at: indexPaths[i])?
-                    .updateBackgroundAnimation(change: changes[i])
+        DispatchQueue.main.async { [weak self] in
+            self?.cryptoView.reloadRows(at: indexPath, to: changes)
         }
     }
     

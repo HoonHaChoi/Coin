@@ -59,7 +59,6 @@
 		BF92D7D726B46C910033B773 /* TradingLogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */; };
 		BF92D7E226B57DF20033B773 /* TradingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */; };
 		BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */; };
-		BF92D7E626B5894B0033B773 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF92D7E526B5894B0033B773 /* MainViewController.storyboard */; };
 		BF92D7E826B589670033B773 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF92D7E726B589670033B773 /* SearchViewController.storyboard */; };
 		BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */; };
 		BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570C826A34830000BBAE9 /* String+Extension.swift */; };
@@ -167,7 +166,6 @@
 		BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogCoordinator.swift; sourceTree = "<group>"; };
 		BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogViewController.swift; sourceTree = "<group>"; };
 		BF92D7E326B584070033B773 /* TradingLogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogViewController.storyboard; sourceTree = "<group>"; };
-		BF92D7E526B5894B0033B773 /* MainViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
 		BF92D7E726B589670033B773 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchController+Extension.swift"; sourceTree = "<group>"; };
 		BF9570C826A34830000BBAE9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				BF8736092651697A00C3FAD0 /* MainViewController.swift */,
 				BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */,
 				BF8AC82826AAC99C00D90C4C /* MainDataSource.swift */,
-				BF92D7E526B5894B0033B773 /* MainViewController.storyboard */,
 				BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */,
 				BFB7954426D1B10900A89BC7 /* MainContainerViewController.swift */,
 			);
@@ -587,7 +584,6 @@
 				BF92D7E826B589670033B773 /* SearchViewController.storyboard in Resources */,
 				BFB0A51126D7378D004F04AE /* CryptoHeaderView.xib in Resources */,
 				BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */,
-				BF92D7E626B5894B0033B773 /* MainViewController.storyboard in Resources */,
 				BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */,
 				BF9E249E26B69FBA00CCB49E /* TradingLogCell.xib in Resources */,
 				BF87360D2651697A00C3FAD0 /* Main.storyboard in Resources */,

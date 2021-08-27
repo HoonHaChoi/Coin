@@ -30,6 +30,15 @@ struct AppDependency {
     let changeSignMapper = EnumMapper(key: Change.allCases,
                                       item: ["-","","+"])
     
+    typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
+    var coinDataSource: cryptoDataSource { cryptoDataSource.init { cell, model in
+        cell.configure(coin: model,
+                       imageLoader: self.imageLoader,
+                       colorMapper: self.changeColorMapper,
+                       signMapper: self.changeSignMapper)
+        }
+    }
+    
     // MARK: Coordinator
     func makeTabBarCoordinator(navigation: UINavigationController) -> TabBarCoordinator {
         return TabBarCoordinator(navigationController: navigation,
@@ -62,16 +71,10 @@ struct AppDependency {
         return mainContainerViewController
     }
     
-    typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
     private func makeExchangeViewController() -> ExchangeViewController {
-        let dataSource = cryptoDataSource.init() { cell, model in
-            cell.configure(coin: model, imageLoader: imageLoader,
-                           colorMapper: changeColorMapper,
-                           signMapper: changeSignMapper)
-        }
         let exchangeViewModel = ExchangeViewModel(searchUsecase: networkManager,
                                                   socketUsecase: socketRepository)
-        let exchangeViewController = ExchangeViewController(dataSource: dataSource,
+        let exchangeViewController = ExchangeViewController(dataSource: coinDataSource,
                                                             coinSortHelper: coinSortHelper)
         
         exchangeViewController.requestExchange = exchangeViewModel.fetchCoins(from:)
@@ -88,12 +91,8 @@ struct AppDependency {
     private func makeMainController() -> MainViewController {
         // socket 수정 필요
         let socketRepository = SocketRepository(socket: socket)
-        let mainDataSource = MainDataSourece(imageLoader: imageLoader)
         let mainViewModel = MainViewModel(usecase: socketRepository)
-        let mainViewController = MainViewController.instantiate { coder in
-            return MainViewController(coder: coder,
-                                      dataSource: mainDataSource)
-        }
+        let mainViewController = MainViewController(dataSource: coinDataSource)
         
         mainViewModel.errorHandler = mainViewController.showError
         mainViewModel.coinListHandler = mainViewController.updateCoinList

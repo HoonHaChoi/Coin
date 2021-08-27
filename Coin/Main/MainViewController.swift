@@ -2,24 +2,22 @@ import UIKit
 
 class MainViewController: UIViewController, Storyboarded {
     
-    private let mainDataSource: MainDataSourece
+    typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
+    private let mainDataSource: cryptoDataSource
     
-    init?(coder: NSCoder,
-          dataSource: MainDataSourece) {
+    init(dataSource: cryptoDataSource) {
         self.mainDataSource = dataSource
-        super.init(coder: coder)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    private var segmentContainerView: SegmentContainerView = {
-        let segmentContainerView = SegmentContainerView()
-        segmentContainerView.translatesAutoresizingMaskIntoConstraints = false
-        return segmentContainerView
+    private var cryptoView: CryptoView = {
+        let view = CryptoView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     var fetchCoinsHandler: (() -> Void)?
@@ -27,29 +25,35 @@ class MainViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = mainDataSource
-        tableView.register(cell: SearchCoinCell.self)
-        requestCoins()
+        cryptoView.cryptoTableView.dataSource = mainDataSource
+    }
+    
+    private func configure() {
+        view.addSubview(cryptoView)
+        
+        NSLayoutConstraint.activate([
+            cryptoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            cryptoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            cryptoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            cryptoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10)
+        ])
     }
     
     private func requestCoins() {
         fetchCoinsHandler?()
     }
     
-    @IBAction func moveSearchViewController(_ sender: Any) {
-        coordinator?.showSearchViewController()
-    }
-    
     lazy var showError: (NetworkError) -> () = { [weak self] error in
-        DispatchQueue.main.async {
-            print(error)
+        let alert = UIAlertController(title: "에러", message: error.description)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
         }
     }
     
     lazy var updateCoinList: ([Coin]) -> () = { [weak self] coins in
-        self?.mainDataSource.updateCoins(coins: coins)
+        self?.mainDataSource.updateDataSource(from: coins)
         DispatchQueue.main.async {
-            self?.tableView.reloadData()
+            self?.cryptoView.cryptoTableView.reloadData()
         }
     }
 }

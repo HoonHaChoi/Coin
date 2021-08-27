@@ -89,13 +89,13 @@ struct AppDependency {
     }
     
     private func makeMainController() -> MainViewController {
-        // socket 수정 필요
-        let socketRepository = SocketRepository(socket: socket)
-        let mainViewModel = MainViewModel(usecase: socketRepository)
+        
+        let mainViewModel = MainViewModel(searchUsecase: networkManager,
+                                          socketUsecase: socketRepository)
         let mainViewController = MainViewController(dataSource: coinDataSource)
         
-        mainViewModel.errorHandler = mainViewController.showError
-        mainViewModel.coinListHandler = mainViewController.updateCoinList
+        mainViewModel.failErrorHandler = mainViewController.showError
+        mainViewModel.coinsHandler = mainViewController.updateCoinList
         mainViewController.fetchCoinsHandler = mainViewModel.fetchCoins
         
         return mainViewController

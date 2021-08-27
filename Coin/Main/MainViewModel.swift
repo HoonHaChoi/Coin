@@ -7,25 +7,7 @@
 
 import Foundation
 
-class MainViewModel {
+final class MainViewModel: CryptoBaseViewModel {
     
-    private let socketUseCase: SocketUseCase
-    
-    var errorHandler: ((NetworkError) ->Void)?
-    var coinListHandler: (([Coin]) -> Void)?
-    
-    init(usecase: SocketUseCase) {
-        self.socketUseCase = usecase
-    }
-    
-    func fetchCoins() {
-//        socketUseCase.requestSocketCoins { [weak self] (result: Result<[Coin], NetworkError>) in
-//            switch result {
-//            case .success(let coins):
-//                self?.coinListHandler?(coins)
-//            case .failure(let error):
-//                self?.errorHandler?(error)
-//            }
-//        }
-    }
+    func fetchCoins() {}
 }

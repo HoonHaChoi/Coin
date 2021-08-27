@@ -7,23 +7,8 @@
 
 import Foundation
 import Combine
-import SwiftyJSON
 
-final class ExchangeViewModel {
-    
-    private let searchUseCase: SearchUseCase
-    private let socketUseCase: SocketUseCase
-    private var cancell: AnyCancellable?
-    
-    var coinsHandler: (([Coin]) -> Void)?
-    var failErrorHandler: ((NetworkError) -> Void)?
-    var metaHandler: (([CoinMeta]) -> Void)?
-    
-    init(searchUsecase: SearchUseCase = NetworkManager(),
-         socketUsecase : SocketUseCase) {
-        self.searchUseCase = searchUsecase
-        self.socketUseCase = socketUsecase
-    }
+final class ExchangeViewModel: CryptoBaseViewModel {
     
     func fetchCoins(from market: Exchange) {
         guard let url = Endpoint.exchangeURL(market: market) else {
@@ -52,7 +37,4 @@ final class ExchangeViewModel {
         }
     }
     
-    func disConnectSocket() {
-        socketUseCase.onDisConnect()
-    }
 }

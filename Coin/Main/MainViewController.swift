@@ -21,7 +21,6 @@ class MainViewController: UIViewController, Storyboarded {
     }()
     
     var fetchCoinsHandler: (() -> Void)?
-    var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

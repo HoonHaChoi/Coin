@@ -39,12 +39,12 @@ enum Endpoint {
         return component.url
     }
     
-    static func interestURL(uuidURL: String) -> URL? {
+    static func favoriteURL(uuid: String) -> URL? {
         var component = URLComponents()
         component.scheme = scheme
         component.host = host
         component.port = port
-        component.path = "/api/v1/tickers/\(uuidURL)"
+        component.path = "/api/v1/tickers/\(uuid)"
         return component.url
     }
     

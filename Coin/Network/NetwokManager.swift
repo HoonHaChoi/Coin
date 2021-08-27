@@ -3,6 +3,7 @@ import Combine
 
 protocol SearchUseCase {
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
+    func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
 }
 
 struct NetworkManager: SearchUseCase {
@@ -15,5 +16,9 @@ struct NetworkManager: SearchUseCase {
     
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError> {
         return self.session.requestResource(url: url)
+    }
+    
+    func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError> {
+        return self.session.requestResource(url: Endpoint.favoriteURL(uuid: uuidString))
     }
 }

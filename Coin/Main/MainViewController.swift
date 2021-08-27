@@ -26,11 +26,14 @@ class MainViewController: UIViewController, Storyboarded {
         return view
     }()
     
-    var fetchCoinsHandler: (() -> Void)?
+    var fetchCoinsHandler: (([String]) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        configure()
         cryptoView.cryptoTableView.dataSource = mainDataSource
+        fetchCoinsHandler?(uuids)
     }
     
     private func configure() {
@@ -42,10 +45,6 @@ class MainViewController: UIViewController, Storyboarded {
             cryptoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             cryptoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10)
         ])
-    }
-    
-    private func requestCoins() {
-        fetchCoinsHandler?()
     }
     
     lazy var showError: (NetworkError) -> () = { [weak self] error in

@@ -99,7 +99,7 @@ struct AppDependency {
         mainViewController.fetchCoinsHandler = mainViewModel.fetchFavoriteCoins
         
         mainViewModel.metaHandler = mainViewController.updateMeta(metaList:)
-        
+        mainViewController.requestDisConnectSocket = mainViewModel.disConnectSocket
         return mainViewController
     }
     

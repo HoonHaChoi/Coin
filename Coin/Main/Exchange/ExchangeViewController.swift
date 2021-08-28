@@ -54,12 +54,11 @@ class ExchangeViewController: UIViewController {
         requestExchange?(.upbit)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        dataSource.isExistModel { [weak self] exist in
-            if exist, let exchange = self?.exchangeMapper[exchangeSegment.selectedSegmentIndex] {
-                self?.requestSocketMeta?(exchange)
-            }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let exchange = exchangeMapper[exchangeSegment.selectedSegmentIndex] {
+            requestDisConnectSocket?()
+            requestExchange?(exchange)
         }
     }
     
@@ -112,16 +111,12 @@ class ExchangeViewController: UIViewController {
         }
     }
     
-    private func changeExchange(from exchange: Exchange) {
-        requestDisConnectSocket?()
-        requestExchange?(exchange)
-    }
-    
     @objc private func selectExchangeItem(_ sender: UISegmentedControl) {
         guard let exchange = exchangeMapper[sender.selectedSegmentIndex] else {
             return
         }
-        changeExchange(from: exchange)
+        requestDisConnectSocket?()
+        requestExchange?(exchange)
     }
     
 }

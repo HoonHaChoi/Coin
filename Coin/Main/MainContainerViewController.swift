@@ -57,7 +57,7 @@ class MainContainerViewController: UIViewController {
         view.addSubview(pageViewController.view)
 
         NSLayoutConstraint.activate([
-            segmentContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 20),
+            segmentContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 5),
             segmentContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5),
             segmentContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.55),
             segmentContainerView.heightAnchor.constraint(equalToConstant: 40)

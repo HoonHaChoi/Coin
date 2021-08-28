@@ -27,13 +27,24 @@ class MainViewController: UIViewController, Storyboarded {
     }()
     
     var fetchCoinsHandler: (([String]) -> Void)?
+    var requestDisConnectSocket: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configure()
         cryptoView.cryptoTableView.dataSource = dataSource
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        requestDisConnectSocket?()
         fetchCoinsHandler?(uuids)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        requestDisConnectSocket?()
     }
     
     private func configure() {

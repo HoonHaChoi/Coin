@@ -10,6 +10,7 @@ import UIKit
 class MainContainerViewController: UIViewController {
     
     private let pageViews: [UIViewController]
+    weak var coodinator: MainCoordinator?
     
     init(viewControllers: [UIViewController]) {
         self.pageViews = viewControllers
@@ -37,6 +38,7 @@ class MainContainerViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.addTarget(self, action: #selector(pushSearchController(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -49,6 +51,10 @@ class MainContainerViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    @objc func pushSearchController(_ sender: UIButton) {
+        coodinator?.showSearchViewController()
     }
     
     private func configureUI() {

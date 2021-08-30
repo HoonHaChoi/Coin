@@ -13,16 +13,17 @@ class SearchCoinCell: UITableViewCell {
     @IBOutlet weak var coinImageView: UIImageView!
     @IBOutlet weak var coinName: UILabel!
     @IBOutlet weak var market: UILabel!
-    @IBOutlet weak var tradePrice: UILabel!
-    @IBOutlet weak var currentRate: UILabel!
     private var cancell: AnyCancellable?
     
     func configure(coin: Coin, imageLoader: Loader) {
-//        coinName.text = coin.koreanName
+        coinName.text = coin.ticker
         imageLoad(loader: imageLoader, to: coin.logo)
-        market.text = "\(coin.ticker)/\(coin.market)"
-        tradePrice.text = coin.meta.tradePrice.convertPriceKRW()
-        updateCurrentRateLabel(to: coin)
+        market.text = "\(coin.exchange.toString)/\(coin.market)"
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+       super.setSelected(selected, animated: animated)
+       accessoryType = selected ? .checkmark : .none
     }
     
     private func imageLoad(loader: Loader, to logoURL: String?) {
@@ -31,20 +32,5 @@ class SearchCoinCell: UITableViewCell {
             .sink { [weak self] uiImage in
                 self?.coinImageView.image = uiImage
             }
-    }
-    
-    private func updateCurrentRateLabel(to coin: Coin) {
-        var numberSymbol = ""
-        switch coin.meta.change {
-        case .even:
-            currentRate.textColor = .black
-        case .fall:
-            numberSymbol = "- "
-            currentRate.textColor = .systemBlue
-        case .rise:
-            numberSymbol = "+ "
-            currentRate.textColor = .systemRed
-        }
-        currentRate.text = numberSymbol + coin.meta.changeRate.convertPercentRate()
     }
 }

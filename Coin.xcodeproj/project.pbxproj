@@ -436,12 +436,12 @@
 		BFA1541A26A160C100341A6D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */,
 				BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */,
 				BF92D7E726B589670033B773 /* SearchViewController.storyboard */,
 				BF1FA639269B419400AC1AC2 /* SearchCoinDataSource.swift */,
 				BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */,
 				BF1FA630269B308200AC1AC2 /* View */,
-				BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";

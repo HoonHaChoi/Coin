@@ -79,6 +79,7 @@
 		BFB0A51526D7B323004F04AE /* CoinSortHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A51426D7B323004F04AE /* CoinSortHelper.swift */; };
 		BFB0A52C26D86CCB004F04AE /* CryptoBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A52B26D86CCB004F04AE /* CryptoBaseViewModel.swift */; };
 		BFB0A55626DBE6AC004F04AE /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */; };
+		BFB0A55D26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A55B26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld */; };
 		BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */; };
 		BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */; };
 		BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */; };
@@ -184,6 +185,7 @@
 		BFB0A51426D7B323004F04AE /* CoinSortHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSortHelper.swift; sourceTree = "<group>"; };
 		BFB0A52B26D86CCB004F04AE /* CryptoBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoBaseViewModel.swift; sourceTree = "<group>"; };
 		BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		BFB0A55C26DD1892004F04AE /* FavoriteCoinModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteCoinModel.xcdatamodel; sourceTree = "<group>"; };
 		BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsViewModel.swift; sourceTree = "<group>"; };
 		BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsDTO.swift; sourceTree = "<group>"; };
 		BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDTO.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 			children = (
 				BF92D7D126B4385F0033B773 /* CoreDataStorage.swift */,
 				BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */,
+				BFB0A55B26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld */,
 			);
 			path = CoreDataStorage;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				BFB7954126D0A89B00A89BC7 /* PageSegmentControl.swift in Sources */,
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
 				BFB9430C26C61E460053C212 /* TradingLogStatsViewController.swift in Sources */,
+				BFB0A55D26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld in Sources */,
 				BF9E24A026B6A76000CCB49E /* TradingLogCell.swift in Sources */,
 				BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */,
 				BF2F9D7C26D366CA006A0077 /* TableDataSource.swift in Sources */,
@@ -952,6 +956,16 @@
 			);
 			currentVersion = BF1C052126B3D66300BC0A6B /* TradingLogModel.xcdatamodel */;
 			path = TradingLogModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		BFB0A55B26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BFB0A55C26DD1892004F04AE /* FavoriteCoinModel.xcdatamodel */,
+			);
+			currentVersion = BFB0A55C26DD1892004F04AE /* FavoriteCoinModel.xcdatamodel */;
+			path = FavoriteCoinModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

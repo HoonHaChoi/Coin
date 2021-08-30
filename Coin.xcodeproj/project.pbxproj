@@ -80,6 +80,7 @@
 		BFB0A52C26D86CCB004F04AE /* CryptoBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A52B26D86CCB004F04AE /* CryptoBaseViewModel.swift */; };
 		BFB0A55626DBE6AC004F04AE /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */; };
 		BFB0A55D26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A55B26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld */; };
+		BFB0A55F26DD1963004F04AE /* FavoriteCoinStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A55E26DD1963004F04AE /* FavoriteCoinStorage.swift */; };
 		BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */; };
 		BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */; };
 		BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */; };
@@ -186,6 +187,7 @@
 		BFB0A52B26D86CCB004F04AE /* CryptoBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoBaseViewModel.swift; sourceTree = "<group>"; };
 		BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		BFB0A55C26DD1892004F04AE /* FavoriteCoinModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteCoinModel.xcdatamodel; sourceTree = "<group>"; };
+		BFB0A55E26DD1963004F04AE /* FavoriteCoinStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinStorage.swift; sourceTree = "<group>"; };
 		BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsViewModel.swift; sourceTree = "<group>"; };
 		BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsDTO.swift; sourceTree = "<group>"; };
 		BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDTO.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 			children = (
 				BF92D7D126B4385F0033B773 /* CoreDataStorage.swift */,
 				BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */,
+				BFB0A55E26DD1963004F04AE /* FavoriteCoinStorage.swift */,
 				BFB0A55B26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld */,
 			);
 			path = CoreDataStorage;
@@ -656,6 +659,7 @@
 				BF9D08E9269CAF17009B6AA0 /* Coordinator.swift in Sources */,
 				BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */,
 				BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */,
+				BFB0A55F26DD1963004F04AE /* FavoriteCoinStorage.swift in Sources */,
 				BFB427EB26CB3F4B001D4C91 /* ChartHelper.swift in Sources */,
 				BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */,
 				BF4F3AD626BD2439003B801A /* UITextView+Extension.swift in Sources */,

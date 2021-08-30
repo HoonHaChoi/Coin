@@ -63,7 +63,7 @@ class SearchViewController: UIViewController, Storyboarded {
                 "74ed03fc-240a-4a94-aff1-769b81cc9d16"] // ETC UPbit
     
     lazy var updateSearchResult: (([Coin]) -> ()) = { coinList in
-        let findIndex = self.searchCoinDataSource.findIndexes(metaList: self.uuids)
+        let findIndex = self.searchCoinDataSource.findIndexes(uuids: self.uuids)
         let indexPaths = self.searchCoinDataSource.makeIndexPath(indexes: findIndex)
         self.searchCoinDataSource.updateDataSource(from: coinList)
         DispatchQueue.main.async { [weak self] in

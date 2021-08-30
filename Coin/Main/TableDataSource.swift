@@ -39,10 +39,10 @@ class TableDataSource<CellType: UITableViewCell, Model>: NSObject, UITableViewDa
 }
 
 extension TableDataSource where Model == Coin {
-    func findIndexes(metaList: [CoinMeta]) -> [Int] {
-        metaList.reduce([]) { currentResult, currentMeta in
+    func findIndexes<T: StringProtocol>(uuids: [T]) -> [Int] {
+        uuids.reduce([]) { currentResult, currentMeta in
             if let coin = self.model.firstIndex(
-                where: { coin in coin.uuid == currentMeta.uuid}) {
+                where: { coin in coin.uuid == currentMeta }) {
                 return currentResult + [coin]
             }
             return currentResult

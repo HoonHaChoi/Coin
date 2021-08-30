@@ -94,7 +94,7 @@ class ExchangeViewController: UIViewController {
     }
     
     func updateMeta(metaList: [CoinMeta]) {
-        let findIndex = dataSource.findIndexes(metaList: metaList)
+        let findIndex = dataSource.findIndexes(uuids: metaList.map { $0.uuid })
         let changes = dataSource.compareMeta(indexes: findIndex, metaList: metaList)
         dataSource.updateModel(indexes: findIndex, metaList: metaList)
         let indexPath = dataSource.makeIndexPath(indexes: findIndex)

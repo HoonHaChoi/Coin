@@ -18,7 +18,7 @@ class SearchCoinCell: UITableViewCell {
     func configure(coin: Coin, imageLoader: Loader) {
         coinName.text = coin.ticker
         imageLoad(loader: imageLoader, to: coin.logo)
-        market.text = "\(coin.exchange.toString)/\(coin.market)"
+        market.text = "\(coin.exchange.toString.capitalized)/\(coin.market)"
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

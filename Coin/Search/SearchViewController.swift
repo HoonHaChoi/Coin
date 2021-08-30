@@ -10,15 +10,17 @@ import Combine
 
 class SearchViewController: UIViewController, Storyboarded {
 
+    typealias SearchDataSource = TableDataSource<SearchCoinCell, Coin>
+    
     private var viewModel: SearchViewModel
-    private let searchCoinDataSource: SearchCoinDataSource
+    private let searchCoinDataSource: SearchDataSource
     private var cancellable = Set<AnyCancellable>()
     
     var keywordHandler: ((String) -> Void)?
     
     init?(coder: NSCoder,
           viewModel: SearchViewModel,
-          dataSource: SearchCoinDataSource) {
+          dataSource: SearchDataSource) {
         self.viewModel = viewModel
         self.searchCoinDataSource = dataSource
         super.init(coder: coder)

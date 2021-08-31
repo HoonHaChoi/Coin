@@ -17,6 +17,7 @@ class SearchViewController: UIViewController, Storyboarded {
     private var cancellable = Set<AnyCancellable>()
     
     var keywordHandler: ((String) -> Void)?
+    var fetchFavoriteCoin: (() -> ([String]))?
     
     init?(coder: NSCoder,
           viewModel: SearchViewModel,
@@ -57,7 +58,7 @@ class SearchViewController: UIViewController, Storyboarded {
     }
         
     lazy var updateSearchResult: (([Coin]) -> ()) = { coinList in
-        let findIndex = self.searchCoinDataSource.findIndexes(uuids: self.uuids)
+        let findIndex = self.searchCoinDataSource.findIndexes(uuids: self.fetchUUID())
         let indexPaths = self.searchCoinDataSource.makeIndexPath(indexes: findIndex)
         self.searchCoinDataSource.updateDataSource(from: coinList)
         DispatchQueue.main.async { [weak self] in
@@ -72,6 +73,10 @@ class SearchViewController: UIViewController, Storyboarded {
                                         animated: true,
                                         scrollPosition: .none)
         }
+    }
+    
+    private lazy var fetchUUID: () -> [String] = { [weak self] in
+        return self?.fetchFavoriteCoin?() ?? []
     }
 }
 

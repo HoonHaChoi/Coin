@@ -4,12 +4,15 @@ import Combine
 final class SearchViewModel {
     
     private let searchUseCase: SearchUseCase
+    private let favoriteCoinRepository: FavoriteCoinRepository
     private var cancell: AnyCancellable?
     
     var coinsHandler: (([Coin]) -> Void)?
     
-    init(usecase: SearchUseCase = NetworkManager()) {
+    init(usecase: SearchUseCase,
+         repository: FavoriteCoinRepository) {
         self.searchUseCase = usecase
+        self.favoriteCoinRepository = repository
     }
     
     func fetchSearchCoins(keyword: String) {
@@ -25,5 +28,9 @@ final class SearchViewModel {
             } receiveValue: { [weak self] (coins) in
                 self?.coinsHandler?(coins)
             }
+    }
+    
+    func registeredFavoriteCoinFetch() -> [String] {
+        return favoriteCoinRepository.fetch()
     }
 }

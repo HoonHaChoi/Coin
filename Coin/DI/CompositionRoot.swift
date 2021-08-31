@@ -111,7 +111,8 @@ struct AppDependency {
     
     typealias SearchDataSource = TableDataSource<SearchCoinCell, Coin>
     private func makeSearchViewController() -> SearchViewController {
-        let viewModel = SearchViewModel()
+        let viewModel = SearchViewModel(usecase: networkManager,
+                                        repository: favoriteCoinCoreData)
         let searchDataSourece = SearchDataSource.init { cell , coin in
             cell.configure(coin: coin, imageLoader: imageLoader)
         }
@@ -123,6 +124,7 @@ struct AppDependency {
         
         viewModel.coinsHandler = searchViewController.updateSearchResult
         searchViewController.keywordHandler = viewModel.fetchSearchCoins(keyword:)
+        searchViewController.fetchFavoriteCoin = viewModel.registeredFavoriteCoinFetch
         
         searchViewController.title = "검색"
         return searchViewController

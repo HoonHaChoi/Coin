@@ -15,10 +15,6 @@ struct AppDependency {
     let networkManager = NetworkManager()
     let coinSortHelper = CoinSortHelper()
     
-    var tradingLogCoreData: CoreDataStorageManager {
-        return CoreDataStorageManager(modelName: "TradingLogModel",
-                                      userSetting: userSetting)
-    }
     var socketRepository: SocketRepository {
         return SocketRepository(socket: socket)
     }
@@ -30,6 +26,15 @@ struct AppDependency {
     let changeSignMapper = EnumMapper(key: Change.allCases,
                                       item: ["-","","+"])
     
+    // MARK: CoreData
+    var tradingLogCoreData: CoreDataStorageManager {
+        return CoreDataStorageManager(modelName: "TradingLogModel",
+                                      userSetting: userSetting)
+    }
+    
+    var favoriteCoinCoreData: FavoriteCoinStorage = FavoriteCoinStorage(modelName: "FavoriteCoinModel")
+
+    // MARK: DataSource
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
     var coinDataSource: cryptoDataSource { cryptoDataSource.init { cell, model in
         cell.configure(coin: model,
@@ -90,8 +95,9 @@ struct AppDependency {
     
     private func makeMainController() -> MainViewController {
         
-        let mainViewModel = MainViewModel(searchUsecase: networkManager,
-                                          socketUsecase: socketRepository)
+        let mainViewModel = MainViewModel(repository: favoriteCoinCoreData,
+                                          searchUseCase: networkManager,
+                                          socketUseCase: socketRepository)
         let mainViewController = MainViewController(dataSource: coinDataSource)
         
         mainViewModel.failErrorHandler = mainViewController.showError

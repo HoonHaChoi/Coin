@@ -8,7 +8,15 @@
 import Foundation
 import CoreData
 
-struct FavoriteCoinStorage {
+protocol FavoriteCoinRepository {
+    func fetch() -> [String]
+    func insert(uuid: String) -> Bool
+    func delete(uuid: String) -> Bool
+}
+
+
+struct FavoriteCoinStorage: FavoriteCoinRepository {
+    
     private let container: NSPersistentContainer
     private let fetchRequest: NSFetchRequest<FavoriteMO>
     private let context: NSManagedObjectContext
@@ -26,11 +34,14 @@ struct FavoriteCoinStorage {
         self.context = container.viewContext
     }
     
-    func fetch() -> [FavoriteMO] {
+    func fetch() -> [String] {
         guard let favorite = try? context.fetch(fetchRequest) else {
             return []
         }
-        return favorite
+        let uuids = favorite.compactMap { object in
+            object.uuid
+        }
+        return uuids
     }
     
     @discardableResult

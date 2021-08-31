@@ -10,7 +10,18 @@ import Combine
 
 final class MainViewModel: CryptoBaseViewModel {
     
-    func fetchFavoriteCoins(uuids: [String]) {
+    private let favoriteCoinRepository: FavoriteCoinRepository
+    
+    init(repository: FavoriteCoinRepository,
+         searchUseCase: SearchUseCase,
+         socketUseCase: SocketUseCase) {
+        self.favoriteCoinRepository = repository
+        super.init(searchUsecase: searchUseCase,
+                   socketUsecase: socketUseCase)
+    }
+    
+    func fetchFavoriteCoins() {
+        let uuids = favoriteCoinRepository.fetch()
         let requests = uuids.map { uuid in
             return searchUseCase.requestFavoriteCoins(uuidString: uuid)
         }

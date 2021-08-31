@@ -18,6 +18,8 @@ class SearchViewController: UIViewController, Storyboarded {
     
     var keywordHandler: ((String) -> Void)?
     var fetchFavoriteCoin: (() -> ([String]))?
+    var insertFavoriteHandler: ((String) -> Void)?
+    var deleteFavoriteHandler: ((String) -> Void)?
     
     init?(coder: NSCoder,
           viewModel: SearchViewModel,
@@ -58,9 +60,9 @@ class SearchViewController: UIViewController, Storyboarded {
     }
         
     lazy var updateSearchResult: (([Coin]) -> ()) = { coinList in
+        self.searchCoinDataSource.updateDataSource(from: coinList)
         let findIndex = self.searchCoinDataSource.findIndexes(uuids: self.fetchUUID())
         let indexPaths = self.searchCoinDataSource.makeIndexPath(indexes: findIndex)
-        self.searchCoinDataSource.updateDataSource(from: coinList)
         DispatchQueue.main.async { [weak self] in
             self?.coinListTableView.reloadData()
             self?.selectRows(from: indexPaths)
@@ -80,26 +82,21 @@ class SearchViewController: UIViewController, Storyboarded {
     }
 }
 
-// coreData 연결 되면 살릴 예정
 extension SearchViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        searchCoinDataSource.updateState(from: indexPath.row) { uuid in
-//            uuids.append(uuid)
-//        }
-//        tableView.reloadRows(at: [indexPath], with: .none)
-//        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-//        print(uuids)
-//    }
-//
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        searchCoinDataSource.updateState(from: indexPath.row) { uuid in
-//            if let index = uuids.firstIndex(of: uuid) {
-//                uuids.remove(at: index)
-//            }
-//        }
-//        tableView.reloadRows(at: [indexPath], with: .none)
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        print(uuids)
-//        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchCoinDataSource.selectModel(index: indexPath.row) { [weak self] uuid in
+            self?.insertFavoriteHandler?(uuid)
+        }
+        tableView.reloadRows(at: [indexPath], with: .none)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        searchCoinDataSource.selectModel(index: indexPath.row) { [weak self] uuid in
+            self?.deleteFavoriteHandler?(uuid)
+        }
+        tableView.reloadRows(at: [indexPath], with: .none)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 

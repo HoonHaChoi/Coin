@@ -33,4 +33,12 @@ final class SearchViewModel {
     func registeredFavoriteCoinFetch() -> [String] {
         return favoriteCoinRepository.fetch()
     }
+    
+    func insertFavoriteCoin(from uuid: String) {
+        favoriteCoinRepository.insert(uuid: uuid)
+    }
+    
+    func deleteFavoriteCoin(from uuid: String) {
+        favoriteCoinRepository.delete(uuid: uuid)
+    }
 }

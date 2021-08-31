@@ -35,6 +35,7 @@ struct FavoriteCoinStorage: FavoriteCoinRepository {
     }
     
     func fetch() -> [String] {
+        fetchRequest.predicate = nil
         guard let favorite = try? context.fetch(fetchRequest) else {
             return []
         }

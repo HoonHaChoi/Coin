@@ -82,4 +82,8 @@ extension TableDataSource where Model == Coin {
             return currentResult
         }
     }
+    
+    func selectModel(index: Int, handler: (String) -> Void) {
+        handler(model[index].uuid)
+    }
 }

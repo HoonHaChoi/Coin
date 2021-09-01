@@ -88,10 +88,7 @@ class SearchViewController: UIViewController, Storyboarded {
     }
     
     private func adjustScopeTitle(scope: String) -> String {
-        if scope == "All" {
-            return ""
-        }
-        return scope
+        scope == "All" ? "" : scope
     }
 }
 

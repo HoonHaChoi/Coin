@@ -34,13 +34,21 @@ class SearchViewController: UIViewController, Storyboarded {
     }
     
     @IBOutlet weak var coinListTableView: UITableView!
+    private let allTitle = "All"
     private lazy var searchController: UISearchController = {
         var search = UISearchController()
         search.searchBar.placeholder = "코인명(영문), 심볼명을 입력 해주세요"
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.scopeButtonTitles = ["All"]+Exchange.allCases.map { $0.toString.capitalized }
+        search.searchBar.scopeButtonTitles = [allTitle]+Exchange.allCases.map { $0.toString.capitalized }
         search.searchBar.delegate = self
         return search
+    }()
+    
+    private let loadingView: LoadingView = {
+        let loadview = LoadingView()
+        loadview.translatesAutoresizingMaskIntoConstraints = false
+        loadview.isHidden = true
+        return loadview
     }()
     
     override func viewDidLoad() {
@@ -50,6 +58,7 @@ class SearchViewController: UIViewController, Storyboarded {
         navigationItem.hidesSearchBarWhenScrolling = false
         coinListTableView.register(cell: SearchCoinCell.self)
         coinListTableView.dataSource = searchCoinDataSource
+        loadingViewConfigure()
         searchCoin()
     }
     
@@ -65,6 +74,17 @@ class SearchViewController: UIViewController, Storyboarded {
         }.store(in: &cancellable)
     }
         
+    private func loadingViewConfigure() {
+        view.addSubview(loadingView)
+    
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
     lazy var updateSearchResult: (([Coin]) -> ()) = { coinList in
         self.searchCoinDataSource.updateDataSource(from: coinList)
         let findIndex = self.searchCoinDataSource.findIndexes(uuids: self.fetchUUID())
@@ -88,7 +108,7 @@ class SearchViewController: UIViewController, Storyboarded {
     }
     
     private func adjustScopeTitle(scope: String) -> String {
-        scope == "All" ? "" : scope
+        scope == allTitle ? "" : scope
     }
 }
 

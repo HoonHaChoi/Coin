@@ -24,7 +24,7 @@ final class SearchCoordinator: Coordinator {
     }
     
     func start() {
-        searchViewController.title = "검색"
+        searchViewController.title = "관심 코인 설정"
         navigationController.pushViewController(searchViewController, animated: true)
     }
 }

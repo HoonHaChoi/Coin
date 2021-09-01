@@ -81,6 +81,7 @@
 		BFB0A55626DBE6AC004F04AE /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */; };
 		BFB0A55D26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A55B26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld */; };
 		BFB0A55F26DD1963004F04AE /* FavoriteCoinStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A55E26DD1963004F04AE /* FavoriteCoinStorage.swift */; };
+		BFB0A56126DF3B7E004F04AE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0A56026DF3B7D004F04AE /* LoadingView.swift */; };
 		BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */; };
 		BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */; };
 		BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */; };
@@ -188,6 +189,7 @@
 		BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		BFB0A55C26DD1892004F04AE /* FavoriteCoinModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteCoinModel.xcdatamodel; sourceTree = "<group>"; };
 		BFB0A55E26DD1963004F04AE /* FavoriteCoinStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoinStorage.swift; sourceTree = "<group>"; };
+		BFB0A56026DF3B7D004F04AE /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BFB427D726C97CE0001D4C91 /* TradingLogStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsViewModel.swift; sourceTree = "<group>"; };
 		BFB427D926C97E0D001D4C91 /* TradingLogStatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStatsDTO.swift; sourceTree = "<group>"; };
 		BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDTO.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				BF1FA631269B309B00AC1AC2 /* SearchCoinCell.xib */,
 				BF1FA633269B366A00AC1AC2 /* SearchCoinCell.swift */,
+				BFB0A56026DF3B7D004F04AE /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				BFB7954126D0A89B00A89BC7 /* PageSegmentControl.swift in Sources */,
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
 				BFB9430C26C61E460053C212 /* TradingLogStatsViewController.swift in Sources */,
+				BFB0A56126DF3B7E004F04AE /* LoadingView.swift in Sources */,
 				BFB0A55D26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld in Sources */,
 				BF9E24A026B6A76000CCB49E /* TradingLogCell.swift in Sources */,
 				BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */,

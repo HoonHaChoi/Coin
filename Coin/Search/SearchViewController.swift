@@ -34,12 +34,12 @@ class SearchViewController: UIViewController, Storyboarded {
     }
     
     @IBOutlet weak var coinListTableView: UITableView!
-    private let searchController: UISearchController = {
+    private lazy var searchController: UISearchController = {
         var search = UISearchController()
-        search.searchBar.placeholder = "코인명, 심볼명을 입력 해주세요"
+        search.searchBar.placeholder = "코인명(영문), 심볼명을 입력 해주세요"
         search.obscuresBackgroundDuringPresentation = false
-        // 검색 segment 추가 예정
-        //search.searchBar.scopeButtonTitles
+        search.searchBar.scopeButtonTitles = ["All"]+Exchange.allCases.map { $0.toString.capitalized }
+        search.searchBar.delegate = self
         return search
     }()
     
@@ -100,3 +100,10 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        guard let scope = searchBar.scopeButtonTitles?[selectedScope] else {
+            return
+        }
+    }
+}

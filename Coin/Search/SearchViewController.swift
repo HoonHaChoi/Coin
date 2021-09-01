@@ -54,8 +54,14 @@ class SearchViewController: UIViewController, Storyboarded {
     }
     
     private func searchCoin() {
+        let searchBar = searchController.searchBar
         searchController.textFieldPublisher.sink { [weak self] keyword in
-            self?.keywordHandler?(keyword)
+            guard let scopeExchangeTitle = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] else {
+                return
+            }
+            
+            self?.keywordHandler?(keyword,
+                                  self?.adjustScopeTitle(scope: scopeExchangeTitle) ?? "")
         }.store(in: &cancellable)
     }
         
@@ -80,6 +86,13 @@ class SearchViewController: UIViewController, Storyboarded {
     private lazy var fetchUUID: () -> [String] = { [weak self] in
         return self?.fetchFavoriteCoin?() ?? []
     }
+    
+    private func adjustScopeTitle(scope: String) -> String {
+        if scope == "All" {
+            return ""
+        }
+        return scope
+    }
 }
 
 extension SearchViewController: UITableViewDelegate {
@@ -103,8 +116,9 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         guard let keyword = searchBar.text,
-              var scope = searchBar.scopeButtonTitles?[selectedScope] else {
+              let scope = searchBar.scopeButtonTitles?[selectedScope] else {
             return
         }
+        keywordHandler?(keyword, adjustScopeTitle(scope: scope))
     }
 }

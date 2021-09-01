@@ -15,8 +15,9 @@ final class SearchViewModel {
         self.favoriteCoinRepository = repository
     }
     
-    func fetchSearchCoins(keyword: String) {
-        guard let url = Endpoint.searchURL(keyword: keyword) else {
+    func fetchSearchCoins(keyword: String, exchange: String) {
+        guard let url = Endpoint.searchURL(keyword: keyword,
+                                           exchange: exchange) else {
             return
         }
         

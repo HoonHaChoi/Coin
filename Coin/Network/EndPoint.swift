@@ -13,7 +13,7 @@ enum Endpoint {
     private static let host = "34.64.77.122"
     private static let port = 8080
     
-    static func searchURL(keyword: String) -> URL? {
+    static func searchURL(keyword: String, exchange: String) -> URL? {
         var component = URLComponents()
         component.scheme = scheme
         component.host = host
@@ -21,7 +21,8 @@ enum Endpoint {
         component.path = "/api/v1/tickers"
         component.queryItems = [
             URLQueryItem(name: "search", value: keyword),
-            URLQueryItem(name: "market", value: "krw")
+            URLQueryItem(name: "market", value: "krw"),
+            URLQueryItem(name: "exchange", value: exchange)
         ]
         return component.url
     }

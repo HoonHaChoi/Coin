@@ -16,7 +16,7 @@ class SearchViewController: UIViewController, Storyboarded {
     private let searchCoinDataSource: SearchDataSource
     private var cancellable = Set<AnyCancellable>()
     
-    var keywordHandler: ((String) -> Void)?
+    var keywordHandler: ((String,String) -> Void)?
     var fetchFavoriteCoin: (() -> ([String]))?
     var insertFavoriteHandler: ((String) -> Void)?
     var deleteFavoriteHandler: ((String) -> Void)?
@@ -102,7 +102,8 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        guard let scope = searchBar.scopeButtonTitles?[selectedScope] else {
+        guard let keyword = searchBar.text,
+              var scope = searchBar.scopeButtonTitles?[selectedScope] else {
             return
         }
     }

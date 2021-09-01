@@ -123,7 +123,7 @@ struct AppDependency {
         }
         
         viewModel.coinsHandler = searchViewController.updateSearchResult
-        searchViewController.keywordHandler = viewModel.fetchSearchCoins(keyword:)
+        searchViewController.keywordHandler = viewModel.fetchSearchCoins(keyword:exchange:)
         searchViewController.fetchFavoriteCoin = viewModel.registeredFavoriteCoinFetch
         searchViewController.insertFavoriteHandler = viewModel.insertFavoriteCoin(from:)
         searchViewController.deleteFavoriteHandler = viewModel.deleteFavoriteCoin(from:)

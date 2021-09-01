@@ -58,6 +58,7 @@ class SearchViewController: UIViewController, Storyboarded {
         navigationItem.hidesSearchBarWhenScrolling = false
         coinListTableView.register(cell: SearchCoinCell.self)
         coinListTableView.dataSource = searchCoinDataSource
+        coinListTableView.tableFooterView = UIView()
         loadingViewConfigure()
         searchCoin()
     }
@@ -83,6 +84,12 @@ class SearchViewController: UIViewController, Storyboarded {
             loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             loadingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    lazy var loadingHiddenState: ((Bool) -> ()) = { [weak self] state in
+        DispatchQueue.main.async {
+            self?.loadingView.isHidden = state
+        }
     }
     
     lazy var updateSearchResult: (([Coin]) -> ()) = { coinList in

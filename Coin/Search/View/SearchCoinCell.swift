@@ -27,7 +27,7 @@ class SearchCoinCell: UITableViewCell {
         imageLoad(loader: imageLoader, to: coin.logo)
         market.text = "\(coin.exchange.toString.capitalized)/\(coin.market)"
         favoriteButton.isSelected = state
-//        updateButton()
+        updateButtonColor()
     }
     
 //    override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,16 +44,9 @@ class SearchCoinCell: UITableViewCell {
     }
 
     //
-//    private func updateButton() {
-//        if favoriteButton.isSelected {
-//            favoriteButton.setImage(.init(systemName: "star.fill"), for: .selected)
-//            favoriteButton.tintColor = .systemRed
-////            favoriteButton.backgroundColor = .none
-//        } else {
-//            favoriteButton.setImage(.init(systemName: "star"), for: .selected)
-//            favoriteButton.tintColor = .basicColor
-//        }
-//    }
+    private func updateButtonColor() {
+        favoriteButton.tintColor =  favoriteButton.isSelected ? .riseColor : .basicColor
+    }
     
     @IBAction func didFavoriteButtonTapped(_ sender: Any) {
         delegate?.didFavoriteButtonTapped(cell: self)

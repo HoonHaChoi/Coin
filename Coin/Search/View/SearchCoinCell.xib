@@ -47,7 +47,7 @@
                             </stackView>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ8-Cf-nHc">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ8-Cf-nHc">
                         <rect key="frame" x="329" y="17.5" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="5ZJ-Uf-VTY"/>
@@ -55,11 +55,11 @@
                         </constraints>
                         <color key="tintColor" name="191919"/>
                         <state key="normal">
-                            <imageReference key="image" image="star" catalog="system" symbolScale="medium"/>
+                            <imageReference key="image" image="starImage" symbolScale="medium"/>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                         </state>
                         <state key="selected">
-                            <imageReference key="image" image="star.fill" catalog="system" symbolScale="medium"/>
+                            <imageReference key="image" image="starImageFill" symbolScale="medium"/>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                         </state>
                         <connections>
@@ -86,8 +86,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="star" catalog="system" width="128" height="116"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="starImage" width="64" height="64"/>
+        <image name="starImageFill" width="64" height="64"/>
         <namedColor name="191919">
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

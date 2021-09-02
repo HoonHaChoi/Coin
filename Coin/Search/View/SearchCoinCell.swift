@@ -8,12 +8,19 @@
 import UIKit
 import Combine
 
+protocol FavoriteButtonTappedDelegate: AnyObject {
+    func didFavoriteButtonTapped(cell: SearchCoinCell, uuid: String)
+}
+
 class SearchCoinCell: UITableViewCell {
 
     @IBOutlet weak var coinImageView: UIImageView!
     @IBOutlet weak var coinName: UILabel!
     @IBOutlet weak var market: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
     private var cancell: AnyCancellable?
+    weak var delegate: FavoriteButtonTappedDelegate?
     
     func configure(coin: Coin, imageLoader: Loader) {
         coinName.text = coin.ticker
@@ -23,7 +30,7 @@ class SearchCoinCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
        super.setSelected(selected, animated: animated)
-       accessoryType = selected ? .checkmark : .none
+//       favoriteButton.tintColor = selected ? .systemPink : .basicColor
     }
     
     private func imageLoad(loader: Loader, to logoURL: String?) {
@@ -32,5 +39,8 @@ class SearchCoinCell: UITableViewCell {
             .sink { [weak self] uiImage in
                 self?.coinImageView.image = uiImage
             }
+    }
+    @IBAction func didFavoriteButtonTapped(_ sender: Any) {
+        delegate?.didFavoriteButtonTapped(cell: self)
     }
 }

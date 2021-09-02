@@ -13,7 +13,11 @@ class SearchViewController: UIViewController, Storyboarded {
     typealias SearchDataSource = TableDataSource<SearchCoinCell, Coin>
     
     private var viewModel: SearchViewModel
-    private let searchCoinDataSource: SearchDataSource
+    private let imageLoader: Loader
+    private lazy var searchCoinDataSource: SearchDataSource = .init { cell, coin in
+        cell.configure(coin: coin, imageLoader: ImageLoader())
+        cell.delegate = self
+    }
     private var cancellable = Set<AnyCancellable>()
     
     var keywordHandler: ((String,String) -> Void)?
@@ -23,9 +27,9 @@ class SearchViewController: UIViewController, Storyboarded {
     
     init?(coder: NSCoder,
           viewModel: SearchViewModel,
-          dataSource: SearchDataSource) {
+          imageLoader: Loader) {
         self.viewModel = viewModel
-        self.searchCoinDataSource = dataSource
+        self.imageLoader = imageLoader
         super.init(coder: coder)
     }
 
@@ -34,6 +38,7 @@ class SearchViewController: UIViewController, Storyboarded {
     }
     
     @IBOutlet weak var coinListTableView: UITableView!
+    
     private let allTitle = "All"
     private lazy var searchController: UISearchController = {
         var search = UISearchController()
@@ -144,5 +149,15 @@ extension SearchViewController: UISearchBarDelegate {
             return
         }
         keywordHandler?(keyword, adjustScopeTitle(scope: scope))
+    }
+}
+
+extension SearchViewController: FavoriteButtonTappedDelegate {
+    func didFavoriteButtonTapped(cell: SearchCoinCell, uuid: String) {
+        guard let index = coinListTableView.indexPath(for: cell) else {
+            return
+        }
+        searchCoinDataSource.selectModel(index: index.row) { uuid in
+        }
     }
 }

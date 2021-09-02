@@ -3,6 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5eo-2f-X8k">
-                        <rect key="frame" x="10" y="10" width="334" height="40"/>
+                        <rect key="frame" x="10" y="10" width="81.5" height="40"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eux-yg-68g">
                                 <rect key="frame" x="0.0" y="5" width="30" height="30"/>
@@ -27,16 +29,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qFO-7r-P3y">
-                                <rect key="frame" x="40" y="1" width="294" height="38.5"/>
+                                <rect key="frame" x="40" y="1" width="41.5" height="38.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu1-VE-irg">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XL-40-50o">
-                                        <rect key="frame" x="0.0" y="20.5" width="294" height="18"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="41.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                         <nil key="highlightedColor"/>
@@ -45,23 +47,47 @@
                             </stackView>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ8-Cf-nHc">
+                        <rect key="frame" x="329" y="17.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="5ZJ-Uf-VTY"/>
+                            <constraint firstAttribute="width" constant="25" id="s8L-LR-Yy2"/>
+                        </constraints>
+                        <color key="tintColor" name="191919"/>
+                        <state key="normal">
+                            <imageReference key="image" image="star.fill" catalog="system" symbolScale="medium"/>
+                        </state>
+                        <state key="selected">
+                            <imageReference key="image" image="star.fill" catalog="system" symbolScale="medium"/>
+                        </state>
+                        <connections>
+                            <action selector="didFavoriteButtonTapped:" destination="2ch-CI-6ZY" eventType="touchUpInside" id="7lY-ZT-KBq"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="5eo-2f-X8k" firstAttribute="leading" secondItem="9gk-mB-4oT" secondAttribute="leading" constant="10" id="10v-68-KfV"/>
-                    <constraint firstAttribute="trailing" secondItem="5eo-2f-X8k" secondAttribute="trailing" constant="30" id="YkW-Ut-gh5"/>
+                    <constraint firstItem="5eo-2f-X8k" firstAttribute="centerY" secondItem="9gk-mB-4oT" secondAttribute="centerY" id="8fR-Gt-uTh"/>
+                    <constraint firstItem="hZ8-Cf-nHc" firstAttribute="centerY" secondItem="9gk-mB-4oT" secondAttribute="centerY" id="Ata-pt-3eX"/>
                     <constraint firstAttribute="bottom" secondItem="5eo-2f-X8k" secondAttribute="bottom" constant="10" id="h8Z-Yq-hM6"/>
                     <constraint firstItem="5eo-2f-X8k" firstAttribute="top" secondItem="9gk-mB-4oT" secondAttribute="top" constant="10" id="xqi-V1-IwP"/>
+                    <constraint firstAttribute="trailing" secondItem="hZ8-Cf-nHc" secondAttribute="trailing" constant="20" id="yBg-Am-7bM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="coinImageView" destination="eux-yg-68g" id="P8z-8d-m60"/>
                 <outlet property="coinName" destination="Nu1-VE-irg" id="PWO-wu-aah"/>
+                <outlet property="favoriteButton" destination="hZ8-Cf-nHc" id="fHm-Y3-eHh"/>
                 <outlet property="market" destination="8XL-40-50o" id="UXH-fA-esS"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="-25.446428571428569"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="191919">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

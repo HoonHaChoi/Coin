@@ -113,13 +113,10 @@ struct AppDependency {
     private func makeSearchViewController() -> SearchViewController {
         let viewModel = SearchViewModel(usecase: networkManager,
                                         repository: favoriteCoinCoreData)
-        let searchDataSourece = SearchDataSource.init { cell , coin in
-            cell.configure(coin: coin, imageLoader: imageLoader)
-        }
         let searchViewController = SearchViewController.instantiate { coder in
             return SearchViewController(coder: coder,
                                         viewModel: viewModel,
-                                        dataSource: searchDataSourece)
+                                        imageLoader: imageLoader)
         }
         
         viewModel.coinsHandler = searchViewController.updateSearchResult

@@ -10,8 +10,12 @@ import CoreData
 
 protocol FavoriteCoinRepository {
     func fetch() -> [String]
+    @discardableResult
     func insert(uuid: String) -> Bool
+    @discardableResult
     func delete(uuid: String) -> Bool
+    @discardableResult
+    func find(uuid: String) -> Bool
 }
 
 
@@ -71,6 +75,18 @@ struct FavoriteCoinStorage: FavoriteCoinRepository {
         context.delete(object)
         
         return save()
+    }
+    
+    func find(uuid: String) -> Bool {
+        
+        fetchRequest.predicate = NSPredicate(format: "uuid == %@",
+                                             uuid as String)
+        
+        guard let favorite = try? context.fetch(fetchRequest) else {
+            return false
+        }
+        
+        return favorite.isEmpty ? false : true
     }
     
     private func save() -> Bool {

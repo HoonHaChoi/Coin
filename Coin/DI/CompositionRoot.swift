@@ -122,8 +122,7 @@ struct AppDependency {
         viewModel.coinsHandler = searchViewController.updateSearchResult
         searchViewController.keywordHandler = viewModel.fetchSearchCoins(keyword:exchange:)
         searchViewController.fetchFavoriteCoin = viewModel.registeredFavoriteCoinFetch
-        searchViewController.insertFavoriteHandler = viewModel.insertFavoriteCoin(from:)
-        searchViewController.deleteFavoriteHandler = viewModel.deleteFavoriteCoin(from:)
+        searchViewController.updateFavoriteHandler = viewModel.updateFavoriteCoin(from:)
         viewModel.loadingHiddenStateHandler = searchViewController.loadingHiddenState
         
         searchViewController.title = "검색"

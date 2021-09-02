@@ -37,11 +37,12 @@ final class SearchViewModel {
         return favoriteCoinRepository.fetch()
     }
     
-    func insertFavoriteCoin(from uuid: String) {
-        favoriteCoinRepository.insert(uuid: uuid)
-    }
-    
-    func deleteFavoriteCoin(from uuid: String) {
-        favoriteCoinRepository.delete(uuid: uuid)
+    func updateFavoriteCoin(from uuid: String) {
+        let findUUID = favoriteCoinRepository.find(uuid: uuid)
+        if findUUID {
+            favoriteCoinRepository.delete(uuid: uuid)
+        } else {
+            favoriteCoinRepository.insert(uuid: uuid)
+        }
     }
 }

@@ -55,10 +55,12 @@
                         </constraints>
                         <color key="tintColor" name="191919"/>
                         <state key="normal">
-                            <imageReference key="image" image="star.fill" catalog="system" symbolScale="medium"/>
+                            <imageReference key="image" image="star" catalog="system" symbolScale="medium"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                         </state>
                         <state key="selected">
                             <imageReference key="image" image="star.fill" catalog="system" symbolScale="medium"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                         </state>
                         <connections>
                             <action selector="didFavoriteButtonTapped:" destination="2ch-CI-6ZY" eventType="touchUpInside" id="7lY-ZT-KBq"/>
@@ -84,6 +86,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="191919">
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

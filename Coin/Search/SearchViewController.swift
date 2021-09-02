@@ -9,14 +9,14 @@ import UIKit
 import Combine
 
 class SearchViewController: UIViewController, Storyboarded {
-
-    typealias SearchDataSource = TableDataSource<SearchCoinCell, Coin>
     
     private var viewModel: SearchViewModel
     private let imageLoader: Loader
-    private lazy var searchCoinDataSource: SearchDataSource = .init { cell, coin in
+    private lazy var searchCoinDataSource: SearchTableDataSource = .init {
+        [weak self] cell, coin, state in
         cell.configure(coin: coin,
-                       imageLoader: self.imageLoader)
+                       imageLoader: self?.imageLoader ?? ImageLoader(),
+                       state: state)
         cell.delegate = self
     }
     private var cancellable = Set<AnyCancellable>()
@@ -97,24 +97,12 @@ class SearchViewController: UIViewController, Storyboarded {
         }
     }
     
-    lazy var updateSearchResult: (([Coin]) -> ()) = { coinList in
-        self.searchCoinDataSource.updateDataSource(from: coinList)
-        let findExistentUUIDIndex = self.searchCoinDataSource.findIndexes(uuids: self.fetchUUID())
-        let indexPaths = self.searchCoinDataSource.makeIndexPath(indexes: findExistentUUIDIndex)
-        DispatchQueue.main.async { [weak self] in
+    lazy var updateSearchResult: (([Coin]) -> ()) = { [weak self] coinList in
+        self?.searchCoinDataSource.updateDataSource(from: coinList)
+        let findExistentUUIDIndex = self?.searchCoinDataSource.findIndexes(uuids: self?.fetchUUID() ?? [])
+        self?.searchCoinDataSource.updateState(from: findExistentUUIDIndex ?? [])
+        DispatchQueue.main.async {
             self?.coinListTableView.reloadData()
-            self?.selectRows(from: indexPaths)
-        }
-    }
-    
-    private func selectRows(from indexPaths: [IndexPath]) {
-        indexPaths.forEach { indexPath in
-//            if let cell = coinListTableView.cellForRow(at: indexPath) as? SearchCoinCell {
-//                cell.favoriteButton.isSelected = true
-//            }
-//            coinListTableView.selectRow(at: indexPath,
-//                                        animated: true,
-//                                        scrollPosition: .none)
         }
     }
     
@@ -127,21 +115,11 @@ class SearchViewController: UIViewController, Storyboarded {
     }
 }
 
+// DetailView 이동시 사용 예정
 //extension SearchViewController: UITableViewDelegate {
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        searchCoinDataSource.selectModel(index: indexPath.row) { [weak self] uuid in
-//            self?.insertFavoriteHandler?(uuid)
-//        }
-//        tableView.reloadRows(at: [indexPath], with: .none)
-//        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
 //    }
-//
 //    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        searchCoinDataSource.selectModel(index: indexPath.row) { [weak self] uuid in
-//            self?.deleteFavoriteHandler?(uuid)
-//        }
-//        tableView.reloadRows(at: [indexPath], with: .none)
-//        tableView.deselectRow(at: indexPath, animated: true)
 //    }
 //}
 
@@ -164,6 +142,7 @@ extension SearchViewController: FavoriteButtonTappedDelegate {
             self?.updateFavoriteHandler?(uuid)
         }
         DispatchQueue.main.async { [weak self] in
+            self?.searchCoinDataSource.updateState(from: [indexPath.row])
             self?.coinListTableView.reloadRows(at: [indexPath], with: .none)
         }
     }

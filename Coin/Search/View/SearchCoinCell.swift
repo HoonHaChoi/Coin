@@ -22,17 +22,18 @@ class SearchCoinCell: UITableViewCell {
     private var cancell: AnyCancellable?
     weak var delegate: FavoriteButtonTappedDelegate?
     
-    func configure(coin: Coin, imageLoader: Loader) {
+    func configure(coin: Coin, imageLoader: Loader, state: Bool) {
         coinName.text = coin.ticker
         imageLoad(loader: imageLoader, to: coin.logo)
         market.text = "\(coin.exchange.toString.capitalized)/\(coin.market)"
+        favoriteButton.isSelected = state
 //        updateButton()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-       super.setSelected(selected, animated: animated)
-//       favoriteButton.tintColor = selected ? .systemPink : .basicColor
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//       super.setSelected(selected, animated: animated)
+//       favoriteButton.tintColor = selected ? .riseColor : .basicColor
+//    }
     
     private func imageLoad(loader: Loader, to logoURL: String?) {
         cancell = loader.load(urlString: logoURL)

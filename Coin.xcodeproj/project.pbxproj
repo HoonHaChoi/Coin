@@ -112,6 +112,7 @@
 		BFD519A126C3FE4C00226FF8 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */; };
 		BFD519A426C4878B00226FF8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BFD519A326C4878B00226FF8 /* FirebaseMessaging */; };
 		BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */; };
+		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,6 +220,7 @@
 		BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extension.swift"; sourceTree = "<group>"; };
 		BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFD519A726C4A4CF00226FF8 /* Coin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coin.entitlements; sourceTree = "<group>"; };
+		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +448,7 @@
 				BFB0A55526DBE6AB004F04AE /* SearchCoordinator.swift */,
 				BF1FA62B269B2B7D00AC1AC2 /* SearchViewController.swift */,
 				BF92D7E726B589670033B773 /* SearchViewController.storyboard */,
+				BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */,
 				BF22BF4C268F8146003FD161 /* SearchCoinsViewModel.swift */,
 				BF1FA630269B308200AC1AC2 /* View */,
 			);
@@ -638,6 +641,7 @@
 				BFB0A52C26D86CCB004F04AE /* CryptoBaseViewModel.swift in Sources */,
 				BF4F3AAD26B9960E003B801A /* TradingLogStore.swift in Sources */,
 				BF2F9DC426D53B30006A0077 /* ExchangeViewModel.swift in Sources */,
+				BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */,
 				BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */,
 				BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */,
 				BFBA25A226CE99F50088D26B /* ChartContainerView.swift in Sources */,

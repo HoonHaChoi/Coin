@@ -150,10 +150,3 @@ extension SearchViewController: FavoriteButtonTappedDelegate {
         }
     }
 }
-
-extension SearchViewController {
-    @objc func keyboardWillShow(notification: Notification) {
-        guard let userinfo = notification.userInfo else { return }
-        var keyboardFrame = userinfo[UIResponder.keyboarfr]
-    }
-}

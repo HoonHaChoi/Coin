@@ -30,11 +30,6 @@ class SearchCoinCell: UITableViewCell {
         updateButtonColor()
     }
     
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//       super.setSelected(selected, animated: animated)
-//       favoriteButton.tintColor = selected ? .riseColor : .basicColor
-//    }
-    
     private func imageLoad(loader: Loader, to logoURL: String?) {
         cancell = loader.load(urlString: logoURL)
             .receive(on: DispatchQueue.main)
@@ -42,8 +37,7 @@ class SearchCoinCell: UITableViewCell {
                 self?.coinImageView.image = uiImage
             }
     }
-
-    //
+    
     private func updateButtonColor() {
         favoriteButton.tintColor =  favoriteButton.isSelected ? .riseColor : .basicColor
     }

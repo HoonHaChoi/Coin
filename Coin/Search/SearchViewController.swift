@@ -66,11 +66,14 @@ class SearchViewController: UIViewController, Storyboarded {
         coinListTableView.tableFooterView = UIView()
         loadingViewConfigure()
         searchCoin()
+        keywordHandler?("", "")
     }
     
     private func searchCoin() {
         let searchBar = searchController.searchBar
-        searchController.textFieldPublisher.sink { [weak self] keyword in
+        searchController.textFieldPublisher
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .sink { [weak self] keyword in
             guard let scopeExchangeTitle = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] else {
                 return
             }
@@ -145,5 +148,12 @@ extension SearchViewController: FavoriteButtonTappedDelegate {
             self?.searchCoinDataSource.updateState(from: [indexPath.row])
             self?.coinListTableView.reloadRows(at: [indexPath], with: .none)
         }
+    }
+}
+
+extension SearchViewController {
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let userinfo = notification.userInfo else { return }
+        var keyboardFrame = userinfo[UIResponder.keyboarfr]
     }
 }

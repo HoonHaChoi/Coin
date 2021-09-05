@@ -21,7 +21,7 @@ class MainViewController: UIViewController, Storyboarded {
     }()
     
     var fetchCoinsHandler: (() -> Void)?
-    var requestDisConnectEvent: (([String]) -> ())?
+    var requestLeaveEvent: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +32,12 @@ class MainViewController: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        requestDisConnectSocket?()
         fetchCoinsHandler?()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-//        requestDisConnectSocket?()
+        requestLeaveEvent?()
     }
     
     private func configure() {

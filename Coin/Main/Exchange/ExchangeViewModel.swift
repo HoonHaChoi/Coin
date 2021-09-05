@@ -37,4 +37,7 @@ final class ExchangeViewModel: CryptoBaseViewModel {
         }
     }
     
+    func leaveEvent(from event: String) {
+        socketUseCase.removeEmitHandler(from: [event])
+    }
 }

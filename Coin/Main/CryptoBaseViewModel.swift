@@ -23,8 +23,4 @@ class CryptoBaseViewModel {
         self.searchUseCase = searchUsecase
         self.socketUseCase = socketUsecase
     }
-    
-    func disConnectEvent(from event: [String]) {
-        socketUseCase.removeEmitHandler(from: event)
-    }
 }

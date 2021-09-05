@@ -59,4 +59,9 @@ final class MainViewModel: CryptoBaseViewModel {
             }
         }
     }
+    
+    func leaveEvent() {
+        let favoriteUUID = favoriteCoinRepository.fetch()
+        socketUseCase.removeEmitHandler(from: favoriteUUID)
+    }
 }

@@ -55,7 +55,7 @@ final class Socket: SocketRequest {
     private func onDisConnectEvent() {
         socketClient?.on(clientEvent: .disconnect) { [weak self] _, _ in
             self?.socketClient?.handlers.forEach { handler in
-                self?.leaveEmit(event: handler.event)
+                self?.socketClient?.emit("leaveTicker", handler.event)
             }
         }
     }

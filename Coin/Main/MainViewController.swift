@@ -32,13 +32,13 @@ class MainViewController: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        requestDisConnectSocket?()
+//        requestDisConnectSocket?()
         fetchCoinsHandler?()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        requestDisConnectSocket?()
+//        requestDisConnectSocket?()
     }
     
     private func configure() {

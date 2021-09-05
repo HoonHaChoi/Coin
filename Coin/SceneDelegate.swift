@@ -23,4 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                      dependency: .init(tabBarCoordinatorFactory: appDependency.makeTabBarCoordinator(navigation:)))
         coordinator?.start()
     }
+    
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        appDependency.socket.connect()
+    }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        appDependency.socket.disconnect()
+    }
 }

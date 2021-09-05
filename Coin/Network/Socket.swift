@@ -21,7 +21,7 @@ final class Socket: SocketRequest {
     
     private var manager: SocketManager?
     private var socketClient: SocketIOClient?
-    private let path = "\\socket"
+    private let path = "/socket"
     
     init(url: URL?) {
         configure(url: url)

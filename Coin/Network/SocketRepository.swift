@@ -36,7 +36,6 @@ struct SocketRepository: SocketUseCase {
                 completion(.failure(.invalidResponse))
             }
         }
-        socket.connect()
     }
     
     func requestSocketUUIDS<T: Codable>(from uuids: [String], completion: @escaping (Result<[T], NetworkError>) -> Void) {
@@ -55,7 +54,6 @@ struct SocketRepository: SocketUseCase {
                 }
             }
         }
-        socket.connect()
     }
     
     func onDisConnect() {

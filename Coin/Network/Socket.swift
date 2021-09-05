@@ -15,6 +15,7 @@ protocol SocketRequest {
     func disconnect()
     func joinEmit(event: String)
     func leaveEmit(event: String)
+    func checkEqualEvent(event: [String]) -> Bool
 }
 
 final class Socket: SocketRequest {
@@ -75,5 +76,11 @@ final class Socket: SocketRequest {
     func leaveEmit(event: String) {
         socketClient?.emit("leaveTicker", event)
         socketClient?.off(event)
+    }
+    
+    func checkEqualEvent(event: [String]) -> Bool {
+        let handler = socketClient?.handlers.map { handler in handler.event }
+        let filterHandler = handler?.filter { handlerEvent in event.contains(handlerEvent) } ?? []
+        return filterHandler.isEmpty ? false : true
     }
 }

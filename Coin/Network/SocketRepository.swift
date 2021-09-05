@@ -42,6 +42,10 @@ struct SocketRepository: SocketUseCase {
         let decode = JSONDecoder()
         decode.keyDecodingStrategy = .convertFromSnakeCase
 
+        if socket.checkEqualEvent(event: uuids) {
+            return
+        }
+        
         uuids.forEach { id in
             socket.joinEmit(event: id)
             socket.onEvent(id) { data, act in

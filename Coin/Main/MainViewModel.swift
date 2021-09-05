@@ -39,6 +39,7 @@ final class MainViewModel: CryptoBaseViewModel {
             }
     }
     
+    // 무작위로 온 코인리스트를 정렬
     private func sortCoins(uuids: [String], coins: [Coin]) -> [Coin] {
         return coins.sorted { first, second in
             if let first = uuids.firstIndex(of: first.uuid),

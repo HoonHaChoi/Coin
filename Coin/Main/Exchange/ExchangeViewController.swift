@@ -45,7 +45,7 @@ class ExchangeViewController: UIViewController {
     
     var requestExchange: ((Exchange) -> ())?
     var requestSocketMeta: ((Exchange) ->())?
-    var requestDisConnectSocket: (() -> ())?
+    var requestDisConnectSocket: (([String]) -> ())?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +115,7 @@ class ExchangeViewController: UIViewController {
         guard let exchange = exchangeMapper[sender.selectedSegmentIndex] else {
             return
         }
-        requestDisConnectSocket?()
+//        requestDisConnectSocket?()
         requestExchange?(exchange)
     }
     

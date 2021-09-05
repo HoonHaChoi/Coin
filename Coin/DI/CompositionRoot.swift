@@ -87,7 +87,7 @@ struct AppDependency {
         exchangeViewModel.metaHandler = exchangeViewController.updateMeta(metaList:)
         exchangeViewModel.failErrorHandler = exchangeViewController.onAlertError(message:)
         
-        exchangeViewController.requestDisConnectSocket = exchangeViewModel.disConnectSocket
+        exchangeViewController.requestDisConnectSocket = exchangeViewModel.disConnectEvent(from:)
         exchangeViewController.requestSocketMeta = exchangeViewModel.fetchSocketExchangeMeta(from:)
         
         return exchangeViewController
@@ -105,7 +105,7 @@ struct AppDependency {
         mainViewController.fetchCoinsHandler = mainViewModel.fetchFavoriteCoins
         
         mainViewModel.metaHandler = mainViewController.updateMeta(metaList:)
-        mainViewController.requestDisConnectSocket = mainViewModel.disConnectSocket
+        mainViewController.requestDisConnectEvent = mainViewModel.disConnectEvent(from:)
         return mainViewController
     }
     

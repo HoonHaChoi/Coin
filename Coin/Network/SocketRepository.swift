@@ -11,7 +11,7 @@ import SwiftyJSON
 protocol SocketUseCase {
     func requestSocketExchange<T: Codable>(from exchange: Exchange, completion: @escaping (Result<[T], NetworkError>) ->())
     func requestSocketUUIDS<T: Codable>(from uuids: [String], completion: @escaping (Result<[T], NetworkError>) -> ())
-    func onDisConnect()
+    func removeEmitHandler(from uuids: [String])
 }
 
 struct SocketRepository: SocketUseCase {
@@ -43,6 +43,7 @@ struct SocketRepository: SocketUseCase {
         decode.keyDecodingStrategy = .convertFromSnakeCase
 
         uuids.forEach { id in
+            socket.joinEmit(event: id)
             socket.onEvent(id) { data, act in
                 do {
                     let data = try JSON(data).rawData()
@@ -56,8 +57,10 @@ struct SocketRepository: SocketUseCase {
         }
     }
     
-    func onDisConnect() {
-        socket.disconnect()
+    func removeEmitHandler(from uuids: [String]) {
+        uuids.forEach { event in
+            socket.leaveEmit(event: event)
+        }
     }
 }
 

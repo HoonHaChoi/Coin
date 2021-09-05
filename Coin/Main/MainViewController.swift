@@ -21,7 +21,7 @@ class MainViewController: UIViewController, Storyboarded {
     }()
     
     var fetchCoinsHandler: (() -> Void)?
-    var requestDisConnectSocket: (() -> ())?
+    var requestDisConnectEvent: (([String]) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()

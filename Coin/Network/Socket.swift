@@ -16,6 +16,7 @@ protocol SocketRequest {
     func joinEmit(event: String)
     func leaveEmit(event: String)
     func checkEqualEvent(event: [String]) -> Bool
+    func leaveCurrentLeaveEmit()
 }
 
 final class Socket: SocketRequest {
@@ -23,6 +24,10 @@ final class Socket: SocketRequest {
     private var manager: SocketManager?
     private var socketClient: SocketIOClient?
     private let path = "/socket"
+    private let connectEventName = "connect"
+    private let disconnectEventName = "disconnect"
+    private let joinTicker = "joinTicker"
+    private let leaveTicker = "leaveTicker"
     
     init(url: URL?) {
         configure(url: url)
@@ -47,7 +52,7 @@ final class Socket: SocketRequest {
     
     private func onConnectEvent() {
         socketClient?.on(clientEvent: .connect) { [weak self] _, _ in
-            self?.socketClient?.handlers.forEach { handler in
+            self?.isEventHandler().forEach { handler in
                 self?.joinEmit(event: handler.event)
             }
         }
@@ -55,10 +60,16 @@ final class Socket: SocketRequest {
     
     private func onDisConnectEvent() {
         socketClient?.on(clientEvent: .disconnect) { [weak self] _, _ in
-            self?.socketClient?.handlers.forEach { handler in
-                self?.socketClient?.emit("leaveTicker", handler.event)
+            guard let self = self else { return }
+            self.isEventHandler().forEach { handler in
+                self.socketClient?.emit(self.leaveTicker, handler.event)
             }
         }
+    }
+    
+    private func isEventHandler() -> [SocketEventHandler] {
+        return socketClient?.handlers.filter { $0.event != connectEventName &&
+            $0.event != disconnectEventName } ?? []
     }
     
     func connect() {
@@ -70,12 +81,19 @@ final class Socket: SocketRequest {
     }
     
     func joinEmit(event: String) {
-        socketClient?.emit("joinTicker", event)
+        socketClient?.emit(joinTicker, event)
     }
     
     func leaveEmit(event: String) {
-        socketClient?.emit("leaveTicker", event)
+        socketClient?.emit(leaveTicker, event)
         socketClient?.off(event)
+    }
+    
+    func leaveCurrentLeaveEmit() {
+        guard let handler = isEventHandler().first else {
+            return
+        }
+        leaveEmit(event: handler.event)
     }
     
     func checkEqualEvent(event: [String]) -> Bool {

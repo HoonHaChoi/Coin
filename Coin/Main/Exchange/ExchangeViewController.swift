@@ -57,6 +57,7 @@ class ExchangeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let exchange = exchangeMapper[exchangeSegment.selectedSegmentIndex] {
+            requestSocketMeta?(exchange)
 //            requestDisConnectSocket?()
 //            requestExchange?(exchange)
         }
@@ -117,6 +118,7 @@ class ExchangeViewController: UIViewController {
         }
 //        requestDisConnectSocket?()
         requestExchange?(exchange)
+        requestSocketMeta?(exchange)
     }
     
     private func currentExchangeString() -> String {

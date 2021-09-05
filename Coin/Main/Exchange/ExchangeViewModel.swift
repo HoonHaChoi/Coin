@@ -22,7 +22,6 @@ final class ExchangeViewModel: CryptoBaseViewModel {
                 }
             } receiveValue: { [weak self] (coins) in
                 self?.coinsHandler?(coins)
-                self?.fetchSocketExchangeMeta(from: market)
             }
     }
     

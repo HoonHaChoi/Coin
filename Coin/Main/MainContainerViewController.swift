@@ -50,6 +50,7 @@ class MainContainerViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -60,8 +61,10 @@ class MainContainerViewController: UIViewController {
     private func configureUI() {
         view.addSubview(segmentContainerView)
         view.addSubview(searchButton)
+        addChild(pageViewController)
         view.addSubview(pageViewController.view)
-
+        pageViewController.didMove(toParent: self)
+        
         NSLayoutConstraint.activate([
             segmentContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 5),
             segmentContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5),

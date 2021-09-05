@@ -30,7 +30,7 @@ final class TabBarCoordinator: Coordinator {
         
         tabBarController.viewControllers = [mainCoordinator.navigationController,
                                             tradingLogCoordinator.navigationController]
-        tabBarController.modalPresentationStyle = .fullScreen
+//        tabBarController.modalPresentationStyle = .fullScreen
         navigationController.setViewControllers([tabBarController], animated: true)
         
         coordinate(to: mainCoordinator)

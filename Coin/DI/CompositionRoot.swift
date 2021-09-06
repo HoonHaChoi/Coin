@@ -90,6 +90,8 @@ struct AppDependency {
         exchangeViewController.requestLeaveEvent = exchangeViewModel.leaveEvent(from:)
         exchangeViewController.requestSocketMeta = exchangeViewModel.fetchSocketExchangeMeta(from:)
         
+        exchangeViewController.requestLeaveCurrentEvent = exchangeViewModel.leaveCurrentEvent(complete:)
+        exchangeViewController.requestExchangeSocket = exchangeViewModel.fetchCoinsSocket(from:)
         return exchangeViewController
     }
     

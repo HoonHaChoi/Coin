@@ -25,6 +25,21 @@ final class ExchangeViewModel: CryptoBaseViewModel {
             }
     }
     
+    func fetchCoinsSocket(from market: Exchange) {
+        guard let url = Endpoint.exchangeURL(market: market) else {
+            return
+        }
+        cancell = searchUseCase.requestSearchCoins(url: url)
+            .sink { [weak self] (fail) in
+                if case .failure(let error) = fail {
+                    self?.failErrorHandler?(error)
+                }
+            } receiveValue: { [weak self] (coins) in
+                self?.coinsHandler?(coins)
+                self?.fetchSocketExchangeMeta(from: market)
+            }
+    }
+    
     func fetchSocketExchangeMeta(from exchange: Exchange) {
         socketUseCase.requestSocketExchange(from: exchange) { [weak self] (result: Result<[CoinMeta], NetworkError>) in
             switch result {
@@ -39,4 +54,9 @@ final class ExchangeViewModel: CryptoBaseViewModel {
     func leaveEvent(from event: String) {
         socketUseCase.removeEmitHandler(from: [event])
     }
+    
+    func leaveCurrentEvent(complete: (() -> Void)) {
+        socketUseCase.removeCurrentEmit(complete: complete)
+    }
+    
 }

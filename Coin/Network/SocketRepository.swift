@@ -12,6 +12,7 @@ protocol SocketUseCase {
     func requestSocketExchange<T: Codable>(from exchange: Exchange, completion: @escaping (Result<[T], NetworkError>) ->())
     func requestSocketUUIDS<T: Codable>(from uuids: [String], completion: @escaping (Result<[T], NetworkError>) -> ())
     func removeEmitHandler(from uuids: [String])
+    func removeCurrentEmit(complete: (()) -> Void)
 }
 
 struct SocketRepository: SocketUseCase {
@@ -70,6 +71,10 @@ struct SocketRepository: SocketUseCase {
         uuids.forEach { event in
             socket.leaveEmit(event: event)
         }
+    }
+    
+    func removeCurrentEmit(complete: (()) -> Void) {
+        complete(socket.leaveCurrentLeaveEmit())
     }
 }
 

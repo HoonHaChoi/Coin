@@ -13,9 +13,11 @@ class DetailViewController: UIViewController {
     private let starImageFill = "starsmallfill"
     
     private let coin: Coin
+    private let imageLoader: Loader
     
-    init(coin: Coin){
+    init(coin: Coin, imageLoader: Loader){
         self.coin = coin
+        self.imageLoader = imageLoader
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,6 +49,7 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton)
+        self.title = coin.ticker
         configureFavoriteButton()
         configureUI()
     }
@@ -57,7 +60,7 @@ class DetailViewController: UIViewController {
         infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         infoView.heightAnchor.constraint(equalToConstant: 35).isActive = true
-//        infoView.configure(coin: coin, imageLoader: ImageLoader())
+        infoView.configure(coin: coin, imageLoader: imageLoader)
     }
  
     private func configureFavoriteButton() {

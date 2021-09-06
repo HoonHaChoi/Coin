@@ -124,6 +124,7 @@ class DetailInfoView: UIView {
         currentPriceLabel.text = coin.meta.tradePrice.convertPriceKRW()
         updateChangePriceRateLabel(to: coin)
         updateChangeColor(to: coin)
+        imageLoad(loader: imageLoader, to: coin.logo)
     }
     
     private func imageLoad(loader: Loader, to logoURL: String?) {

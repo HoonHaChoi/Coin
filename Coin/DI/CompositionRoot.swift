@@ -136,7 +136,8 @@ struct AppDependency {
         let viewModel = DetailViewModel(repository: favoriteCoinCoreData,
                                         searchUseCase: networkManager,
                                         socketUseCase: socketRepository)
-        let detailViewController = DetailViewController(coin: coin)
+        let detailViewController = DetailViewController(coin: coin,
+                                                        imageLoader: imageLoader)
         
         detailViewController.coinFindHandler = viewModel.findFavoriteCoin(from:)
         detailViewController.favoriteButtonAction = viewModel.updateFavoriteCoin(from:)

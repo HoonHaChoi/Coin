@@ -112,6 +112,7 @@
 		BFD519A126C3FE4C00226FF8 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */; };
 		BFD519A426C4878B00226FF8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BFD519A326C4878B00226FF8 /* FirebaseMessaging */; };
 		BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */; };
+		BFDD489026E5AD9200AFCA7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -220,6 +221,7 @@
 		BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+Extension.swift"; sourceTree = "<group>"; };
 		BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFD519A726C4A4CF00226FF8 /* Coin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coin.entitlements; sourceTree = "<group>"; };
+		BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +243,7 @@
 		BF1C04B426B0682000BC0A6B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				BFDD488E26E5A7B100AFCA7C /* Detail */,
 				BF2F9D7426D337B7006A0077 /* View */,
 				BFB7954626D2006A00A89BC7 /* Exchange */,
 				BF8736092651697A00C3FAD0 /* MainViewController.swift */,
@@ -517,6 +520,14 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		BFDD488E26E5A7B100AFCA7C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -636,6 +647,7 @@
 				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,
 				BF4F3AAF26B999DB003B801A /* TradingLogController+Extension.swift in Sources */,
 				BF87360A2651697A00C3FAD0 /* MainViewController.swift in Sources */,
+				BFDD489026E5AD9200AFCA7C /* DetailViewController.swift in Sources */,
 				BFB427EF26CCC6C5001D4C91 /* MenuDisableTextField.swift in Sources */,
 				BF987C4426C1402E003DBDB0 /* UIAlertController+Extension.swift in Sources */,
 				BFB0A52C26D86CCB004F04AE /* CryptoBaseViewModel.swift in Sources */,

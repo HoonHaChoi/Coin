@@ -33,6 +33,12 @@ class DetailViewController: UIViewController {
         return button
     }()
     
+    private let infoView: DetailInfoView = {
+        let view = DetailInfoView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var coinFindHandler: ((String) -> Bool)?
     var favoriteButtonAction: ((String) -> ())?
     
@@ -42,6 +48,15 @@ class DetailViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton)
         configureFavoriteButton()
+        configureUI()
+    }
+    
+    private func configureUI() {
+        view.addSubview(infoView)
+        infoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        infoView.heightAnchor.constraint(equalToConstant: 35).isActive = true
     }
  
     private func configureFavoriteButton() {

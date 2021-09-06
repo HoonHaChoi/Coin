@@ -114,6 +114,7 @@
 		BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */; };
 		BFDD489026E5AD9200AFCA7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */; };
 		BFDD489226E5CF4D00AFCA7C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */; };
+		BFDD489426E69B3600AFCA7C /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD489326E69B3500AFCA7C /* DetailInfoView.swift */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +225,7 @@
 		BFD519A726C4A4CF00226FF8 /* Coin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coin.entitlements; sourceTree = "<group>"; };
 		BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		BFDD489326E69B3500AFCA7C /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -527,6 +529,7 @@
 			children = (
 				BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */,
 				BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */,
+				BFDD489326E69B3500AFCA7C /* DetailInfoView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				BFB7954826D2007E00A89BC7 /* ExchangeViewController.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF4F3AD026BC6A17003B801A /* DateFormatter+Extension.swift in Sources */,
+				BFDD489426E69B3600AFCA7C /* DetailInfoView.swift in Sources */,
 				BFB9430626C565A20053C212 /* TradingLogContanierCoordinator.swift in Sources */,
 				BF92D7E226B57DF20033B773 /* TradingLogViewController.swift in Sources */,
 				BF2F9DCA26D5C068006A0077 /* CoinMeta.swift in Sources */,

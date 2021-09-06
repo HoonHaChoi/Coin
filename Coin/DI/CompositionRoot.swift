@@ -140,6 +140,7 @@ struct AppDependency {
                                         socketUseCase: socketRepository)
         let detailViewController = DetailViewController(coin: coin)
         
+        detailViewController.coinFindHandler = viewModel.findFavoriteCoin(from:)
         return detailViewController
     }
     

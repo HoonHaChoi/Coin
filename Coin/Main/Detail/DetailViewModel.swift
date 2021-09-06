@@ -19,7 +19,7 @@ final class DetailViewModel: CryptoBaseViewModel {
                    socketUsecase: socketUseCase)
     }
     
-    func findFavoriteCoin(from uuid: String) -> Bool{
+    func findFavoriteCoin(from uuid: String) -> Bool {
         return favoriteCoinRepository.find(uuid: uuid)
     }
     

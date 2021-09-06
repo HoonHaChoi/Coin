@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         return button
     }()
     
-    private let infoView: DetailInfoView = {
+    private lazy var infoView: DetailInfoView = {
         let view = DetailInfoView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

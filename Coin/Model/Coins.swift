@@ -25,26 +25,6 @@ enum Exchange: String, CaseIterable ,Codable {
     }
 }
 
-enum Change: String,CustomStringConvertible, Codable, CaseIterable {
-    case fall = "FALL"
-    case even = "EVEN"
-    case rise = "RISE"
-    
-    static func selectType(_ state: String) -> Self {
-        if state == "FALL" {
-            return .fall
-        } else if state == "RISE" {
-            return .rise
-        } else{
-            return .even
-        }
-    }
-    
-    var description: String {
-        self.rawValue
-    }
-}
-
 extension Coin: Equatable {
     static func == (lhs: Coin, rhs: Coin) -> Bool {
         return lhs.uuid == rhs.uuid

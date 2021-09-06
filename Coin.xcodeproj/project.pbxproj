@@ -115,6 +115,7 @@
 		BFDD489026E5AD9200AFCA7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */; };
 		BFDD489226E5CF4D00AFCA7C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */; };
 		BFDD489426E69B3600AFCA7C /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD489326E69B3500AFCA7C /* DetailInfoView.swift */; };
+		BFDD489826E6B63C00AFCA7C /* Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD489726E6B63C00AFCA7C /* Change.swift */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -226,6 +227,7 @@
 		BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		BFDD489326E69B3500AFCA7C /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
+		BFDD489726E6B63C00AFCA7C /* Change.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Change.swift; sourceTree = "<group>"; };
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				BF22BF41268F6D96003FD161 /* Coins.swift */,
+				BFDD489726E6B63C00AFCA7C /* Change.swift */,
 				BF2F9DC926D5C068006A0077 /* CoinMeta.swift */,
 				BF92D7D426B43B710033B773 /* TradingLog.swift */,
 				BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */,
@@ -655,6 +658,7 @@
 				BF22BF42268F6D96003FD161 /* Coins.swift in Sources */,
 				BF4F3AAF26B999DB003B801A /* TradingLogController+Extension.swift in Sources */,
 				BF87360A2651697A00C3FAD0 /* MainViewController.swift in Sources */,
+				BFDD489826E6B63C00AFCA7C /* Change.swift in Sources */,
 				BFDD489026E5AD9200AFCA7C /* DetailViewController.swift in Sources */,
 				BFB427EF26CCC6C5001D4C91 /* MenuDisableTextField.swift in Sources */,
 				BF987C4426C1402E003DBDB0 /* UIAlertController+Extension.swift in Sources */,

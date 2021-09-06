@@ -19,12 +19,12 @@ struct AppDependency {
         return SocketRepository(socket: socket)
     }
     
-    let changeColorMapper = EnumMapper(key: Change.allCases,
-                                  item: [UIColor.fallColor,
-                                         UIColor.basicColor,
-                                         UIColor.riseColor])
-    let changeSignMapper = EnumMapper(key: Change.allCases,
-                                      item: ["-","","+"])
+//    let changeColorMapper = EnumMapper(key: Change.allCases,
+//                                  item: [UIColor.fallColor,
+//                                         UIColor.basicColor,
+//                                         UIColor.riseColor])
+//    let changeSignMapper = EnumMapper(key: Change.allCases,
+//                                      item: ["-","","+"])
     
     // MARK: CoreData
     var tradingLogCoreData: CoreDataStorageManager {
@@ -38,9 +38,7 @@ struct AppDependency {
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
     var coinDataSource: cryptoDataSource { cryptoDataSource.init { cell, model in
         cell.configure(coin: model,
-                       imageLoader: self.imageLoader,
-                       colorMapper: self.changeColorMapper,
-                       signMapper: self.changeSignMapper)
+                       imageLoader: self.imageLoader)
         }
     }
     

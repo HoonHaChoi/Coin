@@ -30,15 +30,13 @@ class CryptoCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(coin: Coin, imageLoader: Loader,
-                   colorMapper: colorMap,
-                   signMapper: signMap) {
+    func configure(coin: Coin, imageLoader: Loader) {
         symbolNameLabel.text = coin.ticker
         currentPriceLabel.text = coin.meta.tradePrice.convertPriceKRW()
         imageLoad(loader: imageLoader, to: coin.logo)
         symbolDescriptionLabel.text = coin.exchange.rawValue + "/" + coin.market
-        updateChangePriceRateLabel(to: coin, mapper: signMapper)
-        updateChangeColor(to: coin, mapper: colorMapper)
+        updateChangePriceRateLabel(to: coin)
+        updateChangeColor(to: coin)
     }
     
     private func imageLoad(loader: Loader, to logoURL: String?) {
@@ -49,20 +47,14 @@ class CryptoCell: UITableViewCell {
             }
     }
     
-    private func updateChangePriceRateLabel(to coin: Coin,
-                                            mapper: signMap) {
-        guard let sign = mapper[coin.meta.change] else {
-             return
-        }
+    private func updateChangePriceRateLabel(to coin: Coin) {
+        let sign = coin.meta.change.signString()
         changeRateLabel.text = sign + coin.meta.changeRate.convertPercentRate()
         changePriceLabel.text = sign + coin.meta.changePrice.convertPriceKRW()
     }
     
-    private func updateChangeColor(to coin: Coin,
-                                   mapper: colorMap) {
-        guard let color = mapper[coin.meta.change] else {
-             return
-        }
+    private func updateChangeColor(to coin: Coin) {
+        let color = coin.meta.change.matchColor()
         changeRateLabel.textColor = color
         changePriceLabel.textColor = color
     }

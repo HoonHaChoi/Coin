@@ -27,11 +27,14 @@ class DetailViewController: UIViewController {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: starImage), for: .normal)
         button.setImage(UIImage(named: starImageFill), for: .selected)
+        button.addTarget(self,
+                         action: #selector(didFavoriteTapped(_:)),
+                         for: .touchUpInside)
         return button
     }()
     
     var coinFindHandler: ((String) -> Bool)?
-    var favoriteButtonAction: (() -> ())?
+    var favoriteButtonAction: ((String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +53,8 @@ class DetailViewController: UIViewController {
     }
     
     @objc func didFavoriteTapped(_ sender: UIButton) {
-        
+        favoriteButtonAction?(coin.uuid)
+        favoriteButton.isSelected = !favoriteButton.isSelected
     }
     
     deinit {

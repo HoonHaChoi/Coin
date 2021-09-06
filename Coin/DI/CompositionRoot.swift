@@ -141,6 +141,7 @@ struct AppDependency {
         let detailViewController = DetailViewController(coin: coin)
         
         detailViewController.coinFindHandler = viewModel.findFavoriteCoin(from:)
+        detailViewController.favoriteButtonAction = viewModel.updateFavoriteCoin(from:)
         return detailViewController
     }
     

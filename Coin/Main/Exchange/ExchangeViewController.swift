@@ -43,11 +43,12 @@ class ExchangeViewController: UIViewController {
         return view
     }()
     
-    var requestExchange: ((Exchange) -> ())?
-    var requestSocketMeta: ((Exchange) ->())?
-    var requestExchangeSocket: ((Exchange) -> ())?
-    var requestLeaveEvent: ((String) -> ())?
-    var requestLeaveCurrentEvent: ((()->Void) -> ())?
+    var requestExchange: ((Exchange)->Void)?
+    var requestSocketMeta: ((Exchange)->Void)?
+    var requestExchangeSocket: ((Exchange)->Void)?
+    var requestLeaveEvent: ((String)->Void)?
+    var requestLeaveCurrentEvent: ((()->Void)->Void)?
+    var didCellTapped: ((Coin)->Void)?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +138,10 @@ extension ExchangeViewController: UITableViewDelegate {
         }
         headerView.delegate = self
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didCellTapped?(dataSource.model[indexPath.row])
     }
 }
 

@@ -58,6 +58,10 @@ class MainContainerViewController: UIViewController {
         coodinator?.showSearchViewController()
     }
     
+    func pushDetailController(from coin: Coin) {
+        
+    }
+    
     private func configureUI() {
         view.addSubview(segmentContainerView)
         view.addSubview(searchButton)

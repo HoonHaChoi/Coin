@@ -73,6 +73,9 @@ struct AppDependency {
         let exchangeViewController = makeExchangeViewController()
         let mainViewController = makeMainController()
         let mainContainerViewController = MainContainerViewController(viewControllers: [mainViewController, exchangeViewController])
+        
+        mainViewController.didCellTapped = mainContainerViewController.pushDetailController(from:)
+        exchangeViewController.didCellTapped = mainContainerViewController.pushDetailController(from:)
         return mainContainerViewController
     }
     

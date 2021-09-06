@@ -22,12 +22,14 @@ class MainViewController: UIViewController, Storyboarded {
     
     var fetchCoinsHandler: (() -> Void)?
     var requestLeaveEvent: (() -> ())?
+    var didCellTapped: ((Coin) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configure()
         cryptoView.cryptoTableView.dataSource = dataSource
+        cryptoView.cryptoTableView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,5 +76,11 @@ class MainViewController: UIViewController, Storyboarded {
         DispatchQueue.main.async { [weak self] in
             self?.cryptoView.reloadRows(at: indexPath, to: changes)
         }
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didCellTapped?(dataSource.model[indexPath.row])
     }
 }

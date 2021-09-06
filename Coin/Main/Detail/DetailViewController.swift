@@ -12,6 +12,17 @@ class DetailViewController: UIViewController {
     private let starImage = "starsmall"
     private let starImageFill = "starsmallfill"
     
+    private let coin: Coin
+    
+    init(coin: Coin){
+        self.coin = coin
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     private lazy var favoriteButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: starImage), for: .normal)
@@ -25,5 +36,8 @@ class DetailViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton)
     }
-    
+ 
+    deinit {
+        print(#function)
+    }
 }

@@ -13,11 +13,12 @@ final class MainCoordinator: Coordinator {
     struct Dependency {
         let mainContainerViewControllerFactory: () -> MainContainerViewController
         let searchViewControllerFactory: () -> SearchViewController
+        let detailViewControllerFactory: (Coin) -> DetailViewController
     }
     
     private let searchViewController: () -> SearchViewController
     private let mainContainerViewController: MainContainerViewController
-    
+    private let detailViewController: (Coin) -> DetailViewController
     
     
     init(navigationController: UINavigationController = UINavigationController(),
@@ -25,11 +26,12 @@ final class MainCoordinator: Coordinator {
         self.navigationController = navigationController
         self.searchViewController = dependency.searchViewControllerFactory
         self.mainContainerViewController = dependency.mainContainerViewControllerFactory()
+        self.detailViewController = dependency.detailViewControllerFactory
     }
     
     func start() {
         mainContainerViewController.navigationItem.backButtonTitle = ""
-        mainContainerViewController.coodinator = self
+        mainContainerViewController.coordinator = self
         navigationController.tabBarItem = UITabBarItem(title: "시세", image: UIImage(), selectedImage: UIImage())
         navigationController.pushViewController(mainContainerViewController, animated: true)
     }
@@ -38,5 +40,10 @@ final class MainCoordinator: Coordinator {
         let searchCoordinator = SearchCoordinator(navigation: navigationController,
                                                   dependency: .init(searchViewControllerFactory: searchViewController))
         coordinate(to: searchCoordinator)
+    }
+    
+    func showDetailViewController(from coin: Coin) {
+        navigationController.pushViewController(detailViewController(coin),
+                                                animated: true)
     }
 }

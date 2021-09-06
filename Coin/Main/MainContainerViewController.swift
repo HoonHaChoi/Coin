@@ -10,7 +10,7 @@ import UIKit
 class MainContainerViewController: UIViewController {
     
     private let pageViews: [UIViewController]
-    weak var coodinator: MainCoordinator?
+    weak var coordinator: MainCoordinator?
     
     init(viewControllers: [UIViewController]) {
         self.pageViews = viewControllers
@@ -55,11 +55,11 @@ class MainContainerViewController: UIViewController {
     }
     
     @objc func pushSearchController(_ sender: UIButton) {
-        coodinator?.showSearchViewController()
+        coordinator?.showSearchViewController()
     }
     
     func pushDetailController(from coin: Coin) {
-        
+        coordinator?.showDetailViewController(from: coin)
     }
     
     private func configureUI() {

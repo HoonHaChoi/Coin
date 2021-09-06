@@ -56,7 +56,7 @@ struct AppDependency {
         return MainCoordinator(dependency:
                                 .init(mainContainerViewControllerFactory: makeMainContainerViewController,
                                       searchViewControllerFactory: makeSearchViewController
-                                      ))
+                                      ,detailViewControllerFactory: makeDetailViewController(from:)))
     }
     
     private func makeTradingLogCoordinator() -> TradingLogCoordinator {
@@ -132,6 +132,15 @@ struct AppDependency {
         
         searchViewController.title = "검색"
         return searchViewController
+    }
+    
+    private func makeDetailViewController(from coin: Coin) -> DetailViewController {
+        let viewModel = DetailViewModel(repository: favoriteCoinCoreData,
+                                        searchUseCase: networkManager,
+                                        socketUseCase: socketRepository)
+        let detailViewController = DetailViewController(coin: coin)
+        
+        return detailViewController
     }
     
     private func makeTradingLogViewController() -> TradingLogViewController {

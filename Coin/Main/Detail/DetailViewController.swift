@@ -57,6 +57,7 @@ class DetailViewController: UIViewController {
         infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         infoView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+//        infoView.configure(coin: coin, imageLoader: ImageLoader())
     }
  
     private func configureFavoriteButton() {

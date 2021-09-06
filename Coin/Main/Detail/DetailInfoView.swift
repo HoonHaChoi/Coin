@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class DetailInfoView: UIView {
 
@@ -78,20 +79,18 @@ class DetailInfoView: UIView {
        return stack
     }()
     
+    private var cancell: AnyCancellable?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        constrainUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
-    }
-    
-    private func configure() {
         constrainUI()
     }
-    
+
     private func constrainUI() {
         addSubview(symbolImageView)
         addSubview(symbolStackView)
@@ -115,7 +114,35 @@ class DetailInfoView: UIView {
             symbolStackView.leadingAnchor.constraint(equalTo: symbolImageView.trailingAnchor, constant: 10),
             
             OutputPriceStackView.topAnchor.constraint(equalTo: symbolStackView.topAnchor),
-            OutputPriceStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10)
+            OutputPriceStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ])
+    }
+    
+    func configure(coin: Coin, imageLoader: Loader) {
+        symbolNameLabel.text = coin.ticker
+        symbolDescriptionLabel.text = coin.exchange.rawValue + "/" + coin.market
+        currentPriceLabel.text = coin.meta.tradePrice.convertPriceKRW()
+        updateChangePriceRateLabel(to: coin)
+        updateChangeColor(to: coin)
+    }
+    
+    private func imageLoad(loader: Loader, to logoURL: String?) {
+        cancell = loader.load(urlString: logoURL)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] uiImage in
+                self?.symbolImageView.image = uiImage
+            }
+    }
+    
+    private func updateChangePriceRateLabel(to coin: Coin) {
+        let sign = coin.meta.change.signString()
+        changeRateLabel.text = sign + coin.meta.changeRate.convertPercentRate()
+        changePriceLabel.text = sign + coin.meta.changePrice.convertPriceKRW()
+    }
+    
+    private func updateChangeColor(to coin: Coin) {
+        let color = coin.meta.change.matchColor()
+        changeRateLabel.textColor = color
+        changePriceLabel.textColor = color
     }
 }

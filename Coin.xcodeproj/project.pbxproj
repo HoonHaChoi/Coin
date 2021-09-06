@@ -113,6 +113,7 @@
 		BFD519A426C4878B00226FF8 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BFD519A326C4878B00226FF8 /* FirebaseMessaging */; };
 		BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */; };
 		BFDD489026E5AD9200AFCA7C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */; };
+		BFDD489226E5CF4D00AFCA7C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +223,7 @@
 		BFD519A526C4A3CF00226FF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFD519A726C4A4CF00226FF8 /* Coin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coin.entitlements; sourceTree = "<group>"; };
 		BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -524,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				BFDD488F26E5AD9200AFCA7C /* DetailViewController.swift */,
+				BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */,
 				BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */,
 				BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */,
+				BFDD489226E5CF4D00AFCA7C /* DetailViewModel.swift in Sources */,
 				BFBA259E26CDED960088D26B /* TradingLogDetailViewController.swift in Sources */,
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,

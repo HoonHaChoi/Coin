@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
     
@@ -41,6 +42,13 @@ class DetailViewController: UIViewController {
         return view
     }()
     
+    private let chartWebView: WKWebView = {
+        let webView = WKWebView()
+        webView.backgroundColor = .systemBackground
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        return webView
+    }()
+    
     var coinFindHandler: ((String) -> Bool)?
     var favoriteButtonAction: ((String) -> ())?
     
@@ -56,10 +64,19 @@ class DetailViewController: UIViewController {
     
     private func configureUI() {
         view.addSubview(infoView)
-        infoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        infoView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        view.addSubview(chartWebView)
+        
+        NSLayoutConstraint.activate([
+            infoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            infoView.heightAnchor.constraint(equalToConstant: 55),
+            
+            chartWebView.topAnchor.constraint(equalTo: infoView.bottomAnchor),
+            chartWebView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            chartWebView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            chartWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
         infoView.configure(coin: coin, imageLoader: imageLoader)
     }
  

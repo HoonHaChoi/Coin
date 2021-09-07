@@ -144,6 +144,10 @@ struct AppDependency {
         
         detailViewController.requestJoinEvent = viewModel.fetchSocketMeta(from:)
         detailViewController.requestLeaveEvent = viewModel.leaveEvent(from:)
+        
+        viewModel.metaHandler = detailViewController.updateInfoUI
+        viewModel.failErrorHandler = detailViewController.showError
+        
         return detailViewController
     }
     

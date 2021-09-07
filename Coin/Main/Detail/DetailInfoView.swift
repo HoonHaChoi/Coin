@@ -122,8 +122,8 @@ class DetailInfoView: UIView {
         symbolNameLabel.text = coin.ticker
         symbolDescriptionLabel.text = coin.exchange.rawValue + "/" + coin.market
         currentPriceLabel.text = coin.meta.tradePrice.convertPriceKRW()
-        updateChangePriceRateLabel(to: coin)
-        updateChangeColor(to: coin)
+        updateChangePriceRateLabel(to: coin.meta)
+        updateChangeColor(to: coin.meta)
         imageLoad(loader: imageLoader, to: coin.logo)
     }
     
@@ -135,15 +135,23 @@ class DetailInfoView: UIView {
             }
     }
     
-    private func updateChangePriceRateLabel(to coin: Coin) {
-        let sign = coin.meta.change.signString()
-        changeRateLabel.text = sign + coin.meta.changeRate.convertPercentRate()
-        changePriceLabel.text = sign + coin.meta.changePrice.convertPriceKRW()
+    private func updateChangePriceRateLabel(to meta: Meta) {
+        let sign = meta.change.signString()
+        changeRateLabel.text = sign + meta.changeRate.convertPercentRate()
+        changePriceLabel.text = sign + meta.changePrice.convertPriceKRW()
     }
     
-    private func updateChangeColor(to coin: Coin) {
-        let color = coin.meta.change.matchColor()
+    private func updateChangeColor(to meta: Meta) {
+        let color = meta.change.matchColor()
         changeRateLabel.textColor = color
         changePriceLabel.textColor = color
+    }
+    
+    func updateUI(coin: CoinMeta) {
+        DispatchQueue.main.async { [weak self] in
+            self?.currentPriceLabel.text = coin.meta.tradePrice.convertPriceKRW()
+            self?.updateChangePriceRateLabel(to: coin.meta)
+            self?.updateChangeColor(to: coin.meta)
+        }
     }
 }

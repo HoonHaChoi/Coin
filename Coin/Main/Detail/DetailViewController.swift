@@ -61,6 +61,10 @@ class DetailViewController: UIViewController {
         configureFavoriteButton()
         configureUI()
         loadChartView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         requestJoinEvent?(coin.uuid)
     }
     
@@ -102,6 +106,19 @@ class DetailViewController: UIViewController {
     @objc func didFavoriteTapped(_ sender: UIButton) {
         favoriteButtonAction?(coin.uuid)
         favoriteButton.isSelected = !favoriteButton.isSelected
+    }
+    
+    lazy var updateInfoUI: (([CoinMeta]) -> ()) = { [weak self] meta in
+        meta.forEach { [weak self] coinMeta in
+            self?.infoView.updateUI(coin: coinMeta)
+        }
+    }
+    
+    lazy var showError: (NetworkError) -> () = { [weak self] error in
+        let alert = UIAlertController(title: "에러", message: error.description)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
+        }
     }
     
     deinit {

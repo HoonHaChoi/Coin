@@ -30,4 +30,19 @@ final class DetailViewModel: CryptoBaseViewModel {
             favoriteCoinRepository.insert(uuid: uuid)
         }
     }
+    
+    func fetchSocketMeta(from uuid: String) {
+        socketUseCase.requestSocketUUIDS(from: [uuid]) { [weak self] (result: Result<[CoinMeta], NetworkError>) in
+            switch result {
+            case .success(let meta):
+                self?.metaHandler?(meta)
+            case .failure(let error):
+                self?.failErrorHandler?(error)
+            }
+        }
+    }
+    
+    func leaveEvent(from event: String) {
+        socketUseCase.removeEmitHandler(from: [event])
+    }
 }

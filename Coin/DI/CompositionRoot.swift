@@ -141,6 +141,9 @@ struct AppDependency {
         
         detailViewController.coinFindHandler = viewModel.findFavoriteCoin(from:)
         detailViewController.favoriteButtonAction = viewModel.updateFavoriteCoin(from:)
+        
+        detailViewController.requestJoinEvent = viewModel.fetchSocketMeta(from:)
+        detailViewController.requestLeaveEvent = viewModel.leaveEvent(from:)
         return detailViewController
     }
     

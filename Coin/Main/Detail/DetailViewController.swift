@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import WebKit
 
 class DetailViewController: UIViewController {
     
@@ -41,12 +40,11 @@ class DetailViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    private let chartWebView: WKWebView = {
-        let webView = WKWebView()
-        webView.backgroundColor = .systemBackground
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        return webView
+        
+    private let chartWebView: DetailChartView = {
+        let chartView = DetailChartView()
+        chartView.translatesAutoresizingMaskIntoConstraints = false
+        return chartView
     }()
     
     var coinFindHandler: ((String) -> Bool)?
@@ -60,6 +58,7 @@ class DetailViewController: UIViewController {
         self.title = coin.ticker
         configureFavoriteButton()
         configureUI()
+        loadChartView()
     }
     
     private func configureUI() {
@@ -78,6 +77,10 @@ class DetailViewController: UIViewController {
             chartWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         infoView.configure(coin: coin, imageLoader: imageLoader)
+    }
+    
+    private func loadChartView() {
+        chartWebView.configure(url: Endpoint.chartURL(uuid: coin.uuid))
     }
  
     private func configureFavoriteButton() {

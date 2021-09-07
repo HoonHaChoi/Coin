@@ -49,6 +49,8 @@ class DetailViewController: UIViewController {
     
     var coinFindHandler: ((String) -> Bool)?
     var favoriteButtonAction: ((String) -> ())?
+    var requestJoinEvent: ((String) -> ())?
+    var requestLeaveEvent: ((String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +61,12 @@ class DetailViewController: UIViewController {
         configureFavoriteButton()
         configureUI()
         loadChartView()
+        requestJoinEvent?(coin.uuid)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        requestLeaveEvent?(coin.uuid)
     }
     
     private func configureUI() {

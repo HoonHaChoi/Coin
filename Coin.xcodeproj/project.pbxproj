@@ -118,6 +118,7 @@
 		BFDD489826E6B63C00AFCA7C /* Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD489726E6B63C00AFCA7C /* Change.swift */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 		BFF72DD826E6F9B800FBC13C /* DetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */; };
+		BFF72DE126E8A6D500FBC13C /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +232,7 @@
 		BFDD489726E6B63C00AFCA7C /* Change.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Change.swift; sourceTree = "<group>"; };
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 		BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartView.swift; sourceTree = "<group>"; };
+		BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,9 +387,11 @@
 				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
 				BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */,
 				BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */,
+				BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */,
 				BF92D7E026B57DB10033B773 /* TradingLog */,
 				BF1C04B426B0682000BC0A6B /* Main */,
 				BFA1541A26A160C100341A6D /* Search */,
+				BFF72DDF26E8A6A300FBC13C /* Notifications */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,
 				BF22BF46268F8108003FD161 /* Extension */,
@@ -538,6 +542,13 @@
 				BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		BFF72DDF26E8A6A300FBC13C /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -718,6 +729,7 @@
 				BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */,
 				BFB0A55626DBE6AC004F04AE /* SearchCoordinator.swift in Sources */,
 				BF1C052226B3D66300BC0A6B /* TradingLogModel.xcdatamodeld in Sources */,
+				BFF72DE126E8A6D500FBC13C /* NotificationsCoordinator.swift in Sources */,
 				BF2F9D7A26D34B24006A0077 /* CryptoCell.swift in Sources */,
 				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 				BF4F3ACC26BC2B92003B801A /* TradingLogAddStore.swift in Sources */,

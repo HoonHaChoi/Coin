@@ -26,8 +26,8 @@ final class Socket: SocketRequest {
     private let path = "/socket"
     private let connectEventName = "connect"
     private let disconnectEventName = "disconnect"
-    private let joinTicker = "joinTicker"
-    private let leaveTicker = "leaveTicker"
+    private let join = "join"
+    private let leave = "leave"
     
     init(url: URL?) {
         configure(url: url)

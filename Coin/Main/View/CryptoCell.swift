@@ -9,9 +9,6 @@ import UIKit
 import Combine
 
 class CryptoCell: UITableViewCell {
-
-    typealias colorMap = EnumMapper<Change, UIColor>
-    typealias signMap = EnumMapper<Change, String>
     
     @IBOutlet weak var symbolImageView: UIImageView!
     @IBOutlet weak var symbolNameLabel: UILabel!

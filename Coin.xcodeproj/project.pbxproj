@@ -120,6 +120,7 @@
 		BFF72DD826E6F9B800FBC13C /* DetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */; };
 		BFF72DE126E8A6D500FBC13C /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */; };
 		BFF72DE326E8A8BC00FBC13C /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */; };
+		BFF72DE626E8C1D500FBC13C /* NotificationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -235,6 +236,7 @@
 		BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartView.swift; sourceTree = "<group>"; };
 		BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCoordinator.swift; sourceTree = "<group>"; };
 		BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -549,9 +551,18 @@
 		BFF72DDF26E8A6A300FBC13C /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				BFF72DE426E8BE3600FBC13C /* View */,
 				BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		BFF72DE426E8BE3600FBC13C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -660,6 +671,7 @@
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,
 				BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */,
+				BFF72DE626E8C1D500FBC13C /* NotificationHeaderView.swift in Sources */,
 				BFB7954826D2007E00A89BC7 /* ExchangeViewController.swift in Sources */,
 				BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */,
 				BF4F3AD026BC6A17003B801A /* DateFormatter+Extension.swift in Sources */,

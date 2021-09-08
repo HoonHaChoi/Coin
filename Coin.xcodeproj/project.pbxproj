@@ -119,6 +119,7 @@
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 		BFF72DD826E6F9B800FBC13C /* DetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */; };
 		BFF72DE126E8A6D500FBC13C /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */; };
+		BFF72DE326E8A8BC00FBC13C /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -233,6 +234,7 @@
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 		BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartView.swift; sourceTree = "<group>"; };
 		BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCoordinator.swift; sourceTree = "<group>"; };
+		BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +549,7 @@
 		BFF72DDF26E8A6A300FBC13C /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */,
 				BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */,
 				BFB0A55F26DD1963004F04AE /* FavoriteCoinStorage.swift in Sources */,
+				BFF72DE326E8A8BC00FBC13C /* NotificationsViewController.swift in Sources */,
 				BFB427EB26CB3F4B001D4C91 /* ChartHelper.swift in Sources */,
 				BF4F3ACA26BBE01C003B801A /* TradingLogAddViewController.swift in Sources */,
 				BF4F3AD626BD2439003B801A /* UITextView+Extension.swift in Sources */,

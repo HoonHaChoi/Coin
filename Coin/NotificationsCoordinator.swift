@@ -9,7 +9,7 @@ import UIKit
 
 final class NotificationsCoordinator: Coordinator {
     
-    let navigation: UINavigationController
+    let navigationController: UINavigationController
     
     struct Dependency {
         let notificationsViewControllerFactory: () -> NotificationsViewController
@@ -18,14 +18,14 @@ final class NotificationsCoordinator: Coordinator {
     private let notificationsViewController: NotificationsViewController
     
     init(navigation: UINavigationController = UINavigationController(),
-         dependency: Dependency {
-         self.navigation = navigation
+         dependency: Dependency) {
+         self.navigationController = navigation
          self.notificationsViewController = dependency.notificationsViewControllerFactory()
-         }
-    )
+    }
     
     func start() {
-        navigation.title = "알림"
-        navigation.pushViewController(notificationsViewController, animated: true)
+        notificationsViewController.title = "알림"
+        navigationController.tabBarItem = UITabBarItem(title: "알림", image: UIImage(), selectedImage: UIImage())
+        navigationController.pushViewController(notificationsViewController, animated: true)
     }
 }

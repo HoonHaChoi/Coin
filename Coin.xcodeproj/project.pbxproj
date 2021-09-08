@@ -122,6 +122,7 @@
 		BFF72DE326E8A8BC00FBC13C /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */; };
 		BFF72DE626E8C1D500FBC13C /* NotificationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */; };
 		BFF72DE826E8E1BC00FBC13C /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */; };
+		BFF72DEA26E97A2600FBC13C /* UITableViewHeaderView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +240,7 @@
 		BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHeaderView.swift; sourceTree = "<group>"; };
 		BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +340,7 @@
 				BF9570B326A224E8000BBAE9 /* UISearchController+Extension.swift */,
 				BFA1541826A153BC00341A6D /* FileManager+Extension.swift */,
 				BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */,
+				BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */,
 				BF1FA63F269B62BB00AC1AC2 /* UITableView+Extension.swift */,
 				BF62009D26A218D500FC2228 /* SearchTextField+Extension.swift */,
 				BF4F3AD326BC843E003B801A /* UITextField+Extension.swift */,
@@ -733,6 +736,7 @@
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
 				BFB427ED26CB4436001D4C91 /* TradingLogStatsChartDTO.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,
+				BFF72DEA26E97A2600FBC13C /* UITableViewHeaderView+Extension.swift in Sources */,
 				BF2F9DC626D54E00006A0077 /* Mapper.swift in Sources */,
 				BFA1541726A152F600341A6D /* Loader.swift in Sources */,
 				BFB7954126D0A89B00A89BC7 /* PageSegmentControl.swift in Sources */,

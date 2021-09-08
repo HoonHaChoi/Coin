@@ -38,6 +38,6 @@ class NotificationsViewController: UIViewController {
             notificationsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         notificationsTableView.register(cell: NotificationCell.self)
-        
+        notificationsTableView.registerHeaderView(cell: NotificationHeaderView.self)
     }
 }

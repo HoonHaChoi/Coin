@@ -62,7 +62,7 @@ final class Socket: SocketRequest {
         socketClient?.on(clientEvent: .disconnect) { [weak self] _, _ in
             guard let self = self else { return }
             self.isEventHandler().forEach { handler in
-                self.socketClient?.emit(self.leaveTicker, handler.event)
+                self.socketClient?.emit(self.leave, handler.event)
             }
         }
     }
@@ -81,11 +81,11 @@ final class Socket: SocketRequest {
     }
     
     func joinEmit(event: String) {
-        socketClient?.emit(joinTicker, event)
+        socketClient?.emit(join, event)
     }
     
     func leaveEmit(event: String) {
-        socketClient?.emit(leaveTicker, event)
+        socketClient?.emit(leave, event)
         socketClient?.off(event)
     }
     

@@ -43,6 +43,8 @@ class NotificationHeaderView: UITableViewHeaderFooterView {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("추가", for: .normal)
+        button.titleLabel?.textColor = .basicColor
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         return button
     }()
     

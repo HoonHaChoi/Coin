@@ -65,7 +65,7 @@ class NotificationHeaderView: UITableViewHeaderFooterView {
             symbolStackView.topAnchor.constraint(equalTo: symbolImageView.topAnchor),
             symbolStackView.leadingAnchor.constraint(equalTo: symbolImageView.trailingAnchor, constant: 10),
             
-            addNotificaionButton.centerXAnchor.constraint(equalTo: symbolImageView.centerXAnchor),
+            addNotificaionButton.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
             addNotificaionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }

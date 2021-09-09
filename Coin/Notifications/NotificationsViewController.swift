@@ -39,5 +39,25 @@ class NotificationsViewController: UIViewController {
         ])
         notificationsTableView.register(cell: NotificationCell.self)
         notificationsTableView.registerHeaderView(cell: NotificationHeaderView.self)
+        notificationsTableView.delegate = self
+    }
+}
+
+extension NotificationsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .normal, title: "") { _, _, _  in
+        }
+        
+        let editAction = UIContextualAction(style: .normal, title: "") { _, _, _ in
+        }
+        
+        deleteAction.backgroundColor = .systemBackground
+        deleteAction.image = UIImage(systemName: "trash")?.withTintColor(.riseColor, renderingMode: .alwaysOriginal)
+        
+        editAction.backgroundColor = .systemBackground
+        editAction.image = UIImage(systemName: "square.and.pencil")?.withTintColor(.fallColor, renderingMode: .alwaysOriginal)
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }

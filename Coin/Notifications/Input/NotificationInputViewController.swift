@@ -97,4 +97,8 @@ final class NotificationInputViewController: UIViewController {
                 self?.cycleHandler?(cycle, .cycle)
             }.store(in: &cancellable)
     }
+    
+    func updateCompleteButtonState(from state: Bool) {
+        notificationInputView.completeButton.isEnabled = state
+    }
 }

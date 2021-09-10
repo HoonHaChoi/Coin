@@ -23,14 +23,16 @@ final class NotificationInputViewModel {
         cycleText = ""
     }
     
-    func update(text: String, type: NotificationInputType) -> Bool {
+    var isValidCheckHandler: ((Bool) -> ())?
+    
+    func update(text: String, type: NotificationInputType) {
         switch type {
         case .basePrice:
             basePriceText = text
         case .cycle:
             cycleText = text
         }
-        return isFormValidCheck()
+        isValidCheckHandler?(isFormValidCheck())
     }
     
     func isFormValidCheck() -> Bool {

@@ -123,6 +123,8 @@
 		BFF72DE626E8C1D500FBC13C /* NotificationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */; };
 		BFF72DE826E8E1BC00FBC13C /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */; };
 		BFF72DEA26E97A2600FBC13C /* UITableViewHeaderView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */; };
+		BFF72DED26E9F16900FBC13C /* NotificationInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */; };
+		BFF72DEF26E9F4A200FBC13C /* NotificationInputViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF72DEE26E9F4A200FBC13C /* NotificationInputViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,6 +243,8 @@
 		BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHeaderView.swift; sourceTree = "<group>"; };
 		BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderView+Extension.swift"; sourceTree = "<group>"; };
+		BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputViewController.swift; sourceTree = "<group>"; };
+		BFF72DEE26E9F4A200FBC13C /* NotificationInputViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationInputViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,6 +560,7 @@
 		BFF72DDF26E8A6A300FBC13C /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				BFF72DEB26E9F14800FBC13C /* Input */,
 				BFF72DE426E8BE3600FBC13C /* View */,
 				BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */,
 			);
@@ -569,6 +574,15 @@
 				BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BFF72DEB26E9F14800FBC13C /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */,
+				BFF72DEE26E9F4A200FBC13C /* NotificationInputViewController.storyboard */,
+			);
+			path = Input;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,6 +663,7 @@
 				BF4F3AC826BBC499003B801A /* TradingLogAddViewController.storyboard in Resources */,
 				BF92D7E826B589670033B773 /* SearchViewController.storyboard in Resources */,
 				BFB0A51126D7378D004F04AE /* CryptoHeaderView.xib in Resources */,
+				BFF72DEF26E9F4A200FBC13C /* NotificationInputViewController.storyboard in Resources */,
 				BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */,
 				BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */,
 				BF9E249E26B69FBA00CCB49E /* TradingLogCell.xib in Resources */,
@@ -745,6 +760,7 @@
 				BFB0A56126DF3B7E004F04AE /* LoadingView.swift in Sources */,
 				BFB0A55D26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld in Sources */,
 				BF9E24A026B6A76000CCB49E /* TradingLogCell.swift in Sources */,
+				BFF72DED26E9F16900FBC13C /* NotificationInputViewController.swift in Sources */,
 				BF8736082651697A00C3FAD0 /* SceneDelegate.swift in Sources */,
 				BF2F9D7C26D366CA006A0077 /* TableDataSource.swift in Sources */,
 				BFD519A126C3FE4C00226FF8 /* Int64+Extension.swift in Sources */,

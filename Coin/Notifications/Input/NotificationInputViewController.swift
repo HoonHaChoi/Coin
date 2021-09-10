@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class NotificationInputViewController: UIViewController {
     
@@ -50,6 +51,10 @@ final class NotificationInputViewController: UIViewController {
         return view
     }()
     
+    private var cancellable = Set<AnyCancellable>()
+    var basePriceHandler: ((String,NotificationInputType) -> ())?
+    var cycleHandler: ((String, NotificationInputType) -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -79,6 +84,17 @@ final class NotificationInputViewController: UIViewController {
         ])
         
         notificationInputView.configureUI()
+    }
+    
+    private func bind() {
+        notificationInputView.basePriceTextField.textPublisher
+            .sink { [weak self] price in
+                self?.basePriceHandler?(price, .basePrice)
+            }.store(in: &cancellable)
         
+        notificationInputView.cycleTextField.textPublisher
+            .sink { [weak self] cycle in
+                self?.cycleHandler?(cycle, .cycle)
+            }.store(in: &cancellable)
     }
 }

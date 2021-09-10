@@ -104,6 +104,8 @@
 		BFB9430E26C61E780053C212 /* TradingLogStatsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFB9430D26C61E780053C212 /* TradingLogStatsViewController.storyboard */; };
 		BFBA259E26CDED960088D26B /* TradingLogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA259D26CDED960088D26B /* TradingLogDetailViewController.swift */; };
 		BFBA25A226CE99F50088D26B /* ChartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA25A126CE99F50088D26B /* ChartContainerView.swift */; };
+		BFBCC56F26EB1A6500B878F1 /* NotificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC56E26EB1A6500B878F1 /* NotificationTextField.swift */; };
+		BFBCC57126EB43DC00B878F1 /* NotifiactionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */; };
 		BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFBCE42326C8804E0077A521 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
@@ -124,7 +126,7 @@
 		BFF72DE826E8E1BC00FBC13C /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */; };
 		BFF72DEA26E97A2600FBC13C /* UITableViewHeaderView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */; };
 		BFF72DED26E9F16900FBC13C /* NotificationInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */; };
-		BFF72DEF26E9F4A200FBC13C /* NotificationInputViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF72DEE26E9F4A200FBC13C /* NotificationInputViewController.storyboard */; };
+		BFF72DF326EAE52A00FBC13C /* NotificationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -224,6 +226,8 @@
 		BFB9430D26C61E780053C212 /* TradingLogStatsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TradingLogStatsViewController.storyboard; sourceTree = "<group>"; };
 		BFBA259D26CDED960088D26B /* TradingLogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogDetailViewController.swift; sourceTree = "<group>"; };
 		BFBA25A126CE99F50088D26B /* ChartContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContainerView.swift; sourceTree = "<group>"; };
+		BFBCC56E26EB1A6500B878F1 /* NotificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTextField.swift; sourceTree = "<group>"; };
+		BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiactionInputView.swift; sourceTree = "<group>"; };
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
@@ -244,7 +248,7 @@
 		BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderView+Extension.swift"; sourceTree = "<group>"; };
 		BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputViewController.swift; sourceTree = "<group>"; };
-		BFF72DEE26E9F4A200FBC13C /* NotificationInputViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationInputViewController.storyboard; sourceTree = "<group>"; };
+		BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,6 +574,8 @@
 		BFF72DE426E8BE3600FBC13C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */,
+				BFBCC56E26EB1A6500B878F1 /* NotificationTextField.swift */,
 				BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */,
 				BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */,
 			);
@@ -579,8 +585,8 @@
 		BFF72DEB26E9F14800FBC13C /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */,
 				BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */,
-				BFF72DEE26E9F4A200FBC13C /* NotificationInputViewController.storyboard */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -663,7 +669,6 @@
 				BF4F3AC826BBC499003B801A /* TradingLogAddViewController.storyboard in Resources */,
 				BF92D7E826B589670033B773 /* SearchViewController.storyboard in Resources */,
 				BFB0A51126D7378D004F04AE /* CryptoHeaderView.xib in Resources */,
-				BFF72DEF26E9F4A200FBC13C /* NotificationInputViewController.storyboard in Resources */,
 				BF92D7E426B584070033B773 /* TradingLogViewController.storyboard in Resources */,
 				BFD519A626C4A3CF00226FF8 /* GoogleService-Info.plist in Resources */,
 				BF9E249E26B69FBA00CCB49E /* TradingLogCell.xib in Resources */,
@@ -690,6 +695,7 @@
 				BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */,
 				BFDD489226E5CF4D00AFCA7C /* DetailViewModel.swift in Sources */,
 				BFBA259E26CDED960088D26B /* TradingLogDetailViewController.swift in Sources */,
+				BFBCC56F26EB1A6500B878F1 /* NotificationTextField.swift in Sources */,
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,
 				BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */,
@@ -721,6 +727,7 @@
 				BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */,
 				BFBA25A226CE99F50088D26B /* ChartContainerView.swift in Sources */,
 				BF8736292652946A00C3FAD0 /* NetwokManager.swift in Sources */,
+				BFBCC57126EB43DC00B878F1 /* NotifiactionInputView.swift in Sources */,
 				BFB427DE26CA7D2A001D4C91 /* Int+Extension.swift in Sources */,
 				BFB7954326D1232B00A89BC7 /* SegmentContainer.swift in Sources */,
 				BFB427E926CB257C001D4C91 /* ChartView.swift in Sources */,
@@ -765,6 +772,7 @@
 				BF2F9D7C26D366CA006A0077 /* TableDataSource.swift in Sources */,
 				BFD519A126C3FE4C00226FF8 /* Int64+Extension.swift in Sources */,
 				BFA153FE26A0542D00341A6D /* ImageLoader.swift in Sources */,
+				BFF72DF326EAE52A00FBC13C /* NotificationInputViewModel.swift in Sources */,
 				BF9D08ED269CB0FB009B6AA0 /* MainCoordinator.swift in Sources */,
 				BF1FA634269B366A00AC1AC2 /* SearchCoinCell.swift in Sources */,
 				BFB0A55626DBE6AC004F04AE /* SearchCoordinator.swift in Sources */,

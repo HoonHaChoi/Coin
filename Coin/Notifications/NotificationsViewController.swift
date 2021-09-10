@@ -10,7 +10,7 @@ import UIKit
 class NotificationsViewController: UIViewController {
 
     private lazy var addNotificationCryptoButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNotification))
         button.tintColor = .basicColor
         return button
     }()
@@ -40,6 +40,10 @@ class NotificationsViewController: UIViewController {
         notificationsTableView.register(cell: NotificationCell.self)
         notificationsTableView.registerHeaderView(cell: NotificationHeaderView.self)
         notificationsTableView.delegate = self
+    }
+    
+    @objc func addNotification(){
+        navigationController?.pushViewController(NotificationInputViewController(), animated: true)
     }
 }
 

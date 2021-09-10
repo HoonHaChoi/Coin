@@ -10,7 +10,6 @@ import Combine
 
 class SearchViewController: UIViewController, Storyboarded {
     
-    private var viewModel: SearchViewModel
     private let imageLoader: Loader
     private lazy var searchCoinDataSource: SearchTableDataSource = .init {
         [weak self] cell, coin, state in
@@ -26,9 +25,7 @@ class SearchViewController: UIViewController, Storyboarded {
     var updateFavoriteHandler: ((String) -> Void)?
     
     init?(coder: NSCoder,
-          viewModel: SearchViewModel,
           imageLoader: Loader) {
-        self.viewModel = viewModel
         self.imageLoader = imageLoader
         super.init(coder: coder)
     }
@@ -74,12 +71,14 @@ class SearchViewController: UIViewController, Storyboarded {
         searchController.textFieldPublisher
             .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
             .sink { [weak self] keyword in
-            guard let scopeExchangeTitle = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] else {
+            
+            guard let self = self,
+                  let scopeExchangeTitle = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] else {
                 return
             }
             
-            self?.keywordHandler?(keyword,
-                                  self?.adjustScopeTitle(scope: scopeExchangeTitle) ?? "")
+            self.keywordHandler?(keyword,
+                                 self.adjustScopeTitle(scope: scopeExchangeTitle))
         }.store(in: &cancellable)
     }
         

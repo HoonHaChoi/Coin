@@ -123,7 +123,6 @@ struct AppDependency {
                                         repository: favoriteCoinCoreData)
         let searchViewController = SearchViewController.instantiate { coder in
             return SearchViewController(coder: coder,
-                                        viewModel: viewModel,
                                         imageLoader: imageLoader)
         }
         

@@ -11,6 +11,7 @@ class SearchTableDataSource: NSObject, UITableViewDataSource {
     
     private var model: [Coin]
     private var state: [Bool]
+    var favoriteButtonTappedHandler: ((SearchCoinCell) -> ())?
     let configure:(SearchCoinCell,Coin,Bool) -> ()
     
     init(configure: @escaping (SearchCoinCell,Coin,Bool) -> ()) {
@@ -27,6 +28,7 @@ class SearchTableDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCoinCell.reuseIdentifier, for: indexPath) as? SearchCoinCell else {
             return .init()
         }
+        cell.delegate = self
         configure(cell, model[indexPath.row], state[indexPath.row])
         return cell
     }
@@ -57,3 +59,8 @@ class SearchTableDataSource: NSObject, UITableViewDataSource {
     }
 }
 
+extension SearchTableDataSource: FavoriteButtonTappedDelegate {
+    func didFavoriteButtonTapped(cell: SearchCoinCell) {
+        favoriteButtonTappedHandler?(cell)
+    }
+}

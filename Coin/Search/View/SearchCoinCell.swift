@@ -42,6 +42,15 @@ class SearchCoinCell: UITableViewCell {
         favoriteButton.tintColor =  favoriteButton.isSelected ? .riseColor : .basicColor
     }
     
+    func searchStyle(style: SearchStyle) {
+        switch style {
+        case .favorite:
+            break
+        case .notification:
+            favoriteButton.isHidden = true
+        }
+    }
+    
     @IBAction func didFavoriteButtonTapped(_ sender: Any) {
         delegate?.didFavoriteButtonTapped(cell: self)
     }

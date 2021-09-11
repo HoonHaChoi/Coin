@@ -8,25 +8,29 @@
 import UIKit
 import Combine
 
+enum SearchStyle {
+    case favorite
+    case notification
+}
+
 class SearchViewController: UIViewController, Storyboarded {
     
     private let imageLoader: Loader
-    private lazy var searchCoinDataSource: SearchTableDataSource = .init {
-        [weak self] cell, coin, state in
-        cell.configure(coin: coin,
-                       imageLoader: self?.imageLoader ?? ImageLoader(),
-                       state: state)
-        cell.delegate = self
-    }
+    private let searchCoinDataSource: SearchTableDataSource
     private var cancellable = Set<AnyCancellable>()
     
     var keywordHandler: ((String,String) -> Void)?
     var fetchFavoriteCoin: (() -> ([String]))?
     var updateFavoriteHandler: ((String) -> Void)?
     
+    private var searchStyle: SearchStyle
+    
     init?(coder: NSCoder,
-          imageLoader: Loader) {
+          imageLoader: Loader,
+          dataSource: SearchTableDataSource) {
         self.imageLoader = imageLoader
+//        self.searchStyle = .favorite
+        self.searchCoinDataSource = dataSource
         super.init(coder: coder)
     }
 
@@ -115,28 +119,8 @@ class SearchViewController: UIViewController, Storyboarded {
     private func adjustScopeTitle(scope: String) -> String {
         scope == allTitle ? "" : scope
     }
-}
-
-// DetailView 이동시 사용 예정
-//extension SearchViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    }
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//    }
-//}
-
-extension SearchViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        guard let keyword = searchBar.text,
-              let scope = searchBar.scopeButtonTitles?[selectedScope] else {
-            return
-        }
-        keywordHandler?(keyword, adjustScopeTitle(scope: scope))
-    }
-}
-
-extension SearchViewController: FavoriteButtonTappedDelegate {
-    func didFavoriteButtonTapped(cell: SearchCoinCell) {
+    
+    func didfavoriteButtonAction(cell: SearchCoinCell) {
         guard let indexPath = coinListTableView.indexPath(for: cell) else {
             return
         }
@@ -147,5 +131,26 @@ extension SearchViewController: FavoriteButtonTappedDelegate {
             self?.searchCoinDataSource.updateState(from: [indexPath.row])
             self?.coinListTableView.reloadRows(at: [indexPath], with: .none)
         }
+    }
+}
+
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch searchStyle {
+        case .favorite:
+            break
+        case .notification:
+            navigationController?.pushViewController(NotificationInputViewController(), animated: true)
+        }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        guard let keyword = searchBar.text,
+              let scope = searchBar.scopeButtonTitles?[selectedScope] else {
+            return
+        }
+        keywordHandler?(keyword, adjustScopeTitle(scope: scope))
     }
 }

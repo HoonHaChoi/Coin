@@ -121,10 +121,20 @@ struct AppDependency {
     private func makeSearchViewController() -> SearchViewController {
         let viewModel = SearchViewModel(usecase: networkManager,
                                         repository: favoriteCoinCoreData)
+        let searchDataSource = SearchTableDataSource { cell, coin, state in
+            cell.configure(coin: coin,
+                           imageLoader: imageLoader,
+                           state: state)
+            cell.searchStyle(style: .favorite)
+        }
         let searchViewController = SearchViewController.instantiate { coder in
             return SearchViewController(coder: coder,
-                                        imageLoader: imageLoader)
+                                        imageLoader: imageLoader,
+                                        dataSource: searchDataSource)
         }
+        
+        
+        searchDataSource.favoriteButtonTappedHandler = searchViewController.didfavoriteButtonAction(cell:)
         
         viewModel.coinsHandler = searchViewController.updateSearchResult
         searchViewController.keywordHandler = viewModel.fetchSearchCoins(keyword:exchange:)

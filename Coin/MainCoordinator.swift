@@ -12,11 +12,11 @@ final class MainCoordinator: Coordinator {
     
     struct Dependency {
         let mainContainerViewControllerFactory: () -> MainContainerViewController
-        let searchViewControllerFactory: () -> SearchViewController
+        let searchViewControllerFactory: (SearchStyle) -> SearchViewController
         let detailViewControllerFactory: (Coin) -> DetailViewController
     }
     
-    private let searchViewController: () -> SearchViewController
+    private let searchViewController: (SearchStyle) -> SearchViewController
     private let mainContainerViewController: MainContainerViewController
     private let detailViewController: (Coin) -> DetailViewController
     
@@ -36,9 +36,10 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(mainContainerViewController, animated: true)
     }
     
-    func showSearchViewController() {
+    func showSearchViewController(style: SearchStyle) {
         let searchCoordinator = SearchCoordinator(navigation: navigationController,
-                                                  dependency: .init(searchViewControllerFactory: searchViewController))
+                                                  dependency: .init(searchViewControllerFactory: searchViewController),
+                                                  searchStyle: style)
         coordinate(to: searchCoordinator)
     }
     

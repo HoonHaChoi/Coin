@@ -118,21 +118,21 @@ struct AppDependency {
     }
     
     typealias SearchDataSource = TableDataSource<SearchCoinCell, Coin>
-    private func makeSearchViewController() -> SearchViewController {
+    private func makeSearchViewController(style: SearchStyle) -> SearchViewController {
         let viewModel = SearchViewModel(usecase: networkManager,
                                         repository: favoriteCoinCoreData)
         let searchDataSource = SearchTableDataSource { cell, coin, state in
             cell.configure(coin: coin,
                            imageLoader: imageLoader,
                            state: state)
-            cell.searchStyle(style: .favorite)
+            cell.searchStyle(style: style)
         }
         let searchViewController = SearchViewController.instantiate { coder in
             return SearchViewController(coder: coder,
                                         imageLoader: imageLoader,
-                                        dataSource: searchDataSource)
+                                        dataSource: searchDataSource,
+                                        style: style)
         }
-        
         
         searchDataSource.favoriteButtonTappedHandler = searchViewController.didfavoriteButtonAction(cell:)
         
@@ -142,7 +142,7 @@ struct AppDependency {
         searchViewController.updateFavoriteHandler = viewModel.updateFavoriteCoin(from:)
         viewModel.loadingHiddenStateHandler = searchViewController.loadingHiddenState
         
-        searchViewController.title = "검색"
+        searchViewController.title = style == .favorite ? "관심 코인 설정" : "검색"
         return searchViewController
     }
     

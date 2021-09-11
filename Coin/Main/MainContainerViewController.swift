@@ -55,7 +55,7 @@ class MainContainerViewController: UIViewController {
     }
     
     @objc func pushSearchController(_ sender: UIButton) {
-        coordinator?.showSearchViewController()
+        coordinator?.showSearchViewController(style: .favorite)
     }
     
     func pushDetailController(from coin: Coin) {

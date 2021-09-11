@@ -12,19 +12,19 @@ final class SearchCoordinator: Coordinator {
     let navigationController: UINavigationController
     
     struct Dependency {
-        let searchViewControllerFactory: () -> SearchViewController
+        let searchViewControllerFactory: (SearchStyle) -> SearchViewController
     }
     
     private let searchViewController: SearchViewController
     
     init(navigation: UINavigationController,
-         dependency: Dependency) {
+         dependency: Dependency,
+         searchStyle: SearchStyle) {
         self.navigationController = navigation
-        self.searchViewController = dependency.searchViewControllerFactory()
+        self.searchViewController = dependency.searchViewControllerFactory(searchStyle)
     }
     
     func start() {
-        searchViewController.title = "관심 코인 설정"
         navigationController.pushViewController(searchViewController, animated: true)
     }
 }

@@ -27,9 +27,10 @@ class SearchViewController: UIViewController, Storyboarded {
     
     init?(coder: NSCoder,
           imageLoader: Loader,
-          dataSource: SearchTableDataSource) {
+          dataSource: SearchTableDataSource,
+          style: SearchStyle) {
         self.imageLoader = imageLoader
-//        self.searchStyle = .favorite
+        self.searchStyle = style
         self.searchCoinDataSource = dataSource
         super.init(coder: coder)
     }

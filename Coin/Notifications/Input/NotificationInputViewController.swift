@@ -21,7 +21,10 @@ final class NotificationInputViewController: UIViewController {
         "30분 간격으로 알림": "8b8bc4b7-15a5-422b-976c-69dc4a14b7b0",
         "1시간 간격으로 알림": "33b7553c-fbcc-48a5-b1be-291cfcc3f029"]
     
-    init() {
+    private let imageLoader: Loader
+    
+    init(imageLoader: Loader) {
+        self.imageLoader = imageLoader
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -59,6 +62,7 @@ final class NotificationInputViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureConstraint()
+        bind()
     }
 
     private func configureConstraint() {
@@ -100,5 +104,9 @@ final class NotificationInputViewController: UIViewController {
     
     func updateCompleteButtonState(from state: Bool) {
         notificationInputView.completeButton.isEnabled = state
+    }
+    
+    func updateInfoView(coin: Coin) {
+        infoView.configure(coin: coin, imageLoader: imageLoader)
     }
 }

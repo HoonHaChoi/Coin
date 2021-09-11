@@ -223,4 +223,19 @@ struct AppDependency {
         let notificationsViewController = NotificationsViewController()
         return notificationsViewController
     }
+    
+    private func makeNotificationsInputViewController(uuid: String) -> NotificationInputViewController {
+        let viewModel = NotificationInputViewModel(usecase: networkManager)
+        let viewController = NotificationInputViewController(uuid: uuid,
+                                                             imageLoader: imageLoader)
+        
+        viewModel.coinHandler = viewController.updateInfoView(coin:)
+        viewModel.errorHandler = viewController.showError
+        viewModel.isValidCheckHandler = viewController.updateCompleteButtonState(from:)
+        viewController.basePriceHandler = viewModel.update(text:type:)
+        viewController.cycleHandler = viewModel.update(text:type:)
+        viewController.requestCoinHandler = viewModel.fetchSearchCoin(uuid:)
+        
+        return viewController
+    }
 }

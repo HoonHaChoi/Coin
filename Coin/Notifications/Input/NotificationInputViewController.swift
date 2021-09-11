@@ -22,8 +22,11 @@ final class NotificationInputViewController: UIViewController {
         "1시간 간격으로 알림": "33b7553c-fbcc-48a5-b1be-291cfcc3f029"]
     
     private let imageLoader: Loader
+    private let uuid: String
     
-    init(imageLoader: Loader) {
+    init(uuid: String,
+         imageLoader: Loader) {
+        self.uuid = uuid
         self.imageLoader = imageLoader
         super.init(nibName: nil, bundle: nil)
     }
@@ -57,11 +60,13 @@ final class NotificationInputViewController: UIViewController {
     private var cancellable = Set<AnyCancellable>()
     var basePriceHandler: ((String,NotificationInputType) -> ())?
     var cycleHandler: ((String, NotificationInputType) -> ())?
+    var requestCoinHandler: ((String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureConstraint()
+        requestCoinHandler?(uuid)
         bind()
     }
 
@@ -107,6 +112,16 @@ final class NotificationInputViewController: UIViewController {
     }
     
     func updateInfoView(coin: Coin) {
-        infoView.configure(coin: coin, imageLoader: imageLoader)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.infoView.configure(coin: coin, imageLoader: self.imageLoader)
+        }
+    }
+    
+    lazy var showError: (NetworkError) -> () = { [weak self] error in
+        let alert = UIAlertController(title: "에러", message: error.description)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
+        }
     }
 }

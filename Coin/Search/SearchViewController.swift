@@ -141,7 +141,8 @@ extension SearchViewController: UITableViewDelegate {
         case .favorite:
             break
         case .notification:
-            navigationController?.pushViewController(NotificationInputViewController(), animated: true)
+            break
+//            navigationController?.pushViewController(NotificationInputViewController(), animated: true)
         }
     }
 }

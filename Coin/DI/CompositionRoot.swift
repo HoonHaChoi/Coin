@@ -68,7 +68,9 @@ struct AppDependency {
     }
     
     private func makeNotificaionsCoordinator() -> NotificationsCoordinator {
-        return NotificationsCoordinator(dependency: .init(notificationsViewControllerFactory: makeNotificationsViewController))
+        return NotificationsCoordinator(dependency:
+                                            .init(notificationsViewControllerFactory: makeNotificationsViewController,
+                                                  searchViewControllerFactory: makeSearchViewController(style:)))
     }
     
     // MARK: Controller

@@ -9,6 +9,8 @@ import UIKit
 
 class NotificationsViewController: UIViewController {
 
+    weak var coordinator: NotificationsCoordinator?
+    
     private lazy var addNotificationCryptoButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNotification))
         button.tintColor = .basicColor
@@ -43,7 +45,7 @@ class NotificationsViewController: UIViewController {
     }
     
     @objc func addNotification(){
-        navigationController?.pushViewController(NotificationInputViewController(), animated: true)
+        coordinator?.showSearchViewController(style: .notification)
     }
 }
 

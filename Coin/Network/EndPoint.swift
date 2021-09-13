@@ -60,6 +60,15 @@ enum Endpoint {
         return component.url
     }
     
+    static func notificationCreateURL(token: String) -> URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.port = port
+        component.path = "/api/v1/notifications"+"/\(token)"+"tickers"
+        return component.url
+    }
+    
     static var socketURL: URL? {
         var component = URLComponents()
         component.scheme = scheme

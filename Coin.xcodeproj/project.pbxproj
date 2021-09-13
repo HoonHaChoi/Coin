@@ -110,6 +110,7 @@
 		BFBCC58826EEE3EF00B878F1 /* NotificationCompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58726EEE3EF00B878F1 /* NotificationCompleteButton.swift */; };
 		BFBCC58C26EF537700B878F1 /* NotificationObject .swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58B26EF537700B878F1 /* NotificationObject .swift */; };
 		BFBCC58E26EF562C00B878F1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58D26EF562C00B878F1 /* HTTPMethod.swift */; };
+		BFBCC59026EF5CC200B878F1 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */; };
 		BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFBCE42326C8804E0077A521 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
@@ -236,6 +237,7 @@
 		BFBCC58726EEE3EF00B878F1 /* NotificationCompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCompleteButton.swift; sourceTree = "<group>"; };
 		BFBCC58B26EF537700B878F1 /* NotificationObject .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationObject .swift"; sourceTree = "<group>"; };
 		BFBCC58D26EF562C00B878F1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 				BFF72DEB26E9F14800FBC13C /* Input */,
 				BFF72DE426E8BE3600FBC13C /* View */,
 				BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */,
+				BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 				BF2F9D7A26D34B24006A0077 /* CryptoCell.swift in Sources */,
 				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 				BF4F3ACC26BC2B92003B801A /* TradingLogAddStore.swift in Sources */,
+				BFBCC59026EF5CC200B878F1 /* NotificationHelper.swift in Sources */,
 				BFB427E026CA7D33001D4C91 /* Double+Extension.swift in Sources */,
 				BF9D08EF269CB5A9009B6AA0 /* TabBarCoordinator.swift in Sources */,
 				BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */,

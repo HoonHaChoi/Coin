@@ -227,9 +227,12 @@ struct AppDependency {
     }
     
     private func makeNotificationsInputViewController(uuid: String) -> NotificationInputViewController {
+        let notificationHelper = NotificationHelper()
         let viewModel = NotificationInputViewModel(usecase: networkManager)
         let viewController = NotificationInputViewController(uuid: uuid,
-                                                             imageLoader: imageLoader)
+                                                             imageLoader: imageLoader,
+                                                             type: notificationHelper.notificationTypeNames,
+                                                             cycle: notificationHelper.cycleNames)
         
         viewModel.coinHandler = viewController.updateInfoView
         viewModel.errorHandler = viewController.showError

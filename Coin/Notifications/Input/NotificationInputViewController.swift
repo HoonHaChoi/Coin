@@ -10,24 +10,19 @@ import Combine
 
 final class NotificationInputViewController: UIViewController {
     
-    // 수정
-    var typeMenu = ["상승": "up",
-                "하락": "down"]
-    
-    var repectMenu = [
-        "1분 간격으로 알림": "eb337599-8c4f-4dc8-8c95-9e6e84054259",
-        "5분 간격으로 알림": "2d01f98e-ca62-4d10-a0bc-8880abadb2a3",
-        "10분 간격으로 알림": "a1057597-4460-4f1a-b45d-4fd4248fadbb",
-        "30분 간격으로 알림": "8b8bc4b7-15a5-422b-976c-69dc4a14b7b0",
-        "1시간 간격으로 알림": "33b7553c-fbcc-48a5-b1be-291cfcc3f029"]
-    
     private let imageLoader: Loader
     private let uuid: String
+    private let notifiactionTypeNames: [String]
+    private let notificationCycleNames: [String]
     
     init(uuid: String,
-         imageLoader: Loader) {
+         imageLoader: Loader,
+         type: [String],
+         cycle: [String]) {
         self.uuid = uuid
         self.imageLoader = imageLoader
+        self.notifiactionTypeNames = type
+        self.notificationCycleNames = cycle
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,11 +43,10 @@ final class NotificationInputViewController: UIViewController {
         return view
     }()
     
-    // 수정
     private lazy var notificationInputView: NotifiactionInputView = {
         let view = NotifiactionInputView(frame: .zero,
-                             type: typeMenu.keys.map { String($0) },
-                             cycle: repectMenu.keys.map { String($0) })
+                             type: notifiactionTypeNames,
+                             cycle: notificationCycleNames)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

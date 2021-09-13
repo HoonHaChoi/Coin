@@ -24,6 +24,7 @@ class SearchViewController: UIViewController, Storyboarded {
     var updateFavoriteHandler: ((String) -> Void)?
     
     private var searchStyle: SearchStyle
+    weak var coordinator: SearchCoordinator?
     
     init?(coder: NSCoder,
           imageLoader: Loader,
@@ -133,6 +134,10 @@ class SearchViewController: UIViewController, Storyboarded {
             self?.coinListTableView.reloadRows(at: [indexPath], with: .none)
         }
     }
+    
+    deinit {
+        print(#function)
+    }
 }
 
 extension SearchViewController: UITableViewDelegate {
@@ -141,8 +146,9 @@ extension SearchViewController: UITableViewDelegate {
         case .favorite:
             break
         case .notification:
-            break
-//            navigationController?.pushViewController(NotificationInputViewController(), animated: true)
+            searchCoinDataSource.selectModel(index: indexPath.row) { [weak self] uuid in
+                self?.coordinator?.showNotificationInputViewController(uuid: uuid)
+            }
         }
     }
 }

@@ -106,6 +106,7 @@
 		BFBA25A226CE99F50088D26B /* ChartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBA25A126CE99F50088D26B /* ChartContainerView.swift */; };
 		BFBCC56F26EB1A6500B878F1 /* NotificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC56E26EB1A6500B878F1 /* NotificationTextField.swift */; };
 		BFBCC57126EB43DC00B878F1 /* NotifiactionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */; };
+		BFBCC57326ECA74E00B878F1 /* NotificationInputCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC57226ECA74E00B878F1 /* NotificationInputCoordinator.swift */; };
 		BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFBCE42326C8804E0077A521 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
@@ -228,6 +229,7 @@
 		BFBA25A126CE99F50088D26B /* ChartContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartContainerView.swift; sourceTree = "<group>"; };
 		BFBCC56E26EB1A6500B878F1 /* NotificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTextField.swift; sourceTree = "<group>"; };
 		BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiactionInputView.swift; sourceTree = "<group>"; };
+		BFBCC57226ECA74E00B878F1 /* NotificationInputCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputCoordinator.swift; sourceTree = "<group>"; };
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 			children = (
 				BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */,
 				BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */,
+				BFBCC57226ECA74E00B878F1 /* NotificationInputCoordinator.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				BF4F3AAD26B9960E003B801A /* TradingLogStore.swift in Sources */,
 				BF2F9DC426D53B30006A0077 /* ExchangeViewModel.swift in Sources */,
 				BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */,
+				BFBCC57326ECA74E00B878F1 /* NotificationInputCoordinator.swift in Sources */,
 				BF9570C926A34830000BBAE9 /* String+Extension.swift in Sources */,
 				BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */,
 				BFBA25A226CE99F50088D26B /* ChartContainerView.swift in Sources */,

@@ -55,7 +55,8 @@ struct AppDependency {
         return MainCoordinator(dependency:
                                 .init(mainContainerViewControllerFactory: makeMainContainerViewController,
                                       searchViewControllerFactory: makeSearchViewController
-                                      ,detailViewControllerFactory: makeDetailViewController(from:)))
+                                      ,detailViewControllerFactory: makeDetailViewController(from:),
+                                      notificationIntputViewControllerFactory: makeNotificationsInputViewController(uuid:)))
     }
     
     private func makeTradingLogCoordinator() -> TradingLogCoordinator {
@@ -70,7 +71,8 @@ struct AppDependency {
     private func makeNotificaionsCoordinator() -> NotificationsCoordinator {
         return NotificationsCoordinator(dependency:
                                             .init(notificationsViewControllerFactory: makeNotificationsViewController,
-                                                  searchViewControllerFactory: makeSearchViewController(style:)))
+                                                  searchViewControllerFactory: makeSearchViewController(style:),
+                                                  notificationIntputViewControllerFactory: makeNotificationsInputViewController(uuid:)))
     }
     
     // MARK: Controller

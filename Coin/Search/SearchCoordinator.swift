@@ -13,18 +13,33 @@ final class SearchCoordinator: Coordinator {
     
     struct Dependency {
         let searchViewControllerFactory: (SearchStyle) -> SearchViewController
+        let notificationIntputViewControllerFactory: (String) -> NotificationInputViewController
     }
     
     private let searchViewController: SearchViewController
+    private let notificationIntputViewController: (String) -> NotificationInputViewController
     
     init(navigation: UINavigationController,
          dependency: Dependency,
          searchStyle: SearchStyle) {
         self.navigationController = navigation
         self.searchViewController = dependency.searchViewControllerFactory(searchStyle)
+        self.notificationIntputViewController = dependency.notificationIntputViewControllerFactory
     }
     
     func start() {
+        searchViewController.coordinator = self
         navigationController.pushViewController(searchViewController, animated: true)
+    }
+    
+    func showNotificationInputViewController(uuid: String) {
+        let notificationInputCoordinator = NotificationInputCoordinator(navigation: navigationController,
+                                                                        dependency: .init(notificationInputViewFactory: notificationIntputViewController),
+                                                                        uuid: uuid)
+        coordinate(to: notificationInputCoordinator)
+    }
+    
+    deinit {
+        print(#function)
     }
 }

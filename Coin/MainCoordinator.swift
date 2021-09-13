@@ -14,11 +14,13 @@ final class MainCoordinator: Coordinator {
         let mainContainerViewControllerFactory: () -> MainContainerViewController
         let searchViewControllerFactory: (SearchStyle) -> SearchViewController
         let detailViewControllerFactory: (Coin) -> DetailViewController
+        let notificationIntputViewControllerFactory: (String) -> NotificationInputViewController
     }
     
     private let searchViewController: (SearchStyle) -> SearchViewController
     private let mainContainerViewController: MainContainerViewController
     private let detailViewController: (Coin) -> DetailViewController
+    private let notificationIntputViewController: (String) -> NotificationInputViewController
     
     
     init(navigationController: UINavigationController = UINavigationController(),
@@ -27,6 +29,7 @@ final class MainCoordinator: Coordinator {
         self.searchViewController = dependency.searchViewControllerFactory
         self.mainContainerViewController = dependency.mainContainerViewControllerFactory()
         self.detailViewController = dependency.detailViewControllerFactory
+        self.notificationIntputViewController = dependency.notificationIntputViewControllerFactory
     }
     
     func start() {
@@ -38,7 +41,7 @@ final class MainCoordinator: Coordinator {
     
     func showSearchViewController(style: SearchStyle) {
         let searchCoordinator = SearchCoordinator(navigation: navigationController,
-                                                  dependency: .init(searchViewControllerFactory: searchViewController),
+                                                  dependency: .init(searchViewControllerFactory: searchViewController, notificationIntputViewControllerFactory: notificationIntputViewController),
                                                   searchStyle: style)
         coordinate(to: searchCoordinator)
     }

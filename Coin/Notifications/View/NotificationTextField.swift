@@ -64,6 +64,7 @@ class NotificationTextField: UITextField {
         let row = self.pickerView.selectedRow(inComponent: 0)
         self.pickerView.selectRow(row, inComponent: 0, animated: false)
         self.text = self.pickerList[row]
+        pickerDelegate?.didSelectPick(data: pickerList[row])
         self.resignFirstResponder()
     }
     

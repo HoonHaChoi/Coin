@@ -107,6 +107,7 @@
 		BFBCC56F26EB1A6500B878F1 /* NotificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC56E26EB1A6500B878F1 /* NotificationTextField.swift */; };
 		BFBCC57126EB43DC00B878F1 /* NotifiactionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */; };
 		BFBCC57326ECA74E00B878F1 /* NotificationInputCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC57226ECA74E00B878F1 /* NotificationInputCoordinator.swift */; };
+		BFBCC58826EEE3EF00B878F1 /* NotificationCompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58726EEE3EF00B878F1 /* NotificationCompleteButton.swift */; };
 		BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFBCE42326C8804E0077A521 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
@@ -230,6 +231,7 @@
 		BFBCC56E26EB1A6500B878F1 /* NotificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTextField.swift; sourceTree = "<group>"; };
 		BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiactionInputView.swift; sourceTree = "<group>"; };
 		BFBCC57226ECA74E00B878F1 /* NotificationInputCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputCoordinator.swift; sourceTree = "<group>"; };
+		BFBCC58726EEE3EF00B878F1 /* NotificationCompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCompleteButton.swift; sourceTree = "<group>"; };
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				BFBCC56E26EB1A6500B878F1 /* NotificationTextField.swift */,
 				BFF72DE526E8C1D500FBC13C /* NotificationHeaderView.swift */,
 				BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */,
+				BFBCC58726EEE3EF00B878F1 /* NotificationCompleteButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */,
 				BF2F9D7626D337D7006A0077 /* CryptoView.swift in Sources */,
 				BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */,
+				BFBCC58826EEE3EF00B878F1 /* NotificationCompleteButton.swift in Sources */,
 				BF9D08E9269CAF17009B6AA0 /* Coordinator.swift in Sources */,
 				BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */,
 				BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */,

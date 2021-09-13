@@ -111,19 +111,13 @@ final class NotifiactionInputView: UIView {
     }()
     
     var completeButton: UIButton = {
-        var button = UIButton(type: .system)
+        var button = NotificationCompleteButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("알림 생성", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
         button.isEnabled = false
-        if button.isEnabled {
-            button.backgroundColor = .fallColor.withAlphaComponent(1.0)
-        } else {
-            button.backgroundColor = .fallColor.withAlphaComponent(0.3)
-        }
-        
         return button
     }()
 

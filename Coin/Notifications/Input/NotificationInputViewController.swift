@@ -101,14 +101,13 @@ final class NotificationInputViewController: UIViewController {
                 self?.basePriceHandler?(price, .basePrice)
             }.store(in: &cancellable)
         
-        notificationInputView.cycleTextField.textPublisher
-            .sink { [weak self] cycle in
-                self?.cycleHandler?(cycle, .cycle)
-            }.store(in: &cancellable)
+        notificationInputView.cycleTextField.pickerDelegate = self
     }
     
     func updateCompleteButtonState(from state: Bool) {
-        notificationInputView.completeButton.isEnabled = state
+        DispatchQueue.main.async { [weak self] in
+            self?.notificationInputView.completeButton.isEnabled = state
+        }
     }
     
     func updateInfoView(coin: Coin) {
@@ -123,5 +122,11 @@ final class NotificationInputViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.present(alert, animated: true)
         }
+    }
+}
+
+extension NotificationInputViewController: NotificationPickerDelegate {
+    func didSelectPick(data: String) {
+        cycleHandler?(data, .cycle)
     }
 }

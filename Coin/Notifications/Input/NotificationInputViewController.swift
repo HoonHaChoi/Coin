@@ -104,15 +104,15 @@ final class NotificationInputViewController: UIViewController {
         notificationInputView.cycleTextField.pickerDelegate = self
     }
     
-    func updateCompleteButtonState(from state: Bool) {
-        DispatchQueue.main.async { [weak self] in
+    lazy var updateCompleteButtonState: (Bool) -> () = { [weak self] state in
+        DispatchQueue.main.async {
             self?.notificationInputView.completeButton.isEnabled = state
         }
     }
     
-    func updateInfoView(coin: Coin) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+    lazy var updateInfoView: (Coin) -> () = { [weak self] coin in
+        guard let self = self else { return }
+        DispatchQueue.main.async {
             self.infoView.configure(coin: coin, imageLoader: self.imageLoader)
         }
     }
@@ -122,6 +122,10 @@ final class NotificationInputViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.present(alert, animated: true)
         }
+    }
+    
+    deinit {
+        print(#function, "inputController")
     }
 }
 

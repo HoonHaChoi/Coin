@@ -231,9 +231,9 @@ struct AppDependency {
         let viewController = NotificationInputViewController(uuid: uuid,
                                                              imageLoader: imageLoader)
         
-        viewModel.coinHandler = viewController.updateInfoView(coin:)
+        viewModel.coinHandler = viewController.updateInfoView
         viewModel.errorHandler = viewController.showError
-        viewModel.isValidCheckHandler = viewController.updateCompleteButtonState(from:)
+        viewModel.isValidCheckHandler = viewController.updateCompleteButtonState
         viewController.basePriceHandler = viewModel.update(text:type:)
         viewController.cycleHandler = viewModel.update(text:type:)
         viewController.requestCoinHandler = viewModel.fetchSearchCoin(uuid:)

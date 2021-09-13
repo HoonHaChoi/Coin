@@ -28,7 +28,9 @@ class SearchTableDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchCoinCell.reuseIdentifier, for: indexPath) as? SearchCoinCell else {
             return .init()
         }
-        cell.delegate = self
+        cell.didFavoriteButtonAction = { [weak self] cell in
+            self?.favoriteButtonTappedHandler?(cell)
+        }
         configure(cell, model[indexPath.row], state[indexPath.row])
         return cell
     }
@@ -56,11 +58,5 @@ class SearchTableDataSource: NSObject, UITableViewDataSource {
     
     func selectModel(index: Int, handler: (String) -> Void) {
         handler(model[index].uuid)
-    }
-}
-
-extension SearchTableDataSource: FavoriteButtonTappedDelegate {
-    func didFavoriteButtonTapped(cell: SearchCoinCell) {
-        favoriteButtonTappedHandler?(cell)
     }
 }

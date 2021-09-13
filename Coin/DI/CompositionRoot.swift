@@ -138,7 +138,7 @@ struct AppDependency {
                                         style: style)
         }
         
-        searchDataSource.favoriteButtonTappedHandler = searchViewController.didfavoriteButtonAction(cell:)
+        searchDataSource.favoriteButtonTappedHandler = searchViewController.didfavoriteButtonAction
         
         viewModel.coinsHandler = searchViewController.updateSearchResult
         searchViewController.keywordHandler = viewModel.fetchSearchCoins(keyword:exchange:)

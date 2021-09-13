@@ -122,21 +122,21 @@ class SearchViewController: UIViewController, Storyboarded {
         scope == allTitle ? "" : scope
     }
     
-    func didfavoriteButtonAction(cell: SearchCoinCell) {
-        guard let indexPath = coinListTableView.indexPath(for: cell) else {
+    lazy var didfavoriteButtonAction: ((SearchCoinCell) -> ()) = { [weak self] cell in
+        guard let indexPath = self?.coinListTableView.indexPath(for: cell) else {
             return
         }
-        searchCoinDataSource.selectModel(index: indexPath.row) { [weak self] uuid in
+        self?.searchCoinDataSource.selectModel(index: indexPath.row) { uuid in
             self?.updateFavoriteHandler?(uuid)
         }
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.async {
             self?.searchCoinDataSource.updateState(from: [indexPath.row])
             self?.coinListTableView.reloadRows(at: [indexPath], with: .none)
         }
     }
     
     deinit {
-        print(#function)
+        print(#function, "searchViewController")
     }
 }
 

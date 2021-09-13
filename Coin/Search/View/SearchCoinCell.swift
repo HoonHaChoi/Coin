@@ -8,10 +8,6 @@
 import UIKit
 import Combine
 
-protocol FavoriteButtonTappedDelegate: AnyObject {
-    func didFavoriteButtonTapped(cell: SearchCoinCell)
-}
-
 class SearchCoinCell: UITableViewCell {
 
     @IBOutlet weak var coinImageView: UIImageView!
@@ -20,7 +16,7 @@ class SearchCoinCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     
     private var cancell: AnyCancellable?
-    weak var delegate: FavoriteButtonTappedDelegate?
+    var didFavoriteButtonAction: ((SearchCoinCell) -> Void)?
     
     func configure(coin: Coin, imageLoader: Loader, state: Bool) {
         coinName.text = coin.ticker
@@ -52,6 +48,6 @@ class SearchCoinCell: UITableViewCell {
     }
     
     @IBAction func didFavoriteButtonTapped(_ sender: Any) {
-        delegate?.didFavoriteButtonTapped(cell: self)
+        didFavoriteButtonAction?(self)
     }
 }

@@ -108,6 +108,8 @@
 		BFBCC57126EB43DC00B878F1 /* NotifiactionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */; };
 		BFBCC57326ECA74E00B878F1 /* NotificationInputCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC57226ECA74E00B878F1 /* NotificationInputCoordinator.swift */; };
 		BFBCC58826EEE3EF00B878F1 /* NotificationCompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58726EEE3EF00B878F1 /* NotificationCompleteButton.swift */; };
+		BFBCC58C26EF537700B878F1 /* NotificationObject .swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58B26EF537700B878F1 /* NotificationObject .swift */; };
+		BFBCC58E26EF562C00B878F1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58D26EF562C00B878F1 /* HTTPMethod.swift */; };
 		BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFBCE42326C8804E0077A521 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
@@ -232,6 +234,8 @@
 		BFBCC57026EB43DC00B878F1 /* NotifiactionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiactionInputView.swift; sourceTree = "<group>"; };
 		BFBCC57226ECA74E00B878F1 /* NotificationInputCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputCoordinator.swift; sourceTree = "<group>"; };
 		BFBCC58726EEE3EF00B878F1 /* NotificationCompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCompleteButton.swift; sourceTree = "<group>"; };
+		BFBCC58B26EF537700B878F1 /* NotificationObject .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationObject .swift"; sourceTree = "<group>"; };
+		BFBCC58D26EF562C00B878F1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 				BF22BF3C268F6C9F003FD161 /* EndPoint.swift */,
 				BF1C049A26AF494800BC0A6B /* Socket.swift */,
 				BF1C049E26AFF84B00BC0A6B /* SocketRepository.swift */,
+				BFBCC58D26EF562C00B878F1 /* HTTPMethod.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				BF22BF41268F6D96003FD161 /* Coins.swift */,
 				BFDD489726E6B63C00AFCA7C /* Change.swift */,
 				BF2F9DC926D5C068006A0077 /* CoinMeta.swift */,
+				BFBCC58B26EF537700B878F1 /* NotificationObject .swift */,
 				BF92D7D426B43B710033B773 /* TradingLog.swift */,
 				BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */,
 				BF92D7D326B4386D0033B773 /* CoreDataStorage */,
@@ -726,6 +732,7 @@
 				BFB427EF26CCC6C5001D4C91 /* MenuDisableTextField.swift in Sources */,
 				BF987C4426C1402E003DBDB0 /* UIAlertController+Extension.swift in Sources */,
 				BFB0A52C26D86CCB004F04AE /* CryptoBaseViewModel.swift in Sources */,
+				BFBCC58E26EF562C00B878F1 /* HTTPMethod.swift in Sources */,
 				BF4F3AAD26B9960E003B801A /* TradingLogStore.swift in Sources */,
 				BF2F9DC426D53B30006A0077 /* ExchangeViewModel.swift in Sources */,
 				BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */,
@@ -750,6 +757,7 @@
 				BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */,
 				BF8736062651697A00C3FAD0 /* AppDelegate.swift in Sources */,
 				BF92D7D526B43B710033B773 /* TradingLog.swift in Sources */,
+				BFBCC58C26EF537700B878F1 /* NotificationObject .swift in Sources */,
 				BF62009E26A218D500FC2228 /* SearchTextField+Extension.swift in Sources */,
 				BF2F9D7626D337D7006A0077 /* CryptoView.swift in Sources */,
 				BF1FA62F269B2FBD00AC1AC2 /* Storyboarded.swift in Sources */,

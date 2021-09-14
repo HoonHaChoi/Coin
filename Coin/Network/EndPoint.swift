@@ -12,15 +12,17 @@ enum Endpoint {
     private static let scheme = "http"
     private static let host = "34.64.77.122"
     private static let port = 8080
-    private static let path = "/api/v1/tickers"
+    private static let tickersPath = "/api/v1/tickers"
+    private static let notificationPath = "/api/v1/notifications/"
     private static let chart = "/chart"
+    private static let socket = "/socket"
     
     static func searchURL(keyword: String, exchange: String) -> URL? {
         var component = URLComponents()
         component.scheme = scheme
         component.host = host
         component.port = port
-        component.path = path
+        component.path = tickersPath
         component.queryItems = [
             URLQueryItem(name: "search", value: keyword),
             URLQueryItem(name: "market", value: "krw"),
@@ -34,7 +36,7 @@ enum Endpoint {
         component.scheme = scheme
         component.host = host
         component.port = port
-        component.path = path
+        component.path = tickersPath
         component.queryItems = [
             URLQueryItem(name: "market", value: "krw"),
             URLQueryItem(name: "exchange", value: market.toString),
@@ -47,7 +49,7 @@ enum Endpoint {
         component.scheme = scheme
         component.host = host
         component.port = port
-        component.path = path+"/\(uuid)"
+        component.path = tickersPath+"/\(uuid)"
         return component.url
     }
     
@@ -56,7 +58,16 @@ enum Endpoint {
         component.scheme = scheme
         component.host = host
         component.port = port
-        component.path = path+"/\(uuid)"+chart
+        component.path = tickersPath+"/\(uuid)"+chart
+        return component.url
+    }
+    
+    static func notificationsURL(token: String) -> URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.port = port
+        component.path = notificationPath+"\(token)"
         return component.url
     }
     
@@ -65,7 +76,7 @@ enum Endpoint {
         component.scheme = scheme
         component.host = host
         component.port = port
-        component.path = "/api/v1/notifications"+"/\(token)"+"/tickers"
+        component.path = notificationPath+"\(token)"+"/tickers"
         return component.url
     }
     
@@ -74,7 +85,7 @@ enum Endpoint {
         component.scheme = scheme
         component.host = host
         component.port = port
-        component.path = "/socket"
+        component.path = socket
         return component.url
     }
 }

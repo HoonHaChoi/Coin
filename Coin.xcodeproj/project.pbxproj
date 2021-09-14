@@ -133,6 +133,7 @@
 		BFF72DED26E9F16900FBC13C /* NotificationInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */; };
 		BFF72DF326EAE52A00FBC13C /* NotificationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */; };
 		BFFE180D26F12B3A00F4FD1A /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE180C26F12B3A00F4FD1A /* Notifications.swift */; };
+		BFFE180F26F1317400F4FD1A /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE180E26F1317400F4FD1A /* NotificationsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -261,6 +262,7 @@
 		BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputViewController.swift; sourceTree = "<group>"; };
 		BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputViewModel.swift; sourceTree = "<group>"; };
 		BFFE180C26F12B3A00F4FD1A /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		BFFE180E26F1317400F4FD1A /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -582,6 +584,7 @@
 				BFF72DEB26E9F14800FBC13C /* Input */,
 				BFF72DE426E8BE3600FBC13C /* View */,
 				BFF72DE226E8A8BC00FBC13C /* NotificationsViewController.swift */,
+				BFFE180E26F1317400F4FD1A /* NotificationsViewModel.swift */,
 				BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */,
 			);
 			path = Notifications;
@@ -706,6 +709,7 @@
 				BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */,
 				BFA1541326A152BB00341A6D /* ImageRequest.swift in Sources */,
 				BF4F3A9426B86B30003B801A /* TradingLogDataSource.swift in Sources */,
+				BFFE180F26F1317400F4FD1A /* NotificationsViewModel.swift in Sources */,
 				BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */,
 				BFF72DE826E8E1BC00FBC13C /* NotificationCell.swift in Sources */,
 				BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */,

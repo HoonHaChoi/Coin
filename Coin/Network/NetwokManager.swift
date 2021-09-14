@@ -24,6 +24,10 @@ struct NetworkManager: SearchUseCase {
         return self.session.requestResource(url: Endpoint.favoriteURL(uuid: uuidString))
     }
     
+    func requestNotifications(url: URL?) -> AnyPublisher<[Notifications], NetworkError> {
+        return self.session.requestResource(url: url)
+    }
+    
     func requestNotification(url: URL?,
                                    method: HTTPMethod,
                                    body: Data) -> AnyPublisher<Void, NetworkError> {

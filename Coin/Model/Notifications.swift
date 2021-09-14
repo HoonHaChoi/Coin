@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Notifications {
+struct Notifications: Decodable {
     let uuid: String
     let basePrice: String
     let type: String
@@ -16,7 +16,7 @@ struct Notifications {
     let notificationCycle: NotificationCycle
 }
 
-struct Ticker {
+struct Ticker: Decodable {
     let id: Int
     let uuid: String
     let exchange: String
@@ -26,7 +26,7 @@ struct Ticker {
     var logo: String?
 }
 
-struct NotificationCycle {
+struct NotificationCycle: Decodable {
     let uuid: String
     let displayCycle: String
 }

@@ -49,7 +49,6 @@ class NotificationTextField: UITextField {
         self.font = .systemFont(ofSize: 15, weight: .medium)
         self.placeholder = "타입을 선택해 주세요"
         self.textColor = .basicColor
-        self.clearButtonMode = .whileEditing
         configureToolbar()
     }
     

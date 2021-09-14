@@ -115,6 +115,7 @@ final class NotifiactionInputView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("알림 생성", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        button.addTarget(self, action: #selector(didCompleteButtonTapped(_:)), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
         button.isEnabled = false
@@ -167,5 +168,12 @@ final class NotifiactionInputView: UIView {
     
     @objc private func donePicker(_ sender: UIBarButtonItem) {
         self.basePriceTextField.resignFirstResponder()
+    }
+    
+    var buttonTappedHanlder: ((String) -> ())?
+    @objc private func didCompleteButtonTapped(_ sender: UIButton) {
+        let selectIndex = typeSegmentControl.selectedSegmentIndex
+        let type = typeSegmentControl.titleForSegment(at: selectIndex) ?? ""
+        buttonTappedHanlder?(type)
     }
 }

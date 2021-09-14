@@ -55,6 +55,7 @@ final class NotificationInputViewController: UIViewController {
     var basePriceHandler: ((String,NotificationInputType) -> ())?
     var cycleHandler: ((String, NotificationInputType) -> ())?
     var requestCoinHandler: ((String) -> ())?
+    var requestNotification: ((String, String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +88,7 @@ final class NotificationInputViewController: UIViewController {
         ])
         
         notificationInputView.configureUI()
+        notificationInputView.buttonTappedHanlder = didCompleteButtonTapped
     }
     
     private func bind() {
@@ -116,6 +118,20 @@ final class NotificationInputViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.present(alert, animated: true)
         }
+    }
+    
+    lazy var didCompleteButtonTapped: (String) -> () = { [weak self] type in
+        self?.requestNotification?(type, self?.uuid ?? "")
+    }
+    
+    lazy var onDismiss = { [weak self] in
+//        DispatchQueue.main.async {
+//            let alert = UIAlertController(title: "", message: "성공적으로 등록되었습니다")
+//            alert.addAction(UIAlertAction(title: "", style: .default, handler: { _ in
+//                self?.navigationController?.popToRootViewController(animated: true)
+//            }))
+//            self?.present(alert, animated: true)
+//        }
     }
     
     deinit {

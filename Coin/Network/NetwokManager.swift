@@ -5,7 +5,7 @@ import SwiftyJSON
 protocol SearchUseCase {
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
     func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
-    func requestNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Bool, NetworkError>
+    func requestNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError>
 }
 
 struct NetworkManager: SearchUseCase {
@@ -26,7 +26,7 @@ struct NetworkManager: SearchUseCase {
     
     func requestNotification(url: URL?,
                                    method: HTTPMethod,
-                                   body: Data) -> AnyPublisher<Bool, NetworkError> {
+                                   body: Data) -> AnyPublisher<Void, NetworkError> {
         guard let urlRequest = makeURLRequest(url: url,
                                               method: method,
                                               body: body) else {
@@ -34,11 +34,14 @@ struct NetworkManager: SearchUseCase {
         }
         
         return self.session.dataTaskPublisher(for: urlRequest)
-            .tryMap { data, response -> Bool in
+            .tryMap { data, response in
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw NetworkError.invalidResponse
                 }
-                return 200..<300 ~= httpResponse.statusCode
+                guard 200..<300 ~= httpResponse.statusCode else {
+                    throw NetworkError.invalidStatusCode(httpResponse.statusCode)
+                }
+                return
             }
             .mapError { error -> NetworkError in
                 NetworkError.invalidResponse

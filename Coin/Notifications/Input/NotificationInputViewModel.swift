@@ -36,6 +36,7 @@ final class NotificationInputViewModel {
     var isValidCheckHandler: ((Bool) -> ())?
     var coinHandler: ((Coin) -> Void)?
     var errorHandler: ((NetworkError) -> Void)?
+    var successHandler: (() -> ())?
     
     func fetchSearchCoin(uuid: String) {
         searchUseCase.requestFavoriteCoins(uuidString: uuid)
@@ -71,8 +72,8 @@ final class NotificationInputViewModel {
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
                 }
-            } receiveValue: { [weak self] (bool) in
-                print(bool)
+            } receiveValue: { [weak self]  in
+                self?.successHandler?()
             }.store(in: &cancell)
     }
     

@@ -65,7 +65,7 @@ enum Endpoint {
         component.scheme = scheme
         component.host = host
         component.port = port
-        component.path = "/api/v1/notifications"+"/\(token)"+"tickers"
+        component.path = "/api/v1/notifications"+"/\(token)"+"/tickers"
         return component.url
     }
     

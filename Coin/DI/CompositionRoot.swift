@@ -242,6 +242,9 @@ struct AppDependency {
         viewController.cycleHandler = viewModel.update(text:type:)
         viewController.requestCoinHandler = viewModel.fetchSearchCoin(uuid:)
         
+        viewModel.successHandler = viewController.onDismiss
+        viewController.requestNotification = viewModel.requestCreateNotification(type:uuid:)
+        
         return viewController
     }
 }

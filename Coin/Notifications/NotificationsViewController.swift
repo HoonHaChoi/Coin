@@ -7,9 +7,21 @@
 
 import UIKit
 
-class NotificationsViewController: UIViewController {
+final class NotificationsViewController: UIViewController {
 
+    typealias NotificationDataSource = TableDataSource<NotificationCell, Notifications>
+    
+    private let dataSource: NotificationDataSource
     weak var coordinator: NotificationsCoordinator?
+        
+    init(dataSource: NotificationDataSource) {
+        self.dataSource = dataSource
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     private lazy var addNotificationCryptoButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNotification))

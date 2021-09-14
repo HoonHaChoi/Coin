@@ -132,6 +132,7 @@
 		BFF72DEA26E97A2600FBC13C /* UITableViewHeaderView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */; };
 		BFF72DED26E9F16900FBC13C /* NotificationInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */; };
 		BFF72DF326EAE52A00FBC13C /* NotificationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */; };
+		BFFE180D26F12B3A00F4FD1A /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE180C26F12B3A00F4FD1A /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -259,6 +260,7 @@
 		BFF72DE926E97A2600FBC13C /* UITableViewHeaderView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderView+Extension.swift"; sourceTree = "<group>"; };
 		BFF72DEC26E9F16900FBC13C /* NotificationInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputViewController.swift; sourceTree = "<group>"; };
 		BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationInputViewModel.swift; sourceTree = "<group>"; };
+		BFFE180C26F12B3A00F4FD1A /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +347,7 @@
 				BFBCC58B26EF537700B878F1 /* NotificationObject .swift */,
 				BF92D7D426B43B710033B773 /* TradingLog.swift */,
 				BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */,
+				BFFE180C26F12B3A00F4FD1A /* Notifications.swift */,
 				BF92D7D326B4386D0033B773 /* CoreDataStorage */,
 			);
 			path = Model;
@@ -755,6 +758,7 @@
 				BFD5199926C3505D00226FF8 /* DayOfWeek.swift in Sources */,
 				BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */,
 				BF4F3AD226BC6DAB003B801A /* Date+Extension.swift in Sources */,
+				BFFE180D26F12B3A00F4FD1A /* Notifications.swift in Sources */,
 				BFA1541926A153BC00341A6D /* FileManager+Extension.swift in Sources */,
 				BFB7954526D1B10900A89BC7 /* MainContainerViewController.swift in Sources */,
 				BFB427D826C97CE0001D4C91 /* TradingLogStatsViewModel.swift in Sources */,

@@ -66,4 +66,8 @@ class NotificationCell: UITableViewCell {
         ])
     }
 
+    func configure(from item: Notifications) {
+        notificationPriceLabel.text = item.basePrice
+        notificationRepectLabel.text = item.notificationCycle.displayCycle
+    }
 }

@@ -48,7 +48,7 @@ final class NotificationsCoordinator: NSObject, Coordinator {
         coordinate(to: searchCoordinator)
     }
 
-    func childDidFinish(_ child: Coordinator?) {
+    private func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in childCoordinator.enumerated() {
             if coordinator === child {
                 childCoordinator.remove(at: index)
@@ -56,20 +56,33 @@ final class NotificationsCoordinator: NSObject, Coordinator {
             }
         }
     }
+    
+    private func childDidFinish() {
+        childCoordinator.removeAll()
+    }
 }
 
 extension NotificationsCoordinator: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
-               return
-           }
+            return
+        }
+        guard let toViewController = navigationController.transitionCoordinator?.viewController(forKey: .to) else {
+            return
+        }
         
-           if navigationController.viewControllers.contains(fromViewController) {
-               return
-           }
+        if navigationController.viewControllers.contains(fromViewController) {
+            return
+        }
         
-           if let searchViewController = fromViewController as? SearchViewController {
-               childDidFinish(searchViewController.coordinator)
-           }
+    
+        if let searchViewController = fromViewController as? SearchViewController  {
+            childDidFinish(searchViewController.coordinator)
+        }
+        
+        if let _ = fromViewController as? NotificationInputViewController,
+            let _ = toViewController as? NotificationsViewController {
+                childDidFinish()
+        }
     }
 }

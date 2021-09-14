@@ -125,13 +125,12 @@ final class NotificationInputViewController: UIViewController {
     }
     
     lazy var onDismiss = { [weak self] in
-//        DispatchQueue.main.async {
-//            let alert = UIAlertController(title: "", message: "성공적으로 등록되었습니다")
-//            alert.addAction(UIAlertAction(title: "", style: .default, handler: { _ in
-//                self?.navigationController?.popToRootViewController(animated: true)
-//            }))
-//            self?.present(alert, animated: true)
-//        }
+        DispatchQueue.main.async {
+            let alert = UIAlertController(message: "성공적으로 등록되었습니다") { _ in
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+        self?.present(alert, animated: true)
+        }
     }
     
     deinit {

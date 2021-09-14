@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct NotificationObject {
+struct NotificationObject: Encodable {
     let type: String
     let basePrice: Int
-    let tickerUUID: String
+    let tickerUUID: String?
     let notificationCycleUUID: String
 }

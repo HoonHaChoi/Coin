@@ -228,7 +228,8 @@ struct AppDependency {
     
     private func makeNotificationsInputViewController(uuid: String) -> NotificationInputViewController {
         let notificationHelper = NotificationHelper()
-        let viewModel = NotificationInputViewModel(usecase: networkManager)
+        let viewModel = NotificationInputViewModel(usecase: networkManager,
+                                                   notificationHelper: notificationHelper)
         let viewController = NotificationInputViewController(uuid: uuid,
                                                              imageLoader: imageLoader,
                                                              type: notificationHelper.notificationTypeNames,

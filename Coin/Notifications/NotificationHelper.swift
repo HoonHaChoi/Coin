@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct NotificationHelper {
+protocol NotificationHelp {
+    mutating func mapping(typeName: String) -> String
+    mutating func mapping(cycleName: String) -> String
+}
+
+struct NotificationHelper: NotificationHelp {
        
     private(set) var notificationTypeNames = ["상승","하락"]
     private(set) var notificationType = ["up","down"]

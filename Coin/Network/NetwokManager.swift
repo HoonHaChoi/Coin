@@ -5,6 +5,7 @@ import SwiftyJSON
 protocol SearchUseCase {
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
     func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
+    func requestNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Bool, NetworkError>
 }
 
 struct NetworkManager: SearchUseCase {

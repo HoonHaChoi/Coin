@@ -59,6 +59,7 @@ final class NotificationsCoordinator: NSObject, Coordinator {
     
     private func childDidFinish() {
         childCoordinator.removeAll()
+        notificationsViewController.requestNotifications?()
     }
 }
 

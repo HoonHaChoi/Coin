@@ -33,6 +33,7 @@ final class NotificationsViewController: UIViewController {
         let table = UITableView()
         table.estimatedRowHeight = 70
         table.rowHeight = 70
+        table.allowsSelection = false
         table.delaysContentTouches = false
         table.translatesAutoresizingMaskIntoConstraints = false
         return table

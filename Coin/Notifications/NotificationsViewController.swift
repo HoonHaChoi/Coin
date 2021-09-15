@@ -38,6 +38,12 @@ final class NotificationsViewController: UIViewController {
         return table
     }()
     
+    private let loadingView: LoadingView = {
+        let view = LoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var requestNotifications: (() -> ())?
     
     override func viewDidLoad() {
@@ -50,13 +56,20 @@ final class NotificationsViewController: UIViewController {
     
     private func configureUI() {
         view.addSubview(notificationsTableView)
+        view.addSubview(loadingView)
         
         NSLayoutConstraint.activate([
             notificationsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             notificationsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             notificationsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            notificationsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            notificationsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            loadingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
         notificationsTableView.registerClass(cell: NotificationCell.self)
         notificationsTableView.registerHeaderView(cell: NotificationHeaderView.self)
         notificationsTableView.dataSource = dataSource
@@ -67,10 +80,23 @@ final class NotificationsViewController: UIViewController {
         coordinator?.showSearchViewController(style: .notification)
     }
     
-    lazy var updateNotification: ([Notifications]) -> () = { [weak self] notifiactions in
+    lazy var updateNotifications: ([Notifications]) -> () = { [weak self] notifiactions in
         self?.dataSource.updateDataSource(from: notifiactions)
         DispatchQueue.main.async {
             self?.notificationsTableView.reloadData()
+        }
+    }
+    
+    lazy var showError: (NetworkError) -> () = { [weak self] error in
+        let alert = UIAlertController(title: "에러", message: error.description)
+        DispatchQueue.main.async {
+            self?.present(alert, animated: true)
+        }
+    }
+    
+    lazy var loadingHiddenState: ((Bool) -> ()) = { [weak self] state in
+        DispatchQueue.main.async {
+            self?.loadingView.isHidden = state
         }
     }
 }

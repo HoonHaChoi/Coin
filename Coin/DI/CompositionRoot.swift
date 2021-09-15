@@ -230,7 +230,9 @@ struct AppDependency {
         let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource)
         
         notificationsViewController.requestNotifications = viewmodel.fetchNotifications
-        viewmodel.notificationsHandler = notificationsViewController.updateNotification
+        viewmodel.notificationsHandler = notificationsViewController.updateNotifications
+        viewmodel.errorHandler = notificationsViewController.showError
+        viewmodel.loadingHiddenStateHandler = notificationsViewController.loadingHiddenState
         
         return notificationsViewController
     }

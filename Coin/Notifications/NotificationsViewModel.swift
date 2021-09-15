@@ -25,6 +25,7 @@ final class NotificationsViewModel {
     var errorHandler: ((NetworkError) -> ())?
     
     func fetchNotifications() {
+        loadingHiddenStateHandler?(false)
         cancell = searchUseCase.requestNotifications(url: Endpoint.notificationsURL(token: token))
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
@@ -32,7 +33,7 @@ final class NotificationsViewModel {
                 }
             } receiveValue: { [weak self] notifications in
                 self?.notificationsHandler?(notifications)
-//                self?.loadingHiddenStateHandler?(true)
+                self?.loadingHiddenStateHandler?(true)
             }
     }
     

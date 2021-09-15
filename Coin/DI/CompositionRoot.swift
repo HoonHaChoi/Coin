@@ -36,7 +36,7 @@ struct AppDependency {
 
     // MARK: DataSource
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
-    var coinDataSource: cryptoDataSource { cryptoDataSource.init { cell, model in
+    var coinDataSource: cryptoDataSource { cryptoDataSource.init(emptyView: EmptyView(frame: .zero, title: "관심 있는 코인 목록이 비어 있습니다!", description: "관심 있는 코인을 검색 또는 거래소를 \n 통해 추가 해주세요")) { cell, model in
         cell.configure(coin: model,
                        imageLoader: self.imageLoader)
         }
@@ -224,7 +224,7 @@ struct AppDependency {
     private func makeNotificationsViewController() -> NotificationsViewController {
         typealias NotificationDataSource = TableDataSource<NotificationCell, Notifications>
         let viewmodel = NotificationsViewModel(usecase: networkManager)
-        let notificationDataSource = NotificationDataSource.init { cell, noti in
+        let notificationDataSource = NotificationDataSource.init(emptyView: EmptyView(frame: .zero, title: "알림 목록이 비어 있어요!", description: "+버튼으로 원하는 금액에 도달하는 코인을 \n 등록하고 알림을 받아보세요")) { cell, noti in
             cell.configure(from: noti)
         }
         let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource)

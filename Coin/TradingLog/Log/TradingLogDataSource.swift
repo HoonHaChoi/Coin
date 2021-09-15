@@ -18,7 +18,7 @@ class TradingLogDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tradingLogs.isEmpty {
-            tableView.backgroundView = EmptyView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
+            tableView.backgroundView = EmptyView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height), title: "이번 달 일지가 비어 있습니다!", description: "오늘부터 +버튼으로 하루 매매 일지를 \n 등록 해보는건 어떨까요")
         } else {
             tableView.backgroundView = nil
         }

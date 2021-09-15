@@ -36,6 +36,7 @@ final class NotificationsViewController: UIViewController {
         table.allowsSelection = false
         table.delaysContentTouches = false
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.tableFooterView = .init()
         return table
     }()
     

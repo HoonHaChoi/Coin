@@ -9,40 +9,52 @@ import UIKit
 
 class EmptyView: UIView {
 
-    let titleLabel: UILabel = {
+    let titleString: String
+    let descriptionString: String
+    
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .boldSystemFont(ofSize: 20)
-        label.text = "등록한 일지가 없습니다..!"
+        label.textColor = .basicColor
+        label.text = titleString
         return label
     }()
     
-    let imageView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "market")
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
-        return view
+    lazy var descriptionLable: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 18, weight: .regular)
+        label.textColor = .middleGrayColor
+        label.text = descriptionString
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, title: String, description: String) {
+        self.titleString = title
+        self.descriptionString = description
         super.init(frame: frame)
         configure()
     }
     
     required init?(coder: NSCoder) {
+        self.titleString = ""
+        self.descriptionString = ""
         super.init(coder: coder)
         configure()
     }
 
     func configure() {
         addSubview(titleLabel)
-        addSubview(imageView)
+        addSubview(descriptionLable)
         
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor,constant: 10).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40).isActive = true
         
-        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50).isActive = true
+        descriptionLable.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        descriptionLable.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+
     }
 }

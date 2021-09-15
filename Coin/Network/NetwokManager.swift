@@ -6,6 +6,7 @@ protocol SearchUseCase {
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
     func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
     func requestNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError>
+    func requestNotifications(url: URL?) -> AnyPublisher<[Notifications], NetworkError>
 }
 
 struct NetworkManager: SearchUseCase {

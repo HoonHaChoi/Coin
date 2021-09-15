@@ -8,6 +8,16 @@
 import UIKit
 
 class NotificationCell: UITableViewCell {
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        configureUI()
+    }
 
     private let notificationPriceLabel: UILabel = {
         let label = UILabel()
@@ -40,14 +50,6 @@ class NotificationCell: UITableViewCell {
         notiSwitch.translatesAutoresizingMaskIntoConstraints = false
         return notiSwitch
     }()
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     private func configureUI() {
         addSubview(notificationStackView)

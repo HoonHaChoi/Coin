@@ -31,15 +31,21 @@ final class NotificationsViewController: UIViewController {
     
     private let notificationsTableView: UITableView = {
         let table = UITableView()
+        table.estimatedRowHeight = 70
+        table.rowHeight = 70
+        table.delaysContentTouches = false
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
+    
+    var requestNotifications: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = addNotificationCryptoButton
         configureUI()
+        requestNotifications?()
     }
     
     private func configureUI() {
@@ -51,13 +57,21 @@ final class NotificationsViewController: UIViewController {
             notificationsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             notificationsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        notificationsTableView.register(cell: NotificationCell.self)
+        notificationsTableView.registerClass(cell: NotificationCell.self)
         notificationsTableView.registerHeaderView(cell: NotificationHeaderView.self)
+        notificationsTableView.dataSource = dataSource
         notificationsTableView.delegate = self
     }
     
     @objc func addNotification(){
         coordinator?.showSearchViewController(style: .notification)
+    }
+    
+    lazy var updateNotification: ([Notifications]) -> () = { [weak self] notifiactions in
+        self?.dataSource.updateDataSource(from: notifiactions)
+        DispatchQueue.main.async {
+            self?.notificationsTableView.reloadData()
+        }
     }
 }
 

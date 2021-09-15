@@ -12,7 +12,7 @@ struct Notifications: Decodable {
     let basePrice: String
     let type: String
     var lastNotificationData: String?
-    let tikcer: Ticker
+    let ticker: Ticker
     let notificationCycle: NotificationCycle
 }
 

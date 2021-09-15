@@ -13,6 +13,10 @@ extension UITableView {
         register(nib, forCellReuseIdentifier: T.reuseIdentifier)
     }
     
+    func registerClass<T: UITableViewCell>(cell: T.Type) {
+        register(T.self, forCellReuseIdentifier: T.reuseIdentifier)
+    }
+    
     func registerHeaderView<T: UITableViewHeaderFooterView>(cell: T.Type) {
         register(T.self, forHeaderFooterViewReuseIdentifier: T.reuseIdentifier)
     }

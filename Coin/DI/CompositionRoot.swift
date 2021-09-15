@@ -223,10 +223,14 @@ struct AppDependency {
     
     private func makeNotificationsViewController() -> NotificationsViewController {
         typealias NotificationDataSource = TableDataSource<NotificationCell, Notifications>
+        let viewmodel = NotificationsViewModel(usecase: networkManager)
         let notificationDataSource = NotificationDataSource.init { cell, noti in
             cell.configure(from: noti)
         }
         let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource)
+        
+        notificationsViewController.requestNotifications = viewmodel.fetchNotifications
+        viewmodel.notificationsHandler = notificationsViewController.updateNotification
         
         return notificationsViewController
     }

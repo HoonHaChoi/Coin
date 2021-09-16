@@ -24,4 +24,11 @@ extension UIAlertController {
         self.init(title: "", message: message, preferredStyle: .alert)
         addAction(UIAlertAction(title: "확인", style: .default, handler: action))
     }
+    
+    func deleteNotifiationAlert(action: ((UIAlertAction) -> Void)?) -> UIAlertController {
+        let alert = UIAlertController(message: "알림을 삭제 하시겠습니까?", action: action)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: action))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        return alert
+    }
 }

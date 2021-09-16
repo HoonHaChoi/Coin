@@ -47,6 +47,7 @@ final class NotificationsViewController: UIViewController {
     }()
     
     var requestNotifications: (() -> ())?
+    var requestDeleteNotification: ((String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,8 +106,13 @@ final class NotificationsViewController: UIViewController {
 
 extension NotificationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let row = dataSource.model[indexPath.row]
         
-        let deleteAction = UIContextualAction(style: .normal, title: "") { _, _, _  in
+        let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, _  in
+            let confirmAlert = UIAlertController().deleteNotifiationAlert() { _ in
+                self?.requestDeleteNotification?(row.uuid)
+            }
+            self?.present(confirmAlert, animated: true, completion: nil)
         }
         
         let editAction = UIContextualAction(style: .normal, title: "") { _, _, _ in

@@ -67,7 +67,7 @@ final class NotificationInputViewModel {
     func requestCreateNotification(type: String, uuid: String) {
         let url = Endpoint.notificationCreateURL(token: token)
         let data = makeNotificationObject(type: type, uuid: uuid)
-        searchUseCase.requestNotification(url: url, method: .post, body: data)
+        searchUseCase.requestCompleteNotification(url: url, method: .post, body: data)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)

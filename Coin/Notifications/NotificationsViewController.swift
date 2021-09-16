@@ -91,8 +91,8 @@ final class NotificationsViewController: UIViewController {
     }
     
     lazy var showError: (NetworkError) -> () = { [weak self] error in
-        let alert = UIAlertController(title: "에러", message: error.description)
         DispatchQueue.main.async {
+            let alert = UIAlertController(title: "에러", message: error.description)
             self?.present(alert, animated: true)
         }
     }
@@ -100,6 +100,13 @@ final class NotificationsViewController: UIViewController {
     lazy var loadingHiddenState: ((Bool) -> ()) = { [weak self] state in
         DispatchQueue.main.async {
             self?.loadingView.isHidden = state
+        }
+    }
+    
+    lazy var completeMessage: ((String) -> ()) = { [weak self] message in
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "", message: message)
+            self?.present(alert, animated: true)
         }
     }
 }

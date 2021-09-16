@@ -47,7 +47,7 @@ struct NetworkManager: SearchUseCase {
     }
     
     private func makeURLRequest(url: URL?, method: HTTPMethod, body: Data? = nil) -> URLRequest? {
-        if let url = url, let body = body {
+        if let url = url {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpBody = body
             urlRequest.httpMethod = method.rawValue

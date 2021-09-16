@@ -11,7 +11,7 @@ extension UIAlertController {
     
     convenience init(action: ((UIAlertAction) -> Void)?) {
         self.init(title: "삭제", message: "해당 일지를 삭제하시겠습니까?", preferredStyle: .alert)
-        addAction(UIAlertAction(title: "확인", style: .default, handler: action))
+        addAction(UIAlertAction(title: "확인", style: .destructive, handler: action))
         addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
     }
     
@@ -26,8 +26,8 @@ extension UIAlertController {
     }
     
     func deleteNotifiationAlert(action: ((UIAlertAction) -> Void)?) -> UIAlertController {
-        let alert = UIAlertController(message: "알림을 삭제 하시겠습니까?", action: action)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: action))
+        let alert = UIAlertController(title: "", message: "알림을 삭제 하시겠습니까?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .destructive, handler: action))
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         return alert
     }

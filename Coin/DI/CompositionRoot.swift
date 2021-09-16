@@ -234,6 +234,9 @@ struct AppDependency {
         viewmodel.errorHandler = notificationsViewController.showError
         viewmodel.loadingHiddenStateHandler = notificationsViewController.loadingHiddenState
         
+        notificationsViewController.requestDeleteNotification = viewmodel.deleteNotification(uuid:)
+        viewmodel.completeMessageHanlder = notificationsViewController.completeMessage
+        
         return notificationsViewController
     }
     

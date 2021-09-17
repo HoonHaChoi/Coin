@@ -72,6 +72,7 @@ final class NotificationInputViewController: UIViewController {
         configureConstraint()
         requestCoinHandler?(notiObject.tickerUUID ?? "")
         bind()
+        setTitleButtonText()
         setUpdateConfigureHanlder?(notiObject,viewStyle)
     }
 
@@ -108,6 +109,19 @@ final class NotificationInputViewController: UIViewController {
             }.store(in: &cancellable)
         
         notificationInputView.cycleTextField.pickerDelegate = self
+    }
+    
+    private func setTitleButtonText() {
+        let createTitle = "알림 생성"
+        let updateTitle = "알림 수정"
+        switch viewStyle {
+        case .create:
+            self.title = createTitle
+            self.notificationInputView.completeButton.setTitle(createTitle, for: .normal)
+        case .update:
+            self.title = updateTitle
+        self.notificationInputView.completeButton.setTitle(updateTitle, for: .normal)
+        }
     }
     
     lazy var updateCompleteButtonState: (Bool) -> () = { [weak self] state in

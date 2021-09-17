@@ -56,7 +56,7 @@ struct AppDependency {
                                 .init(mainContainerViewControllerFactory: makeMainContainerViewController,
                                       searchViewControllerFactory: makeSearchViewController
                                       ,detailViewControllerFactory: makeDetailViewController(from:),
-                                      notificationIntputViewControllerFactory: makeNotificationsInputViewController(uuid:)))
+                                      notificationIntputViewControllerFactory: makeNotificationsInputViewController))
     }
     
     private func makeTradingLogCoordinator() -> TradingLogCoordinator {
@@ -72,7 +72,7 @@ struct AppDependency {
         return NotificationsCoordinator(dependency:
                                             .init(notificationsViewControllerFactory: makeNotificationsViewController,
                                                   searchViewControllerFactory: makeSearchViewController(style:),
-                                                  notificationIntputViewControllerFactory: makeNotificationsInputViewController(uuid:)))
+                                                  notificationIntputViewControllerFactory: makeNotificationsInputViewController))
     }
     
     // MARK: Controller
@@ -240,14 +240,15 @@ struct AppDependency {
         return notificationsViewController
     }
     
-    private func makeNotificationsInputViewController(uuid: String) -> NotificationInputViewController {
+    private func makeNotificationsInputViewController(uuid: String, formStyle: NotificationInputFormStyle) -> NotificationInputViewController {
         let notificationHelper = NotificationHelper()
         let viewModel = NotificationInputViewModel(usecase: networkManager,
                                                    notificationHelper: notificationHelper)
         let viewController = NotificationInputViewController(uuid: uuid,
                                                              imageLoader: imageLoader,
                                                              type: notificationHelper.notificationTypeNames,
-                                                             cycle: notificationHelper.cycleNames)
+                                                             cycle: notificationHelper.cycleNames,
+                                                             formStyle: formStyle)
         
         viewModel.coinHandler = viewController.updateInfoView
         viewModel.errorHandler = viewController.showError

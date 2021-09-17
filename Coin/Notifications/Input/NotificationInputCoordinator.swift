@@ -12,16 +12,17 @@ final class NotificationInputCoordinator: Coordinator {
     let navigationController: UINavigationController
     
     struct Dependency {
-        let notificationInputViewFactory: (String) -> NotificationInputViewController
+        let notificationInputViewFactory: (String, NotificationInputFormStyle) -> NotificationInputViewController
     }
     
     private let notificationInputView: NotificationInputViewController
     
     init(navigation: UINavigationController,
          dependency: Dependency,
-         uuid: String) {
+         uuid: String,
+         formStyle: NotificationInputFormStyle) {
         self.navigationController = navigation
-        self.notificationInputView = dependency.notificationInputViewFactory(uuid)
+        self.notificationInputView = dependency.notificationInputViewFactory(uuid,formStyle)
     }
     
     func start() {

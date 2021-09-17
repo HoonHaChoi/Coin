@@ -15,12 +15,12 @@ final class NotificationsCoordinator: NSObject, Coordinator {
     struct Dependency {
         let notificationsViewControllerFactory: () -> NotificationsViewController
         let searchViewControllerFactory: (SearchStyle) -> SearchViewController
-        let notificationIntputViewControllerFactory: (String) -> NotificationInputViewController
+        let notificationIntputViewControllerFactory: (String, NotificationInputFormStyle) -> NotificationInputViewController
     }
     
     private let notificationsViewController: NotificationsViewController
     private let searchViewController: (SearchStyle) -> SearchViewController
-    private let notificationIntputViewController: (String) -> NotificationInputViewController
+    private let notificationIntputViewController: (String, NotificationInputFormStyle) -> NotificationInputViewController
     
     init(navigation: UINavigationController = UINavigationController(),
          dependency: Dependency) {
@@ -49,10 +49,12 @@ final class NotificationsCoordinator: NSObject, Coordinator {
     }
 
     func showNotificationInputViewController(from notification: NotificationObject) {
-//        let notificationInputCoordinator = NotificationInputCoordinator(navigation: navigationController,
-//                                                                        dependency: .init(notificationInputViewFactory: notificationIntputViewController),
-//                                                                        : "uuid")
-//        coordinate(to: notificationInputCoordinator)
+        let notificationInputCoordinator = NotificationInputCoordinator(
+            navigation: navigationController,
+            dependency: .init(notificationInputViewFactory: notificationIntputViewController),
+            uuid: "uuid",
+            formStyle: .update)
+        coordinate(to: notificationInputCoordinator)
     }
     
     private func childDidFinish(_ child: Coordinator?) {

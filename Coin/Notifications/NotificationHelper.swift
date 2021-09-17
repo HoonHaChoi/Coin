@@ -10,6 +10,8 @@ import Foundation
 protocol NotificationHelp {
     mutating func mapping(typeName: String) -> String
     mutating func mapping(cycleName: String) -> String
+    mutating func findTypeIndex(type: String) -> Int
+    mutating func mapping(cycle: String) -> String
 }
 
 struct NotificationHelper: NotificationHelp {
@@ -35,6 +37,8 @@ struct NotificationHelper: NotificationHelp {
     
     private(set) lazy var typeMapper = EnumMapper(key: notificationTypeNames, item: notificationType)
     private(set) lazy var cycleMapper = EnumMapper(key: cycleNames, item: cycleUUIDs)
+    private(set) lazy var cycleMapperReverse = EnumMapper(key: cycleUUIDs, item: cycleNames)
+    
     
     mutating func mapping(typeName: String) -> String {
         guard let map = self.typeMapper[typeName] else {
@@ -45,6 +49,17 @@ struct NotificationHelper: NotificationHelp {
     
     mutating func mapping(cycleName: String) -> String {
         guard let map = self.cycleMapper[cycleName] else {
+            return ""
+        }
+        return map
+    }
+    
+    mutating func findTypeIndex(type: String) -> Int {
+        return notificationType.firstIndex(of: type) ?? 0
+    }
+    
+    mutating func mapping(cycle: String) -> String {
+        guard let map = self.cycleMapperReverse[cycle] else {
             return ""
         }
         return map

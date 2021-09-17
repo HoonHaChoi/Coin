@@ -260,6 +260,8 @@ struct AppDependency {
         viewModel.successHandler = viewController.onDismiss
         viewController.requestNotification = viewModel.requestCreateNotification(type:uuid:)
         
+        viewController.setUpdateConfigureHanlder = viewModel.configureNotificationInputView(notiObject:style:)
+        viewModel.updateNotificationInputViewHandler = viewController.updateNotificationInputView
         return viewController
     }
 }

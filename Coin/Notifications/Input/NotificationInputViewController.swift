@@ -64,6 +64,7 @@ final class NotificationInputViewController: UIViewController {
     var cycleHandler: ((String, NotificationInputType) -> ())?
     var requestCoinHandler: ((String) -> ())?
     var requestNotification: ((String, String) -> ())?
+    var setUpdateConfigureHanlder: ((NotificationObject, NotificationInputFormStyle) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,7 @@ final class NotificationInputViewController: UIViewController {
         configureConstraint()
         requestCoinHandler?(notiObject.tickerUUID ?? "")
         bind()
+        setUpdateConfigureHanlder?(notiObject,viewStyle)
     }
 
     private func configureConstraint() {
@@ -118,6 +120,14 @@ final class NotificationInputViewController: UIViewController {
         guard let self = self else { return }
         DispatchQueue.main.async {
             self.infoView.configure(coin: coin, imageLoader: self.imageLoader)
+        }
+    }
+    
+    lazy var updateNotificationInputView: (Int, String, String) -> () = { [weak self] index, price, cycle in
+        DispatchQueue.main.async {
+            self?.notificationInputView.typeSegmentControl.selectedSegmentIndex = index
+            self?.notificationInputView.basePriceTextField.text = price
+            self?.notificationInputView.cycleTextField.text = cycle
         }
     }
     

@@ -38,6 +38,8 @@ final class NotificationInputViewModel {
     var errorHandler: ((NetworkError) -> Void)?
     var successHandler: (() -> ())?
     
+    var updateNotificationInputViewHandler: ((Int, String, String) -> ())?
+    
     func fetchSearchCoin(uuid: String) {
         searchUseCase.requestFavoriteCoins(uuidString: uuid)
             .sink { [weak self] (fail) in
@@ -89,6 +91,19 @@ final class NotificationInputViewModel {
             return .init()
         }
         return data
+    }
+    
+    func configureNotificationInputView(notiObject:NotificationObject, style:NotificationInputFormStyle) {
+        switch style {
+        case .create:
+            break
+        case .update:
+            let typeIndex = notificationHelper.findTypeIndex(type: notiObject.type)
+            basePriceText = String(notiObject.basePrice)
+            cycleText = notificationHelper.mapping(cycle: notiObject.notificationCycleUUID)
+            updateNotificationInputViewHandler?(typeIndex,basePriceText,cycleText)
+            isValidCheckHandler?(isFormValidCheck())
+        }
     }
 }
 

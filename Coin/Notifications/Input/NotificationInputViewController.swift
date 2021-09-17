@@ -8,21 +8,29 @@
 import UIKit
 import Combine
 
+enum NotificationInputFormStyle {
+    case create
+    case update
+}
+
 final class NotificationInputViewController: UIViewController {
     
     private let imageLoader: Loader
     private let uuid: String
     private let notifiactionTypeNames: [String]
     private let notificationCycleNames: [String]
+    private let viewStyle: NotificationInputFormStyle
     
     init(uuid: String,
          imageLoader: Loader,
          type: [String],
-         cycle: [String]) {
+         cycle: [String],
+         formStyle : NotificationInputFormStyle) {
         self.uuid = uuid
         self.imageLoader = imageLoader
         self.notifiactionTypeNames = type
         self.notificationCycleNames = cycle
+        self.viewStyle = formStyle
         super.init(nibName: nil, bundle: nil)
     }
     

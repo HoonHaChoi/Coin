@@ -125,7 +125,11 @@ extension NotificationsViewController: UITableViewDelegate {
         }
         
         let editAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, _ in
-            self?.coordinator?.showNotificationInputViewController(from: NotificationObject(type: row.type, basePrice: Int(row.basePrice) ?? 0, tickerUUID: row.ticker.uuid, notificationCycleUUID: row.notificationCycle.uuid))
+            let notiObject = NotificationObject(type: row.type,
+                                                basePrice: Int(row.basePrice) ?? 0,
+                                                tickerUUID: row.ticker.uuid,
+                                                notificationCycleUUID: row.notificationCycle.uuid)
+            self?.coordinator?.showNotificationInputViewController(from: notiObject)
         }
         
         deleteAction.backgroundColor = .systemBackground

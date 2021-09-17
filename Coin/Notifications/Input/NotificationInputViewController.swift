@@ -16,17 +16,17 @@ enum NotificationInputFormStyle {
 final class NotificationInputViewController: UIViewController {
     
     private let imageLoader: Loader
-    private let uuid: String
+    private let notiObject: NotificationObject
     private let notifiactionTypeNames: [String]
     private let notificationCycleNames: [String]
     private let viewStyle: NotificationInputFormStyle
     
-    init(uuid: String,
+    init(notiObject: NotificationObject,
          imageLoader: Loader,
          type: [String],
          cycle: [String],
          formStyle : NotificationInputFormStyle) {
-        self.uuid = uuid
+        self.notiObject = notiObject
         self.imageLoader = imageLoader
         self.notifiactionTypeNames = type
         self.notificationCycleNames = cycle
@@ -69,7 +69,7 @@ final class NotificationInputViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureConstraint()
-        requestCoinHandler?(uuid)
+        requestCoinHandler?(notiObject.tickerUUID ?? "")
         bind()
     }
 
@@ -129,7 +129,7 @@ final class NotificationInputViewController: UIViewController {
     }
     
     lazy var didCompleteButtonTapped: (String) -> () = { [weak self] type in
-        self?.requestNotification?(type, self?.uuid ?? "")
+        self?.requestNotification?(type, self?.notiObject.tickerUUID ?? "")
     }
     
     lazy var onDismiss = { [weak self] in

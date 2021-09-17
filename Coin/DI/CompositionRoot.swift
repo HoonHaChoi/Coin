@@ -240,11 +240,11 @@ struct AppDependency {
         return notificationsViewController
     }
     
-    private func makeNotificationsInputViewController(uuid: String, formStyle: NotificationInputFormStyle) -> NotificationInputViewController {
+    private func makeNotificationsInputViewController(notiObject: NotificationObject, formStyle: NotificationInputFormStyle) -> NotificationInputViewController {
         let notificationHelper = NotificationHelper()
         let viewModel = NotificationInputViewModel(usecase: networkManager,
                                                    notificationHelper: notificationHelper)
-        let viewController = NotificationInputViewController(uuid: uuid,
+        let viewController = NotificationInputViewController(notiObject: notiObject,
                                                              imageLoader: imageLoader,
                                                              type: notificationHelper.notificationTypeNames,
                                                              cycle: notificationHelper.cycleNames,

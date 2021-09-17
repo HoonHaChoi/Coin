@@ -48,6 +48,13 @@ final class NotificationsCoordinator: NSObject, Coordinator {
         coordinate(to: searchCoordinator)
     }
 
+    func showNotificationInputViewController(from notification: NotificationObject) {
+//        let notificationInputCoordinator = NotificationInputCoordinator(navigation: navigationController,
+//                                                                        dependency: .init(notificationInputViewFactory: notificationIntputViewController),
+//                                                                        : "uuid")
+//        coordinate(to: notificationInputCoordinator)
+    }
+    
     private func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in childCoordinator.enumerated() {
             if coordinator === child {

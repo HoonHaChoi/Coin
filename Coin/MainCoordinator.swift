@@ -14,13 +14,13 @@ final class MainCoordinator: Coordinator {
         let mainContainerViewControllerFactory: () -> MainContainerViewController
         let searchViewControllerFactory: (SearchStyle) -> SearchViewController
         let detailViewControllerFactory: (Coin) -> DetailViewController
-        let notificationIntputViewControllerFactory: (String, NotificationInputFormStyle) -> NotificationInputViewController
+        let notificationIntputViewControllerFactory: (NotificationObject, NotificationInputFormStyle) -> NotificationInputViewController
     }
     
     private let searchViewController: (SearchStyle) -> SearchViewController
     private let mainContainerViewController: MainContainerViewController
     private let detailViewController: (Coin) -> DetailViewController
-    private let notificationIntputViewController: (String, NotificationInputFormStyle) -> NotificationInputViewController
+    private let notificationIntputViewController: (NotificationObject, NotificationInputFormStyle) -> NotificationInputViewController
     
     
     init(navigationController: UINavigationController = UINavigationController(),

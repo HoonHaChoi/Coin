@@ -69,7 +69,18 @@ final class NotificationInputViewModel {
     func requestCreateNotification(type: String, uuid: String) {
         let url = Endpoint.notificationCreateURL(token: token)
         let data = makeNotificationObject(type: type, uuid: uuid)
-        searchUseCase.requestCompleteNotification(url: url, method: .post, body: data)
+        requestNotification(url: url, method: .post, body: data)
+    }
+    
+    func requestUpdateNotification(type: String, uuid: String) {
+        let url = Endpoint.notificationsURL(token: uuid)
+        let data = makeNotificationObject(type: type, uuid: "")
+        requestNotification(url: url, method: .put, body: data)
+    }
+    
+    private func requestNotification(url: URL?, method: HTTPMethod, body: Data) {
+        searchUseCase.requestCompleteNotification(url: url, method: method,
+                                                  body: body)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -85,6 +96,7 @@ final class NotificationInputViewModel {
             NotificationObject(type: notificationHelper.mapping(typeName: type),
                                basePrice: Int(basePriceText) ?? 0,
                                tickerUUID: uuid,
+                               notificationUUID: nil,
                                notificationCycleUUID: notificationHelper.mapping(cycleName: cycleText))
         
         guard let data = try? JSONEncoder().encode(notificationObject) else {

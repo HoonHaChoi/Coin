@@ -10,11 +10,12 @@ import Foundation
 struct NotificationObject: Encodable {
     
     static var create: ((String) -> Self) = { uuid in
-        Self(type: "", basePrice: 0, tickerUUID: uuid, notificationCycleUUID: "")
+        Self(type: "", basePrice: 0, tickerUUID: uuid, notificationUUID: nil, notificationCycleUUID: "")
     }
     
     let type: String
     let basePrice: Int
     let tickerUUID: String?
+    let notificationUUID: String?
     let notificationCycleUUID: String
 }

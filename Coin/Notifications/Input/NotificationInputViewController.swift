@@ -63,7 +63,8 @@ final class NotificationInputViewController: UIViewController {
     var basePriceHandler: ((String,NotificationInputType) -> ())?
     var cycleHandler: ((String, NotificationInputType) -> ())?
     var requestCoinHandler: ((String) -> ())?
-    var requestNotification: ((String, String) -> ())?
+    var requestCreateNotification: ((String, String) -> ())?
+    var requestUpdateNotification: ((String, String) -> ())?
     var setUpdateConfigureHanlder: ((NotificationObject, NotificationInputFormStyle) -> ())?
     
     override func viewDidLoad() {
@@ -153,7 +154,14 @@ final class NotificationInputViewController: UIViewController {
     }
     
     lazy var didCompleteButtonTapped: (String) -> () = { [weak self] type in
-        self?.requestNotification?(type, self?.notiObject.tickerUUID ?? "")
+        switch self?.viewStyle {
+        case .create:
+            self?.requestCreateNotification?(type, self?.notiObject.tickerUUID ?? "")
+        case .update:
+            self?.requestUpdateNotification?(type, self?.notiObject.notificationUUID ?? "" )
+        case .none:
+            break
+        }
     }
     
     lazy var onDismiss = { [weak self] in

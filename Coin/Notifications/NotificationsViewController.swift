@@ -129,6 +129,7 @@ extension NotificationsViewController: UITableViewDelegate {
             let notiObject = NotificationObject(type: row.type,
                                                 basePrice: Int(row.basePrice) ?? 0,
                                                 tickerUUID: row.ticker.uuid,
+                                                notificationUUID: row.uuid,
                                                 notificationCycleUUID: row.notificationCycle.uuid)
             self?.coordinator?.showNotificationInputViewController(from: notiObject)
             complete(true)

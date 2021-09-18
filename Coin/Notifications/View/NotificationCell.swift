@@ -64,6 +64,7 @@ class NotificationCell: UITableViewCell {
             notificationStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             notificationStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
+            notificationSwitch.leadingAnchor.constraint(equalTo: notificationStackView.trailingAnchor, constant: 10),
             notificationSwitch.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             notificationSwitch.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])

@@ -21,6 +21,11 @@ final class NotificationInputViewController: UIViewController {
     private let notificationCycleNames: [String]
     private let viewStyle: NotificationInputFormStyle
     
+    private let createTitle = "알림 생성"
+    private let updateTitle = "알림 수정"
+    private let createMessage = "알림이 등록 되었습니다"
+    private let updateMessage = "알림이 수정 되었습니다"
+    
     init(notiObject: NotificationObject,
          imageLoader: Loader,
          type: [String],
@@ -113,16 +118,9 @@ final class NotificationInputViewController: UIViewController {
     }
     
     private func setTitleButtonText() {
-        let createTitle = "알림 생성"
-        let updateTitle = "알림 수정"
-        switch viewStyle {
-        case .create:
-            self.title = createTitle
-            self.notificationInputView.completeButton.setTitle(createTitle, for: .normal)
-        case .update:
-            self.title = updateTitle
-        self.notificationInputView.completeButton.setTitle(updateTitle, for: .normal)
-        }
+        let title = viewStyle == .create ? createTitle : updateTitle
+        self.title = title
+        self.notificationInputView.completeButton.setTitle(title, for: .normal)
     }
     
     lazy var updateCompleteButtonState: (Bool) -> () = { [weak self] state in
@@ -166,7 +164,8 @@ final class NotificationInputViewController: UIViewController {
     
     lazy var onDismiss = { [weak self] in
         DispatchQueue.main.async {
-            let alert = UIAlertController(message: "성공적으로 등록되었습니다") { _ in
+            let message = self?.viewStyle == .create ? self?.createMessage : self?.updateMessage
+            let alert = UIAlertController(message: message ?? "") { _ in
                 self?.navigationController?.popToRootViewController(animated: true)
             }
         self?.present(alert, animated: true)

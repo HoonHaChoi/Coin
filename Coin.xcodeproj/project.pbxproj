@@ -113,6 +113,7 @@
 		BFBCC59026EF5CC200B878F1 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */; };
 		BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFBCE42326C8804E0077A521 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
+		BFCBED3A26FADF8E00BFE297 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3926FADF8E00BFE297 /* SetViewController.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 		BFD5199926C3505D00226FF8 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199826C3505D00226FF8 /* DayOfWeek.swift */; };
 		BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
@@ -242,6 +243,7 @@
 		BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
+		BFCBED3926FADF8E00BFE297 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		BFD5199826C3505D00226FF8 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				BF1C04B426B0682000BC0A6B /* Main */,
 				BFA1541A26A160C100341A6D /* Search */,
 				BFF72DDF26E8A6A300FBC13C /* Notifications */,
+				BFCBED3826FADF4F00BFE297 /* Set */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,
 				BF22BF46268F8108003FD161 /* Extension */,
@@ -565,6 +568,14 @@
 				BFBA259D26CDED960088D26B /* TradingLogDetailViewController.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		BFCBED3826FADF4F00BFE297 /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				BFCBED3926FADF8E00BFE297 /* SetViewController.swift */,
+			);
+			path = Set;
 			sourceTree = "<group>";
 		};
 		BFDD488E26E5A7B100AFCA7C /* Detail */ = {
@@ -792,6 +803,7 @@
 				BF22BF4D268F8146003FD161 /* SearchCoinsViewModel.swift in Sources */,
 				BFB9430C26C61E460053C212 /* TradingLogStatsViewController.swift in Sources */,
 				BFB0A56126DF3B7E004F04AE /* LoadingView.swift in Sources */,
+				BFCBED3A26FADF8E00BFE297 /* SetViewController.swift in Sources */,
 				BFB0A55D26DD1892004F04AE /* FavoriteCoinModel.xcdatamodeld in Sources */,
 				BF9E24A026B6A76000CCB49E /* TradingLogCell.swift in Sources */,
 				BFF72DED26E9F16900FBC13C /* NotificationInputViewController.swift in Sources */,

@@ -67,20 +67,29 @@ final class SetViewController: UIViewController {
         let alert = UIAlertController(title: "오류발생", message: message)
         present(alert, animated: true)
     }
+    
+    private func checkAppVersion() -> String {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        return version ?? "1.0"
+    }
 }
 
 extension SetViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = setTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
         if indexPath.row == 0 {
             cell.textLabel?.text = "알림 설정"
-        } else {
+        } else if indexPath.row == 1 {
             cell.textLabel?.text = "의견 보내기"
+        } else {
+            cell.textLabel?.text = "앱 버전"
+            cell.detailTextLabel?.text = checkAppVersion()
         }
+        
         return cell
     }
     
@@ -88,7 +97,7 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.row == 0 {
             setNotification()
-        } else {
+        } else if indexPath.row == 1{
             showMailComposer()
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)

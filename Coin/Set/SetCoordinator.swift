@@ -9,7 +9,7 @@ import UIKit
 
 final class SetCoordinator: Coordinator {
     
-    let navigation: UINavigationController
+    let navigationController: UINavigationController
     
     struct Dependency {
         let setViewControllerFactory: () -> SetViewController
@@ -19,14 +19,14 @@ final class SetCoordinator: Coordinator {
     
     init(navigation: UINavigationController = .init(),
          dependency: Dependency) {
-        self.navigation =  navigation
+        self.navigationController =  navigation
         self.setViewController = dependency.setViewControllerFactory()
     }
     
     func start() {
         setViewController.title = "설정"
-        navigation.tabBarItem = UITabBarItem(title: "설정", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
-        navigation.pushViewController(setViewController, animated: true)
+        navigationController.tabBarItem = UITabBarItem(title: "설정", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
+        navigationController.pushViewController(setViewController, animated: true)
     }
 }
 

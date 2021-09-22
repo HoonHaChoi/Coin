@@ -48,7 +48,8 @@ struct AppDependency {
                                  dependency:
                                     .init(mainCoordinatorFactory: makeMainCoordinator,
                                           tradingLogCoordinatorFactory: makeTradingLogContainerCoordinator,
-                                          notificationCoordinatorFactory: makeNotificaionsCoordinator))
+                                          notificationCoordinatorFactory: makeNotificaionsCoordinator,
+                                          setCoordinatorFactory: makeSetCoordinator))
     }
     
     private func makeMainCoordinator() -> MainCoordinator {
@@ -73,6 +74,10 @@ struct AppDependency {
                                             .init(notificationsViewControllerFactory: makeNotificationsViewController,
                                                   searchViewControllerFactory: makeSearchViewController(style:),
                                                   notificationIntputViewControllerFactory: makeNotificationsInputViewController))
+    }
+    
+    private func makeSetCoordinator() -> SetCoordinator {
+        return SetCoordinator(dependency: .init(setViewControllerFactory: makeSetViewController))
     }
     
     // MARK: Controller
@@ -264,5 +269,9 @@ struct AppDependency {
         viewController.setUpdateConfigureHanlder = viewModel.configureNotificationInputView(notiObject:style:)
         viewModel.updateNotificationInputViewHandler = viewController.updateNotificationInputView
         return viewController
+    }
+    
+    private func makeSetViewController() -> SetViewController {
+        return SetViewController()
     }
 }

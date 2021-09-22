@@ -14,11 +14,13 @@ final class TabBarCoordinator: Coordinator {
         let mainCoordinatorFactory: () -> MainCoordinator
         let tradingLogCoordinatorFactory: () -> TradingLogContanierCoordinator
         let notificationCoordinatorFactory: () -> NotificationsCoordinator
+        let setCoordinatorFactory: () -> SetCoordinator
     }
     
     private let mainCoordinator: MainCoordinator
     private let tradingLogCoordinator: TradingLogContanierCoordinator
     private let notificationsCoordinator: NotificationsCoordinator
+    private let setCoordinator: SetCoordinator
     
     init(navigationController: UINavigationController,
          dependency: Dependency) {
@@ -26,6 +28,7 @@ final class TabBarCoordinator: Coordinator {
         self.mainCoordinator = dependency.mainCoordinatorFactory()
         self.tradingLogCoordinator = dependency.tradingLogCoordinatorFactory()
         self.notificationsCoordinator = dependency.notificationCoordinatorFactory()
+        self.setCoordinator = dependency.setCoordinatorFactory()
     }
     
     func start() {
@@ -33,13 +36,14 @@ final class TabBarCoordinator: Coordinator {
         
         tabBarController.viewControllers = [mainCoordinator.navigationController,
                                             tradingLogCoordinator.navigationController,
-                                            notificationsCoordinator.navigationController]
+                                            notificationsCoordinator.navigationController,
+                                            setCoordinator.navigationController]
 //        tabBarController.modalPresentationStyle = .fullScreen
         navigationController.setViewControllers([tabBarController], animated: true)
         
         coordinate(to: mainCoordinator)
         coordinate(to: tradingLogCoordinator)
         coordinate(to: notificationsCoordinator)
-        
+        coordinate(to: setCoordinator)
     }
 }

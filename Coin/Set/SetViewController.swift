@@ -72,11 +72,17 @@ final class SetViewController: UIViewController {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         return version ?? "1.0"
     }
+    
+    private func writeToReview() {
+        guard let writeReviewURL = URL(string: "https://apps.apple.com/app/id1586982814?action=write-review")
+            else { fatalError("Expected a valid URL") }
+        UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
+    }
 }
 
 extension SetViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,6 +91,8 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
             cell.textLabel?.text = "알림 설정"
         } else if indexPath.row == 1 {
             cell.textLabel?.text = "의견 보내기"
+        } else if indexPath.row == 2 {
+            cell.textLabel?.text = "리뷰 작성하기"
         } else {
             cell.textLabel?.text = "앱 버전"
             cell.detailTextLabel?.text = checkAppVersion()
@@ -99,6 +107,8 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
             setNotification()
         } else if indexPath.row == 1{
             showMailComposer()
+        } else if indexPath.row == 2{
+            writeToReview()
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }

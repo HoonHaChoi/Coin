@@ -122,9 +122,14 @@ extension SetViewController: MFMailComposeViewControllerDelegate {
             }
             return
         }
+        
         controller.dismiss(animated: true) {
-            let successAlert = UIAlertController(title: "의견을 보내주셔서 감사합니다", message: "")
-            self.present(successAlert, animated: true)
+            if result == .sent {
+                let successAlert = UIAlertController(title: "의견을 보내주셔서 감사합니다", message: "")
+                self.present(successAlert, animated: true)
+            } else if result == .failed {
+                self.showErrorAlert(message: "문제가 발생하였습니다. 잠시후 시도해주세요.")
+            }
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 final class SetViewController: UIViewController {
     
@@ -17,6 +18,8 @@ final class SetViewController: UIViewController {
         tableView.estimatedRowHeight = 60
         return tableView
     }()
+    
+    private let cellIdentifier = "cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +38,7 @@ final class SetViewController: UIViewController {
         ])
         setTableView.dataSource = self
         setTableView.delegate = self
-        setTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        setTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     private func setNotification() {
@@ -48,7 +51,21 @@ final class SetViewController: UIViewController {
         }
     }
     
-    private func sendEmail() {
+    private func showMailComposer(){
+        guard MFMailComposeViewController.canSendMail() else {
+            showErrorAlert(message: "문제가 발생하였습니다. 메일앱 확인해주세요")
+            return
+        }
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients(["chlgnsgk@gmail.com"])
+        composer.setSubject("[코인일지] 의견 보내기")
+        present(composer, animated: true, completion: nil)
+    }
+    
+    private func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "오류발생", message: message)
+        present(alert, animated: true)
     }
 }
 
@@ -58,7 +75,7 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = setTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = setTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         if indexPath.row == 0 {
             cell.textLabel?.text = "알림 설정"
         } else {
@@ -72,9 +89,23 @@ extension SetViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             setNotification()
         } else {
-            
+            showMailComposer()
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
+extension SetViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let _ = error {
+            controller.dismiss(animated: true) {
+                self.showErrorAlert(message: "문제가 발생하였습니다. 잠시후 시도해주세요.")
+            }
+            return
+        }
+        controller.dismiss(animated: true) {
+            let successAlert = UIAlertController(title: "의견을 보내주셔서 감사합니다", message: "")
+            self.present(successAlert, animated: true)
+        }
+    }
+}

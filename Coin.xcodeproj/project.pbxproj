@@ -114,6 +114,7 @@
 		BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFBCE42326C8804E0077A521 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
 		BFCBED3A26FADF8E00BFE297 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3926FADF8E00BFE297 /* SetViewController.swift */; };
+		BFCBED3C26FAE73300BFE297 /* SetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 		BFD5199926C3505D00226FF8 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199826C3505D00226FF8 /* DayOfWeek.swift */; };
 		BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
@@ -244,6 +245,7 @@
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
 		BFCBED3926FADF8E00BFE297 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCoordinator.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		BFD5199826C3505D00226FF8 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				BFCBED3926FADF8E00BFE297 /* SetViewController.swift */,
+				BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */,
 				BF1FA640269B62BB00AC1AC2 /* UITableView+Extension.swift in Sources */,
 				BF1C049D26AFD63900BC0A6B /* MainViewModel.swift in Sources */,
+				BFCBED3C26FAE73300BFE297 /* SetCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,6 +36,9 @@ final class NetworkManagerStub: Requestable {
     }
     
     func completeResponsePublisher(for urlRequest: URLRequest?) -> AnyPublisher<Void, NetworkError> {
-        return Just(()).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
+        if isRequestSuccess {
+            return Just(()).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
+        }
+        return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
     }
 }

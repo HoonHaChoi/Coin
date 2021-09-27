@@ -55,35 +55,3 @@ struct NetworkManager: SearchUseCase {
         return nil
     }
 }
-
-final class NetworkManagerStub: Requestable {
-    
-    private let dummyCoin = Coin(uuid: "", exchange: .bithumb, ticker: "", market: "", englishName: "", meta: .init(tradePrice: "", changePrice: "", changeRate: "", accTradePrice24H: "", change: .even), logo: nil)
-    private let isRequestSuccess: Bool
-    
-    init(isSuccess: Bool) {
-        self.isRequestSuccess = isSuccess
-    }
-    
-    func requestResource<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError> {
-        if isRequestSuccess {
-            return Just(dummyCoin as! T)
-                .setFailureType(to: NetworkError.self)
-                .eraseToAnyPublisher()
-        }
-        return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
-    }
-    
-    func requestResource<T>(for urlRequest: URLRequest?) -> AnyPublisher<T, NetworkError> where T : Decodable {
-        if isRequestSuccess {
-            return Just([dummyCoin] as! T)
-                .setFailureType(to: NetworkError.self)
-                .eraseToAnyPublisher()
-        }
-        return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
-    }
-    
-    func completeResponsePublisher(for urlRequest: URLRequest?) -> AnyPublisher<Void, NetworkError> {
-        return Just(()).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
-    }
-}

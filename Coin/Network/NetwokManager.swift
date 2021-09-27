@@ -12,9 +12,9 @@ protocol SearchUseCase {
 
 struct NetworkManager: SearchUseCase {
     
-    private let session: URLSession
+    private let session: Requestable
     
-    init(session: URLSession = .shared) {
+    init(session: Requestable) {
         self.session = session
     }
     
@@ -33,12 +33,10 @@ struct NetworkManager: SearchUseCase {
     func requestCompleteNotification(url: URL?,
                                    method: HTTPMethod,
                                    body: Data) -> AnyPublisher<Void, NetworkError> {
-        guard let urlRequest = makeURLRequest(url: url,
+        let urlRequest = makeURLRequest(url: url,
                                               method: method,
-                                              body: body) else {
-            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
-        }
-        return self.session.dataTaskPublisher(for: urlRequest).completeResponsePublisher()
+                                              body: body)
+        return self.session.completeResponsePublisher(for: urlRequest)
     }
     
     func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError> {
@@ -55,5 +53,37 @@ struct NetworkManager: SearchUseCase {
             return urlRequest
         }
         return nil
+    }
+}
+
+final class NetworkManagerStub: Requestable {
+    
+    private let dummyCoin = Coin(uuid: "", exchange: .bithumb, ticker: "", market: "", englishName: "", meta: .init(tradePrice: "", changePrice: "", changeRate: "", accTradePrice24H: "", change: .even), logo: nil)
+    private let isRequestSuccess: Bool
+    
+    init(isSuccess: Bool) {
+        self.isRequestSuccess = isSuccess
+    }
+    
+    func requestResource<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError> {
+        if isRequestSuccess {
+            return Just(dummyCoin as! T)
+                .setFailureType(to: NetworkError.self)
+                .eraseToAnyPublisher()
+        }
+        return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
+    }
+    
+    func requestResource<T>(for urlRequest: URLRequest?) -> AnyPublisher<T, NetworkError> where T : Decodable {
+        if isRequestSuccess {
+            return Just([dummyCoin] as! T)
+                .setFailureType(to: NetworkError.self)
+                .eraseToAnyPublisher()
+        }
+        return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
+    }
+    
+    func completeResponsePublisher(for urlRequest: URLRequest?) -> AnyPublisher<Void, NetworkError> {
+        return Just(()).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
     }
 }

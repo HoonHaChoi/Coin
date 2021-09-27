@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-extension URLSession {
+extension URLSession: Requestable {
     func requestResource<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError> {
         let decode = JSONDecoder()
         decode.keyDecodingStrategy = .convertFromSnakeCase
@@ -54,6 +54,20 @@ extension URLSession {
                         return NetworkError.failParsing
                     }.eraseToAnyPublisher()
             }.eraseToAnyPublisher()
+    }
+    
+    func completeResponsePublisher(for urlRequest: URLRequest?) -> AnyPublisher<Void, NetworkError> {
+        guard let urlRequest = urlRequest else {
+            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
+        }
+        return self.dataTaskPublisher(for: urlRequest)
+            .tryMap { _, response in
+            guard let httpResponse = response as? HTTPURLResponse else { throw NetworkError.invalidResponse }
+            let statusCode = httpResponse.statusCode
+            guard (200..<300).contains(statusCode) else { throw NetworkError.invalidStatusCode(statusCode) }
+            return
+        }.mapError { _ in NetworkError.invalidResponse }
+        .eraseToAnyPublisher()
     }
 }
 

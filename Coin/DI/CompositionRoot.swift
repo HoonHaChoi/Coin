@@ -12,7 +12,7 @@ struct AppDependency {
     let imageLoader = ImageLoader()
     let socket = Socket(url: Endpoint.socketURL)
     let userSetting = UserSetting()
-    let networkManager = NetworkManager()
+    let networkManager = NetworkManager(session: URLSession.shared)
     let coinSortHelper = CoinSortHelper()
     
     var socketRepository: SocketRepository {

@@ -18,7 +18,7 @@ class CryptoBaseViewModel {
     var failErrorHandler: ((NetworkError) -> Void)?
     var metaHandler: (([CoinMeta]) -> Void)?
     
-    init(searchUsecase: SearchUseCase = NetworkManager(),
+    init(searchUsecase: SearchUseCase,
          socketUsecase : SocketUseCase) {
         self.searchUseCase = searchUsecase
         self.socketUseCase = socketUsecase

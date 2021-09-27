@@ -65,12 +65,29 @@ class NetworkManagerTest: XCTestCase {
             url: nil,
             method: .post,
             body: .init()).sink { fail in
-                if case .failure(let error) = fail {
-                    XCTFail(error.description)
+                if case .failure(_) = fail {
+                    XCTFail("Test Fail")
                 }
         } receiveValue: { result in
             // then
             XCTAssertTrue(() == result)
         }.store(in: &cancellable)
+    }
+    
+    func test_RequestDelete() {
+        // given
+        let network = NetworkManager(session: successStub)
+        
+        // when
+        network.requestDeleteNotification(url: nil,
+                                          method: .delete)
+            .sink { fail in
+                if case .failure(_) = fail {
+                    XCTFail("test Fail")
+                }
+            } receiveValue: { result in
+                // then
+                XCTAssertEqual("Success", result)
+            }.store(in: &cancellable)
     }
 }

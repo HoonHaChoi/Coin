@@ -11,6 +11,7 @@ import Combine
 final class NetworkManagerStub: Requestable {
     
     private let dummyCoin = Coin(uuid: "", exchange: .bithumb, ticker: "", market: "", englishName: "", meta: .init(tradePrice: "", changePrice: "", changeRate: "", accTradePrice24H: "", change: .even), logo: nil)
+    private let successString = "Success"
     private let isRequestSuccess: Bool
     
     init(isSuccess: Bool) {
@@ -28,7 +29,7 @@ final class NetworkManagerStub: Requestable {
     
     func requestResource<T>(for urlRequest: URLRequest?) -> AnyPublisher<T, NetworkError> where T : Decodable {
         if isRequestSuccess {
-            return Just([dummyCoin] as! T)
+            return Just(successString as! T)
                 .setFailureType(to: NetworkError.self)
                 .eraseToAnyPublisher()
         }

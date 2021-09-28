@@ -35,10 +35,11 @@ final class NotificationsViewController: UIViewController {
         table.estimatedRowHeight = 70
         table.rowHeight = 70
         table.sectionHeaderHeight = 50
+        table.sectionFooterHeight = 1
         table.allowsSelection = false
         table.delaysContentTouches = false
+        table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.tableFooterView = .init()
         table.alpha = 0
         return table
     }()
@@ -155,5 +156,11 @@ extension NotificationsViewController: UITableViewDelegate {
         let crypto = dataSource.notice[section]
         header.configure(crypto: crypto, imageLoader: imageLoader)
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let separtorView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
+        separtorView.backgroundColor = .DEDEDE
+        return separtorView
     }
 }

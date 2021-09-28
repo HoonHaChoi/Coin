@@ -32,8 +32,8 @@ final class NotificationsViewController: UIViewController {
     
     private let notificationsTableView: UITableView = {
         let table = UITableView()
-        table.estimatedRowHeight = 70
-        table.rowHeight = 70
+        table.estimatedRowHeight = 60
+        table.rowHeight = 60
         table.sectionHeaderHeight = 50
         table.sectionFooterHeight = 1
         table.allowsSelection = false
@@ -102,9 +102,17 @@ final class NotificationsViewController: UIViewController {
     lazy var updateNotifications: ([Notice]) -> () = { [weak self] notifiactions in
         self?.dataSource.updateDataSource(from: notifiactions)
         DispatchQueue.main.async {
-            self?.notificationsTableView.alpha = 1
             self?.notificationsTableView.reloadData()
-            self?.refreshControl.endRefreshing()
+            self?.changeTableViewState()
+        }
+    }
+    
+    private func changeTableViewState() {
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        if notificationsTableView.alpha == 0 {
+            notificationsTableView.alpha = 1
         }
     }
     

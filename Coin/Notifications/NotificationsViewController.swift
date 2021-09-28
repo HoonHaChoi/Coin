@@ -10,10 +10,13 @@ import UIKit
 final class NotificationsViewController: UIViewController {
     
     private let dataSource: NotificationDataSource
+    private let imageLoader: Loader
     weak var coordinator: NotificationsCoordinator?
         
-    init(dataSource: NotificationDataSource) {
+    init(dataSource: NotificationDataSource,
+         imageLoader: Loader) {
         self.dataSource = dataSource
+        self.imageLoader = imageLoader
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -149,6 +152,7 @@ extension NotificationsViewController: UITableViewDelegate {
         }
         
         let crypto = dataSource.notice[section]
+        header.configure(crypto: crypto, imageLoader: imageLoader)
         return header
     }
 }

@@ -6,9 +6,22 @@
 //
 
 import UIKit
+import Combine
 
 class NotificationHeaderView: UITableViewHeaderFooterView {
 
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        setUpUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setUpUI()
+    }
+    
+    private var cancell: AnyCancellable?
+    
     private let symbolImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +61,8 @@ class NotificationHeaderView: UITableViewHeaderFooterView {
         return button
     }()
     
-    private func configureUI() {
+    private func setUpUI() {
+        contentView.backgroundColor = .systemBackground
         addSubview(symbolImageView)
         addSubview(symbolStackView)
         addSubview(addNotificaionButton)
@@ -68,5 +82,19 @@ class NotificationHeaderView: UITableViewHeaderFooterView {
             addNotificaionButton.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
             addNotificaionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
+    }
+    
+    func configure(crypto: Notice, imageLoader: Loader) {
+        imageLoad(loader: imageLoader, to: crypto.logo)
+        symbolNameLabel.text = crypto.ticker
+        symbolDescriptionLabel.text = crypto.exchange+"/"+crypto.market
+    }
+    
+    private func imageLoad(loader: Loader, to logoURL: String?) {
+        cancell = loader.load(urlString: logoURL)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] uiImage in
+                self?.symbolImageView.image = uiImage
+            }
     }
 }

@@ -234,7 +234,8 @@ struct AppDependency {
 //        let notificationDataSource = NotificationDataSource.init(emptyView: EmptyView(frame: .zero, title: "알림 목록이 비어 있어요!", description: "+버튼으로 원하는 금액에 도달하는 코인을 \n 등록하고 알림을 받아보세요")) { cell, noti in
 //            cell.configure(from: noti)
 //        }
-        let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource)
+        let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource,
+                                                                      imageLoader: imageLoader)
         
         notificationsViewController.requestNotifications = viewmodel.fetchNotifications
         viewmodel.notificationsHandler = notificationsViewController.updateNotifications

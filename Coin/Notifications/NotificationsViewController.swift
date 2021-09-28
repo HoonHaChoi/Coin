@@ -117,24 +117,25 @@ final class NotificationsViewController: UIViewController {
 
 extension NotificationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let row = dataSource.model[indexPath.row]
+        let tickerUUID = dataSource.notice[indexPath.section].uuid
+        let notification = dataSource.notice[indexPath.section][indexPath.row]
         
         let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, complete  in
-//            let confirmAlert = UIAlertController().deleteNotifiationAlert() { _ in
-//                self?.requestDeleteNotification?(row.uuid)
-//                complete(true)
-//            }
-//            self?.present(confirmAlert, animated: true, completion: nil)
+            let confirmAlert = UIAlertController().deleteNotifiationAlert() { _ in
+                self?.requestDeleteNotification?(notification.uuid)
+                complete(true)
+            }
+            self?.present(confirmAlert, animated: true, completion: nil)
         }
         
         let editAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, complete in
-//            let notiObject = NotificationObject(type: row.type,
-//                                                basePrice: Int(row.basePrice) ?? 0,
-//                                                tickerUUID: row.ticker.uuid,
-//                                                notificationUUID: row.uuid,
-//                                                notificationCycleUUID: row.notificationCycle.uuid)
-//            self?.coordinator?.showNotificationInputViewController(from: notiObject)
-//            complete(true)
+            let notiObject = NotificationObject(type: notification.type,
+                                                basePrice: Int(notification.basePrice) ?? 0,
+                                                tickerUUID: tickerUUID,
+                                                notificationUUID: notification.uuid,
+                                                notificationCycleUUID: notification.notificationCycle.uuid)
+            self?.coordinator?.showNotificationInputViewController(from: notiObject)
+            complete(true)
         }
         
         deleteAction.backgroundColor = .systemBackground

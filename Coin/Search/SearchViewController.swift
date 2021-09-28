@@ -72,6 +72,12 @@ class SearchViewController: UIViewController, Storyboarded {
         keywordHandler?("", "")
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        searchController.isActive = false
+        searchController.searchBar.resignFirstResponder()
+    }
+    
     private func searchCoin() {
         let searchBar = searchController.searchBar
         searchController.textFieldPublisher

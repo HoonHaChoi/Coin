@@ -6,7 +6,7 @@ protocol SearchUseCase {
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
     func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
     func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError>
-    func requestNotifications(url: URL?) -> AnyPublisher<[Notifications], NetworkError>
+    func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError>
     func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError>
 }
 
@@ -26,7 +26,7 @@ struct NetworkManager: SearchUseCase {
         return self.session.requestResource(url: Endpoint.favoriteURL(uuid: uuidString))
     }
     
-    func requestNotifications(url: URL?) -> AnyPublisher<[Notifications], NetworkError> {
+    func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError> {
         return self.session.requestResource(url: url)
     }
     

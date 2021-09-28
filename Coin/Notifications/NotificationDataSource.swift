@@ -9,7 +9,7 @@ import UIKit
 
 final class NotificationDataSource: NSObject, UITableViewDataSource {
     
-    private var notice: [Notice]
+    private(set) var notice: [Notice]
     
     override init() {
         self.notice = []

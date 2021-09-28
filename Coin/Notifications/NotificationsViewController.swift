@@ -8,8 +8,6 @@
 import UIKit
 
 final class NotificationsViewController: UIViewController {
-
-    typealias NotificationDataSource = TableDataSource<NotificationCell, Notifications>
     
     private let dataSource: NotificationDataSource
     weak var coordinator: NotificationsCoordinator?
@@ -33,6 +31,7 @@ final class NotificationsViewController: UIViewController {
         let table = UITableView()
         table.estimatedRowHeight = 70
         table.rowHeight = 70
+        table.sectionHeaderHeight = 50
         table.allowsSelection = false
         table.delaysContentTouches = false
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +83,7 @@ final class NotificationsViewController: UIViewController {
         coordinator?.showSearchViewController(style: .notification)
     }
     
-    lazy var updateNotifications: ([Notifications]) -> () = { [weak self] notifiactions in
+    lazy var updateNotifications: ([Notice]) -> () = { [weak self] notifiactions in
         self?.dataSource.updateDataSource(from: notifiactions)
         DispatchQueue.main.async {
             self?.notificationsTableView.alpha = 1
@@ -115,24 +114,24 @@ final class NotificationsViewController: UIViewController {
 
 extension NotificationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let row = dataSource.model[indexPath.row]
+//        let row = dataSource.model[indexPath.row]
         
         let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, complete  in
-            let confirmAlert = UIAlertController().deleteNotifiationAlert() { _ in
-                self?.requestDeleteNotification?(row.uuid)
-                complete(true)
-            }
-            self?.present(confirmAlert, animated: true, completion: nil)
+//            let confirmAlert = UIAlertController().deleteNotifiationAlert() { _ in
+//                self?.requestDeleteNotification?(row.uuid)
+//                complete(true)
+//            }
+//            self?.present(confirmAlert, animated: true, completion: nil)
         }
         
         let editAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, complete in
-            let notiObject = NotificationObject(type: row.type,
-                                                basePrice: Int(row.basePrice) ?? 0,
-                                                tickerUUID: row.ticker.uuid,
-                                                notificationUUID: row.uuid,
-                                                notificationCycleUUID: row.notificationCycle.uuid)
-            self?.coordinator?.showNotificationInputViewController(from: notiObject)
-            complete(true)
+//            let notiObject = NotificationObject(type: row.type,
+//                                                basePrice: Int(row.basePrice) ?? 0,
+//                                                tickerUUID: row.ticker.uuid,
+//                                                notificationUUID: row.uuid,
+//                                                notificationCycleUUID: row.notificationCycle.uuid)
+//            self?.coordinator?.showNotificationInputViewController(from: notiObject)
+//            complete(true)
         }
         
         deleteAction.backgroundColor = .systemBackground
@@ -142,5 +141,14 @@ extension NotificationsViewController: UITableViewDelegate {
         editAction.image = UIImage(systemName: "square.and.pencil")?.withTintColor(.fallColor, renderingMode: .alwaysOriginal)
         
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: NotificationHeaderView.reuseIdentifier) as? NotificationHeaderView else {
+            return .init()
+        }
+        
+        let crypto = dataSource.notice[section]
+        return header
     }
 }

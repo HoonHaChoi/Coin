@@ -21,7 +21,7 @@ final class NotificationsViewModel {
         self.cancell = .init()
     }
     
-    var notificationsHandler: (([Notifications]) -> ())?
+    var notificationsHandler: (([Notice]) -> ())?
     var loadingHiddenStateHandler: ((Bool) -> Void)?
     var errorHandler: ((NetworkError) -> ())?
     var completeMessageHanlder: ((String) -> ())?

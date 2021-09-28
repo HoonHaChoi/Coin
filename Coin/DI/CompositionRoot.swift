@@ -227,11 +227,13 @@ struct AppDependency {
     }
     
     private func makeNotificationsViewController() -> NotificationsViewController {
-        typealias NotificationDataSource = TableDataSource<NotificationCell, Notifications>
+
         let viewmodel = NotificationsViewModel(usecase: networkManager)
-        let notificationDataSource = NotificationDataSource.init(emptyView: EmptyView(frame: .zero, title: "알림 목록이 비어 있어요!", description: "+버튼으로 원하는 금액에 도달하는 코인을 \n 등록하고 알림을 받아보세요")) { cell, noti in
-            cell.configure(from: noti)
-        }
+        let notificationDataSource = NotificationDataSource()
+        //        typealias NotificationDataSource = TableDataSource<NotificationCell, Notifications>
+//        let notificationDataSource = NotificationDataSource.init(emptyView: EmptyView(frame: .zero, title: "알림 목록이 비어 있어요!", description: "+버튼으로 원하는 금액에 도달하는 코인을 \n 등록하고 알림을 받아보세요")) { cell, noti in
+//            cell.configure(from: noti)
+//        }
         let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource)
         
         notificationsViewController.requestNotifications = viewmodel.fetchNotifications

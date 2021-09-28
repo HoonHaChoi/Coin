@@ -44,6 +44,13 @@ final class NotificationsViewController: UIViewController {
         return table
     }()
     
+    private let refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshTableView(_:)), for: .valueChanged)
+        refresh.attributedTitle = NSAttributedString(string: "새로고침")
+        return refresh
+    }()
+    
     private let loadingView: LoadingView = {
         let view = LoadingView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -81,6 +88,11 @@ final class NotificationsViewController: UIViewController {
         notificationsTableView.registerHeaderView(cell: NotificationHeaderView.self)
         notificationsTableView.dataSource = dataSource
         notificationsTableView.delegate = self
+        notificationsTableView.addSubview(refreshControl)
+    }
+    
+    @objc func refreshTableView(_ sender: UIRefreshControl) {
+        requestNotifications?()
     }
     
     @objc func addNotification(){
@@ -92,6 +104,7 @@ final class NotificationsViewController: UIViewController {
         DispatchQueue.main.async {
             self?.notificationsTableView.alpha = 1
             self?.notificationsTableView.reloadData()
+            self?.refreshControl.endRefreshing()
         }
     }
     
@@ -159,7 +172,7 @@ extension NotificationsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let separtorView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
+        let separtorView = UIView(frame: CGRect(x: .zero, y: .zero, width: tableView.frame.width, height: 1))
         separtorView.backgroundColor = .DEDEDE
         return separtorView
     }

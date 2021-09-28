@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Notification: Decodable {
+struct Notice: Decodable {
     let id: Int
     let uuid: String
     let exchange: String
@@ -16,6 +16,14 @@ struct Notification: Decodable {
     let englishName: String
     var logo: String?
     var notifications: [Notifications]
+    
+    var numberOfItems: Int {
+        return notifications.count
+    }
+    
+    subscript(index: Int) -> Notifications {
+        return notifications[index]
+    }
 }
 
 struct Notifications: Decodable {

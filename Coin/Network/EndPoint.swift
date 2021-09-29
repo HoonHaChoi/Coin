@@ -71,6 +71,15 @@ enum Endpoint {
         return component.url
     }
     
+    static func notificationSwitchURL(uuid: String) -> URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.port = port
+        component.path = notificationPath+"\(uuid)"+"/active"
+        return component.url
+    }
+    
     static func notificationCreateURL(token: String) -> URL? {
         var component = URLComponents()
         component.scheme = scheme

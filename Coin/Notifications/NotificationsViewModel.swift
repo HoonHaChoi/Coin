@@ -55,6 +55,23 @@ final class NotificationsViewModel {
     }
     
     func updateNotificationSwitch(uuid: String, state: Bool) {
-        
+        loadingHiddenStateHandler?(false)
+        searchUseCase.requestCompleteNotification(url: Endpoint.notificationSwitchURL(uuid: uuid),
+                                                  method: .put,
+                                                  body: makeJsonData(state: state))
+            .sink { [weak self] fail in
+                if case .failure(let error) = fail {
+                    self?.errorHandler?(error)
+                    self?.loadingHiddenStateHandler?(true)
+                }
+            } receiveValue: { [weak self] in
+                self?.loadingHiddenStateHandler?(true)
+            }.store(in: &cancell)
+    }
+    
+    private func makeJsonData(state: Bool) -> Data {
+        let dictionary = ["active": "\(state)"]
+        let json = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+        return json ?? .init()
     }
 }

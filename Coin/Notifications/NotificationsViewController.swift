@@ -135,6 +135,14 @@ final class NotificationsViewController: UIViewController {
             self?.present(alert, animated: true)
         }
     }
+    
+    func receiveSwitchAction(cell: NotificationCell, switch state: Bool) {
+        guard let indexPath = notificationsTableView.indexPath(for: cell) else {
+            return
+        }
+        let notificationUUID = dataSource.notice[indexPath.section][indexPath.row].uuid
+        
+    }
 }
 
 extension NotificationsViewController: UITableViewDelegate {

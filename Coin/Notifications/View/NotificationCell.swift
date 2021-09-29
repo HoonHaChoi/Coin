@@ -47,7 +47,6 @@ class NotificationCell: UITableViewCell {
     
     private lazy var notificationSwitch: UISwitch = {
         let notiSwitch = UISwitch()
-        notiSwitch.setOn(true, animated: true)
         notiSwitch.translatesAutoresizingMaskIntoConstraints = false
         notiSwitch.addTarget(self, action: #selector(switchAction(_:)), for: .valueChanged)
         return notiSwitch
@@ -69,11 +68,14 @@ class NotificationCell: UITableViewCell {
             notificationSwitch.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
-
+    
+    var switchActionHandler: ((NotificationCell, Bool) -> ())?
+    
     func configure(from item: Notifications) {
         notificationPriceLabel.text = item.basePrice.convertPriceKRW() + "원 " + configureTypeString(itemType: item.type) + " 도달 시"
         notificationRepectLabel.text = item.notificationCycle.displayCycle + " 간격으로 알림"
         updatePriceLabelColor(itemType: item.type)
+        notificationSwitch.setOn(item.isActived, animated: true)
     }
     
     private func updatePriceLabelColor(itemType: String) {
@@ -85,6 +87,7 @@ class NotificationCell: UITableViewCell {
     }
     
     @objc private func switchAction(_ sender: UISwitch) {
+        switchActionHandler?(self, sender.isOn)
         print(sender.isOn)
     }
 }

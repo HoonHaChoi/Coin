@@ -10,6 +10,7 @@ import UIKit
 final class NotificationDataSource: NSObject, UITableViewDataSource {
     
     private(set) var notice: [Notice]
+    var switchActionHandler: ((NotificationCell, Bool) -> ())?
     
     override init() {
         self.notice = []
@@ -29,6 +30,7 @@ final class NotificationDataSource: NSObject, UITableViewDataSource {
         }
         let notifications = notice[indexPath.section][indexPath.row]
         cell.configure(from: notifications)
+        cell.switchActionHandler = reciveSwitchAction(cell:switch:)
         return cell
     }
     
@@ -36,4 +38,7 @@ final class NotificationDataSource: NSObject, UITableViewDataSource {
         self.notice = notices
     }
     
+    func reciveSwitchAction(cell: NotificationCell, switch state: Bool) {
+        switchActionHandler?(cell, state)
+    }
 }

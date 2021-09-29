@@ -25,6 +25,7 @@ final class NotificationsViewModel {
     var loadingHiddenStateHandler: ((Bool) -> Void)?
     var errorHandler: ((NetworkError) -> ())?
     var completeMessageHanlder: ((String) -> ())?
+    var failCellHandler: ((NotificationCell) -> ())?
     
     func fetchNotifications() {
         loadingHiddenStateHandler?(false)
@@ -54,7 +55,7 @@ final class NotificationsViewModel {
             }.store(in: &cancell)
     }
     
-    func updateNotificationSwitch(uuid: String, state: Bool) {
+    func updateNotificationSwitch(uuid: String, state: Bool, cell: NotificationCell) {
         loadingHiddenStateHandler?(false)
         searchUseCase.requestCompleteNotification(url: Endpoint.notificationSwitchURL(uuid: uuid),
                                                   method: .put,
@@ -63,6 +64,7 @@ final class NotificationsViewModel {
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
                     self?.loadingHiddenStateHandler?(true)
+                    self?.failCellHandler?(cell)
                 }
             } receiveValue: { [weak self] in
                 self?.loadingHiddenStateHandler?(true)

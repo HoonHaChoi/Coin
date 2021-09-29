@@ -88,6 +88,12 @@ class NotificationCell: UITableViewCell {
     
     @objc private func switchAction(_ sender: UISwitch) {
         switchActionHandler?(self, sender.isOn)
-        print(sender.isOn)
+    }
+    
+    func restoreSwitch() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.notificationSwitch.setOn(!self.notificationSwitch.isOn, animated: true)
+        }
     }
 }

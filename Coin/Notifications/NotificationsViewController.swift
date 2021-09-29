@@ -59,6 +59,7 @@ final class NotificationsViewController: UIViewController {
     
     var requestNotifications: (() -> ())?
     var requestDeleteNotification: ((String) -> ())?
+    var requestUpdateSwitch: ((String, Bool) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,7 +142,7 @@ final class NotificationsViewController: UIViewController {
             return
         }
         let notificationUUID = dataSource.notice[indexPath.section][indexPath.row].uuid
-        
+        requestUpdateSwitch?(notificationUUID, state)
     }
 }
 

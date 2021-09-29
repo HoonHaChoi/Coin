@@ -245,6 +245,8 @@ struct AppDependency {
         notificationsViewController.requestDeleteNotification = viewmodel.deleteNotification(uuid:)
         viewmodel.completeMessageHanlder = notificationsViewController.completeMessage
         
+        notificationDataSource.switchActionHandler = notificationsViewController.receiveSwitchAction(cell:switch:)
+        notificationsViewController.requestUpdateSwitch = viewmodel.updateNotificationSwitch(uuid:state:)
         return notificationsViewController
     }
     

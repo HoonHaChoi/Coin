@@ -54,4 +54,7 @@ final class NotificationsViewModel {
             }.store(in: &cancell)
     }
     
+    func updateNotificationSwitch(uuid: String, state: Bool) {
+        
+    }
 }

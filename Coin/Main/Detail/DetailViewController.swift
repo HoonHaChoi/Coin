@@ -106,6 +106,7 @@ class DetailViewController: UIViewController {
     @objc func didFavoriteTapped(_ sender: UIButton) {
         favoriteButtonAction?(coin.uuid)
         favoriteButton.isSelected = !favoriteButton.isSelected
+        favoriteButton.tintColor = favoriteButton.isSelected ? .riseColor : .basicColor
     }
     
     lazy var updateInfoUI: (([CoinMeta]) -> ()) = { [weak self] meta in

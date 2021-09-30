@@ -189,7 +189,11 @@ extension NotificationsViewController: UITableViewDelegate {
         }
         
         let crypto = dataSource.notice[section]
+        let notiObject = NotificationObject.create(crypto.uuid)
         header.configure(crypto: crypto, imageLoader: imageLoader)
+        
+        header.addButtonAction = {
+        }
         return header
     }
     

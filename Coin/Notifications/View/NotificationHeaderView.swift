@@ -58,8 +58,11 @@ class NotificationHeaderView: UITableViewHeaderFooterView {
         button.setTitle("추가", for: .normal)
         button.titleLabel?.textColor = .basicColor
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        button.addTarget(nil, action: #selector(didButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
+    
+    var addButtonAction: (() -> ())?
     
     private func setUpUI() {
         contentView.backgroundColor = .systemBackground
@@ -96,5 +99,9 @@ class NotificationHeaderView: UITableViewHeaderFooterView {
             .sink { [weak self] uiImage in
                 self?.symbolImageView.image = uiImage
             }
+    }
+    
+    @objc private func didButtonTapped(_ sender: UIButton) {
+        addButtonAction?()
     }
 }

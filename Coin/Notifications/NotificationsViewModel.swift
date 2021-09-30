@@ -72,7 +72,7 @@ final class NotificationsViewModel {
     }
     
     private func makeJsonData(state: Bool) -> Data {
-        let dictionary = ["active": "\(state)"]
+        let dictionary = ["active": state]
         let json = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
         return json ?? .init()
     }

@@ -114,7 +114,9 @@ final class NotificationInputViewController: UIViewController {
                 self?.basePriceHandler?(price, .basePrice)
             }.store(in: &cancellable)
         
-        notificationInputView.cycleTextField.pickerDelegate = self
+        notificationInputView.cycleTextField.pickerHandler = { [weak self] picker in
+            self?.cycleHandler?(picker, .cycle)
+        }
     }
     
     private func setTitleButtonText() {
@@ -174,11 +176,5 @@ final class NotificationInputViewController: UIViewController {
     
     deinit {
         print(#function, "inputController")
-    }
-}
-
-extension NotificationInputViewController: NotificationPickerDelegate {
-    func didSelectPick(data: String) {
-        cycleHandler?(data, .cycle)
     }
 }

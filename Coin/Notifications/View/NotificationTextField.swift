@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol NotificationPickerDelegate: AnyObject {
-    func didSelectPick(data: String)
-}
-
 class NotificationTextField: UITextField {
 
     private var pickerList: [String]
@@ -29,7 +25,7 @@ class NotificationTextField: UITextField {
         return toolbar
     }()
     
-    weak var pickerDelegate: NotificationPickerDelegate?
+    var pickerHandler: ((String) -> ())?
         
     init(frame: CGRect, pickerList: [String]) {
         self.pickerList = pickerList
@@ -63,7 +59,7 @@ class NotificationTextField: UITextField {
         let row = self.pickerView.selectedRow(inComponent: 0)
         self.pickerView.selectRow(row, inComponent: 0, animated: false)
         self.text = self.pickerList[row]
-        pickerDelegate?.didSelectPick(data: pickerList[row])
+        pickerHandler?(pickerList[row])
         self.resignFirstResponder()
     }
     
@@ -91,6 +87,6 @@ extension NotificationTextField: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.text = pickerList[row]
-        pickerDelegate?.didSelectPick(data: pickerList[row])
+        pickerHandler?(pickerList[row])
     }
 }

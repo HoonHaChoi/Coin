@@ -47,7 +47,7 @@ class NotificationTextField: UITextField {
         pickerView.delegate = self
         self.borderStyle = .roundedRect
         self.font = .systemFont(ofSize: 15, weight: .medium)
-        self.placeholder = "타입을 선택해 주세요"
+        self.placeholder = "알람 주기를 선택해 주세요"
         self.textColor = .basicColor
         configureToolbar()
     }
@@ -67,6 +67,13 @@ class NotificationTextField: UITextField {
         self.resignFirstResponder()
     }
     
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return false
+    }
+    
+    override func selectionRects(for range: UITextRange) -> [UITextSelectionRect] {
+        []
+    }
 }
 
 extension NotificationTextField: UIPickerViewDataSource, UIPickerViewDelegate {

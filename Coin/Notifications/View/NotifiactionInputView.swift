@@ -91,8 +91,8 @@ final class NotifiactionInputView: UIView {
         return segment
     }()
     
-    var basePriceTextField: UITextField = {
-       let textField = UITextField()
+    var basePriceTextField: MenuDisableTextField = {
+       let textField = MenuDisableTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "기준 가격을 입력해 주세요"
         textField.keyboardType = .numberPad

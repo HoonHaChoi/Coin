@@ -48,12 +48,21 @@ final class NotificationsCoordinator: NSObject, Coordinator {
         coordinate(to: searchCoordinator)
     }
 
-    func showNotificationInputViewController(from notification: NotificationObject) {
+    func showUpdateNotificationInputViewController(from notification: NotificationObject) {
         let notificationInputCoordinator = NotificationInputCoordinator(
             navigation: navigationController,
             dependency: .init(notificationInputViewFactory: notificationIntputViewController),
             notificationObject: notification,
             formStyle: .update)
+        coordinate(to: notificationInputCoordinator)
+    }
+    
+    func showCreateNotificationInputViewController(from notification: NotificationObject) {
+        let notificationInputCoordinator = NotificationInputCoordinator(
+            navigation: navigationController,
+            dependency: .init(notificationInputViewFactory: notificationIntputViewController),
+            notificationObject: notification,
+            formStyle: .create)
         coordinate(to: notificationInputCoordinator)
     }
     

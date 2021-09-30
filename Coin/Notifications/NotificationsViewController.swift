@@ -149,6 +149,9 @@ final class NotificationsViewController: UIViewController {
         cell.restoreSwitch()
     }
     
+    private func showCreateInputView(from notification: NotificationObject) {
+        coordinator?.showCreateNotificationInputViewController(from: notification)
+    }
 }
 
 extension NotificationsViewController: UITableViewDelegate {
@@ -170,7 +173,7 @@ extension NotificationsViewController: UITableViewDelegate {
                                                 tickerUUID: tickerUUID,
                                                 notificationUUID: notification.uuid,
                                                 notificationCycleUUID: notification.notificationCycle.uuid)
-            self?.coordinator?.showNotificationInputViewController(from: notiObject)
+            self?.coordinator?.showUpdateNotificationInputViewController(from: notiObject)
             complete(true)
         }
         
@@ -192,7 +195,8 @@ extension NotificationsViewController: UITableViewDelegate {
         let notiObject = NotificationObject.create(crypto.uuid)
         header.configure(crypto: crypto, imageLoader: imageLoader)
         
-        header.addButtonAction = {
+        header.addButtonAction = { [weak self] in
+            self?.showCreateInputView(from: notiObject)
         }
         return header
     }

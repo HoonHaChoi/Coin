@@ -90,8 +90,10 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     func configureViewForm() {
         switch viewForm {
         case .add:
+            self.title = "일지 작성"
             break
         case .edit(let date):
+            self.title = "일지 수정"
             dateTextField.isEnabled = false
             dateTextField.textColor = .lightGray
             dispatch?(.editInput(date))

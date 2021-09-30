@@ -219,7 +219,7 @@ extension TradingLogAddViewController: UITextViewDelegate {
     private func setupTextView() {
         if memoTextView.text == textViewPlaceHolderText {
             memoTextView.text = nil
-            memoTextView.textColor = .black
+            memoTextView.textColor = .basicColor
         } else if memoTextView.text.isEmpty {
             memoTextView.text = textViewPlaceHolderText
             memoTextView.textColor = .lightGray

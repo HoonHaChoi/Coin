@@ -64,9 +64,7 @@ class SearchViewController: UIViewController, Storyboarded {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        coinListTableView.register(cell: SearchCoinCell.self)
-        coinListTableView.dataSource = searchCoinDataSource
-        coinListTableView.tableFooterView = UIView()
+        configureTableView()
         loadingViewConfigure()
         searchCoin()
         keywordHandler?("", "")
@@ -76,6 +74,13 @@ class SearchViewController: UIViewController, Storyboarded {
         super.viewDidDisappear(animated)
         searchController.isActive = false
         searchController.searchBar.resignFirstResponder()
+    }
+    
+    private func configureTableView() {
+        coinListTableView.register(cell: SearchCoinCell.self)
+        coinListTableView.dataSource = searchCoinDataSource
+        coinListTableView.tableFooterView = UIView()
+        coinListTableView.keyboardDismissMode = .onDrag
     }
     
     private func searchCoin() {

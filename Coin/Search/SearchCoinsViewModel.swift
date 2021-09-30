@@ -9,6 +9,7 @@ final class SearchViewModel {
     
     var coinsHandler: (([Coin]) -> Void)?
     var loadingHiddenStateHandler: ((Bool) -> Void)?
+    var errorHandler: ((NetworkError) -> Void)?
     
     init(usecase: SearchUseCase,
          repository: FavoriteCoinRepository) {
@@ -23,9 +24,9 @@ final class SearchViewModel {
         }
         loadingHiddenStateHandler?(false)
         cancell = searchUseCase.requestSearchCoins(url: url)
-            .sink { (fail) in
+            .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
-                    print(error)
+                    self?.errorHandler?(error)
                 }
             } receiveValue: { [weak self] (coins) in
                 self?.coinsHandler?(coins)

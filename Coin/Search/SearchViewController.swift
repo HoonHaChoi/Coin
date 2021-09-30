@@ -146,6 +146,13 @@ class SearchViewController: UIViewController, Storyboarded {
         }
     }
     
+    lazy var showError: (NetworkError) -> () = { [weak self] error in
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "에러", message: error.description)
+            self?.present(alert, animated: true)
+        }
+    }
+    
     deinit {
         print(#function, "searchViewController")
     }

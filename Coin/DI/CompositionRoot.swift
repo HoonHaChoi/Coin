@@ -150,6 +150,7 @@ struct AppDependency {
         searchViewController.fetchFavoriteCoin = viewModel.registeredFavoriteCoinFetch
         searchViewController.updateFavoriteHandler = viewModel.updateFavoriteCoin(from:)
         viewModel.loadingHiddenStateHandler = searchViewController.loadingHiddenState
+        viewModel.errorHandler = searchViewController.showError
         
         searchViewController.title = style == .favorite ? "관심 코인 설정" : "검색"
         return searchViewController

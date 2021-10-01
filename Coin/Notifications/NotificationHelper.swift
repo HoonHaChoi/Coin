@@ -12,7 +12,6 @@ protocol NotificationHelp {
     func mapping(typeName: String) -> String
     func mapping(cycleName: String) -> String
     func findTypeIndex(type: String) -> Int
-    func mapping(cycle: String) -> String
 }
 
 final class NotificationHelper: NotificationHelp {
@@ -36,7 +35,6 @@ final class NotificationHelper: NotificationHelp {
     
     private(set) lazy var typeMapper = EnumMapper(key: notificationTypeNames, item: notificationType)
     private(set) lazy var cycleMapper = EnumMapper(key: cycleNames, item: cycleUUIDs)
-    private(set) lazy var cycleMapperReverse = EnumMapper(key: cycleUUIDs, item: cycleNames)
     
     init(usecase: SearchUseCase) {
         self.usecase = usecase
@@ -71,11 +69,5 @@ final class NotificationHelper: NotificationHelp {
         return notificationType.firstIndex(of: type) ?? 0
     }
     
-    func mapping(cycle: String) -> String {
-        guard let map = self.cycleMapperReverse[cycle] else {
-            return ""
-        }
-        return map
-    }
 }
 

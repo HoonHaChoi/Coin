@@ -89,6 +89,15 @@ enum Endpoint {
         return component.url
     }
     
+    static func notificationCycleURL() -> URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.port = port
+        component.path = notificationPath+"cycles"
+        return component.url
+    }
+    
     static var socketURL: URL? {
         var component = URLComponents()
         component.scheme = scheme

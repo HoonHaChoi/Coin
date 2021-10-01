@@ -44,6 +44,10 @@ struct NetworkManager: SearchUseCase {
         return self.session.requestResource(for: urlRequest)
     }
     
+    func requestNotificationCycle(url: URL?) -> AnyPublisher<[NotificationCycle], NetworkError> {
+        return self.session.requestResource(url: url)
+    }
+    
     private func makeURLRequest(url: URL?, method: HTTPMethod, body: Data? = nil) -> URLRequest? {
         if let url = url {
             var urlRequest = URLRequest(url: url)

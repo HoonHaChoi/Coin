@@ -10,7 +10,7 @@ import Foundation
 enum Endpoint {
     
     private static let scheme = "http"
-    private static let host = "34.64.77.122"
+    private static let host = "codex.iptime.org"
     private static let port = 8080
     private static let tickersPath = "/api/v1/tickers"
     private static let notificationPath = "/api/v1/notifications/"

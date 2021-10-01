@@ -8,6 +8,7 @@ protocol SearchUseCase {
     func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError>
     func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError>
     func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError>
+    func requestNotificationCycle(url: URL?) -> AnyPublisher<[NotificationCycle], NetworkError>
 }
 
 struct NetworkManager: SearchUseCase {

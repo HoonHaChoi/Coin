@@ -105,7 +105,8 @@ final class NotificationInputViewModel {
         return data
     }
     
-    func configureNotificationInputView(notiObject:NotificationObject, style:NotificationInputFormStyle) {
+    func configureNotificationInputView(notiObject:NotificationObject,
+                                        style:NotificationInputFormStyle) {
         switch style {
         case .create:
             break

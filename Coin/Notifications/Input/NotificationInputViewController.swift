@@ -110,7 +110,9 @@ final class NotificationInputViewController: UIViewController {
     
     private func bind() {
         notificationInputView.basePriceTextField.textPublisher
+            .receive(on: RunLoop.main)
             .sink { [weak self] price in
+                self?.notificationInputView.basePriceTextField.text = price.limitTextCount()
                 self?.basePriceHandler?(price, .basePrice)
             }.store(in: &cancellable)
         

@@ -172,7 +172,7 @@ extension NotificationsViewController: UITableViewDelegate {
                                                 basePrice: Int(notification.basePrice) ?? 0,
                                                 tickerUUID: tickerUUID,
                                                 notificationUUID: notification.uuid,
-                                                notificationCycleUUID: notification.notificationCycle.uuid)
+                                                notificationCycleName: notification.notificationCycle.displayCycle)
             self?.coordinator?.showUpdateNotificationInputViewController(from: notiObject)
             complete(true)
         }

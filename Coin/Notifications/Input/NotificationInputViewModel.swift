@@ -97,7 +97,7 @@ final class NotificationInputViewModel {
                                basePrice: Int(basePriceText) ?? 0,
                                tickerUUID: uuid,
                                notificationUUID: nil,
-                               notificationCycleUUID: notificationHelper.mapping(cycleName: cycleText))
+                               notificationCycleName: notificationHelper.mapping(cycleName: cycleText))
         
         guard let data = try? JSONEncoder().encode(notificationObject) else {
             return .init()
@@ -113,7 +113,7 @@ final class NotificationInputViewModel {
         case .update:
             let typeIndex = notificationHelper.findTypeIndex(type: notiObject.type)
             basePriceText = String(notiObject.basePrice)
-            cycleText = notificationHelper.mapping(cycle: notiObject.notificationCycleUUID)
+            cycleText = notiObject.notificationCycleName
             updateNotificationInputViewHandler?(typeIndex,basePriceText,cycleText)
             isValidCheckHandler?(isFormValidCheck())
         }

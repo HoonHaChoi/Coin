@@ -73,7 +73,7 @@ class NotificationCell: UITableViewCell {
     
     func configure(from item: Notifications) {
         notificationPriceLabel.text = item.basePrice.convertPriceKRW() + "원 " + configureTypeString(itemType: item.type) + " 도달 시"
-        notificationRepectLabel.text = item.notificationCycle.displayCycle + " 간격으로 알림"
+        notificationRepectLabel.text = item.notificationCycle.displayCycle
         updatePriceLabelColor(itemType: item.type)
         notificationSwitch.setOn(item.isActived, animated: true)
     }

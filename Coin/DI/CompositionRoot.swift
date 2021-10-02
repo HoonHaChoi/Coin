@@ -27,10 +27,10 @@ struct AppDependency {
 //                                      item: ["-","","+"])
     
     // MARK: CoreData
-    var tradingLogCoreData: CoreDataStorageManager {
-        return CoreDataStorageManager(modelName: "TradingLogModel",
-                                      userSetting: userSetting)
-    }
+//    var tradingLogCoreData: CoreDataStorageManager {
+//        return CoreDataStorageManager(modelName: "TradingLogModel",
+//                                      userSetting: userSetting)
+//    }
     
     var favoriteCoinCoreData: FavoriteCoinStorage = FavoriteCoinStorage(modelName: "FavoriteCoinModel")
 
@@ -176,6 +176,9 @@ struct AppDependency {
     }
     
     private func makeTradingLogViewController() -> TradingLogViewController {
+        
+        let tradingLogCoreData = CoreDataStorageManager(modelName: "TradingLogModel",
+                                                        userSetting: userSetting)
         let dateManager = DateManager()
         let tradingLogDataSource = TradingLogDataSource()
         let tradingLogViewController = TradingLogViewController.instantiate { coder in
@@ -197,6 +200,8 @@ struct AppDependency {
     }
     
     private func makeTradingLogStatsViewController() -> TradingLogStatsViewController {
+        let tradingLogCoreData = CoreDataStorageManager(modelName: "TradingLogModel",
+                                                        userSetting: userSetting)
         let dateManager = DateManager()
         let chartHelper = ChartHelper(manager: tradingLogCoreData)
         let tradingLogStatsViewModel = TradingLogStatsViewModel(dateManager: dateManager,

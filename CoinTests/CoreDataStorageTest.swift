@@ -10,20 +10,27 @@ import CoreData
 
 class CoreDataStorageTest: XCTestCase {
 
-    var mockTradingCoredata: MockTradingLogCoreData!
+    var tradingLogCoreData: CoreDataStorageManager!
+    var userSetting: UserSetting!
+    var calendar: Calendar!
     
     override func setUpWithError() throws {
-        mockTradingCoredata = MockTradingLogCoreData(container: mockPersistentContainer)
+        userSetting = UserSetting()
+        tradingLogCoreData = CoreDataStorageManager(container: mockPersistentContainer, userSetting: userSetting)
+        calendar = Calendar.current
         dummyInsert()
     }
 
     override func tearDownWithError() throws {
-        mockTradingCoredata = nil
+        tradingLogCoreData = nil
+        userSetting = nil
+        calendar = nil
     }
 
-    func testExample() throws {
-        let logs = mockTradingCoredata.fetch(dates: (start: Date().removeTimeStamp(),
-                                          end: Date().removeTimeStamp()))
+    func testTradingLogFetch() throws {
+        let date = calendar.date(byAdding: .month, value: -2, to: Date()) ?? .init()
+        let logs = tradingLogCoreData.fetch(dates: (start: date.removeTimeStamp(),
+                                          end: Date()))
         XCTAssertEqual(logs.count, 3)
     }
     
@@ -59,7 +66,7 @@ class CoreDataStorageTest: XCTestCase {
                                         endPrice: i,
                                         date: date.removeTimeStamp(),
                                         memo: "")
-            mockTradingCoredata.insert(tradingLog: log)
+            tradingLogCoreData.insert(tradingLog: log)
         }
     }
     

@@ -25,11 +25,9 @@ struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
     private let container: NSPersistentContainer
     private let fetchRequest: NSFetchRequest<TradingLogMO>
     private let context: NSManagedObjectContext
-    private let modelName: String
     private let userSetting: UserSettingFetching
     
     init(modelName: String, userSetting: UserSettingFetching) {
-        self.modelName = modelName
         self.userSetting = userSetting
         self.container = NSPersistentContainer(name: modelName)
         self.fetchRequest = TradingLogMO.fetchRequest()

@@ -27,15 +27,10 @@ struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
     private let context: NSManagedObjectContext
     private let userSetting: UserSettingFetching
     
-    init(modelName: String, userSetting: UserSettingFetching) {
+    init(container: NSPersistentContainer, userSetting: UserSettingFetching) {
         self.userSetting = userSetting
-        self.container = NSPersistentContainer(name: modelName)
+        self.container = container
         self.fetchRequest = TradingLogMO.fetchRequest()
-        container.loadPersistentStores { store, error in
-            if error != nil {
-                fatalError()
-            }
-        }
         self.context = container.viewContext
     }
     

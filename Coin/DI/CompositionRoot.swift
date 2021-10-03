@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 struct AppDependency {
     
     let imageLoader = ImageLoader()
     let socket = Socket(url: Endpoint.socketURL)
-    let userSetting = UserSetting()
     let networkManager = NetworkManager(session: URLSession.shared)
     let coinSortHelper = CoinSortHelper()
     
@@ -27,12 +27,24 @@ struct AppDependency {
 //                                      item: ["-","","+"])
     
     // MARK: CoreData
-//    var tradingLogCoreData: CoreDataStorageManager {
-//        return CoreDataStorageManager(modelName: "TradingLogModel",
-//                                      userSetting: userSetting)
-//    }
+    var tradingLogCoreData = CoreDataStorageManager(container:
+                                                        makePersistentContainer(modelName: "TradingLogModel"),
+                                                    userSetting: userSetting)
     
-    var favoriteCoinCoreData: FavoriteCoinStorage = FavoriteCoinStorage(modelName: "FavoriteCoinModel")
+    var favoriteCoinCoreData = FavoriteCoinStorage(container:
+                                                    makePersistentContainer(modelName: "FavoriteCoinModel"))
+    
+    static func makePersistentContainer(modelName: String) -> NSPersistentContainer {
+        let container = NSPersistentContainer(name: modelName)
+        container.loadPersistentStores { store, error in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        return container
+    }
+    
+    static let userSetting = UserSetting()
 
     // MARK: DataSource
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
@@ -176,15 +188,12 @@ struct AppDependency {
     }
     
     private func makeTradingLogViewController() -> TradingLogViewController {
-        
-        let tradingLogCoreData = CoreDataStorageManager(modelName: "TradingLogModel",
-                                                        userSetting: userSetting)
         let dateManager = DateManager()
         let tradingLogDataSource = TradingLogDataSource()
         let tradingLogViewController = TradingLogViewController.instantiate { coder in
             return TradingLogViewController(coder: coder,
                                             dataSource: tradingLogDataSource,
-                                            userSettingChange: userSetting)
+                                            userSettingChange: AppDependency.userSetting)
         }
         
         let tradingLogStore = TradingLogStore(
@@ -200,8 +209,6 @@ struct AppDependency {
     }
     
     private func makeTradingLogStatsViewController() -> TradingLogStatsViewController {
-        let tradingLogCoreData = CoreDataStorageManager(modelName: "TradingLogModel",
-                                                        userSetting: userSetting)
         let dateManager = DateManager()
         let chartHelper = ChartHelper(manager: tradingLogCoreData)
         let tradingLogStatsViewModel = TradingLogStatsViewModel(dateManager: dateManager,

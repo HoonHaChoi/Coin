@@ -24,17 +24,10 @@ struct FavoriteCoinStorage: FavoriteCoinRepository {
     private let container: NSPersistentContainer
     private let fetchRequest: NSFetchRequest<FavoriteMO>
     private let context: NSManagedObjectContext
-    private let modelName: String
     
-    init(modelName: String) {
-        self.modelName = modelName
-        self.container = NSPersistentContainer(name: modelName)
+    init(container: NSPersistentContainer) {
+        self.container = container
         self.fetchRequest = FavoriteMO.fetchRequest()
-        container.loadPersistentStores { store, error in
-            if error != nil {
-                fatalError()
-            }
-        }
         self.context = container.viewContext
     }
     

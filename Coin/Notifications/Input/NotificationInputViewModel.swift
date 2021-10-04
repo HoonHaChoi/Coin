@@ -94,7 +94,7 @@ final class NotificationInputViewModel {
         
         let notificationObject =
             NotificationObject(type: notificationHelper.mapping(typeName: type),
-                               basePrice: Int(basePriceText) ?? 0,
+                               basePrice: basePriceText.convertRegexInt(),
                                tickerUUID: uuid,
                                notificationUUID: nil,
                                notificationCycleUUID: notificationHelper.mapping(cycleName: cycleText))

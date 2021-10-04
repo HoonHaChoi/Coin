@@ -22,10 +22,10 @@ final class NotificationHelper: NotificationHelp {
     private(set) var cycleNames: [String] = [
         "한번만 알림",
         "1분마다 알림",
-        "5분마다 알림",
         "10분마다 알림",
         "30분마다 알림",
-        "1시간마다 알림"
+        "1시간마다 알림",
+        "하루마다 알림"
     ]
     
     private(set) var cycleUUIDs: [String] = []

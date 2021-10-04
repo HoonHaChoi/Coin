@@ -40,7 +40,6 @@ final class NotificationsViewController: UIViewController {
         table.delaysContentTouches = false
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.alpha = 0
         return table
     }()
     
@@ -52,7 +51,7 @@ final class NotificationsViewController: UIViewController {
     }()
     
     private let emptyView: EmptyView = {
-        let empty = EmptyView(frame: .zero , title: "알림 목록이 비어 있어요!!",
+        let empty = EmptyView(frame: .zero , title: "알림 목록이 비어 있어요!",
                               description: "+버튼으로 원하는 금액에 도달하는 코인을 \n 등록하고 알림을 받아보세요")
         empty.isHidden = true
         empty.translatesAutoresizingMaskIntoConstraints = false
@@ -126,8 +125,13 @@ final class NotificationsViewController: UIViewController {
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
-        if notificationsTableView.alpha == 0 {
-            notificationsTableView.alpha = 1
+        
+        if dataSource.notice.isEmpty {
+            notificationsTableView.isHidden = true
+            emptyView.isHidden = false
+        } else {
+            notificationsTableView.isHidden = false
+            emptyView.isHidden = true
         }
     }
     

@@ -155,6 +155,7 @@
 		BFEB71CD2708B94000B888CD /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 		BFEB71CE2709A20500B888CD /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7D126B4385F0033B773 /* CoreDataStorage.swift */; };
 		BFEB71D92709ABC800B888CD /* TradingLogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF1C052026B3D66300BC0A6B /* TradingLogModel.xcdatamodeld */; };
+		BFEB71DE270B1EF200B888CD /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB71DD270B1EF200B888CD /* SplashViewController.swift */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 		BFF72DD826E6F9B800FBC13C /* DetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */; };
 		BFF72DE126E8A6D500FBC13C /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */; };
@@ -303,6 +304,7 @@
 		BFDD489126E5CF4D00AFCA7C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		BFDD489326E69B3500AFCA7C /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 		BFDD489726E6B63C00AFCA7C /* Change.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Change.swift; sourceTree = "<group>"; };
+		BFEB71DD270B1EF200B888CD /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 		BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartView.swift; sourceTree = "<group>"; };
 		BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCoordinator.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */,
 				BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */,
 				BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */,
+				BFEB71DC270B1E5000B888CD /* Splash */,
 				BF92D7E026B57DB10033B773 /* TradingLog */,
 				BF1C04B426B0682000BC0A6B /* Main */,
 				BFA1541A26A160C100341A6D /* Search */,
@@ -666,6 +669,14 @@
 				BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		BFEB71DC270B1E5000B888CD /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				BFEB71DD270B1EF200B888CD /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		BFF72DDF26E8A6A300FBC13C /* Notifications */ = {
@@ -899,6 +910,7 @@
 				BFBCE42126C8767B0077A521 /* StatsStackView.swift in Sources */,
 				BF4F3AD426BC843E003B801A /* UITextField+Extension.swift in Sources */,
 				BF778EBC2702E582004BF282 /* NotificationDataSource.swift in Sources */,
+				BFEB71DE270B1EF200B888CD /* SplashViewController.swift in Sources */,
 				BFB0A55F26DD1963004F04AE /* FavoriteCoinStorage.swift in Sources */,
 				BFF72DE326E8A8BC00FBC13C /* NotificationsViewController.swift in Sources */,
 				BFB427EB26CB3F4B001D4C91 /* ChartHelper.swift in Sources */,

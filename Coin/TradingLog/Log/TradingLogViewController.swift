@@ -12,7 +12,7 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     @IBOutlet weak var tradingLogTableView: UITableView!
     @IBOutlet weak var addTradingLogButton: UIButton!
     @IBOutlet weak var orderChangeButton: UIButton!
-    @IBOutlet weak var currentDateButton: UIButton!
+    @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     
@@ -49,7 +49,7 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     
     func updateState(state: ViewState) {
         dataSource.updateLog(logs: state.tradlingLogs)
-        currentDateButton.setTitle(state.currentDateString, for: .normal)
+        currentDateLabel.text = state.currentDateString
         nextButton.isHidden = state.nextButtonState
         previousButton.isHidden = state.previousButtonState
         tradingLogTableView.reloadData()

@@ -54,7 +54,10 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-si-SLg">
-                                            <rect key="frame" x="132.5" y="20" width="14.5" height="20"/>
+                                            <rect key="frame" x="122" y="20" width="25" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="84v-9r-g5J"/>
+                                            </constraints>
                                             <color key="tintColor" name="191919"/>
                                             <state key="normal" image="chevron.left" catalog="system">
                                                 <color key="titleColor" name="191919"/>
@@ -65,7 +68,10 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2C-LY-abs">
-                                            <rect key="frame" x="267" y="20" width="14.5" height="20"/>
+                                            <rect key="frame" x="267" y="20" width="25" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="at0-B9-Aor"/>
+                                            </constraints>
                                             <color key="tintColor" name="191919"/>
                                             <state key="normal" image="chevron.right" catalog="system">
                                                 <color key="titleColor" name="191919"/>
@@ -75,30 +81,28 @@
                                                 <action selector="nextButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Tmu-EP-5z9"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guZ-SX-aGQ">
-                                            <rect key="frame" x="167" y="12" width="80" height="36"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-vz-cju">
+                                            <rect key="frame" x="167" y="18" width="80" height="24"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="kO4-ar-f0s"/>
+                                                <constraint firstAttribute="width" constant="80" id="xmx-3x-kKt"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <state key="normal" title="0000.00">
-                                                <color key="titleColor" name="191919"/>
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="regular"/>
-                                            </state>
-                                        </button>
+                                            <color key="textColor" name="191919"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstItem="B2C-LY-abs" firstAttribute="leading" secondItem="DaZ-vz-cju" secondAttribute="trailing" constant="20" id="0GQ-eh-WWG"/>
                                         <constraint firstItem="8Ho-44-ayM" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="0s9-6E-5an"/>
-                                        <constraint firstItem="B2C-LY-abs" firstAttribute="leading" secondItem="guZ-SX-aGQ" secondAttribute="trailing" constant="20" id="4UA-JH-Qdc"/>
+                                        <constraint firstItem="DaZ-vz-cju" firstAttribute="centerX" secondItem="aEq-8G-W4O" secondAttribute="centerX" id="7ye-2B-vSw"/>
                                         <constraint firstItem="8Ho-44-ayM" firstAttribute="leading" secondItem="aEq-8G-W4O" secondAttribute="leading" constant="15" id="HPz-O7-JvM"/>
-                                        <constraint firstItem="guZ-SX-aGQ" firstAttribute="centerX" secondItem="aEq-8G-W4O" secondAttribute="centerX" id="TbZ-3d-Kvn"/>
+                                        <constraint firstItem="DaZ-vz-cju" firstAttribute="leading" secondItem="Va8-si-SLg" secondAttribute="trailing" constant="20" id="awe-bH-TMf"/>
                                         <constraint firstItem="Va8-si-SLg" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="bPx-7V-Omm"/>
-                                        <constraint firstItem="guZ-SX-aGQ" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="ctA-yc-LqY"/>
                                         <constraint firstAttribute="trailing" secondItem="rNc-fj-gmr" secondAttribute="trailing" constant="15" id="dWd-P0-2rG"/>
                                         <constraint firstItem="B2C-LY-abs" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="iE2-ue-hIs"/>
                                         <constraint firstItem="rNc-fj-gmr" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="mDM-aB-1BO"/>
-                                        <constraint firstItem="guZ-SX-aGQ" firstAttribute="leading" secondItem="Va8-si-SLg" secondAttribute="trailing" constant="20" id="r4d-Ax-E1t"/>
+                                        <constraint firstItem="DaZ-vz-cju" firstAttribute="centerY" secondItem="aEq-8G-W4O" secondAttribute="centerY" id="oek-Z6-aMf"/>
                                     </constraints>
                                 </view>
                             </tableView>
@@ -114,7 +118,7 @@
                     </view>
                     <connections>
                         <outlet property="addTradingLogButton" destination="rNc-fj-gmr" id="Mfi-yb-AV9"/>
-                        <outlet property="currentDateButton" destination="guZ-SX-aGQ" id="mlb-he-T3R"/>
+                        <outlet property="currentDateLabel" destination="DaZ-vz-cju" id="rxg-Pb-nwu"/>
                         <outlet property="nextButton" destination="B2C-LY-abs" id="2dr-ih-wLO"/>
                         <outlet property="orderChangeButton" destination="8Ho-44-ayM" id="YJq-2P-l9y"/>
                         <outlet property="previousButton" destination="Va8-si-SLg" id="EAf-VT-ttj"/>

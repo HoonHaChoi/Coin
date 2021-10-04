@@ -92,9 +92,11 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
             
             nextButton.leadingAnchor.constraint(equalTo: currentDateLabel.trailingAnchor, constant: 20),
             nextButton.centerYAnchor.constraint(equalTo: currentDateLabel.centerYAnchor),
+            nextButton.widthAnchor.constraint(equalToConstant: 25),
             
             previousButton.trailingAnchor.constraint(equalTo: currentDateLabel.leadingAnchor, constant: -20),
             previousButton.centerYAnchor.constraint(equalTo: currentDateLabel.centerYAnchor),
+            previousButton.widthAnchor.constraint(equalToConstant: 25),
             
             statsTopStackView.topAnchor.constraint(equalTo: currentDateLabel.bottomAnchor, constant: 30),
             statsTopStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

@@ -486,19 +486,13 @@
 		BF8736042651697A00C3FAD0 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
-				BFEB71E7270B3AEE00B888CD /* Views */,
 				BFD519A726C4A4CF00226FF8 /* Coin.entitlements */,
 				BF1FA62D269B2FAD00AC1AC2 /* Protocol */,
 				BF8736052651697A00C3FAD0 /* AppDelegate.swift */,
 				BF8736072651697A00C3FAD0 /* SceneDelegate.swift */,
 				BF1C04B726B068D500BC0A6B /* DI */,
 				BFEB71E6270B3AA900B888CD /* Coordinator */,
-				BFEB71DC270B1E5000B888CD /* Splash */,
-				BF92D7E026B57DB10033B773 /* TradingLog */,
-				BF1C04B426B0682000BC0A6B /* Main */,
-				BFA1541A26A160C100341A6D /* Search */,
-				BFF72DDF26E8A6A300FBC13C /* Notifications */,
-				BFCBED3826FADF4F00BFE297 /* Set */,
+				BFEB71E7270B3AEE00B888CD /* Views */,
 				BF22BF40268F6CFB003FD161 /* Model */,
 				BF22BF38268F6A7C003FD161 /* Network */,
 				BF22BF46268F8108003FD161 /* Extension */,
@@ -696,6 +690,12 @@
 		BFEB71E7270B3AEE00B888CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFEB71DC270B1E5000B888CD /* Splash */,
+				BF92D7E026B57DB10033B773 /* TradingLog */,
+				BF1C04B426B0682000BC0A6B /* Main */,
+				BFA1541A26A160C100341A6D /* Search */,
+				BFF72DDF26E8A6A300FBC13C /* Notifications */,
+				BFCBED3826FADF4F00BFE297 /* Set */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -51,6 +51,14 @@ final class NotificationsViewController: UIViewController {
         return refresh
     }()
     
+    private let emptyView: EmptyView = {
+        let empty = EmptyView(frame: .zero , title: "알림 목록이 비어 있어요!!",
+                              description: "+버튼으로 원하는 금액에 도달하는 코인을 \n 등록하고 알림을 받아보세요")
+        empty.isHidden = true
+        empty.translatesAutoresizingMaskIntoConstraints = false
+        return empty
+    }()
+    
     private let loadingView: LoadingView = {
         let view = LoadingView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -72,6 +80,7 @@ final class NotificationsViewController: UIViewController {
     private func configureUI() {
         view.addSubview(notificationsTableView)
         view.addSubview(loadingView)
+        view.addSubview(emptyView)
         
         NSLayoutConstraint.activate([
             notificationsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -82,7 +91,12 @@ final class NotificationsViewController: UIViewController {
             loadingView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            emptyView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
         notificationsTableView.registerClass(cell: NotificationCell.self)

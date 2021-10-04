@@ -80,7 +80,7 @@ class TradingLogContanierViewController: UIViewController, Storyboarded {
             segmentControl.centerXAnchor.constraint(equalTo: topContainerView.centerXAnchor),
 
             underLineView.bottomAnchor.constraint(equalTo: segmentControl.bottomAnchor),
-            underLineView.heightAnchor.constraint(equalToConstant: 3),
+            underLineView.heightAnchor.constraint(equalToConstant: 5),
             leadingDistance,
             underLineView.widthAnchor.constraint(equalTo: segmentControl.widthAnchor, multiplier: 1 / CGFloat(segmentControl.numberOfSegments))
         ])

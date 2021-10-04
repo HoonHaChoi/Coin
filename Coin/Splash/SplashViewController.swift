@@ -8,15 +8,18 @@
 import UIKit
 import Lottie
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
 
     private let animationView: AnimationView = {
         let animationView = AnimationView(name: "Splash")
         return animationView
     }()
     
+    weak var coordinator: AppCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         configureAnimationView()
     }
     
@@ -26,7 +29,9 @@ class SplashViewController: UIViewController {
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .playOnce
         view.addSubview(animationView)
-        animationView.play()
+        animationView.play { [weak self] _ in
+            self?.coordinator?.showMainCoordinator()
+        }
     }
     
 }

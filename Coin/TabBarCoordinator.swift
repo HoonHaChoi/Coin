@@ -39,8 +39,7 @@ final class TabBarCoordinator: Coordinator {
                                             notificationsCoordinator.navigationController,
                                             setCoordinator.navigationController]
 //        tabBarController.modalPresentationStyle = .fullScreen
-        navigationController.setViewControllers([tabBarController], animated: true)
-        
+        navigationController.setViewControllers([tabBarController], animated: false)
         coordinate(to: mainCoordinator)
         coordinate(to: tradingLogCoordinator)
         coordinate(to: notificationsCoordinator)

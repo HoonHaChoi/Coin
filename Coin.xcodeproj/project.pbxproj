@@ -158,7 +158,6 @@
 		BFEB71DE270B1EF200B888CD /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB71DD270B1EF200B888CD /* SplashViewController.swift */; };
 		BFEB71E1270B203F00B888CD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFEB71E0270B203F00B888CD /* Lottie */; };
 		BFEB71E3270B22C200B888CD /* Splash.json in Resources */ = {isa = PBXBuildFile; fileRef = BFEB71E2270B22C200B888CD /* Splash.json */; };
-		BFEB71E5270B247C00B888CD /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB71E4270B247C00B888CD /* SplashCoordinator.swift */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 		BFF72DD826E6F9B800FBC13C /* DetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */; };
 		BFF72DE126E8A6D500FBC13C /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */; };
@@ -309,7 +308,6 @@
 		BFDD489726E6B63C00AFCA7C /* Change.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Change.swift; sourceTree = "<group>"; };
 		BFEB71DD270B1EF200B888CD /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BFEB71E2270B22C200B888CD /* Splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Splash.json; sourceTree = "<group>"; };
-		BFEB71E4270B247C00B888CD /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 		BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartView.swift; sourceTree = "<group>"; };
 		BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCoordinator.swift; sourceTree = "<group>"; };
@@ -682,7 +680,6 @@
 			children = (
 				BFEB71E2270B22C200B888CD /* Splash.json */,
 				BFEB71DD270B1EF200B888CD /* SplashViewController.swift */,
-				BFEB71E4270B247C00B888CD /* SplashCoordinator.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -956,7 +953,6 @@
 				BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */,
 				BF4F3ACC26BC2B92003B801A /* TradingLogAddStore.swift in Sources */,
 				BFBCC59026EF5CC200B878F1 /* NotificationHelper.swift in Sources */,
-				BFEB71E5270B247C00B888CD /* SplashCoordinator.swift in Sources */,
 				BFB427E026CA7D33001D4C91 /* Double+Extension.swift in Sources */,
 				BF9D08EF269CB5A9009B6AA0 /* TabBarCoordinator.swift in Sources */,
 				BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */,

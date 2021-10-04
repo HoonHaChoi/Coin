@@ -93,6 +93,11 @@ struct AppDependency {
     }
     
     // MARK: Controller
+    func makeSplashViewController() -> SplashViewController {
+        let splashViewController = SplashViewController()
+        return splashViewController
+    }
+    
     private func makeMainContainerViewController() -> MainContainerViewController {
         let exchangeViewController = makeExchangeViewController()
         let mainViewController = makeMainController()

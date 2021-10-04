@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         coordinator = AppCoordinator(navigationController: navigationController,
-                                     dependency: .init(tabBarCoordinatorFactory: appDependency.makeTabBarCoordinator(navigation:)))
+                                     dependency: .init(
+                                        tabBarCoordinatorFactory: appDependency.makeTabBarCoordinator(navigation:),
+                                        splashViewFactory: appDependency.makeSplashViewController))
         coordinator?.start()
     }
     

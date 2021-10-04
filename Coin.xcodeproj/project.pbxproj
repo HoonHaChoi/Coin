@@ -486,17 +486,13 @@
 		BF8736042651697A00C3FAD0 /* Coin */ = {
 			isa = PBXGroup;
 			children = (
+				BFEB71E7270B3AEE00B888CD /* Views */,
 				BFD519A726C4A4CF00226FF8 /* Coin.entitlements */,
 				BF1FA62D269B2FAD00AC1AC2 /* Protocol */,
 				BF8736052651697A00C3FAD0 /* AppDelegate.swift */,
 				BF8736072651697A00C3FAD0 /* SceneDelegate.swift */,
 				BF1C04B726B068D500BC0A6B /* DI */,
-				BF9D08EA269CAFCD009B6AA0 /* AppCoordinator.swift */,
-				BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */,
-				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
-				BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */,
-				BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */,
-				BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */,
+				BFEB71E6270B3AA900B888CD /* Coordinator */,
 				BFEB71DC270B1E5000B888CD /* Splash */,
 				BF92D7E026B57DB10033B773 /* TradingLog */,
 				BF1C04B426B0682000BC0A6B /* Main */,
@@ -682,6 +678,26 @@
 				BFEB71DD270B1EF200B888CD /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		BFEB71E6270B3AA900B888CD /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D08EA269CAFCD009B6AA0 /* AppCoordinator.swift */,
+				BF9D08EE269CB5A9009B6AA0 /* TabBarCoordinator.swift */,
+				BF9D08EC269CB0FB009B6AA0 /* MainCoordinator.swift */,
+				BF92D7D626B46C910033B773 /* TradingLogCoordinator.swift */,
+				BFB9430526C565A20053C212 /* TradingLogContanierCoordinator.swift */,
+				BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BFEB71E7270B3AEE00B888CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BFF72DDF26E8A6A300FBC13C /* Notifications */ = {

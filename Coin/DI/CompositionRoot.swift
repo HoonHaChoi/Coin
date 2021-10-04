@@ -48,7 +48,7 @@ struct AppDependency {
 
     // MARK: DataSource
     typealias cryptoDataSource = TableDataSource<CryptoCell, Coin>
-    var coinDataSource: cryptoDataSource { cryptoDataSource.init(emptyView: EmptyView(frame: .zero, title: "관심 있는 코인 목록이 비어 있습니다!", description: "관심 있는 코인을 검색 또는 거래소를 \n 통해 추가 해주세요")) { cell, model in
+    var coinDataSource: cryptoDataSource { cryptoDataSource.init { cell, model in
         cell.configure(coin: model,
                        imageLoader: self.imageLoader)
         }

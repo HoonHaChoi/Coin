@@ -20,6 +20,14 @@ class MainViewController: UIViewController, Storyboarded {
         return view
     }()
     
+    private let emptyView: EmptyView = {
+        let empty = EmptyView(frame: .zero , title: "관심 있는 코인 목록이 비어 있습니다!",
+                              description: "관심 있는 코인을 검색 또는 거래소를 \n 통해 추가 해주세요")
+        empty.isHidden = true
+        empty.translatesAutoresizingMaskIntoConstraints = false
+        return empty
+    }()
+    
     var fetchCoinsHandler: (() -> Void)?
     var requestLeaveEvent: (() -> ())?
     var didCellTapped: ((Coin) -> ())?
@@ -44,12 +52,18 @@ class MainViewController: UIViewController, Storyboarded {
     
     private func configure() {
         view.addSubview(cryptoView)
+        view.addSubview(emptyView)
         
         NSLayoutConstraint.activate([
             cryptoView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             cryptoView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             cryptoView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            cryptoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10)
+            cryptoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            
+            emptyView.leadingAnchor.constraint(equalTo: cryptoView.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: cryptoView.trailingAnchor),
+            emptyView.topAnchor.constraint(equalTo: cryptoView.topAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: cryptoView.bottomAnchor)
         ])
     }
     
@@ -64,6 +78,17 @@ class MainViewController: UIViewController, Storyboarded {
         self?.dataSource.updateDataSource(from: coins)
         DispatchQueue.main.async {
             self?.cryptoView.cryptoTableView.reloadData()
+            self?.isHiddienCryptoTableView()
+        }
+    }
+    
+    private func isHiddienCryptoTableView() {
+        if dataSource.model.isEmpty {
+            cryptoView.cryptoTableView.isHidden = true
+            emptyView.isHidden = false
+        } else {
+            cryptoView.cryptoTableView.isHidden = false
+            emptyView.isHidden = true
         }
     }
     

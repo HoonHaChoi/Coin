@@ -10,23 +10,15 @@ import UIKit
 class TableDataSource<CellType: UITableViewCell, Model>: NSObject, UITableViewDataSource {
     
     private(set) var model: [Model]
-    private let emptyView: UIView
     let configure:(CellType,Model) -> ()
     
-    init(emptyView: UIView, configure: @escaping (CellType,Model) -> ()) {
+    init(configure: @escaping (CellType,Model) -> ()) {
         self.model = []
-        self.emptyView = emptyView
         self.configure = configure
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if model.isEmpty {
-            tableView.backgroundView = emptyView
-        } else {
-            tableView.backgroundView = nil
-        }
-        
-        return model.count
+        	return model.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

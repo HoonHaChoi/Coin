@@ -61,13 +61,18 @@ extension URLSession: Requestable {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         return self.dataTaskPublisher(for: urlRequest)
-            .tryMap { _, response in
-            guard let httpResponse = response as? HTTPURLResponse else { throw NetworkError.invalidResponse }
-            let statusCode = httpResponse.statusCode
-            guard (200..<300).contains(statusCode) else { throw NetworkError.invalidStatusCode(statusCode) }
-            return
-        }.mapError { _ in NetworkError.invalidResponse }
-        .eraseToAnyPublisher()
+            .mapError { _ in
+                NetworkError.invalidRequest
+            }
+            .flatMap { (_, response) -> AnyPublisher<Void, NetworkError> in
+                guard let httpresponse = response as? HTTPURLResponse else {
+                    return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
+                }
+                guard 200..<300 ~= httpresponse.statusCode else {
+                    return Fail(error: NetworkError.invalidStatusCode(httpresponse.statusCode)).eraseToAnyPublisher()
+                }
+                return Just(()).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
+            }.eraseToAnyPublisher()
     }
 }
 
@@ -77,18 +82,5 @@ extension URLSession: ImageRequset {
             .map { $0.data }
             .replaceError(with: Data())
             .eraseToAnyPublisher()
-    }
-}
-
-
-extension URLSession.DataTaskPublisher {
-    func completeResponsePublisher() -> AnyPublisher<Void, NetworkError> {
-        tryMap { _, response in
-            guard let httpResponse = response as? HTTPURLResponse else { throw NetworkError.invalidResponse }
-            let statusCode = httpResponse.statusCode
-            guard (200..<300).contains(statusCode) else { throw NetworkError.invalidStatusCode(statusCode) }
-            return 
-        }.mapError { _ in NetworkError.invalidResponse }
-        .eraseToAnyPublisher()
     }
 }

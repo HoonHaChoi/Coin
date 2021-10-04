@@ -14,14 +14,13 @@ enum NetworkError: Error, CustomStringConvertible, Equatable {
     case invalidStatusCode(Int)
     case emptyData
     case failParsing
-    case failedAuthentication
 
     var description: String {
         switch self {
         case .invalidURL:
             return "올바르지 않은 URL입니다"
         case .invalidRequest:
-            return "올바르지 않은 요청입니다"
+            return "요청에 실패하였습니다 잠시 후에 시도해주세요."
         case .invalidResponse:
             return "올바르지 않은 응답입니다"
         case .invalidStatusCode(let code):
@@ -29,9 +28,7 @@ enum NetworkError: Error, CustomStringConvertible, Equatable {
         case .emptyData:
             return "올바르지 않은 데이터입니다"
         case .failParsing:
-            return "올바르지 않은 데이터모델입니다"
-        case .failedAuthentication:
-            return "인증에 실패 하였습니다"
+            return "데이터모델 변환에 실패하였습니다."
         }
     }
 }

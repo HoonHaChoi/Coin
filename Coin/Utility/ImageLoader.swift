@@ -22,10 +22,8 @@ struct ImageLoader: Loader {
     }
     
     func load(urlString: String?) -> AnyPublisher<UIImage?, Never> {
-        // urlString != "null" 제거 예정
         guard let urlString = urlString,
-              let url = URL(string: urlString),
-              urlString != "null" else {
+              let url = URL(string: urlString) else {
             return Just(thumbnailImage).eraseToAnyPublisher()
         }
         

@@ -13,6 +13,7 @@ struct ImageLoader: Loader {
     private let fileManager: FileImage
     private let urlSession: ImageRequset
     private let thumbnailImage = UIImage(systemName: "circle.dashed")
+    private let appIdentifier = "group.hoonha.Coin"
     
     init(session: ImageRequset = URLSession.shared,
          fileManager: FileImage = FileManager.default) {
@@ -27,7 +28,9 @@ struct ImageLoader: Loader {
               urlString != "null" else {
             return Just(thumbnailImage).eraseToAnyPublisher()
         }
-        let path = fileManager.cacheDirectory.appendingPathComponent(url.lastPathComponent)
+        
+//        let path = fileManager.cacheDirectory.appendingPathComponent(url.lastPathComponent)
+        let path = fileManager.containerURL(forSecurityApplicationGroupIdentifier: appIdentifier)!.appendingPathComponent(url.lastPathComponent)
         
         if fileManager.exists(atPath: path.path) {
             return Just(UIImage(contentsOfFile: path.path)).eraseToAnyPublisher()

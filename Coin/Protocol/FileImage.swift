@@ -11,5 +11,6 @@ protocol FileImage {
     var cacheDirectory: URL { get }
     func exists(atPath: String) -> Bool
     func create(atPath: String, contents: Data)
+    func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> URL?
 }
 

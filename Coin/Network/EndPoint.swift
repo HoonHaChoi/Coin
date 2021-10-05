@@ -11,7 +11,7 @@ enum Endpoint {
     
     private static let scheme = "http"
     private static let host = "codex.iptime.org"
-    private static let port = 8080
+    private static let port = 38080
     private static let tickersPath = "/api/v1/tickers"
     private static let notificationPath = "/api/v1/notifications/"
     private static let chart = "/chart"

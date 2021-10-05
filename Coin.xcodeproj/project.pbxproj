@@ -158,7 +158,9 @@
 		BFEB71E1270B203F00B888CD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BFEB71E0270B203F00B888CD /* Lottie */; };
 		BFEB71E3270B22C200B888CD /* Splash.json in Resources */ = {isa = PBXBuildFile; fileRef = BFEB71E2270B22C200B888CD /* Splash.json */; };
 		BFEB71EF270B61C800B888CD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB71EE270B61C800B888CD /* NotificationService.swift */; };
-		BFEB71F3270B61C800B888CD /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFEB71EC270B61C700B888CD /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BFEB71FB270BBCB200B888CD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB71EE270B61C800B888CD /* NotificationService.swift */; };
+		BFEB71FC270BEAE900B888CD /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFEB71EC270B61C700B888CD /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BFEB722D270BF50900B888CD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BFEB722C270BF50900B888CD /* FirebaseMessaging */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 		BFF72DD826E6F9B800FBC13C /* DetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */; };
 		BFF72DE126E8A6D500FBC13C /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */; };
@@ -180,7 +182,7 @@
 			remoteGlobalIDString = BF8736012651697A00C3FAD0;
 			remoteInfo = Coin;
 		};
-		BFEB71F1270B61C800B888CD /* PBXContainerItemProxy */ = {
+		BFEB71FD270BEAE900B888CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BF8735FA2651697A00C3FAD0 /* Project object */;
 			proxyType = 1;
@@ -190,13 +192,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BFEB71F7270B61C800B888CD /* Embed App Extensions */ = {
+		BFEB71FF270BEAE900B888CD /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				BFEB71F3270B61C800B888CD /* NotificationService.appex in Embed App Extensions */,
+				BFEB71FC270BEAE900B888CD /* NotificationService.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +334,7 @@
 		BFEB71EC270B61C700B888CD /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFEB71EE270B61C800B888CD /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BFEB71F0270B61C800B888CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFEB722E270C292D00B888CD /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
 		BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableDataSource.swift; sourceTree = "<group>"; };
 		BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChartView.swift; sourceTree = "<group>"; };
 		BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCoordinator.swift; sourceTree = "<group>"; };
@@ -369,6 +372,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFEB722D270BF50900B888CD /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +507,7 @@
 				BFCBED4226FC698800BFE297 /* CoinTests */,
 				BFEB71ED270B61C700B888CD /* NotificationService */,
 				BF8736032651697A00C3FAD0 /* Products */,
+				BFEB71F8270B624600B888CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -735,10 +740,18 @@
 		BFEB71ED270B61C700B888CD /* NotificationService */ = {
 			isa = PBXGroup;
 			children = (
+				BFEB722E270C292D00B888CD /* NotificationService.entitlements */,
 				BFEB71EE270B61C800B888CD /* NotificationService.swift */,
 				BFEB71F0270B61C800B888CD /* Info.plist */,
 			);
 			path = NotificationService;
+			sourceTree = "<group>";
+		};
+		BFEB71F8270B624600B888CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BFF72DDF26E8A6A300FBC13C /* Notifications */ = {
@@ -786,12 +799,12 @@
 				BF8735FE2651697A00C3FAD0 /* Sources */,
 				BF8735FF2651697A00C3FAD0 /* Frameworks */,
 				BF8736002651697A00C3FAD0 /* Resources */,
-				BFEB71F7270B61C800B888CD /* Embed App Extensions */,
+				BFEB71FF270BEAE900B888CD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BFEB71F2270B61C800B888CD /* PBXTargetDependency */,
+				BFEB71FE270BEAE900B888CD /* PBXTargetDependency */,
 			);
 			name = Coin;
 			packageProductDependencies = (
@@ -836,6 +849,9 @@
 			dependencies = (
 			);
 			name = NotificationService;
+			packageProductDependencies = (
+				BFEB722C270BF50900B888CD /* FirebaseMessaging */,
+			);
 			productName = NotificationService;
 			productReference = BFEB71EC270B61C700B888CD /* NotificationService.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1042,6 +1058,7 @@
 				BFB427E026CA7D33001D4C91 /* Double+Extension.swift in Sources */,
 				BF9D08EF269CB5A9009B6AA0 /* TabBarCoordinator.swift in Sources */,
 				BFB427DA26C97E0D001D4C91 /* TradingLogStatsDTO.swift in Sources */,
+				BFEB71FB270BBCB200B888CD /* NotificationService.swift in Sources */,
 				BF1FA640269B62BB00AC1AC2 /* UITableView+Extension.swift in Sources */,
 				BF1C049D26AFD63900BC0A6B /* MainViewModel.swift in Sources */,
 				BFCBED3C26FAE73300BFE297 /* SetCoordinator.swift in Sources */,
@@ -1099,10 +1116,10 @@
 			target = BF8736012651697A00C3FAD0 /* Coin */;
 			targetProxy = BFCBED4626FC698800BFE297 /* PBXContainerItemProxy */;
 		};
-		BFEB71F2270B61C800B888CD /* PBXTargetDependency */ = {
+		BFEB71FE270BEAE900B888CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BFEB71EB270B61C700B888CD /* NotificationService */;
-			targetProxy = BFEB71F1270B61C800B888CD /* PBXContainerItemProxy */;
+			targetProxy = BFEB71FD270BEAE900B888CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1169,7 +1186,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1224,7 +1241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1237,13 +1254,13 @@
 		BF8736172651697C00C3FAD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Coin/Coin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27BW92Z482;
 				INFOPLIST_FILE = Coin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1258,13 +1275,13 @@
 		BF8736182651697C00C3FAD0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Coin/Coin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27BW92Z482;
 				INFOPLIST_FILE = Coin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1321,10 +1338,11 @@
 		BFEB71F5270B61C800B888CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27BW92Z482;
 				INFOPLIST_FILE = NotificationService/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1334,17 +1352,18 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		BFEB71F6270B61C800B888CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27BW92Z482;
 				INFOPLIST_FILE = NotificationService/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1354,7 +1373,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1467,6 +1486,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BFEB71DF270B203F00B888CD /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		BFEB722C270BF50900B888CD /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 

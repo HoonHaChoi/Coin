@@ -91,7 +91,6 @@
 		BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */; };
 		BFB427DE26CA7D2A001D4C91 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DD26CA7D2A001D4C91 /* Int+Extension.swift */; };
 		BFB427E026CA7D33001D4C91 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DF26CA7D33001D4C91 /* Double+Extension.swift */; };
-		BFB427E326CAE023001D4C91 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = BFB427E226CAE023001D4C91 /* Charts */; };
 		BFB427E926CB257C001D4C91 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427E826CB257C001D4C91 /* ChartView.swift */; };
 		BFB427EB26CB3F4B001D4C91 /* ChartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427EA26CB3F4B001D4C91 /* ChartHelper.swift */; };
 		BFB427ED26CB4436001D4C91 /* TradingLogStatsChartDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427EC26CB4436001D4C91 /* TradingLogStatsChartDTO.swift */; };
@@ -161,6 +160,7 @@
 		BFEB71FB270BBCB200B888CD /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEB71EE270B61C800B888CD /* NotificationService.swift */; };
 		BFEB71FC270BEAE900B888CD /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BFEB71EC270B61C700B888CD /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BFEB722D270BF50900B888CD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = BFEB722C270BF50900B888CD /* FirebaseMessaging */; };
+		BFEB7230270D7B4000B888CD /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = BFEB722F270D7B4000B888CD /* Charts */; };
 		BFEE9DF826E0AFB2009FD459 /* SearchTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEE9DF726E0AFB2009FD459 /* SearchTableDataSource.swift */; };
 		BFF72DD826E6F9B800FBC13C /* DetailChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DD726E6F9B800FBC13C /* DetailChartView.swift */; };
 		BFF72DE126E8A6D500FBC13C /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE026E8A6D500FBC13C /* NotificationsCoordinator.swift */; };
@@ -353,11 +353,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFEB7230270D7B4000B888CD /* Charts in Frameworks */,
 				BFEB71E1270B203F00B888CD /* Lottie in Frameworks */,
 				BFD519A426C4878B00226FF8 /* FirebaseMessaging in Frameworks */,
 				BF9570E426A69CF9000BBAE9 /* SwiftyJSON in Frameworks */,
 				BF9570CC26A405F9000BBAE9 /* SocketIO in Frameworks */,
-				BFB427E326CAE023001D4C91 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,8 +811,8 @@
 				BF9570CB26A405F9000BBAE9 /* SocketIO */,
 				BF9570E326A69CF9000BBAE9 /* SwiftyJSON */,
 				BFD519A326C4878B00226FF8 /* FirebaseMessaging */,
-				BFB427E226CAE023001D4C91 /* Charts */,
 				BFEB71E0270B203F00B888CD /* Lottie */,
+				BFEB722F270D7B4000B888CD /* Charts */,
 			);
 			productName = Coin;
 			productReference = BF8736022651697A00C3FAD0 /* Coin.app */;
@@ -1472,11 +1472,6 @@
 			package = BF9570E226A69CF9000BBAE9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		BFB427E226CAE023001D4C91 /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BFB427E126CAE022001D4C91 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
-		};
 		BFD519A326C4878B00226FF8 /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1491,6 +1486,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		BFEB722F270D7B4000B888CD /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFB427E126CAE022001D4C91 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 

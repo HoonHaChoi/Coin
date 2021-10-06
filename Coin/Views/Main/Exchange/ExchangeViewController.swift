@@ -120,6 +120,7 @@ class ExchangeViewController: UIViewController {
         requestLeaveCurrentEvent? {
             requestExchangeSocket?(exchange)
         }
+        reloadHeaderView()
     }
     
     private func currentExchangeString() -> String {
@@ -129,6 +130,11 @@ class ExchangeViewController: UIViewController {
         return exchange.toString
     }
     
+    private func reloadHeaderView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.cryptoView.reloadSection()
+        }
+    }
 }
 
 extension ExchangeViewController: UITableViewDelegate {

@@ -23,7 +23,6 @@ class MainContainerViewController: UIViewController {
     
     private lazy var segmentContainerView: SegmentContainerView = {
         let segmentContainerView = SegmentContainerView()
-        segmentContainerView.delegate = self
         segmentContainerView.translatesAutoresizingMaskIntoConstraints = false
         return segmentContainerView
     }()
@@ -83,6 +82,13 @@ class MainContainerViewController: UIViewController {
             pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             pageViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        segmentContainerView.segmentTappedHandler = movePageViewController(to:)
+    }
+    
+    private func movePageViewController(to index: Int) {
+        index == .zero ?
+            setPageViewController(controller: [pageViews[index]], direction: .reverse) :
+            setPageViewController(controller: [pageViews[index]], direction: .forward)
     }
     
     private func setupPageViewController() {
@@ -98,14 +104,6 @@ class MainContainerViewController: UIViewController {
     
     private func setPageViewController(controller: [UIViewController], direction: UIPageViewController.NavigationDirection) {
         pageViewController.setViewControllers(controller, direction: direction, animated: true, completion: nil)
-    }
-}
-
-extension MainContainerViewController: SegmentDelegate {
-    func didSelectSegmentIndex(to index: SegmentMenuIndex) {
-        index == .exchangeViewIndex ?
-            setPageViewController(controller: [pageViews[index.value]], direction: .forward) :
-            setPageViewController(controller: [pageViews[index.value]], direction: .reverse)
     }
 }
 

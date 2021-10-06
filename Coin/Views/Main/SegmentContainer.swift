@@ -7,22 +7,10 @@
 
 import UIKit
 
-enum SegmentMenuIndex: Int {
-    case interestViewIndex = 0
-    case exchangeViewIndex = 1
-    
-    var value: Int {
-        return self.rawValue
-    }
-}
-
-protocol SegmentDelegate {
-    func didSelectSegmentIndex(to index: SegmentMenuIndex)
-}
 
 final class SegmentContainerView: UIView {
     
-    var delegate: SegmentDelegate?
+    var segmentTappedHandler: ((Int) -> ())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,13 +58,11 @@ final class SegmentContainerView: UIView {
         ])
     }
     
-    
     @objc private func changeSegmentedControlLinePosition() {
-        delegate?.didSelectSegmentIndex(to: SegmentMenuIndex(rawValue: segmentControl.selectedSegmentIndex) ?? .interestViewIndex)
+        segmentTappedHandler?(segmentControl.selectedSegmentIndex)
         changeSegmentControlLine()
     }
     
-
     func updateSelectIndex(to index: Int) {
         segmentControl.selectedSegmentIndex = index
         changeSegmentControlLine()

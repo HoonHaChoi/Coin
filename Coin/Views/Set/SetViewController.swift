@@ -59,13 +59,15 @@ final class SetViewController: UIViewController {
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
         composer.setToRecipients(["chlgnsgk@gmail.com"])
-        composer.setSubject("[코인일지] 의견 보내기")
+        composer.setSubject("[코일] 의견 보내기")
         present(composer, animated: true, completion: nil)
     }
     
     private func showErrorAlert(message: String) {
-        let alert = UIAlertController(title: "오류발생", message: message)
-        present(alert, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(title: "오류발생", message: message)
+            self?.present(alert, animated: true)
+        }
     }
     
     private func checkAppVersion() -> String {

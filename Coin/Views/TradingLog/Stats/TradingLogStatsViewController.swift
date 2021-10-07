@@ -13,7 +13,11 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         super.init(coder: coder)
     }
     
-    @IBOutlet weak var tempChartView: UIView!
+    private let scrollView: UIScrollView = {
+        let scrollview = UIScrollView()
+        scrollview.translatesAutoresizingMaskIntoConstraints = false
+        return scrollview
+    }()
     
     private let chartContainerView: ChartContainerView  = {
         let chart = ChartContainerView()
@@ -61,7 +65,7 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: .zero, weight: .regular, scale: .large), forImageIn: .normal)
         button.tintColor = .basicColor
-        button.addTarget(self, action: #selector(previousDidTapAction(_:)       ), for: .touchUpInside)
+        button.addTarget(self, action: #selector(previousDidTapAction(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -74,18 +78,26 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
     }
     
     private func constraintUI() {
-        view.addSubview(chartContainerView)
-        view.addSubview(currentDateLabel)
-        view.addSubview(nextButton)
-        view.addSubview(previousButton)
-        view.addSubview(statsTopStackView)
-        view.addSubview(statsBottomStackView)
-        
+        view.addSubview(scrollView)
+
+        scrollView.addSubview(chartContainerView)
+        scrollView.addSubview(currentDateLabel)
+        scrollView.addSubview(nextButton)
+        scrollView.addSubview(previousButton)
+        scrollView.addSubview(statsTopStackView)
+        scrollView.addSubview(statsBottomStackView)
+
         NSLayoutConstraint.activate([
-            chartContainerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            chartContainerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
             chartContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             chartContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             chartContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45),
+            chartContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             currentDateLabel.topAnchor.constraint(equalTo: chartContainerView.bottomAnchor, constant: 30),
             currentDateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -104,7 +116,8 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
             
             statsBottomStackView.topAnchor.constraint(equalTo: statsTopStackView.bottomAnchor, constant: 10),
             statsBottomStackView.leadingAnchor.constraint(equalTo: statsTopStackView.leadingAnchor),
-            statsBottomStackView.trailingAnchor.constraint(equalTo: statsTopStackView.trailingAnchor)
+            statsBottomStackView.trailingAnchor.constraint(equalTo: statsTopStackView.trailingAnchor),
+            statsBottomStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20)
         ])
     }
     

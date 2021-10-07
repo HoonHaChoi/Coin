@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,50 +15,9 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMV-3Q-WGa">
-                                <rect key="frame" x="169" y="417.5" width="76.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" name="191919"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-3V-h6a">
-                                <rect key="frame" x="136.5" y="419.5" width="14.5" height="20.5"/>
-                                <color key="tintColor" name="191919"/>
-                                <state key="normal" image="chevron.left" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
-                                </state>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEE-FD-gdC">
-                                <rect key="frame" x="265.5" y="420" width="21.5" height="19.5"/>
-                                <color key="tintColor" name="191919"/>
-                                <state key="normal" image="pencil" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
-                                </state>
-                            </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCb-dU-9Yf">
-                                <rect key="frame" x="20" y="74" width="374" height="313.5"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="FMV-3Q-WGa" firstAttribute="leading" secondItem="BKk-3V-h6a" secondAttribute="trailing" constant="20" id="BgZ-e5-qze"/>
-                            <constraint firstItem="FMV-3Q-WGa" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="HLd-ae-jjh"/>
-                            <constraint firstItem="XEE-FD-gdC" firstAttribute="leading" secondItem="FMV-3Q-WGa" secondAttribute="trailing" constant="20" id="HfC-PT-yCj"/>
-                            <constraint firstItem="wCb-dU-9Yf" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.35" id="Jcn-Jn-Mo6"/>
-                            <constraint firstItem="FMV-3Q-WGa" firstAttribute="centerY" secondItem="BKk-3V-h6a" secondAttribute="centerY" id="PR8-Hl-ytx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wCb-dU-9Yf" secondAttribute="trailing" constant="20" id="cX4-85-35R"/>
-                            <constraint firstItem="wCb-dU-9Yf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="l5w-Xj-JDn"/>
-                            <constraint firstItem="wCb-dU-9Yf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="lmg-vA-q6G"/>
-                            <constraint firstItem="XEE-FD-gdC" firstAttribute="centerY" secondItem="FMV-3Q-WGa" secondAttribute="centerY" id="lnO-6S-y3v"/>
-                            <constraint firstItem="FMV-3Q-WGa" firstAttribute="top" secondItem="wCb-dU-9Yf" secondAttribute="bottom" constant="30" id="xxJ-Cf-HXv"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tempChartView" destination="wCb-dU-9Yf" id="oXi-Pp-rz9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,16 +25,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-        <namedColor name="191919">
-            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

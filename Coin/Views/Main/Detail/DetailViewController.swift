@@ -122,7 +122,4 @@ class DetailViewController: UIViewController {
         }
     }
     
-    deinit {
-        print(#function)
-    }
 }

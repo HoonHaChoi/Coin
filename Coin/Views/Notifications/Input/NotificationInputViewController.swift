@@ -176,7 +176,4 @@ final class NotificationInputViewController: UIViewController {
         }
     }
     
-    deinit {
-        print(#function, "inputController")
-    }
 }

@@ -152,10 +152,7 @@ class SearchViewController: UIViewController, Storyboarded {
             self?.present(alert, animated: true)
         }
     }
-    
-    deinit {
-        print(#function, "searchViewController")
-    }
+
 }
 
 extension SearchViewController: UITableViewDelegate {

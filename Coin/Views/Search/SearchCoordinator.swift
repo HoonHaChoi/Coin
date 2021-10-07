@@ -42,7 +42,4 @@ final class SearchCoordinator: Coordinator {
         coordinate(to: notificationInputCoordinator)
     }
     
-    deinit {
-        print(#function)
-    }
 }

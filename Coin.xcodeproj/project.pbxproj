@@ -140,6 +140,7 @@
 		BFCBED6626FC72FA00BFE297 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD126BC6DAB003B801A /* Date+Extension.swift */; };
 		BFCBED6826FC73DB00BFE297 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F9DC526D54E00006A0077 /* Mapper.swift */; };
 		BFCBED6926FC73E100BFE297 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541226A152BB00341A6D /* ImageRequest.swift */; };
+		BFCD91D82711AC3400AF33CA /* NWMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD91D72711AC3400AF33CA /* NWMonitor.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 		BFD5199926C3505D00226FF8 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199826C3505D00226FF8 /* DayOfWeek.swift */; };
 		BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
@@ -319,6 +320,7 @@
 		BFCBED4126FC698800BFE297 /* CoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFCBED4326FC698800BFE297 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 		BFCBED4526FC698800BFE297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFCD91D72711AC3400AF33CA /* NWMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWMonitor.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		BFD5199826C3505D00226FF8 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				BFB427EA26CB3F4B001D4C91 /* ChartHelper.swift */,
 				BF2F9DC526D54E00006A0077 /* Mapper.swift */,
 				BFB0A51426D7B323004F04AE /* CoinSortHelper.swift */,
+				BFCD91D72711AC3400AF33CA /* NWMonitor.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -953,6 +956,7 @@
 				BF4F3A9426B86B30003B801A /* TradingLogDataSource.swift in Sources */,
 				BFFE180F26F1317400F4FD1A /* NotificationsViewModel.swift in Sources */,
 				BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */,
+				BFCD91D82711AC3400AF33CA /* NWMonitor.swift in Sources */,
 				BFF72DE826E8E1BC00FBC13C /* NotificationCell.swift in Sources */,
 				BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */,
 				BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */,

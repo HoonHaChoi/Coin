@@ -94,7 +94,8 @@ struct AppDependency {
     
     // MARK: Controller
     func makeSplashViewController() -> SplashViewController {
-        let splashViewController = SplashViewController()
+        let nwMonitor = NWMonitor()
+        let splashViewController = SplashViewController(moniter: nwMonitor)
         return splashViewController
     }
     

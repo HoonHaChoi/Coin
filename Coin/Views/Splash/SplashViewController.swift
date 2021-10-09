@@ -11,19 +11,27 @@ import Network
 
 final class SplashViewController: UIViewController {
 
+    private let moniter: NetWorkChecking
+    
+    init(moniter: NetWorkChecking) {
+        self.moniter = moniter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     private let animationView: AnimationView = {
         let animationView = AnimationView(name: "Splash")
         return animationView
     }()
     
     weak var coordinator: AppCoordinator?
-    private let moniter = NWPathMonitor()
-    private var isNetworkState: NWPath.Status = .unsatisfied
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        checkNetwork()
         configureAnimationView()
     }
     
@@ -38,7 +46,7 @@ final class SplashViewController: UIViewController {
     
     private func playAnimation() {
         animationView.play { [weak self] _ in
-            if self?.isNetworkState == .satisfied {
+            if self?.moniter.canNetworkConnect() ?? false {
                 self?.coordinator?.showMainCoordinator()
             } else {
                 self?.failNetworkAlert()
@@ -46,12 +54,6 @@ final class SplashViewController: UIViewController {
         }
     }
     
-    private func checkNetwork() {
-        moniter.start(queue: DispatchQueue.global())
-        moniter.pathUpdateHandler = { path in
-            self.isNetworkState = path.status
-        }
-    }
     
     private func failNetworkAlert() {
         let alert = UIAlertController(title: "",

@@ -21,7 +21,7 @@ final class VersionManager {
     }
     
     func fetchAppStoreVersion() -> AnyPublisher<AppInfo, NetworkError> {
-        let url = URL(string: "https://itunes.apple.com/lookup?bundleId=hoonha.Coin")
+        usecase.requestAppStoreVersion(url: Endpoint.appStoreURL(bundle: appBundle))
     }
     
 }

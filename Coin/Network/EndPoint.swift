@@ -107,6 +107,10 @@ enum Endpoint {
         component.path = socket
         return component.url
     }
+    
+    static func appStoreURL(bundle: String) -> URL? {
+        return URL(string: "https://itunes.apple.com/lookup?bundleId=\(bundle)")
+    }
 }
 
 // 다시 수정되어 사용할지 모르니 주석처리

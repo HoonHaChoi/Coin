@@ -9,6 +9,7 @@ protocol SearchUseCase {
     func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError>
     func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError>
     func requestNotificationCycle(url: URL?) -> AnyPublisher<[NotificationCycle], NetworkError>
+    func requestAppStoreVersion(url: URL?) -> AnyPublisher<AppInfo, NetworkError>
 }
 
 struct NetworkManager: SearchUseCase {
@@ -38,6 +39,10 @@ struct NetworkManager: SearchUseCase {
                                               method: method,
                                               body: body)
         return self.session.completeResponsePublisher(for: urlRequest)
+    }
+    
+    func requestAppStoreVersion(url: URL?) -> AnyPublisher<AppInfo, NetworkError> {
+        return self.session.requestResource(url: url)
     }
     
     func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError> {

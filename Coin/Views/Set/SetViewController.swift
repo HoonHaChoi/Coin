@@ -71,8 +71,10 @@ final class SetViewController: UIViewController {
     }
     
     private func checkAppVersion() -> String {
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-        return version ?? "1.0"
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
+            return "Not Found App Version"
+        }
+        return version
     }
     
     private func writeToReview() {

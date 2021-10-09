@@ -141,6 +141,8 @@
 		BFCBED6826FC73DB00BFE297 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F9DC526D54E00006A0077 /* Mapper.swift */; };
 		BFCBED6926FC73E100BFE297 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA1541226A152BB00341A6D /* ImageRequest.swift */; };
 		BFCD91D82711AC3400AF33CA /* NWMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD91D72711AC3400AF33CA /* NWMonitor.swift */; };
+		BFCD91DA2711BD9C00AF33CA /* VersionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD91D92711BD9C00AF33CA /* VersionManager.swift */; };
+		BFCD91DC2711FF6700AF33CA /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD91DB2711FF6700AF33CA /* AppInfo.swift */; };
 		BFD5199726C2D24E00226FF8 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199626C2D24E00226FF8 /* UserSetting.swift */; };
 		BFD5199926C3505D00226FF8 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199826C3505D00226FF8 /* DayOfWeek.swift */; };
 		BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
@@ -321,6 +323,8 @@
 		BFCBED4326FC698800BFE297 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 		BFCBED4526FC698800BFE297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFCD91D72711AC3400AF33CA /* NWMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWMonitor.swift; sourceTree = "<group>"; };
+		BFCD91D92711BD9C00AF33CA /* VersionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionManager.swift; sourceTree = "<group>"; };
+		BFCD91DB2711FF6700AF33CA /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		BFD5199626C2D24E00226FF8 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		BFD5199826C3505D00226FF8 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -452,6 +456,7 @@
 				BF92D7D426B43B710033B773 /* TradingLog.swift */,
 				BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */,
 				BFFE180C26F12B3A00F4FD1A /* Notifications.swift */,
+				BFCD91DB2711FF6700AF33CA /* AppInfo.swift */,
 				BF92D7D326B4386D0033B773 /* CoreDataStorage */,
 			);
 			path = Model;
@@ -710,6 +715,7 @@
 			children = (
 				BFEB71E2270B22C200B888CD /* Splash.json */,
 				BFEB71DD270B1EF200B888CD /* SplashViewController.swift */,
+				BFCD91D92711BD9C00AF33CA /* VersionManager.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -962,6 +968,7 @@
 				BFB427DC26C9BCFB001D4C91 /* StatsDTO.swift in Sources */,
 				BF239855270158540020089F /* Requestable.swift in Sources */,
 				BFD5199D26C3919F00226FF8 /* UIColor+Extension.swift in Sources */,
+				BFCD91DC2711FF6700AF33CA /* AppInfo.swift in Sources */,
 				BFDD489226E5CF4D00AFCA7C /* DetailViewModel.swift in Sources */,
 				BFBA259E26CDED960088D26B /* TradingLogDetailViewController.swift in Sources */,
 				BFBCC56F26EB1A6500B878F1 /* NotificationTextField.swift in Sources */,
@@ -1033,6 +1040,7 @@
 				BFB0A51326D73C2B004F04AE /* CryptoHeaderView.swift in Sources */,
 				BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */,
 				BFB427ED26CB4436001D4C91 /* TradingLogStatsChartDTO.swift in Sources */,
+				BFCD91DA2711BD9C00AF33CA /* VersionManager.swift in Sources */,
 				BF4F3ACE26BC34F0003B801A /* TradingLogAddViewController+Extension.swift in Sources */,
 				BFF72DEA26E97A2600FBC13C /* UITableViewHeaderView+Extension.swift in Sources */,
 				BF2F9DC626D54E00006A0077 /* Mapper.swift in Sources */,

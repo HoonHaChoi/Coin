@@ -54,7 +54,6 @@ final class SplashViewController: UIViewController {
         }
     }
     
-    
     private func failNetworkAlert() {
         let alert = UIAlertController(title: "",
                                       message: "네트워크에 연결할 수 없습니다.\n 네트워크 상태 확인후 다시 시도해 주세요.", preferredStyle: .alert)

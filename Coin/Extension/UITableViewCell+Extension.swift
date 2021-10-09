@@ -10,7 +10,7 @@ import UIKit
 extension UITableViewCell: CellReusable {
     
     func updateBackgroundAnimation(change: Change) {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.3) {
             switch change {
             case .even:
                 break

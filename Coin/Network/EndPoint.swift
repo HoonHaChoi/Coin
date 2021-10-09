@@ -10,8 +10,9 @@ import Foundation
 enum Endpoint {
     
     private static let scheme = "http"
-    private static let host = "coil.koreacentral.cloudapp.azure.com"
-    private static let port: Int? = nil
+    //private static let host = "coil.koreacentral.cloudapp.azure.com"
+    private static let host = "codex.iptime.org"
+    private static let port: Int? = 38080
     private static let tickersPath = "/api/v1/tickers"
     private static let notificationPath = "/api/v1/notifications/"
     private static let chart = "/chart"

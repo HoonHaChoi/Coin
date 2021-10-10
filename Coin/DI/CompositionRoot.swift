@@ -98,6 +98,9 @@ struct AppDependency {
         let versionManager = VersionManager(usecase: networkManager)
         let splashViewController = SplashViewController(moniter: nwMonitor)
         splashViewController.requestAppVersion = versionManager.fetchAppStoreVersion
+        versionManager.successHandler = splashViewController.showMainScreen
+        versionManager.failRequestHandler = splashViewController.showFailRequestAlert
+        versionManager.unequalVersionHandler = splashViewController.showNeedUpdateAlert
         return splashViewController
     }
     

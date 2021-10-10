@@ -49,17 +49,40 @@ final class SplashViewController: UIViewController {
         animationView.play { [weak self] _ in
             if self?.moniter.canNetworkConnect() ?? false {
                 self?.requestAppVersion?()
-//                self?.coordinator?.showMainCoordinator()
             } else {
-                self?.failNetworkAlert()
+                self?.showFailNetworkAlert()
             }
         }
     }
     
-    private func failNetworkAlert() {
-        let alert = UIAlertController(title: "",
-                                      message: "네트워크에 연결할 수 없습니다.\n 네트워크 상태 확인후 다시 시도해 주세요.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        self.present(alert, animated: true)
+    private func showFailNetworkAlert() {
+        showAlertController(message: "네트워크에 연결할 수 없습니다.\n 네트워크 상태 확인후 다시 시도해 주세요.")
     }
+    
+    lazy var showMainScreen = { [weak self] in
+        guard let self = self else { return }
+        DispatchQueue.main.async {
+            self.coordinator?.showMainCoordinator()
+        }
+    }
+    
+    func showFailRequestAlert() {
+        self.showAlertController(message: "네트워크 요청중에 문제가 발생했습니다..\n 잠시 후에 시도 해주세요.")
+    }
+    
+    func showNeedUpdateAlert() {
+        self.showAlertController(title: "업데이트",
+                                 message: "새로운 버전이 나왔습니다. \n 더 나아진 코일을 이용해주세요!") { _ in
+        }
+    }
+    
+    private func showAlertController(title: String = "",
+                             message: String = "",
+                             action: ((UIAlertAction) -> ())? = nil) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(title: title, message: message, action: action)
+            self?.present(alert, animated: true)
+        }
+    }
+    
 }

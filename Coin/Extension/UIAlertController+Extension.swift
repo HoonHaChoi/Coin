@@ -20,6 +20,11 @@ extension UIAlertController {
         addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
     }
     
+    convenience init(title: String, message: String, action: ((UIAlertAction) -> Void)?) {
+        self.init(title: title, message: message, preferredStyle: .alert)
+        addAction(UIAlertAction(title: "확인", style: .default, handler: action))
+    }
+    
     convenience init(message: String, action: ((UIAlertAction) -> Void)?) {
         self.init(title: "", message: message, preferredStyle: .alert)
         addAction(UIAlertAction(title: "확인", style: .default, handler: action))

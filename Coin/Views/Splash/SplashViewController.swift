@@ -27,6 +27,13 @@ final class SplashViewController: UIViewController {
         return animationView
     }()
     
+    private let loadingView: LoadingView = {
+        let loadingView = LoadingView()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.isHidden = true
+        return loadingView
+    }()
+    
     var requestAppVersion: (() -> ())?
     weak var coordinator: AppCoordinator?
     
@@ -34,6 +41,8 @@ final class SplashViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureAnimationView()
+        configureLoadingView()
+        playAnimation()
     }
     
     private func configureAnimationView() {
@@ -42,7 +51,17 @@ final class SplashViewController: UIViewController {
         animationView.contentMode = .scaleAspectFill
         animationView.loopMode = .playOnce
         view.addSubview(animationView)
-        playAnimation()
+    }
+    
+    private func configureLoadingView() {
+        view.addSubview(loadingView)
+        NSLayoutConstraint.activate([
+            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loadingView.heightAnchor.constraint(equalToConstant: 120)
+        ])
     }
     
     private func playAnimation() {
@@ -52,6 +71,12 @@ final class SplashViewController: UIViewController {
             } else {
                 self?.showFailNetworkAlert()
             }
+        }
+    }
+    
+    lazy var changeLoadingState = { [weak self] state in
+        DispatchQueue.main.async {
+            self?.loadingView.isHidden = state
         }
     }
     

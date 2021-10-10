@@ -101,6 +101,7 @@ struct AppDependency {
         versionManager.successHandler = splashViewController.showMainScreen
         versionManager.failRequestHandler = splashViewController.showFailRequestAlert
         versionManager.unequalVersionHandler = splashViewController.showNeedUpdateAlert
+        versionManager.loadingStateHandler = splashViewController.changeLoadingState
         return splashViewController
     }
     

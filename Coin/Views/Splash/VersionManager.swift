@@ -18,6 +18,7 @@ final class VersionManager {
     var failRequestHandler: (() -> ())?
     var unequalVersionHandler: (() -> ())?
     var successHandler: (() -> ())?
+    var loadingStateHandler: ((Bool) -> ())?
     
     init(usecase: SearchUseCase) {
         self.nowVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Not Found App Version"
@@ -26,13 +27,16 @@ final class VersionManager {
     }
     
     func fetchAppStoreVersion() {
+        loadingStateHandler?(false)
         cancell = usecase.requestAppStoreVersion(url: Endpoint.appStoreURL(bundle: appBundle))
             .sink { [weak self] fail in
             if case .failure(_) = fail {
                 self?.failRequestHandler?()
+                self?.loadingStateHandler?(true)
             }
         } receiveValue: { [weak self] appInfo in
             self?.compareVersion(appinfo: appInfo)
+            self?.loadingStateHandler?(true)
         }
     }
 

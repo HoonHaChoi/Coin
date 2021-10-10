@@ -27,6 +27,7 @@ final class SplashViewController: UIViewController {
         return animationView
     }()
     
+    var requestAppVersion: (() -> ())?
     weak var coordinator: AppCoordinator?
     
     override func viewDidLoad() {
@@ -47,7 +48,8 @@ final class SplashViewController: UIViewController {
     private func playAnimation() {
         animationView.play { [weak self] _ in
             if self?.moniter.canNetworkConnect() ?? false {
-                self?.coordinator?.showMainCoordinator()
+                self?.requestAppVersion?()
+//                self?.coordinator?.showMainCoordinator()
             } else {
                 self?.failNetworkAlert()
             }

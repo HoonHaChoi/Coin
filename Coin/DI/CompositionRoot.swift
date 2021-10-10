@@ -95,7 +95,9 @@ struct AppDependency {
     // MARK: Controller
     func makeSplashViewController() -> SplashViewController {
         let nwMonitor = NWMonitor()
+        let versionManager = VersionManager(usecase: networkManager)
         let splashViewController = SplashViewController(moniter: nwMonitor)
+        splashViewController.requestAppVersion = versionManager.fetchAppStoreVersion
         return splashViewController
     }
     

@@ -44,7 +44,11 @@ final class VersionManager {
         guard let info = appinfo.results.first else {
             return
         }
-        if info.version.compare(nowVersion) == .orderedSame {
+        
+        let nowVersionValue = Double(nowVersion) ?? 0.0
+        let appStoreVesionValue = Double(info.version) ?? 0.0
+
+        if nowVersionValue >= appStoreVesionValue {
             successHandler?()
         } else {
             unequalVersionHandler?()

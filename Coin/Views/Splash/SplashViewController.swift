@@ -72,7 +72,8 @@ final class SplashViewController: UIViewController {
     
     func showNeedUpdateAlert() {
         self.showAlertController(title: "업데이트",
-                                 message: "새로운 버전이 나왔습니다. \n 더 나아진 코일을 이용해주세요!") { _ in
+                                 message: "새로운 버전이 나왔습니다. \n 더 나아진 코일을 이용해주세요!") { [weak self] _ in
+            self?.moveAppStore()
         }
     }
     
@@ -85,4 +86,12 @@ final class SplashViewController: UIViewController {
         }
     }
     
+    private func moveAppStore() {
+        guard let url = URL(string:"itms-apps://itunes.apple.com/app/1586982814") else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
 }

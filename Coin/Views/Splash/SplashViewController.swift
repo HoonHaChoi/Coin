@@ -92,6 +92,8 @@ final class SplashViewController: UIViewController {
         }
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            self.showAlertController(message: "앱 스토어 URL을 열 수 없습니다.")
         }
     }
 }

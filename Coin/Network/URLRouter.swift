@@ -29,3 +29,43 @@ enum NotificationURLType {
     }
     
 }
+
+// MARK: Ticker Router
+enum TickerURLType {
+    case search(String,String)
+    case exchange(String)
+    case favorite(String)
+    case chart(String)
+    
+    var path: String {
+        switch self {
+        case .search(_, _):
+            return ""
+        case .exchange(_):
+            return ""
+        case let .favorite(uuid):
+            return uuid
+        case let .chart(uuid):
+            return uuid + "/chart"
+        }
+    }
+    
+    var queryItem: [URLQueryItem]? {
+        switch self {
+        case let .search(keyword, exchange):
+            return [
+                URLQueryItem(name: "search", value: keyword),
+                URLQueryItem(name: "market", value: "krw"),
+                URLQueryItem(name: "exchange", value: exchange)
+            ]
+        case let .exchange(exchange):
+            return [
+                URLQueryItem(name: "market", value: "krw"),
+                URLQueryItem(name: "exchange", value: exchange),
+            ]
+        default:
+            return nil
+        }
+    }
+}
+

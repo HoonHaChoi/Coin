@@ -16,7 +16,6 @@ enum Endpoint {
     private static let port: Int? = 38080
     private static let tickersPath = "/api/v1/tickers"
     private static let notificationPath = "/api/v1/notifications/"
-    private static let chart = "/chart"
     private static let socket = "/socket"
     
     static func searchURL(keyword: String, exchange: String) -> URL? {
@@ -111,6 +110,27 @@ enum Endpoint {
     
     static func appStoreURL(bundle: String) -> URL? {
         return URL(string: "https://itunes.apple.com/lookup?bundleId=\(bundle)")
+    }
+    
+    private static func basetickersURL(path: String, queryItems: [URLQueryItem]? = nil) -> URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.port = port
+        component.path = tickersPath + path
+        component.queryItems = queryItems
+        return component.url
+    }
+    
+    static func tickerURL(type: TickerURLType) -> URL? {
+        switch type {
+        case .search(_, _):
+            return basetickersURL(path: type.path, queryItems: type.queryItem)
+        case .exchange(_):
+            return basetickersURL(path: type.path, queryItems: type.queryItem)
+        case .favorite(_), .chart(_):
+            return basetickersURL(path: type.path)
+        }
     }
     
     private static func baseNotificationURL(path: String) -> URL? {

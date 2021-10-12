@@ -55,12 +55,12 @@ final class TradingLogAddStore {
                 state.isFormValid = isFormValidCheck(state)
             case let .memoInput(memo):
                 state.memo = memo
-            case .addTradingLog:
+            case let .addTradingLog(memo):
                 environment.onDismissSubject
                     .send(TradingLog(startPrice: state.startAmount.convertRegexInt(),
                                      endPrice: state.endAmount.convertRegexInt(),
                                      date: state.selectDate.convertDate(),
-                                     memo: state.memo))
+                                     memo: memo))
             case .alertDissmiss:
                 state.errorAlert = nil
             case let .editInput(date):

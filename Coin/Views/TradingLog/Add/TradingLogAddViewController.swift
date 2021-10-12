@@ -145,7 +145,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }
     
     @objc func addDoneButtonPressed() {
-        dispatch?(.addTradingLog)
+        dispatch?(.addTradingLog(memoTextView.text))
     }
     
     private func setTextFieldToolbar() {
@@ -165,11 +165,6 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         endAmountTextField.textPublisher.sink { [weak self] string in
             self?.dispatch?(.endAmountInput(string))
         }.store(in: &cancellable)
-        
-        memoTextView.textPublisher.sink { [weak self] string in
-            self?.dispatch?(.memoInput(string))
-        }.store(in: &cancellable)
-        
     }
     
     @objc private func doneBarButtonPressed() {
@@ -191,7 +186,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         self?.endAmountTextField.text = state.endAmount
         self?.addBarButton.isEnabled = state.isFormValid
         
-        if state.memo != ""  {
+        if self?.memoTextView.text.isEmpty ?? true {
             self?.memoTextView.text = state.memo
         }
         

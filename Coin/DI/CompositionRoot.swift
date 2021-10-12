@@ -19,13 +19,6 @@ struct AppDependency {
         return SocketRepository(socket: socket)
     }
     
-//    let changeColorMapper = EnumMapper(key: Change.allCases,
-//                                  item: [UIColor.fallColor,
-//                                         UIColor.basicColor,
-//                                         UIColor.riseColor])
-//    let changeSignMapper = EnumMapper(key: Change.allCases,
-//                                      item: ["-","","+"])
-    
     // MARK: CoreData
     var tradingLogCoreData = CoreDataStorageManager(container:
                                                         makePersistentContainer(modelName: "TradingLogModel"),
@@ -255,10 +248,6 @@ struct AppDependency {
 
         let viewmodel = NotificationsViewModel(usecase: networkManager)
         let notificationDataSource = NotificationDataSource()
-        //        typealias NotificationDataSource = TableDataSource<NotificationCell, Notifications>
-//        let notificationDataSource = NotificationDataSource.init(emptyView: EmptyView(frame: .zero, title: "알림 목록이 비어 있어요!", description: "+버튼으로 원하는 금액에 도달하는 코인을 \n 등록하고 알림을 받아보세요")) { cell, noti in
-//            cell.configure(from: noti)
-//        }
         let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource,
                                                                       imageLoader: imageLoader)
         

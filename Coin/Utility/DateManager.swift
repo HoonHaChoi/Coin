@@ -46,18 +46,10 @@ final class DateManager {
     }
     
     func confirmNextMonth() -> Bool {
-//        if calendar.date(byAdding: .month, value: +1, to: currentDate)! > Date() {
-//            return true
-//        }
-//        return false
         calendar.date(byAdding: .month, value: +1, to: currentDate)! > Date() ? true : false
     }
     
     func confirmPreviousMonth() -> Bool {
-//        if currentDate < calendar.date(byAdding: .year, value: -10, to: Date())! {
-//            return true
-//        }
-//        return false
         currentDate < calendar.date(byAdding: .year, value: -10, to: Date())! ? true : false
     }
 }

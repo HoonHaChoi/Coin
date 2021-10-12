@@ -63,11 +63,15 @@ enum Endpoint {
         return baseNotificationURL(path: type.path)
     }
     
-    static func appStoreURL(bundle: String) -> URL? {
+    static func appStoreInfoURL(bundle: String) -> URL? {
         return URL(string: "https://itunes.apple.com/lookup?bundleId=\(bundle)")
     }
     
     static func reviewURL() -> URL? {
         return URL(string: "https://apps.apple.com/app/id\(appID)?action=write-review")
+    }
+    
+    static func appStoreURL() -> URL? {
+        return URL(string:"itms-apps://itunes.apple.com/app/\(appID)")
     }
 }

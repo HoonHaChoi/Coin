@@ -28,7 +28,7 @@ final class VersionManager {
     
     func fetchAppStoreVersion() {
         loadingStateHandler?(false)
-        cancell = usecase.requestAppStoreVersion(url: Endpoint.appStoreURL(bundle: appBundle))
+        cancell = usecase.requestAppStoreVersion(url: Endpoint.appStoreInfoURL(bundle: appBundle))
             .sink { [weak self] fail in
             if case .failure(_) = fail {
                 self?.failRequestHandler?()

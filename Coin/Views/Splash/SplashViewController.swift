@@ -112,7 +112,7 @@ final class SplashViewController: UIViewController {
     }
     
     private func moveAppStore() {
-        guard let url = URL(string:"itms-apps://itunes.apple.com/app/1586982814") else {
+        guard let url = Endpoint.appStoreURL() else {
             return
         }
         if UIApplication.shared.canOpenURL(url) {

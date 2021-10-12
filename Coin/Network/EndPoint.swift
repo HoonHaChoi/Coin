@@ -113,7 +113,7 @@ enum Endpoint {
         return URL(string: "https://itunes.apple.com/lookup?bundleId=\(bundle)")
     }
     
-    static func baseNotificationURL(path: String) -> URL? {
+    private static func baseNotificationURL(path: String) -> URL? {
         var component = URLComponents()
         component.scheme = scheme
         component.host = host

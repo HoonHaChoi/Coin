@@ -10,16 +10,16 @@ import Foundation
 
 // MARK: Notification Router
 enum NotificationURLType {
-    case list(String)
-    case Switch(String)
+    case api(String)
+    case active(String)
     case create(String)
     case cycle
     
     var path: String {
         switch self {
-        case let .list(token):
+        case let .api(token):
             return token
-        case let .Switch(uuid):
+        case let .active(uuid):
             return uuid + "/active"
         case let .create(token):
             return token + "/tickers"

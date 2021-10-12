@@ -29,7 +29,7 @@ final class NotificationsViewModel {
     
     func fetchNotifications() {
         loadingHiddenStateHandler?(false)
-        searchUseCase.requestNotifications(url: Endpoint.notificationsURL(token: token))
+        searchUseCase.requestNotifications(url: Endpoint.notificationURL(type: .api(token)))
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -43,7 +43,7 @@ final class NotificationsViewModel {
     
     func deleteNotification(uuid: String) {
         loadingHiddenStateHandler?(false)
-        searchUseCase.requestDeleteNotification(url: Endpoint.notificationsURL(token: uuid), method: .delete)
+        searchUseCase.requestDeleteNotification(url: Endpoint.notificationURL(type: .api(uuid)), method: .delete)
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -57,7 +57,7 @@ final class NotificationsViewModel {
     
     func updateNotificationSwitch(uuid: String, state: Bool, cell: NotificationCell) {
         loadingHiddenStateHandler?(false)
-        searchUseCase.requestCompleteNotification(url: Endpoint.notificationSwitchURL(uuid: uuid),
+        searchUseCase.requestCompleteNotification(url: Endpoint.notificationURL(type: .active(uuid)),
                                                   method: .put,
                                                   body: makeJsonData(state: state))
             .sink { [weak self] fail in

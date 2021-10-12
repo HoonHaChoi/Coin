@@ -67,13 +67,13 @@ final class NotificationInputViewModel {
     }
     
     func requestCreateNotification(type: String, uuid: String) {
-        let url = Endpoint.notificationCreateURL(token: token)
+        let url = Endpoint.notificationURL(type: .create(token))
         let data = makeNotificationObject(type: type, uuid: uuid)
         requestNotification(url: url, method: .post, body: data)
     }
     
     func requestUpdateNotification(type: String, uuid: String) {
-        let url = Endpoint.notificationsURL(token: uuid)
+        let url = Endpoint.notificationURL(type: .api(uuid))
         let data = makeNotificationObject(type: type, uuid: "")
         requestNotification(url: url, method: .put, body: data)
     }

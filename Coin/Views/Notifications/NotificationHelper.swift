@@ -44,7 +44,7 @@ final class NotificationHelper: NotificationHelp {
     }
     
     private func configue() {
-        cancell = usecase.requestNotificationCycle(url: Endpoint.notificationCycleURL())
+        cancell = usecase.requestNotificationCycle(url: Endpoint.notificationURL(type: .cycle))
             .sink { _ in }
                 receiveValue: { [weak self] cycles in
                     cycles.forEach { cycle in

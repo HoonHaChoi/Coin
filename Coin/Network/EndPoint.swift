@@ -112,6 +112,19 @@ enum Endpoint {
     static func appStoreURL(bundle: String) -> URL? {
         return URL(string: "https://itunes.apple.com/lookup?bundleId=\(bundle)")
     }
+    
+    static func baseNotificationURL(path: String) -> URL? {
+        var component = URLComponents()
+        component.scheme = scheme
+        component.host = host
+        component.port = port
+        component.path = notificationPath + path
+        return component.url
+    }
+    
+    static func notificationURL(type: NotificationURLType) -> URL? {
+        return baseNotificationURL(path: type.path)
+    }
 }
 
 // 다시 수정되어 사용할지 모르니 주석처리

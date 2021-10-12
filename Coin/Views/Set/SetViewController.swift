@@ -78,9 +78,14 @@ final class SetViewController: UIViewController {
     }
     
     private func writeToReview() {
-        guard let writeReviewURL = URL(string: "https://apps.apple.com/app/id1586982814?action=write-review")
-            else { fatalError("Expected a valid URL") }
-        UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
+        guard let writeReviewURL = Endpoint.reviewURL() else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(writeReviewURL) {
+            UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
+        } else {
+            self.showErrorAlert(message: "앱 스토어 URL을 열 수 없습니다.")
+        }
     }
 }
 

@@ -17,6 +17,7 @@ enum Endpoint {
     private static let tickersPath = "/api/v1/tickers/"
     private static let notificationPath = "/api/v1/notifications/"
     private static let socket = "/socket"
+    private static let appID = 1586982814
     
     static var socketURL: URL? {
         var component = URLComponents()
@@ -25,10 +26,6 @@ enum Endpoint {
         component.port = port
         component.path = socket
         return component.url
-    }
-    
-    static func appStoreURL(bundle: String) -> URL? {
-        return URL(string: "https://itunes.apple.com/lookup?bundleId=\(bundle)")
     }
     
     private static func basetickersURL(path: String,
@@ -64,5 +61,13 @@ enum Endpoint {
     
     static func notificationURL(type: NotificationURLType) -> URL? {
         return baseNotificationURL(path: type.path)
+    }
+    
+    static func appStoreURL(bundle: String) -> URL? {
+        return URL(string: "https://itunes.apple.com/lookup?bundleId=\(bundle)")
+    }
+    
+    static func reviewURL() -> URL? {
+        return URL(string: "https://apps.apple.com/app/id\(appID)?action=write-review")
     }
 }

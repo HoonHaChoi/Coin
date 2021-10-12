@@ -25,7 +25,7 @@ struct NetworkManager: SearchUseCase {
     }
     
     func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError> {
-        return self.session.requestResource(url: Endpoint.favoriteURL(uuid: uuidString))
+        return self.session.requestResource(url: Endpoint.tickerURL(type: .favorite(uuidString)))
     }
     
     func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError> {

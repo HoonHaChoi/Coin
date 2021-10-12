@@ -92,7 +92,7 @@ class DetailViewController: UIViewController {
     }
     
     private func loadChartView() {
-        chartWebView.configure(url: Endpoint.chartURL(uuid: coin.uuid))
+        chartWebView.configure(url: Endpoint.tickerURL(type: .chart(coin.uuid)))
     }
  
     private func configureFavoriteButton() {

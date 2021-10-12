@@ -18,8 +18,7 @@ final class SearchViewModel {
     }
     
     func fetchSearchCoins(keyword: String, exchange: String) {
-        guard let url = Endpoint.searchURL(keyword: keyword,
-                                           exchange: exchange) else {
+        guard let url = Endpoint.tickerURL(type: .search(keyword, exchange)) else {
             return
         }
         loadingHiddenStateHandler?(false)

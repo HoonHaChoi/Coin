@@ -10,8 +10,8 @@ import Combine
 
 final class ExchangeViewModel: CryptoBaseViewModel {
     
-    func fetchCoins(from market: Exchange) {
-        guard let url = Endpoint.exchangeURL(market: market) else {
+    func fetchCoins(from exchange: Exchange) {
+        guard let url = Endpoint.tickerURL(type: .exchange(exchange.toString)) else {
             return
         }
         
@@ -25,8 +25,8 @@ final class ExchangeViewModel: CryptoBaseViewModel {
             }
     }
     
-    func fetchCoinsSocket(from market: Exchange) {
-        guard let url = Endpoint.exchangeURL(market: market) else {
+    func fetchCoinsSocket(from exchange: Exchange) {
+        guard let url = Endpoint.tickerURL(type: .exchange(exchange.toString)) else {
             return
         }
         cancell = searchUseCase.requestSearchCoins(url: url)
@@ -36,7 +36,7 @@ final class ExchangeViewModel: CryptoBaseViewModel {
                 }
             } receiveValue: { [weak self] (coins) in
                 self?.coinsHandler?(coins)
-                self?.fetchSocketExchangeMeta(from: market)
+                self?.fetchSocketExchangeMeta(from: exchange)
             }
     }
     

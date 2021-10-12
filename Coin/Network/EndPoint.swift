@@ -11,6 +11,7 @@ enum Endpoint {
     
     private static let scheme = "http"
     //private static let host = "coil.koreacentral.cloudapp.azure.com"
+    //private static let host = "coil-api.eba-fvgkzjcp.ap-northeast-2.elasticbeanstalk.com"
     private static let host = "codex.iptime.org"
     private static let port: Int? = 38080
     private static let tickersPath = "/api/v1/tickers"

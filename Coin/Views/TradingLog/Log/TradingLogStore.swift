@@ -23,7 +23,8 @@ class TradingLogStore {
     
     struct Navigator {
         let viewController: UIViewController
-        let findDataHandler: (Date) -> [TradingLogMO]
+        let findLogHandler: (Date) -> TradingLogMO?
+        let isExistHandler: (Date) -> Bool
         
         func pushTradingLogAddView(style: FormStyle) -> AnyPublisher<TradingLog, Never> {
             let subject: PassthroughSubject<TradingLog, Never> = .init()
@@ -36,7 +37,8 @@ class TradingLogStore {
                 TradingLogAddStore(state: .empty,
                                    environment:
                                     .init(onDismissSubject: subject,
-                                          existData: findDataHandler,
+                                          findLog: findLogHandler,
+                                          existDate: isExistHandler,
                                           alert: tradingErrorAlert)
                 )
             
@@ -82,7 +84,8 @@ class TradingLogStore {
                 updateState(state: &state)
             case .didTapAddTradingLog:
                 return Navigator(viewController: environment.addTradingView,
-                                 findDataHandler: environment.coreDataManager.find(date:))
+                                 findLogHandler: environment.coreDataManager.findTradingLog(date:),
+                                 isExistHandler: environment.coreDataManager.isExistLog(date:))
                     .pushTradingLogAddView(style: .add)
                     .map { log in Action.addTradingLog(log) }
                     .eraseToAnyPublisher()
@@ -97,7 +100,9 @@ class TradingLogStore {
                 
             case let .didTapEditTradingLog(date):
                 return Navigator(viewController: environment.addTradingView,
-                          findDataHandler: environment.coreDataManager.find(date:)).pushTradingLogAddView(style: .edit(date))
+                                 findLogHandler: environment.coreDataManager.findTradingLog(date:),
+                                 isExistHandler: environment.coreDataManager.isExistLog(date:))
+                    .pushTradingLogAddView(style: .edit(date))
                     .map { log in Action.editTradingLog(log) }
                     .eraseToAnyPublisher()
                 

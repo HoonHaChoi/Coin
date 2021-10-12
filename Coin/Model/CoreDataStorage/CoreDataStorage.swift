@@ -13,7 +13,8 @@ protocol CoreDataStorage {
     func insert(tradingLog: TradingLog) -> Bool
     func update(tradingLog: TradingLog) -> Bool
     func delete(date: Date) -> Bool
-    func find(date: Date) -> [TradingLogMO]
+    func findTradingLog(date: Date) -> TradingLogMO?
+    func isExistLog(date: Date) -> Bool
 }
 
 protocol CoreDataFetching {
@@ -98,28 +99,30 @@ struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
     }
     
     func delete(date: Date) -> Bool {
-        
         fetchRequest.predicate = NSPredicate(format: "date == %@",
                                              date as NSDate)
-        
-        guard let tradMO = try? context.fetch(fetchRequest),
-              let tradMOfirst = tradMO.first else {
+        guard let tradMO = try? context.fetch(fetchRequest).first else {
             return false
         }
-
-        let object = context.object(with: tradMOfirst.objectID)
+        let object = context.object(with: tradMO.objectID)
         context.delete(object)
-        
         return save()
     }
     
-    func find(date: Date) -> [TradingLogMO] {
+    func findTradingLog(date: Date) -> TradingLogMO? {
         fetchRequest.predicate = NSPredicate(format: "date == %@",
                                              date as NSDate)
-        guard let tradMO = try? context.fetch(fetchRequest) else {
-            return []
-        }
+        let tradMO = try? context.fetch(fetchRequest).first
         return tradMO
+    }
+    
+    func isExistLog(date: Date) -> Bool {
+        fetchRequest.predicate = NSPredicate(format: "date == %@",
+                                             date as NSDate)
+        guard let _ = try? context.fetch(fetchRequest).first else {
+            return false
+        }
+        return true
     }
     
     private func save() -> Bool {

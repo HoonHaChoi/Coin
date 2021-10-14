@@ -120,9 +120,9 @@ struct CoreDataStorageManager: CoreDataStorage, CoreDataFetching {
         fetchRequest.predicate = NSPredicate(format: "date == %@",
                                              date as NSDate)
         guard let _ = try? context.fetch(fetchRequest).first else {
-            return false
+            return true
         }
-        return true
+        return false
     }
     
     private func save() -> Bool {

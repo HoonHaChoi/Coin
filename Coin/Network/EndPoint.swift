@@ -10,10 +10,8 @@ import Foundation
 enum Endpoint {
     
     private static let scheme = "http"
-    //private static let host = "coil.koreacentral.cloudapp.azure.com"
-    //private static let host = "coil-api.eba-fvgkzjcp.ap-northeast-2.elasticbeanstalk.com"
-    private static let host = "codex.iptime.org"
-    private static let port: Int? = 38080
+    private static let host = "coil-api.eba-fvgkzjcp.ap-northeast-2.elasticbeanstalk.com"
+    private static let port: Int? = 21783
     private static let tickersPath = "/api/v1/tickers/"
     private static let notificationPath = "/api/v1/notifications/"
     private static let socket = "/socket"
@@ -41,9 +39,7 @@ enum Endpoint {
     
     static func tickerURL(type: TickerURLType) -> URL? {
         switch type {
-        case .search(_, _):
-            return basetickersURL(path: type.path, queryItems: type.queryItem)
-        case .exchange(_):
+        case .search(_, _), .exchange(_):
             return basetickersURL(path: type.path, queryItems: type.queryItem)
         case .favorite(_), .chart(_):
             return basetickersURL(path: type.path)

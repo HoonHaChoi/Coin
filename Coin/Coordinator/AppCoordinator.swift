@@ -30,7 +30,7 @@ final class AppCoordinator: Coordinator {
         splashViewController.coordinator = self
         navigation.setViewControllers([splashViewController], animated: true)
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)], for: .normal)
     }
     
     func showMainCoordinator() {

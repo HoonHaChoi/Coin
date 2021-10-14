@@ -10,8 +10,14 @@ import Foundation
 enum Endpoint {
     
     private static let scheme = "http"
-    private static let host = "coil-api.eba-fvgkzjcp.ap-northeast-2.elasticbeanstalk.com"
-    private static let port: Int? = 21783
+    
+    #if DEBUG
+        private static let host = "coil-api.eba-fvgkzjcp.ap-northeast-2.elasticbeanstalk.com"
+        private static let port: Int? = 21783
+    #else
+        private static let host = "codex.iptime.org"
+        private static let port: Int? = 38080
+    #endif
     private static let tickersPath = "/api/v1/tickers/"
     private static let notificationPath = "/api/v1/notifications/"
     private static let socket = "/socket"

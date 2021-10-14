@@ -127,7 +127,7 @@ class ExchangeViewController: UIViewController {
         guard let exchange = exchangeMapper[exchangeSegment.selectedSegmentIndex] else {
             return ""
         }
-        return exchange.toString
+        return exchange.title
     }
     
     private func reloadHeaderView() {

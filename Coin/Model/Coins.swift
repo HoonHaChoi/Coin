@@ -17,10 +17,10 @@ struct Meta: Codable {
 
 enum Exchange: String, CaseIterable ,Codable {
     case upbit = "UPBIT"
-    case coinone = "COINONE"
     case bithumb = "BITHUMB"
-    
-    var toString: String {
+    case coinone = "COINONE"
+
+    var title: String {
         return self.rawValue.lowercased()
     }
 }

@@ -47,7 +47,7 @@ class SearchViewController: UIViewController, Storyboarded {
         var search = UISearchController()
         search.searchBar.placeholder = "코인명(영문), 심볼명을 입력 해주세요"
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.scopeButtonTitles = [allTitle]+Exchange.allCases.map { $0.toString.capitalized }
+        search.searchBar.scopeButtonTitles = [allTitle]+Exchange.allCases.map { $0.title.capitalized }
         search.searchBar.delegate = self
         return search
     }()

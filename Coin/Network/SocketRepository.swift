@@ -27,12 +27,12 @@ struct SocketRepository: SocketUseCase {
         let decode = JSONDecoder()
         decode.keyDecodingStrategy = .convertFromSnakeCase
     
-        if socket.checkEqualEvent(event: [exchange.toString]) {
+        if socket.checkEqualEvent(event: [exchange.title]) {
             return
         }
 
-        socket.joinEmit(event: exchange.toString)
-        socket.onEvent(exchange.toString) { data, ack in
+        socket.joinEmit(event: exchange.title)
+        socket.onEvent(exchange.title) { data, ack in
             do {
                 let data = try JSON(data[0]).rawData()
                 let codabledata = try decode.decode([T].self,

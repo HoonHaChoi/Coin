@@ -11,7 +11,7 @@ import Combine
 final class ExchangeViewModel: CryptoBaseViewModel {
     
     func fetchCoins(from exchange: Exchange) {
-        guard let url = Endpoint.tickerURL(type: .exchange(exchange.toString)) else {
+        guard let url = Endpoint.tickerURL(type: .exchange(exchange.title)) else {
             return
         }
         
@@ -26,7 +26,7 @@ final class ExchangeViewModel: CryptoBaseViewModel {
     }
     
     func fetchCoinsSocket(from exchange: Exchange) {
-        guard let url = Endpoint.tickerURL(type: .exchange(exchange.toString)) else {
+        guard let url = Endpoint.tickerURL(type: .exchange(exchange.title)) else {
             return
         }
         cancell = searchUseCase.requestSearchCoins(url: url)

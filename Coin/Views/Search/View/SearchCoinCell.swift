@@ -21,7 +21,7 @@ class SearchCoinCell: UITableViewCell {
     func configure(coin: Coin, imageLoader: Loader, state: Bool) {
         coinName.text = coin.ticker
         imageLoad(loader: imageLoader, to: coin.logo)
-        market.text = "\(coin.exchange.toString.capitalized)/\(coin.market)"
+        market.text = "\(coin.exchange.title.capitalized)/\(coin.market)"
         favoriteButton.isSelected = state
         updateButtonColor()
     }

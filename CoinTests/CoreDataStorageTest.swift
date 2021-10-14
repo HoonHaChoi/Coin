@@ -45,22 +45,34 @@ class CoreDataStorageTest: XCTestCase {
     
     func test_FindTradingLog() {
         let date = calendar.date(byAdding: .month, value: -1, to: Date()) ?? .init()
-        let log = tradingLogCoreData.find(date: date.removeTimeStamp())
+        guard let log = tradingLogCoreData.findTradingLog(date: date.removeTimeStamp()) else {
+            XCTFail("Not Log")
+            return
+        }
         
-        XCTAssertEqual(log[0].endPrice, 1)
-        XCTAssertEqual(log[0].date, date.removeTimeStamp())
+        XCTAssertEqual(log.endPrice, 1)
+        XCTAssertEqual(log.date, date.removeTimeStamp())
+    }
+    
+    func test_IsExistTradingLog() {
+        let date = calendar.date(byAdding: .month, value: -1, to: Date()) ?? .init()
+        let isExistLog = tradingLogCoreData.isExistLog(date: date.removeTimeStamp())
+        
+        XCTAssertEqual(isExistLog, true)
     }
     
     func test_UpdateTradingLog() {
         let updateLog: TradingLog = .init(startPrice: 100, endPrice: 200, date: Date().removeTimeStamp(), memo: "update")
         
         _ = tradingLogCoreData.update(tradingLog: updateLog)
-        let log = tradingLogCoreData.find(date: Date().removeTimeStamp())
-        XCTAssertEqual(log[0].startPrice, 100)
-        XCTAssertEqual(log[0].endPrice, 200)
-        XCTAssertEqual(log[0].memo, "update")
+        guard let log = tradingLogCoreData.findTradingLog(date: Date().removeTimeStamp()) else {
+            XCTFail("Not Log")
+            return
+        }
+        XCTAssertEqual(log.startPrice, 100)
+        XCTAssertEqual(log.endPrice, 200)
+        XCTAssertEqual(log.memo, "update")
     }
-    
     
     lazy var mockPersistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TradingLogModel",managedObjectModel: managedObjectModel)

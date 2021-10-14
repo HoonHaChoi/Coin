@@ -41,11 +41,11 @@ final class TradingLogAddStore {
             switch action {
             case let .dateInput(date):
                 if environment.existDate(date.removeTimeStamp()) {
-                    state.selectDate = date.convertString()
-                    state.isFormValid = isFormValidCheck(state)
-                } else {
                     state.selectDate = ""
                     state.errorAlert = environment.alert
+                } else {
+                    state.selectDate = date.convertString()
+                    state.isFormValid = isFormValidCheck(state)
                 }
             case let .startAmountInput(amount):
                 state.startAmount = amount.limitTextCount()

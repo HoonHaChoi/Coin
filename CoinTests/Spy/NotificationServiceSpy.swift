@@ -13,6 +13,11 @@ final class NotificationServiceSpy: BaseSpy, NotificationService {
     var deleteURLParameter: String?
     var deleteHTTPMethod: HTTPMethod?
     
+    var completeURLParameter: String?
+    var completeHTTPMethod: HTTPMethod?
+    var completeBody: Bool?
+    var completeResponse: Bool?
+    
     func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError> {
         return Future<[Notice], NetworkError> { promise in
             if self.isSuccess {
@@ -36,9 +41,14 @@ final class NotificationServiceSpy: BaseSpy, NotificationService {
     }
     
     func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError> {
-        
+        let urlComponents = url?.path.components(separatedBy: "/")
+        let bodyState = try? JSONSerialization.jsonObject(with: body, options: []) as? [String: Bool]
+        completeURLParameter = urlComponents?[4]
+        completeHTTPMethod = method
+        completeBody = bodyState?["active"]
         return Future<Void, NetworkError> { promise in
             if self.isSuccess {
+                self.completeResponse = true
                 promise(.success(()))
             } else {
                 promise(.failure(.invalidResponse))

@@ -44,11 +44,26 @@ class NotificationViewModelTest: XCTestCase {
     
     func test_RequestDeleteParameter() {
         let uuid = "fakeNotificaonUUID"
+        
         notificationViewModel.deleteNotification(uuid: uuid)
+        
         XCTAssertEqual(notificationServiceSpy.deleteURLParameter, uuid)
         XCTAssertEqual(notificationServiceSpy.deleteHTTPMethod, .delete)
     }
     
+    func test_RequestUpdateNotificationSwitchParameter() {
+        let uuid = "fakeNotificationUUID"
+        let state = false
+        
+        notificationViewModel.updateNotificationSwitch(uuid: uuid, state: state, cell: .init())
+        
+        XCTAssertEqual(notificationServiceSpy.completeURLParameter, uuid)
+        XCTAssertEqual(notificationServiceSpy.completeHTTPMethod, .put)
+        XCTAssertEqual(notificationServiceSpy.completeBody, state)
+    }
     
-
+    func test_ResponseUpdateNotificationSwitch() {
+        notificationViewModel.updateNotificationSwitch(uuid: "", state: false, cell: .init())
+        XCTAssertEqual(notificationServiceSpy.completeResponse, true)
+    }
 }

@@ -10,7 +10,7 @@ import Combine
 
 class CryptoBaseViewModel {
     
-    let searchUseCase: SearchUseCase
+    let service: FavortieService
     let socketUseCase: SocketUseCase
     var cancell: AnyCancellable?
     
@@ -18,9 +18,9 @@ class CryptoBaseViewModel {
     var failErrorHandler: ((NetworkError) -> Void)?
     var metaHandler: (([CoinMeta]) -> Void)?
     
-    init(searchUsecase: SearchUseCase,
+    init(service: FavortieService,
          socketUsecase : SocketUseCase) {
-        self.searchUseCase = searchUsecase
+        self.service = service
         self.socketUseCase = socketUsecase
     }
 }

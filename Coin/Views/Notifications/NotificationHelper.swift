@@ -32,13 +32,13 @@ final class NotificationHelper: NotificationHelp {
     
     private(set) var cycleUUIDs: [String] = []
     
-    private let usecase: SearchUseCase
+    private let usecase: NotificationCycleService
     private var cancell: AnyCancellable?
     
     private(set) lazy var typeMapper = EnumMapper(key: notificationTypeNames, item: notificationType)
     private(set) lazy var cycleMapper = EnumMapper(key: cycleNames, item: cycleUUIDs)
     
-    init(usecase: SearchUseCase) {
+    init(usecase: NotificationCycleService) {
         self.usecase = usecase
         configue()
     }

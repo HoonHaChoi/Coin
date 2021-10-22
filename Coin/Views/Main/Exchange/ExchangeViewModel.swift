@@ -15,7 +15,7 @@ final class ExchangeViewModel: CryptoBaseViewModel {
             return
         }
         
-        cancell = searchUseCase.requestSearchCoins(url: url)
+        cancell = service.requestSearchCoins(url: url)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.failErrorHandler?(error)
@@ -29,7 +29,7 @@ final class ExchangeViewModel: CryptoBaseViewModel {
         guard let url = Endpoint.tickerURL(type: .exchange(exchange.title)) else {
             return
         }
-        cancell = searchUseCase.requestSearchCoins(url: url)
+        cancell = service.requestSearchCoins(url: url)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.failErrorHandler?(error)

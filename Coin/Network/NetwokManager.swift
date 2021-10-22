@@ -2,17 +2,8 @@ import Foundation
 import Combine
 import SwiftyJSON
 
-protocol SearchUseCase {
-    func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
-    func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
-    func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError>
-    func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError>
-    func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError>
-    func requestNotificationCycle(url: URL?) -> AnyPublisher<[NotificationCycle], NetworkError>
-    func requestAppStoreVersion(url: URL?) -> AnyPublisher<AppInfo, NetworkError>
-}
-
-struct NetworkManager: SearchUseCase, SearchService, NotificationService {
+struct NetworkManager: SearchService, FavortieService, AppStoreService,
+                       NotificationService, NotificationInputService, NotificationCycleService {
     
     private let session: Requestable
     
@@ -70,9 +61,26 @@ protocol SearchService {
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
 }
 
-protocol NotificationService {
+protocol FavortieService: SearchService {
+    func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
+}
+
+protocol AppStoreService {
+    func requestAppStoreVersion(url: URL?) -> AnyPublisher<AppInfo, NetworkError>
+}
+
+protocol NotificationBaseService {
     func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError>
+}
+protocol NotificationService: NotificationBaseService {
     func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError>
     func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError>
+}
+
+protocol NotificationInputService: NotificationBaseService {
+    func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
+}
+
+protocol NotificationCycleService {
     func requestNotificationCycle(url: URL?) -> AnyPublisher<[NotificationCycle], NetworkError>
 }

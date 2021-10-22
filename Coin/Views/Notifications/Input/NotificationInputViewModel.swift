@@ -18,16 +18,16 @@ final class NotificationInputViewModel {
     
     private var basePriceText: String
     private var cycleText: String
-    private let searchUseCase: SearchUseCase
+    private let notificationInputService: NotificationInputService
     private var notificationHelper: NotificationHelp
     private var cancell: Set<AnyCancellable>
     private let token: String
     
-    init(usecase: SearchUseCase,
+    init(usecase: NotificationInputService,
          notificationHelper: NotificationHelp) {
         basePriceText = ""
         cycleText = ""
-        self.searchUseCase = usecase
+        self.notificationInputService = usecase
         self.notificationHelper = notificationHelper
         cancell = .init()
         token = Messaging.messaging().fcmToken ?? ""
@@ -41,7 +41,7 @@ final class NotificationInputViewModel {
     var updateNotificationInputViewHandler: ((Int, String, String) -> ())?
     
     func fetchSearchCoin(uuid: String) {
-        searchUseCase.requestFavoriteCoins(uuidString: uuid)
+        notificationInputService.requestFavoriteCoins(uuidString: uuid)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -79,7 +79,7 @@ final class NotificationInputViewModel {
     }
     
     private func requestNotification(url: URL?, method: HTTPMethod, body: Data) {
-        searchUseCase.requestCompleteNotification(url: url, method: method,
+        notificationInputService.requestCompleteNotification(url: url, method: method,
                                                   body: body)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {

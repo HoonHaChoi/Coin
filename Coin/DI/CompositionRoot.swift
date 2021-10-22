@@ -109,7 +109,7 @@ struct AppDependency {
     }
     
     private func makeExchangeViewController() -> ExchangeViewController {
-        let exchangeViewModel = ExchangeViewModel(searchUsecase: networkManager,
+        let exchangeViewModel = ExchangeViewModel(service: networkManager,
                                                   socketUsecase: socketRepository)
         let exchangeViewController = ExchangeViewController(dataSource: coinDataSource,
                                                             coinSortHelper: coinSortHelper)
@@ -130,7 +130,7 @@ struct AppDependency {
     private func makeMainController() -> MainViewController {
         
         let mainViewModel = MainViewModel(repository: favoriteCoinCoreData,
-                                          searchUseCase: networkManager,
+                                          service: networkManager,
                                           socketUseCase: socketRepository)
         let mainViewController = MainViewController(dataSource: coinDataSource)
         
@@ -175,7 +175,7 @@ struct AppDependency {
     
     private func makeDetailViewController(from coin: Coin) -> DetailViewController {
         let viewModel = DetailViewModel(repository: favoriteCoinCoreData,
-                                        searchUseCase: networkManager,
+                                        service: networkManager,
                                         socketUseCase: socketRepository)
         let detailViewController = DetailViewController(coin: coin,
                                                         imageLoader: imageLoader)

@@ -13,17 +13,17 @@ final class MainViewModel: CryptoBaseViewModel {
     private let favoriteCoinRepository: FavoriteCoinRepository
     
     init(repository: FavoriteCoinRepository,
-         searchUseCase: SearchUseCase,
+         service: FavortieService,
          socketUseCase: SocketUseCase) {
         self.favoriteCoinRepository = repository
-        super.init(searchUsecase: searchUseCase,
+        super.init(service: service,
                    socketUsecase: socketUseCase)
     }
     
     func fetchFavoriteCoins() {
         let uuids = favoriteCoinRepository.fetch()
         let requests = uuids.map { uuid in
-            return searchUseCase.requestFavoriteCoins(uuidString: uuid)
+            return service.requestFavoriteCoins(uuidString: uuid)
         }
         
         cancell = Publishers.MergeMany(requests)

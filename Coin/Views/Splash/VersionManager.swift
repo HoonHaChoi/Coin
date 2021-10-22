@@ -12,7 +12,7 @@ final class VersionManager {
     
     private let nowVersion: String
     private let appBundle: String
-    private let usecase: SearchUseCase
+    private let usecase: AppStoreService
     private var cancell: AnyCancellable?
     
     var failRequestHandler: (() -> ())?
@@ -20,7 +20,7 @@ final class VersionManager {
     var successHandler: (() -> ())?
     var loadingStateHandler: ((Bool) -> ())?
     
-    init(usecase: SearchUseCase) {
+    init(usecase: AppStoreService) {
         self.nowVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Not Found App Version"
         self.appBundle = Bundle.main.bundleIdentifier ?? "Not Found App Bundle"
         self.usecase = usecase

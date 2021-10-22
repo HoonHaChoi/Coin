@@ -12,10 +12,10 @@ final class DetailViewModel: CryptoBaseViewModel {
     private let favoriteCoinRepository: FavoriteCoinRepository
     
     init(repository: FavoriteCoinRepository,
-         searchUseCase: SearchUseCase,
+         service: FavortieService,
          socketUseCase: SocketUseCase) {
         self.favoriteCoinRepository = repository
-        super.init(searchUsecase: searchUseCase,
+        super.init(service: service,
                    socketUsecase: socketUseCase)
     }
     

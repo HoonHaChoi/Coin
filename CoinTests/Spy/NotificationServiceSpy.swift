@@ -10,8 +10,10 @@ import Combine
 
 final class NotificationServiceSpy: BaseSpy, NotificationService {
    
-    func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError> {
+    var deleteURLParameter: String?
+    var deleteHTTPMethod: HTTPMethod?
     
+    func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError> {
         return Future<[Notice], NetworkError> { promise in
             if self.isSuccess {
                 promise(.success([self.dummyModel.DummyNotice()]))
@@ -22,10 +24,11 @@ final class NotificationServiceSpy: BaseSpy, NotificationService {
     }
     
     func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError> {
-        
+        deleteURLParameter = url?.lastPathComponent
+        deleteHTTPMethod = method
         return Future<String, NetworkError> { promise in
             if self.isSuccess {
-                promise(.success(""))
+                promise(.success("FakeDeleteSuccess"))
             } else {
                 promise(.failure(.invalidResponse))
             }

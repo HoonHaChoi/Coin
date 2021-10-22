@@ -105,6 +105,9 @@
 		BFB427EF26CCC6C5001D4C91 /* MenuDisableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427EE26CCC6C5001D4C91 /* MenuDisableTextField.swift */; };
 		BFB4C0062722CA1500A11805 /* NotificationServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C0052722CA1500A11805 /* NotificationServiceSpy.swift */; };
 		BFB4C0082722CDD600A11805 /* BaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C0072722CDD600A11805 /* BaseSpy.swift */; };
+		BFB4C00A2722D61000A11805 /* NotificationViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C0092722D61000A11805 /* NotificationViewModelTest.swift */; };
+		BFB4C00B2722D6E300A11805 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE180E26F1317400F4FD1A /* NotificationsViewModel.swift */; };
+		BFB4C00C2722D7D400A11805 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */; };
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
 		BFB7954126D0A89B00A89BC7 /* PageSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954026D0A89B00A89BC7 /* PageSegmentControl.swift */; };
 		BFB7954326D1232B00A89BC7 /* SegmentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */; };
@@ -313,6 +316,7 @@
 		BFB427EE26CCC6C5001D4C91 /* MenuDisableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDisableTextField.swift; sourceTree = "<group>"; };
 		BFB4C0052722CA1500A11805 /* NotificationServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceSpy.swift; sourceTree = "<group>"; };
 		BFB4C0072722CDD600A11805 /* BaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSpy.swift; sourceTree = "<group>"; };
+		BFB4C0092722D61000A11805 /* NotificationViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModelTest.swift; sourceTree = "<group>"; };
 		BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolBar+Extension.swift"; sourceTree = "<group>"; };
 		BFB7954026D0A89B00A89BC7 /* PageSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSegmentControl.swift; sourceTree = "<group>"; };
 		BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentContainer.swift; sourceTree = "<group>"; };
@@ -716,6 +720,7 @@
 				BFCBED4326FC698800BFE297 /* NetworkManagerTest.swift */,
 				BF778EBF2708AE9C004BF282 /* CoreDataStorageTest.swift */,
 				BFE330F32722A7FF00005746 /* SearchViewModelTest.swift */,
+				BFB4C0092722D61000A11805 /* NotificationViewModelTest.swift */,
 				BFCBED4526FC698800BFE297 /* Info.plist */,
 				BFE330EE2722A6B400005746 /* Spy */,
 				BFE330EF2722A6BE00005746 /* Dummy */,
@@ -1162,13 +1167,16 @@
 				BF8DCD602720658F002F8F5A /* SearchServiceSpy.swift in Sources */,
 				BFCBED6626FC72FA00BFE297 /* Date+Extension.swift in Sources */,
 				BFE330F22722A7C500005746 /* FakeFavoriteCoinRepository.swift in Sources */,
+				BFB4C00B2722D6E300A11805 /* NotificationsViewModel.swift in Sources */,
 				BFCBED5026FC702100BFE297 /* Coins.swift in Sources */,
 				BFCBED4C26FC6CE600BFE297 /* EndPoint.swift in Sources */,
 				BFCBED6826FC73DB00BFE297 /* Mapper.swift in Sources */,
+				BFB4C00C2722D7D400A11805 /* NotificationCell.swift in Sources */,
 				BFEB71CD2708B94000B888CD /* UserSetting.swift in Sources */,
 				BFCBED6126FC72FA00BFE297 /* Double+Extension.swift in Sources */,
 				BFCBED5126FC702100BFE297 /* Change.swift in Sources */,
 				BFEB71D92709ABC800B888CD /* TradingLogModel.xcdatamodeld in Sources */,
+				BFB4C00A2722D61000A11805 /* NotificationViewModelTest.swift in Sources */,
 				BFCBED4426FC698800BFE297 /* NetworkManagerTest.swift in Sources */,
 				BFCBED4B26FC6CE600BFE297 /* NetworkError.swift in Sources */,
 			);

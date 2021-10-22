@@ -68,8 +68,8 @@ class MainViewController: UIViewController, Storyboarded {
     }
     
     lazy var showError: (NetworkError) -> () = { [weak self] error in
-        let alert = UIAlertController(title: "에러", message: error.description)
         DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(title: "에러", message: error.description)
             self?.present(alert, animated: true)
         }
     }

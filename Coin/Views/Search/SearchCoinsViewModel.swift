@@ -3,7 +3,7 @@ import Combine
 
 final class SearchViewModel {
     
-    private let searchUseCase: SearchUseCase
+    private let searchService: SearchService
     private let favoriteCoinRepository: FavoriteCoinRepository
     private var cancell: AnyCancellable?
     
@@ -11,9 +11,9 @@ final class SearchViewModel {
     var loadingHiddenStateHandler: ((Bool) -> Void)?
     var errorHandler: ((NetworkError) -> Void)?
     
-    init(usecase: SearchUseCase,
+    init(usecase: SearchService,
          repository: FavoriteCoinRepository) {
-        self.searchUseCase = usecase
+        self.searchService = usecase
         self.favoriteCoinRepository = repository
     }
     
@@ -22,7 +22,7 @@ final class SearchViewModel {
             return
         }
         loadingHiddenStateHandler?(false)
-        cancell = searchUseCase.requestSearchCoins(url: url)
+        cancell = searchService.requestSearchCoins(url: url)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)

@@ -11,12 +11,12 @@ import Combine
 
 final class NotificationsViewModel {
     
-    private let searchUseCase: SearchUseCase
+    private let notificationService: NotificationService
     private let token: String
     private var cancell: Set<AnyCancellable>
     
-    init(usecase: SearchUseCase) {
-        self.searchUseCase = usecase
+    init(usecase: NotificationService) {
+        self.notificationService = usecase
         self.token = Messaging.messaging().fcmToken ?? ""
         self.cancell = .init()
     }
@@ -29,7 +29,7 @@ final class NotificationsViewModel {
     
     func fetchNotifications() {
         loadingHiddenStateHandler?(false)
-        searchUseCase.requestNotifications(url: Endpoint.notificationURL(type: .api(token)))
+        notificationService.requestNotifications(url: Endpoint.notificationURL(type: .api(token)))
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -43,7 +43,7 @@ final class NotificationsViewModel {
     
     func deleteNotification(uuid: String) {
         loadingHiddenStateHandler?(false)
-        searchUseCase.requestDeleteNotification(url: Endpoint.notificationURL(type: .api(uuid)), method: .delete)
+        notificationService.requestDeleteNotification(url: Endpoint.notificationURL(type: .api(uuid)), method: .delete)
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -57,7 +57,7 @@ final class NotificationsViewModel {
     
     func updateNotificationSwitch(uuid: String, state: Bool, cell: NotificationCell) {
         loadingHiddenStateHandler?(false)
-        searchUseCase.requestCompleteNotification(url: Endpoint.notificationURL(type: .active(uuid)),
+        notificationService.requestCompleteNotification(url: Endpoint.notificationURL(type: .active(uuid)),
                                                   method: .put,
                                                   body: makeJsonData(state: state))
             .sink { [weak self] fail in

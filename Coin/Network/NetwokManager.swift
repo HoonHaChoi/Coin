@@ -12,7 +12,7 @@ protocol SearchUseCase {
     func requestAppStoreVersion(url: URL?) -> AnyPublisher<AppInfo, NetworkError>
 }
 
-struct NetworkManager: SearchUseCase {
+struct NetworkManager: SearchUseCase, SearchService, NotificationService {
     
     private let session: Requestable
     
@@ -64,4 +64,15 @@ struct NetworkManager: SearchUseCase {
         }
         return nil
     }
+}
+
+protocol SearchService {
+    func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
+}
+
+protocol NotificationService {
+    func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError>
+    func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError>
+    func requestDeleteNotification(url: URL?, method: HTTPMethod) -> AnyPublisher<String, NetworkError>
+    func requestNotificationCycle(url: URL?) -> AnyPublisher<[NotificationCycle], NetworkError>
 }

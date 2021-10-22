@@ -23,19 +23,17 @@ class NotificationViewModelTest: XCTestCase {
     }
 
     func test_ResponseSuccessNotifications() throws {
-        
         notificationViewModel.notificationsHandler = { notifications in
-            guard let notification = notifications.first else {
-                return
+            if let notification = notifications.first {
+                XCTAssertEqual(notification.uuid, "fakeUUID")
+                XCTAssertEqual(notification.exchange, "fakeExchange")
+                XCTAssertEqual(notification.englishName, "fakeName")
             }
-            XCTAssertEqual(notification.uuid, "fakeUUID")
-            XCTAssertEqual(notification.exchange, "fakeExchange")
-            XCTAssertEqual(notification.englishName, "fakeName")
         }
         notificationViewModel.fetchNotifications()
     }
     
-    func test_ResponseSuccessDeleteMessage() throws {
+    func test_ResponseSuccessDeleteNotification() throws {
         notificationViewModel.completeMessageHanlder = { message in
             XCTAssertEqual(message, "FakeDeleteSuccess")
         }
@@ -62,8 +60,39 @@ class NotificationViewModelTest: XCTestCase {
         XCTAssertEqual(notificationServiceSpy.completeBody, state)
     }
     
-    func test_ResponseUpdateNotificationSwitch() {
+    func test_ResponseSuccessUpdateNotificationSwitch() {
         notificationViewModel.updateNotificationSwitch(uuid: "", state: false, cell: .init())
         XCTAssertEqual(notificationServiceSpy.completeResponse, true)
+    }
+    
+    func test_ResponseFailureNotifications() {
+        notificationServiceSpy.isSuccess = false
+        
+        notificationViewModel.errorHandler = { error in
+            XCTAssertEqual(error, .invalidResponse)
+        }
+        notificationViewModel.fetchNotifications()
+    }
+    
+    func test_ResponseFailureDeleteNotification() {
+        notificationServiceSpy.isSuccess = false
+        
+        notificationViewModel.errorHandler = { error in
+            XCTAssertEqual(error, .invalidResponse)
+        }
+        notificationViewModel.deleteNotification(uuid: "")
+    }
+    
+    func test_ResponseFailureUpdateNotificationSwitch() {
+        notificationServiceSpy.isSuccess = false
+        
+        let cell: NotificationCell = .init()
+        notificationViewModel.errorHandler = { error in
+            XCTAssertEqual(error, .invalidResponse)
+        }
+        notificationViewModel.failCellHandler = { failCell in
+            XCTAssertEqual(failCell, cell)
+        }
+        notificationViewModel.updateNotificationSwitch(uuid: "", state: false, cell: cell)
     }
 }

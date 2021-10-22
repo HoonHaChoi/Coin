@@ -8,24 +8,16 @@
 import Foundation
 import Combine
 
-final class SearchServiceSpy: SearchService {
-    
-    let dummyModels: DummyModels
+final class SearchServiceSpy: BaseSpy, SearchService {
     
     var searchURLQuery: String?
-    var isSuccess: Bool
-    
-    init(isSuccess: Bool) {
-        self.dummyModels = .init()
-        self.isSuccess = isSuccess
-    }
     
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError> {
         searchURLQuery = url?.query
         
         return Future<[Coin], NetworkError> { promise in
             if self.isSuccess {
-                promise(.success([self.dummyModels.DummyCoin()]))
+                promise(.success([self.dummyModel.DummyCoin()]))
             } else {
                 promise(.failure(.invalidRequest))
             }

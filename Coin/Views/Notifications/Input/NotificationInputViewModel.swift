@@ -70,19 +70,22 @@ final class NotificationInputViewModel {
         return !basePriceText.isEmpty &&
             !cycleText.isEmpty
     }
-    
-    func requestCreateNotification(type: String, uuid: String) {
-        let url = Endpoint.notificationURL(type: .create(token))
-        let data = makeNotificationObject(type: type, uuid: uuid)
-        requestNotification(url: url, method: .post, body: data)
+        
+    func makeRequestNotification(priceType: String,
+                             uuid: String,
+                             formStyle: NotificationInputFormStyle) {
+        switch formStyle {
+        case .create:
+            let url = Endpoint.notificationURL(type: .create(token))
+            let data = makeNotificationObject(type: priceType, uuid: uuid)
+            requestNotification(url: url, method: .post, body: data)
+        case .update:
+            let url = Endpoint.notificationURL(type: .api(uuid))
+            let data = makeNotificationObject(type: priceType, uuid: "")
+            requestNotification(url: url, method: .put, body: data)
+        }
     }
-    
-    func requestUpdateNotification(type: String, uuid: String) {
-        let url = Endpoint.notificationURL(type: .api(uuid))
-        let data = makeNotificationObject(type: type, uuid: "")
-        requestNotification(url: url, method: .put, body: data)
-    }
-    
+ 
     private func requestNotification(url: URL?, method: HTTPMethod, body: Data) {
         notificationInputService.requestCompleteNotification(url: url, method: method,
                                                   body: body)

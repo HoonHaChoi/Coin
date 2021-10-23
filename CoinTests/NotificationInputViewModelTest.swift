@@ -53,4 +53,13 @@ class NotificationInputViewModelTest: XCTestCase {
         }
         notificationInputViewModel.fetchSearchCoin(uuid: "")
     }
+
+//    func test_URL() {
+//        let token = "fakeToken"
+//        notificationInputViewModel.requestCreateNotification(type: "test", uuid: "fakeUUID")
+//        notificationInputViewModel.requestUpdateNotification(type: "test", uuid: "fakeUUID")
+//        let completePathComponents = notificationInputServiceSpy.completeURLPathComponents ?? []
+//        XCTAssertTrue(completePathComponents.contains(token))
+//        XCTAssertEqual(notificationInputServiceSpy.completeHTTPMethod, .post)
+//    }
 }

@@ -290,8 +290,7 @@ struct AppDependency {
         viewController.requestCoinHandler = viewModel.fetchSearchCoin(uuid:)
         
         viewModel.successHandler = viewController.onDismiss
-        viewController.requestCreateNotification = viewModel.requestCreateNotification(type:uuid:)
-        viewController.requestUpdateNotification = viewModel.requestUpdateNotification(type:uuid:)
+        viewController.requestNotificationHandler = viewModel.makeRequestNotification(priceType:uuid:formStyle:)
                 
         viewController.setUpdateConfigureHanlder = viewModel.configureNotificationInputView(notiObject:style:)
         viewModel.updateNotificationInputViewHandler = viewController.updateNotificationInputView

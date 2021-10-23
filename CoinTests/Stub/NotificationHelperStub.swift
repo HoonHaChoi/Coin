@@ -14,7 +14,7 @@ final class NotificationHelperStub: NotificationHelp {
     }
     
     func mapping(cycleName: String) -> String {
-        return "fakeCycleName"
+        return "fakeCycleUUID"
     }
     
     func findTypeIndex(type: String) -> Int {

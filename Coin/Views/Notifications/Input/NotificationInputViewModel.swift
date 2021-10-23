@@ -14,6 +14,11 @@ enum NotificationInputType {
     case cycle
 }
 
+enum NotificationInputFormStyle {
+    case create
+    case update
+}
+
 final class NotificationInputViewModel {
     
     private var basePriceText: String

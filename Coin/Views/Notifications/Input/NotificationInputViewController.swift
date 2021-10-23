@@ -8,11 +8,6 @@
 import UIKit
 import Combine
 
-enum NotificationInputFormStyle {
-    case create
-    case update
-}
-
 final class NotificationInputViewController: UIViewController {
     
     private let imageLoader: Loader

@@ -66,7 +66,7 @@ final class NotificationsViewController: UIViewController {
     
     var requestNotifications: (() -> ())?
     var requestDeleteNotification: ((String) -> ())?
-    var requestUpdateSwitch: ((String, Bool, NotificationCell) -> ())?
+    var requestUpdateSwitch: ((String, Bool, IndexPath) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,11 +160,16 @@ final class NotificationsViewController: UIViewController {
             return
         }
         let notificationUUID = dataSource.notice[indexPath.section][indexPath.row].uuid
-        requestUpdateSwitch?(notificationUUID, state, cell)
+        requestUpdateSwitch?(notificationUUID, state, indexPath)
     }
     
-    func restoreSetSwitch(cell: NotificationCell) {
-        cell.restoreSwitch()
+    func restoreSetSwitch(indexPath: IndexPath) {
+        DispatchQueue.main.async { [weak self] in
+            guard let cell = self?.notificationsTableView.cellForRow(at: indexPath) as? NotificationCell else {
+                return
+            }
+            cell.restoreSwitch()
+        }
     }
     
     private func showCreateInputView(from notification: NotificationObject) {

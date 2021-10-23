@@ -107,7 +107,6 @@
 		BFB4C0082722CDD600A11805 /* BaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C0072722CDD600A11805 /* BaseSpy.swift */; };
 		BFB4C00A2722D61000A11805 /* NotificationViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C0092722D61000A11805 /* NotificationViewModelTest.swift */; };
 		BFB4C00B2722D6E300A11805 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFE180E26F1317400F4FD1A /* NotificationsViewModel.swift */; };
-		BFB4C00C2722D7D400A11805 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DE726E8E1BC00FBC13C /* NotificationCell.swift */; };
 		BFB4C00E2723E75400A11805 /* NotificationInputServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C00D2723E75400A11805 /* NotificationInputServiceSpy.swift */; };
 		BFB4C0102723EAB300A11805 /* NotificationInputViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C00F2723EAB300A11805 /* NotificationInputViewModelTest.swift */; };
 		BFB4C0112723EC0900A11805 /* NotificationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */; };
@@ -1188,7 +1187,6 @@
 				BFCBED5026FC702100BFE297 /* Coins.swift in Sources */,
 				BFCBED4C26FC6CE600BFE297 /* EndPoint.swift in Sources */,
 				BFCBED6826FC73DB00BFE297 /* Mapper.swift in Sources */,
-				BFB4C00C2722D7D400A11805 /* NotificationCell.swift in Sources */,
 				BFEB71CD2708B94000B888CD /* UserSetting.swift in Sources */,
 				BFCBED6126FC72FA00BFE297 /* Double+Extension.swift in Sources */,
 				BFB4C0152723ECF700A11805 /* NotificationHelperStub.swift in Sources */,

@@ -260,9 +260,9 @@ struct AppDependency {
         viewmodel.completeMessageHanlder = notificationsViewController.completeMessage
         
         notificationDataSource.switchActionHandler = notificationsViewController.receiveSwitchAction(cell:switch:)
-        notificationsViewController.requestUpdateSwitch = viewmodel.updateNotificationSwitch(uuid:state:cell:)
+        notificationsViewController.requestUpdateSwitch = viewmodel.updateNotificationSwitch(uuid:state:indexPath:)
         
-        viewmodel.failCellHandler = notificationsViewController.restoreSetSwitch(cell:)
+        viewmodel.failureIndexHandler = notificationsViewController.restoreSetSwitch(indexPath:)
         return notificationsViewController
     }
     

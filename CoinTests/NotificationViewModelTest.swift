@@ -53,7 +53,7 @@ class NotificationViewModelTest: XCTestCase {
         let uuid = "fakeNotificationUUID"
         let state = false
         
-        notificationViewModel.updateNotificationSwitch(uuid: uuid, state: state, cell: .init())
+        notificationViewModel.updateNotificationSwitch(uuid: uuid, state: state, indexPath: .init())
         
         XCTAssertEqual(notificationServiceSpy.completeURLParameter, uuid)
         XCTAssertEqual(notificationServiceSpy.completeHTTPMethod, .put)
@@ -61,7 +61,7 @@ class NotificationViewModelTest: XCTestCase {
     }
     
     func test_ResponseSuccessUpdateNotificationSwitch() {
-        notificationViewModel.updateNotificationSwitch(uuid: "", state: false, cell: .init())
+        notificationViewModel.updateNotificationSwitch(uuid: "", state: false, indexPath: .init())
         XCTAssertEqual(notificationServiceSpy.completeResponse, true)
     }
     
@@ -86,13 +86,14 @@ class NotificationViewModelTest: XCTestCase {
     func test_ResponseFailureUpdateNotificationSwitch() {
         notificationServiceSpy.isSuccess = false
         
-        let cell: NotificationCell = .init()
+        let indexPath: IndexPath = .init(row: 1, section: 2)
         notificationViewModel.errorHandler = { error in
             XCTAssertEqual(error, .invalidResponse)
         }
-        notificationViewModel.failCellHandler = { failCell in
-            XCTAssertEqual(failCell, cell)
+        notificationViewModel.failureIndexHandler = { indexPath in
+            XCTAssertEqual(indexPath.row, 1)
+            XCTAssertEqual(indexPath.section, 2)
         }
-        notificationViewModel.updateNotificationSwitch(uuid: "", state: false, cell: cell)
+        notificationViewModel.updateNotificationSwitch(uuid: "", state: false, indexPath: indexPath)
     }
 }

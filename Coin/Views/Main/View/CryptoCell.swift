@@ -52,7 +52,7 @@ class CryptoCell: UITableViewCell {
     }
     
     private func updateChangeColor(to coin: Coin) {
-        let color = coin.meta.change.matchColor()
+        let color = setChangeColor(change: coin.meta.change)
         changeRateLabel.textColor = color
         changePriceLabel.textColor = color
     }

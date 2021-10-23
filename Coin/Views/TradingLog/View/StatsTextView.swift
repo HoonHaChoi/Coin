@@ -62,15 +62,7 @@ class StatsTextView: UIView {
     }
     
     func changeStatsLabelColor(changeState: Change) {
-        var color: UIColor?
-        switch changeState {
-        case .rise:
-            color = .riseColor
-        case .fall:
-            color = .fallColor
-        case .even:
-            color = .basicColor
-        }
+        let color: UIColor = setChangeColor(change: changeState)
         statsLabel.textColor = color
     }
 }

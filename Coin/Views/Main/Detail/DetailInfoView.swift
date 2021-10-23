@@ -142,7 +142,7 @@ class DetailInfoView: UIView {
     }
     
     private func updateChangeColor(to meta: Meta) {
-        let color = meta.change.matchColor()
+        let color = setChangeColor(change: meta.change)
         changeRateLabel.textColor = color
         changePriceLabel.textColor = color
     }

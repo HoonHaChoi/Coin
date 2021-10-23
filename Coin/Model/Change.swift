@@ -5,7 +5,7 @@
 //  Created by HOONHA CHOI on 2021/09/07.
 //
 
-import UIKit
+import Foundation
 
 enum Change: String, Codable, CustomStringConvertible, CaseIterable {
     case fall = "FALL"
@@ -30,13 +30,5 @@ enum Change: String, Codable, CustomStringConvertible, CaseIterable {
         let mapper = EnumMapper(key: Change.allCases,
                                           item: ["-","","+"])
         return mapper[self] ?? ""
-    }
-    
-    func matchColor() -> UIColor {
-        let mapper = EnumMapper(key: Change.allCases,
-                                      item: [UIColor.fallColor,
-                                             UIColor.basicColor,
-                                             UIColor.riseColor])
-        return mapper[self] ?? .basicColor
     }
 }

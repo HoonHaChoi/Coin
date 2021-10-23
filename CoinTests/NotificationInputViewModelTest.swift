@@ -19,7 +19,8 @@ class NotificationInputViewModelTest: XCTestCase {
         
         notificationInputViewModel = NotificationInputViewModel(
             usecase: notificationInputServiceSpy,
-            notificationHelper: notificationHelperStub)
+            notificationHelper: notificationHelperStub,
+            fcmToken: "fakeToken")
     }
 
     override func tearDownWithError() throws {

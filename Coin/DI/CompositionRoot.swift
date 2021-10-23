@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import FirebaseMessaging
 
 struct AppDependency {
     
@@ -18,6 +19,9 @@ struct AppDependency {
     var socketRepository: SocketRepository {
         return SocketRepository(socket: socket)
     }
+    
+    // MARK: FCM Token
+    var fcmToken = Messaging.messaging().fcmToken ?? ""
     
     // MARK: CoreData
     var tradingLogCoreData = CoreDataStorageManager(container:
@@ -246,7 +250,7 @@ struct AppDependency {
     
     private func makeNotificationsViewController() -> NotificationsViewController {
 
-        let viewmodel = NotificationsViewModel(usecase: networkManager)
+        let viewmodel = NotificationsViewModel(usecase: networkManager, fcmToken: fcmToken)
         let notificationDataSource = NotificationDataSource()
         let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource,
                                                                       imageLoader: imageLoader)
@@ -259,7 +263,8 @@ struct AppDependency {
         notificationsViewController.requestDeleteNotification = viewmodel.deleteNotification(uuid:)
         viewmodel.completeMessageHanlder = notificationsViewController.completeMessage
         
-        notificationDataSource.switchActionHandler = notificationsViewController.receiveSwitchAction(cell:switch:)
+        notificationDataSource.switchActionHandler =
+            notificationsViewController.receiveSwitchAction(cell:switch:)
         notificationsViewController.requestUpdateSwitch = viewmodel.updateNotificationSwitch(uuid:state:indexPath:)
         
         viewmodel.failureIndexHandler = notificationsViewController.restoreSetSwitch(indexPath:)
@@ -269,7 +274,8 @@ struct AppDependency {
     private func makeNotificationsInputViewController(notiObject: NotificationObject, formStyle: NotificationInputFormStyle) -> NotificationInputViewController {
         let notificationHelper = NotificationHelper(usecase: networkManager)
         let viewModel = NotificationInputViewModel(usecase: networkManager,
-                                                   notificationHelper: notificationHelper)
+                                                   notificationHelper: notificationHelper,
+                                                   fcmToken: fcmToken)
         let viewController = NotificationInputViewController(notiObject: notiObject,
                                                              imageLoader: imageLoader,
                                                              type: notificationHelper.notificationTypeNames,

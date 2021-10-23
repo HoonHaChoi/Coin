@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import FirebaseMessaging
 
 enum NotificationInputType {
     case basePrice
@@ -29,13 +28,14 @@ final class NotificationInputViewModel {
     private let token: String
     
     init(usecase: NotificationInputService,
-         notificationHelper: NotificationHelp) {
+         notificationHelper: NotificationHelp,
+         fcmToken: String) {
         basePriceText = ""
         cycleText = ""
         self.notificationInputService = usecase
         self.notificationHelper = notificationHelper
         cancell = .init()
-        token = Messaging.messaging().fcmToken ?? ""
+        token = fcmToken
     }
     
     var isValidCheckHandler: ((Bool) -> ())?

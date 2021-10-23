@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseMessaging
 import Combine
 
 final class NotificationsViewModel {
@@ -15,9 +14,10 @@ final class NotificationsViewModel {
     private let token: String
     private var cancell: Set<AnyCancellable>
     
-    init(usecase: NotificationService) {
+    init(usecase: NotificationService,
+         fcmToken: String) {
         self.notificationService = usecase
-        self.token = Messaging.messaging().fcmToken ?? ""
+        self.token = fcmToken
         self.cancell = .init()
     }
     

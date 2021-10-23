@@ -14,7 +14,8 @@ class NotificationViewModelTest: XCTestCase {
     
     override func setUpWithError() throws {
         notificationServiceSpy = NotificationServiceSpy(isSuccess: true)
-        notificationViewModel = NotificationsViewModel(usecase: notificationServiceSpy)
+        notificationViewModel = NotificationsViewModel(usecase: notificationServiceSpy,
+                                                       fcmToken: "fakeToken")
     }
 
     override func tearDownWithError() throws {

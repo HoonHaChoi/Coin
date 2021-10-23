@@ -9,12 +9,14 @@ import Foundation
 import Combine
 
 final class NotificationInputServiceSpy: BaseSpy, NotificationInputService {
-     
+    
+    var favoriteCoinUUID: String?
+    
     var completeURL: String?
     var completeHTTPMethod: HTTPMethod?
     
     func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError> {
-        
+        favoriteCoinUUID = uuidString
         return Future<Coin, NetworkError> { promise in
             if self.isSuccess {
                 promise(.success(self.dummyModel.DummyCoin()))

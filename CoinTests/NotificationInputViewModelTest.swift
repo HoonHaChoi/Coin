@@ -28,8 +28,28 @@ class NotificationInputViewModelTest: XCTestCase {
         notificationInputServiceSpy = nil
     }
 
-    func testExample() throws {
-        
+    func test_SearchCoinURLParameter() {
+        let fakeFavoriteCoinUUID = "fakeFavoriteCoin"
+        notificationInputViewModel.fetchSearchCoin(uuid: fakeFavoriteCoinUUID)
+        XCTAssertEqual(notificationInputServiceSpy.favoriteCoinUUID,
+                       fakeFavoriteCoinUUID)
     }
-
+    
+    func test_ResponseSuccessSearchCoin() {
+        notificationInputViewModel.coinHandler = { coin in
+            XCTAssertEqual(coin.meta.tradePrice, "0")
+            XCTAssertEqual(coin.meta.changePrice, "0")
+            XCTAssertEqual(coin.meta.changeRate, "0%")
+        }
+        notificationInputViewModel.fetchSearchCoin(uuid: "")
+    }
+    
+    func test_ResponseFailureSearchCoin() {
+        notificationInputServiceSpy.isSuccess = false
+        
+        notificationInputViewModel.errorHandler = { error in
+            XCTAssertEqual(error, .invalidResponse)
+        }
+        notificationInputViewModel.fetchSearchCoin(uuid: "")
+    }
 }

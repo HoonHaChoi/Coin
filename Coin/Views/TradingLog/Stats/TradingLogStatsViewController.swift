@@ -137,8 +137,8 @@ final class TradingLogStatsViewController: UIViewController, Storyboarded {
         hideMoveButton(nextHideState: dto.nextButtonState,
                        previousHideState: dto.previousButtonState)
         currentDateLabel.text = dto.currentDateString
-        statsTopStackView.changeStatsLabelColor(state: dto.stats.stateColor)
-        statsBottomStackView.changeStatsLabelColor(state: dto.stats.stateColor)
+        statsTopStackView.changeStatsLabelColor(state: dto.stats.stateChange)
+        statsBottomStackView.changeStatsLabelColor(state: dto.stats.stateChange)
         chartContainerView.updateChartUI(dto: dto)
     }
     

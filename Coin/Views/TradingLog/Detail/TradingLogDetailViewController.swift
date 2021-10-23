@@ -102,7 +102,7 @@ class TradingLogDetailViewController: UIViewController {
                                            right: log.profit().convertPriceKRW())
         self.title = log.date.convertString()
         self.memoLabel.text = log.memo
-        statsTopStackView.changeStatsLabelColor(state: log.changeColor())
-        statsBottomStackView.changeStatsLabelColor(state: log.changeColor())
+        statsTopStackView.changeStatsLabelColor(state: log.change)
+        statsBottomStackView.changeStatsLabelColor(state: log.change)
     }
 }

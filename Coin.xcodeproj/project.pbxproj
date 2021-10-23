@@ -113,6 +113,7 @@
 		BFB4C0112723EC0900A11805 /* NotificationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF72DF226EAE52A00FBC13C /* NotificationInputViewModel.swift */; };
 		BFB4C0122723EC2E00A11805 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */; };
 		BFB4C0152723ECF700A11805 /* NotificationHelperStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C0142723ECF700A11805 /* NotificationHelperStub.swift */; };
+		BFB4C0172724038800A11805 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = BFB4C0162724038800A11805 /* FirebaseMessaging */; };
 		BFB7530826BEAA8E0013B65A /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
 		BFB7954126D0A89B00A89BC7 /* PageSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954026D0A89B00A89BC7 /* PageSegmentControl.swift */; };
 		BFB7954326D1232B00A89BC7 /* SegmentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */; };
@@ -151,7 +152,6 @@
 		BFCBED5626FC702100BFE297 /* CoinMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2F9DC926D5C068006A0077 /* CoinMeta.swift */; };
 		BFCBED5726FC72FA00BFE297 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9570C826A34830000BBAE9 /* String+Extension.swift */; };
 		BFCBED5826FC72FA00BFE297 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3ACF26BC6A16003B801A /* DateFormatter+Extension.swift */; };
-		BFCBED5A26FC72FA00BFE297 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD5199C26C3919F00226FF8 /* UIColor+Extension.swift */; };
 		BFCBED5E26FC72FA00BFE297 /* Int64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD519A026C3FE4C00226FF8 /* Int64+Extension.swift */; };
 		BFCBED5F26FC72FA00BFE297 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DD26CA7D2A001D4C91 /* Int+Extension.swift */; };
 		BFCBED6126FC72FA00BFE297 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427DF26CA7D33001D4C91 /* Double+Extension.swift */; };
@@ -402,6 +402,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB4C0172724038800A11805 /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,6 +908,9 @@
 				BFCBED4726FC698800BFE297 /* PBXTargetDependency */,
 			);
 			name = CoinTests;
+			packageProductDependencies = (
+				BFB4C0162724038800A11805 /* FirebaseMessaging */,
+			);
 			productName = CoinTests;
 			productReference = BFCBED4126FC698800BFE297 /* CoinTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -945,7 +949,6 @@
 					};
 					BFCBED4026FC698800BFE297 = {
 						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = BF8736012651697A00C3FAD0;
 					};
 					BFEB71EB270B61C700B888CD = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -1159,7 +1162,6 @@
 				BFCBED5F26FC72FA00BFE297 /* Int+Extension.swift in Sources */,
 				BFEB71CE2709A20500B888CD /* CoreDataStorage.swift in Sources */,
 				BFCBED4D26FC6CE600BFE297 /* HTTPMethod.swift in Sources */,
-				BFCBED5A26FC72FA00BFE297 /* UIColor+Extension.swift in Sources */,
 				BFCBED5326FC702100BFE297 /* TradingLog.swift in Sources */,
 				BF239858270159510020089F /* NetworkManagerStub.swift in Sources */,
 				BF3E13AC2717C8ED00DE4423 /* AppInfo.swift in Sources */,
@@ -1211,6 +1213,7 @@
 /* Begin PBXTargetDependency section */
 		BFCBED4726FC698800BFE297 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = BF8736012651697A00C3FAD0 /* Coin */;
 			targetProxy = BFCBED4626FC698800BFE297 /* PBXContainerItemProxy */;
 		};
@@ -1398,7 +1401,6 @@
 		BFCBED4826FC698800BFE297 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27BW92Z482;
 				INFOPLIST_FILE = CoinTests/Info.plist;
@@ -1412,14 +1414,12 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coin.app/Coin";
 			};
 			name = Debug;
 		};
 		BFCBED4926FC698800BFE297 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27BW92Z482;
 				INFOPLIST_FILE = CoinTests/Info.plist;
@@ -1433,7 +1433,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coin.app/Coin";
 			};
 			name = Release;
 		};
@@ -1577,6 +1576,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF9570E226A69CF9000BBAE9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		BFB4C0162724038800A11805 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFD519A226C4878B00226FF8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		BFD519A326C4878B00226FF8 /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;

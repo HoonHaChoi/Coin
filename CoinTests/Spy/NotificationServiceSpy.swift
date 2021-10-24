@@ -21,7 +21,7 @@ final class NotificationServiceSpy: BaseSpy, NotificationService {
     func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError> {
         return Future<[Notice], NetworkError> { promise in
             if self.isSuccess {
-                promise(.success([self.dummyModel.DummyNotice()]))
+                promise(.success([self.dummyModel.createDummyNotice()]))
             } else {
                 promise(.failure(.invalidResponse))
             }

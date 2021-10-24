@@ -17,7 +17,7 @@ final class SearchServiceSpy: BaseSpy, SearchService {
         
         return Future<[Coin], NetworkError> { promise in
             if self.isSuccess {
-                promise(.success([self.dummyModel.DummyCoin()]))
+                promise(.success([self.dummyModel.createDummyCoin()]))
             } else {
                 promise(.failure(.invalidRequest))
             }

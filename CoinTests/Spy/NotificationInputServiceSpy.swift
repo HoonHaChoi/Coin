@@ -25,7 +25,7 @@ final class NotificationInputServiceSpy: BaseSpy, NotificationInputService {
         favoriteCoinUUID = uuidString
         return Future<Coin, NetworkError> { promise in
             if self.isSuccess {
-                promise(.success(self.dummyModel.DummyCoin()))
+                promise(.success(self.dummyModel.createDummyCoin()))
             } else {
                 promise(.failure(.invalidResponse))
             }

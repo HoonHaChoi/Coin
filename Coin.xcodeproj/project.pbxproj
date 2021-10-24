@@ -19,6 +19,8 @@
 		BF1FA638269B398A00AC1AC2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */; };
 		BF1FA63C269B616A00AC1AC2 /* CellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA63B269B616A00AC1AC2 /* CellReusable.swift */; };
 		BF1FA640269B62BB00AC1AC2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA63F269B62BB00AC1AC2 /* UITableView+Extension.swift */; };
+		BF214F5C27254AEA00CCF84C /* NotificationCycleServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF214F5B27254AEA00CCF84C /* NotificationCycleServiceSpy.swift */; };
+		BF214F5E27254E9F00CCF84C /* NotificationHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF214F5D27254E9F00CCF84C /* NotificationHelperTest.swift */; };
 		BF22BF3A268F6A8D003FD161 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF39268F6A8D003FD161 /* NetworkError.swift */; };
 		BF22BF3D268F6C9F003FD161 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF3C268F6C9F003FD161 /* EndPoint.swift */; };
 		BF22BF42268F6D96003FD161 /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22BF41268F6D96003FD161 /* Coins.swift */; };
@@ -240,6 +242,8 @@
 		BF1FA637269B398A00AC1AC2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		BF1FA63B269B616A00AC1AC2 /* CellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReusable.swift; sourceTree = "<group>"; };
 		BF1FA63F269B62BB00AC1AC2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		BF214F5B27254AEA00CCF84C /* NotificationCycleServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCycleServiceSpy.swift; sourceTree = "<group>"; };
+		BF214F5D27254E9F00CCF84C /* NotificationHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelperTest.swift; sourceTree = "<group>"; };
 		BF22BF39268F6A8D003FD161 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		BF22BF3C268F6C9F003FD161 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BF22BF41268F6D96003FD161 /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
@@ -730,6 +734,7 @@
 				BF2398562701593E0020089F /* Stub */,
 				BFE330EE2722A6B400005746 /* Spy */,
 				BFCBED4326FC698800BFE297 /* NetworkManagerTest.swift */,
+				BF214F5D27254E9F00CCF84C /* NotificationHelperTest.swift */,
 				BF778EBF2708AE9C004BF282 /* CoreDataStorageTest.swift */,
 				BFE330F32722A7FF00005746 /* SearchViewModelTest.swift */,
 				BFB4C0092722D61000A11805 /* NotificationViewModelTest.swift */,
@@ -755,6 +760,7 @@
 			children = (
 				BF8DCD5F2720658E002F8F5A /* SearchServiceSpy.swift */,
 				BFB4C0052722CA1500A11805 /* NotificationServiceSpy.swift */,
+				BF214F5B27254AEA00CCF84C /* NotificationCycleServiceSpy.swift */,
 				BFB4C00D2723E75400A11805 /* NotificationInputServiceSpy.swift */,
 				BFB4C0072722CDD600A11805 /* BaseSpy.swift */,
 			);
@@ -1153,12 +1159,14 @@
 			files = (
 				BFCBED5526FC702100BFE297 /* Notifications.swift in Sources */,
 				BF778EC02708AE9C004BF282 /* CoreDataStorageTest.swift in Sources */,
+				BF214F5E27254E9F00CCF84C /* NotificationHelperTest.swift in Sources */,
 				BFB4C0112723EC0900A11805 /* NotificationInputViewModel.swift in Sources */,
 				BFB4C0082722CDD600A11805 /* BaseSpy.swift in Sources */,
 				BF3E13AB2717C8E700DE4423 /* URLRouter.swift in Sources */,
 				BFCBED6926FC73E100BFE297 /* ImageRequest.swift in Sources */,
 				BFCBED4E26FC6CE600BFE297 /* NetwokManager.swift in Sources */,
 				BFCBED5F26FC72FA00BFE297 /* Int+Extension.swift in Sources */,
+				BF214F5C27254AEA00CCF84C /* NotificationCycleServiceSpy.swift in Sources */,
 				BFEB71CE2709A20500B888CD /* CoreDataStorage.swift in Sources */,
 				BFCBED4D26FC6CE600BFE297 /* HTTPMethod.swift in Sources */,
 				BFCBED5326FC702100BFE297 /* TradingLog.swift in Sources */,

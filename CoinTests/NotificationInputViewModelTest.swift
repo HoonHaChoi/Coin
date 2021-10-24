@@ -145,4 +145,71 @@ class NotificationInputViewModelTest: XCTestCase {
         XCTAssertEqual(notificationInputServiceSpy.completeHTTPMethod, .put)
         XCTAssertEqual(notificationInputServiceSpy.completeBodyTickerUUID, "")
     }
+    
+    func test_EmptyConfigureNotificationInputData() {
+        
+        let dummyObject: NotificationObject = .init(type: "", basePrice: 0, tickerUUID: "", notificationUUID: "", notificationCycleUUID: "")
+        
+        notificationInputViewModel.updateNotificationInputViewHandler = { typeIndex, basePriceText, cycleUUID in
+            XCTAssertEqual(typeIndex, 0)
+            XCTAssertEqual(basePriceText, "0")
+            XCTAssertTrue(cycleUUID.isEmpty)
+        }
+        
+        notificationInputViewModel.isValidCheckHandler = { state in
+            XCTAssertFalse(state)
+        }
+        
+        notificationInputViewModel.configureNotificationInputView(notiObject: dummyObject,
+                                                                  style: .update)
+    }
+    
+    func test_WrongConfigureNotificationInputData() {
+        let wrongPriceType = "wrongPriceType"
+        let fakeCycleUUID = "fakeCycleName"
+        let dummyBasePrice = 1_000_000_000_000
+        
+        // given
+        let dummyObject: NotificationObject = .init(type: wrongPriceType, basePrice: dummyBasePrice, tickerUUID: "", notificationUUID: "", notificationCycleUUID: fakeCycleUUID)
+        
+        // then
+        notificationInputViewModel.updateNotificationInputViewHandler = { typeIndex, basePriceText, cycleUUID in
+            XCTAssertEqual(typeIndex, 0)
+            XCTAssertEqual(basePriceText, "1000000000000")
+            XCTAssertEqual(cycleUUID, fakeCycleUUID)
+        }
+        
+        notificationInputViewModel.isValidCheckHandler = { state in
+            XCTAssertTrue(state, "CycleUUID, basePrice 비어있지 않기 때문에 true 반환")
+        }
+
+        // when
+        notificationInputViewModel.configureNotificationInputView(notiObject: dummyObject,
+                                                                  style: .update)
+    }
+    
+    func test_CorrectCoConfigureNotificationInputData() {
+        let correctPriceType = "dummyTypeName2"
+        let fakeCycleUUID = "fakeCycleName"
+        let dummyBasePrice = 1_123_123_123
+        
+        // given
+        let dummyObject: NotificationObject = .init(type: correctPriceType, basePrice: dummyBasePrice, tickerUUID: "", notificationUUID: "", notificationCycleUUID: fakeCycleUUID)
+        
+        // then
+        notificationInputViewModel.updateNotificationInputViewHandler = { typeIndex, basePriceText, cycleUUID in
+            XCTAssertEqual(typeIndex, 1)
+            XCTAssertEqual(basePriceText, "1123123123")
+            XCTAssertEqual(cycleUUID, fakeCycleUUID)
+        }
+        
+        notificationInputViewModel.isValidCheckHandler = { state in
+            XCTAssertTrue(state)
+        }
+
+        // when
+        notificationInputViewModel.configureNotificationInputView(notiObject: dummyObject,
+                                                                  style: .update)
+    }
+    
 }

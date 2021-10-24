@@ -11,6 +11,7 @@ final class NotificationHelperStub: NotificationHelp {
     
     var dummyPriceTypeDic = ["dummyPriceType1": "fakeUp"]
     var dummyCycleUUIDDic = ["dummyCycleName1": "fakeCycleUUID"]
+    var dummyTypeName = ["dummyTypeName1", "dummyTypeName2"]
     
     func mapping(typeName: String) -> String {
         return dummyPriceTypeDic[typeName] ?? ""
@@ -21,6 +22,6 @@ final class NotificationHelperStub: NotificationHelp {
     }
     
     func findTypeIndex(type: String) -> Int {
-        return 0
+        return dummyTypeName.firstIndex(of: type) ?? 0
     }
 }

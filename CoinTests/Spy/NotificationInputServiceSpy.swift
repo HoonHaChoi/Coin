@@ -19,6 +19,8 @@ final class NotificationInputServiceSpy: BaseSpy, NotificationInputService {
     var completeBodyBasePrice: Int?
     var completeBodyNotificationCycleUUID: String?
     
+    var successActionState: Bool?
+    
     func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError> {
         favoriteCoinUUID = uuidString
         return Future<Coin, NetworkError> { promise in
@@ -35,7 +37,6 @@ final class NotificationInputServiceSpy: BaseSpy, NotificationInputService {
         completeHTTPMethod = method
         
         let bodyJson = try? JSONSerialization.jsonObject(with: body, options: []) as? [String: Any]
-        print(bodyJson)
         completeBodyPriceType = bodyJson?["type"] as? String
         completeBodyBasePrice = bodyJson?["basePrice"] as? Int
         completeBodyTickerUUID = bodyJson?["tickerUUID"] as? String
@@ -44,6 +45,7 @@ final class NotificationInputServiceSpy: BaseSpy, NotificationInputService {
         return Future<Void, NetworkError> { promise in
             if self.isSuccess {
                 promise(.success(()))
+                self.successActionState = true
             } else {
                 promise(.failure(.invalidResponse))
             }

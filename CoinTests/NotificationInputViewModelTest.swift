@@ -117,7 +117,21 @@ class NotificationInputViewModelTest: XCTestCase {
         XCTAssertEqual(notificationInputServiceSpy.completeBodyNotificationCycleUUID, fakeCycleName)
     }
     
-    func test_RequestNotificationCreate() {
+    func test_SuccessRequestNotificationCreate() {
+        notificationInputViewModel.successHandler = {
+            XCTAssertNotNil(self.notificationInputServiceSpy.successActionState,
+                          "정상적으로 응답이 왔다면 Handler가 동작하는지 테스트")
+        }
+        notificationInputViewModel.makeRequestNotification(priceType: "", uuid: "", formStyle: .create)
+    }
+    
+    func test_FailureRequestNotifiationCreate() {
+        notificationInputServiceSpy.isSuccess = false
         
+        notificationInputViewModel.errorHandler = { error in
+            XCTAssertEqual(error, .invalidResponse)
+        }
+        
+        notificationInputViewModel.makeRequestNotification(priceType: "", uuid: "", formStyle: .create)
     }
 }

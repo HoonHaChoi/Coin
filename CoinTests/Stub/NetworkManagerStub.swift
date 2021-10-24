@@ -19,27 +19,26 @@ final class NetworkManagerStub: Requestable {
     }
     
     func requestResource<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError> {
-        if isRequestSuccess {
-            return Just(dummyCoin as! T)
-                .setFailureType(to: NetworkError.self)
-                .eraseToAnyPublisher()
-        }
-        return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
+        return Future<T, NetworkError> { promise in
+            self.isRequestSuccess ?
+                promise(.success(self.dummyCoin as! T)) :
+                promise(.failure(.invalidResponse))
+        }.eraseToAnyPublisher()
     }
     
-    func requestResource<T>(for urlRequest: URLRequest?) -> AnyPublisher<T, NetworkError> where T : Decodable {
-        if isRequestSuccess {
-            return Just(successString as! T)
-                .setFailureType(to: NetworkError.self)
-                .eraseToAnyPublisher()
-        }
-        return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
+    func requestResource<T: Decodable>(for urlRequest: URLRequest?) -> AnyPublisher<T, NetworkError> {
+        return Future<T, NetworkError> { promise in
+            self.isRequestSuccess ?
+                promise(.success(self.successString as! T)) :
+                promise(.failure(.invalidResponse))
+        }.eraseToAnyPublisher()
     }
     
     func completeResponsePublisher(for urlRequest: URLRequest?) -> AnyPublisher<Void, NetworkError> {
-        if isRequestSuccess {
-            return Just(()).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
-        }
-        return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
+        return Future<Void, NetworkError> { promise in
+            self.isRequestSuccess ?
+                promise(.success(())) :
+                promise(.failure(.invalidResponse))
+        }.eraseToAnyPublisher()
     }
 }

@@ -16,11 +16,9 @@ final class SearchServiceSpy: BaseSpy, SearchService {
         searchURLQuery = url?.query
         
         return Future<[Coin], NetworkError> { promise in
-            if self.isSuccess {
-                promise(.success([self.dummyModel.createDummyCoin()]))
-            } else {
+            self.isSuccess ?
+                promise(.success([self.dummyModel.createDummyCoin()])) :
                 promise(.failure(.invalidRequest))
-            }
         }.eraseToAnyPublisher()
     }
 }

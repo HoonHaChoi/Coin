@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 final class NotificationServiceSpy: BaseSpy, NotificationService {
-   
+    
     var deleteURLParameter: String?
     var deleteHTTPMethod: HTTPMethod?
     
@@ -20,11 +20,9 @@ final class NotificationServiceSpy: BaseSpy, NotificationService {
     
     func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError> {
         return Future<[Notice], NetworkError> { promise in
-            if self.isSuccess {
-                promise(.success([self.dummyModel.createDummyNotice()]))
-            } else {
+            self.isSuccess ?
+                promise(.success([self.dummyModel.createDummyNotice()])) :
                 promise(.failure(.invalidResponse))
-            }
         }.eraseToAnyPublisher()
     }
     
@@ -32,11 +30,9 @@ final class NotificationServiceSpy: BaseSpy, NotificationService {
         deleteURLParameter = url?.lastPathComponent
         deleteHTTPMethod = method
         return Future<String, NetworkError> { promise in
-            if self.isSuccess {
-                promise(.success("FakeDeleteSuccess"))
-            } else {
+            self.isSuccess ?
+                promise(.success("FakeDeleteSuccess")) :
                 promise(.failure(.invalidResponse))
-            }
         }.eraseToAnyPublisher()
     }
     
@@ -46,13 +42,12 @@ final class NotificationServiceSpy: BaseSpy, NotificationService {
         completeURLParameter = urlComponents?[4]
         completeHTTPMethod = method
         completeBody = bodyState?["active"]
+        
+        let completeResponseState: () = { self.completeResponse = true }()
         return Future<Void, NetworkError> { promise in
-            if self.isSuccess {
-                self.completeResponse = true
-                promise(.success(()))
-            } else {
+            self.isSuccess ?
+                promise(.success((completeResponseState))) :
                 promise(.failure(.invalidResponse))
-            }
         }.eraseToAnyPublisher()
     }
 }

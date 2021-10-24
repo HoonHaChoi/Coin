@@ -24,11 +24,9 @@ final class NotificationInputServiceSpy: BaseSpy, NotificationInputService {
     func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError> {
         favoriteCoinUUID = uuidString
         return Future<Coin, NetworkError> { promise in
-            if self.isSuccess {
-                promise(.success(self.dummyModel.createDummyCoin()))
-            } else {
+            self.isSuccess ?
+                promise(.success(self.dummyModel.createDummyCoin())) :
                 promise(.failure(.invalidResponse))
-            }
         }.eraseToAnyPublisher()
     }
     
@@ -42,13 +40,12 @@ final class NotificationInputServiceSpy: BaseSpy, NotificationInputService {
         completeBodyTickerUUID = bodyJson?["tickerUUID"] as? String
         completeBodyNotificationCycleUUID = bodyJson?["notificationCycleUUID"] as? String
         
+        let successActionState: () = { self.successActionState = true }()
+        
         return Future<Void, NetworkError> { promise in
-            if self.isSuccess {
-                promise(.success(()))
-                self.successActionState = true
-            } else {
+            self.isSuccess ?
+                promise(.success((successActionState))) :
                 promise(.failure(.invalidResponse))
-            }
         }.eraseToAnyPublisher()
     }
     

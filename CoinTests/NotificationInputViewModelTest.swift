@@ -134,4 +134,15 @@ class NotificationInputViewModelTest: XCTestCase {
         
         notificationInputViewModel.makeRequestNotification(priceType: "", uuid: "", formStyle: .create)
     }
+    
+    func test_RequestNotificationUpdateParameter() {
+        let fakeNotificationUUID = "fakeNotificationUUID"
+        
+        notificationInputViewModel.makeRequestNotification(priceType: "", uuid: fakeNotificationUUID, formStyle: .update)
+        
+        let completePathComponents = notificationInputServiceSpy.completeURLPathComponents ?? []
+        XCTAssertTrue(completePathComponents.contains(fakeNotificationUUID))
+        XCTAssertEqual(notificationInputServiceSpy.completeHTTPMethod, .put)
+        XCTAssertEqual(notificationInputServiceSpy.completeBodyTickerUUID, "")
+    }
 }

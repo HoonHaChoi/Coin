@@ -9,12 +9,15 @@ import Foundation
 
 final class NotificationHelperStub: NotificationHelp {
     
+    var dummyPriceTypeDic = ["dummyPriceType1": "fakeUp"]
+    var dummyCycleUUIDDic = ["dummyCycleName1": "fakeCycleUUID"]
+    
     func mapping(typeName: String) -> String {
-        return typeName
+        return dummyPriceTypeDic[typeName] ?? ""
     }
     
     func mapping(cycleName: String) -> String {
-        return cycleName
+        return dummyCycleUUIDDic[cycleName] ?? ""
     }
     
     func findTypeIndex(type: String) -> Int {

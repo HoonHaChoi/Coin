@@ -84,15 +84,40 @@ class NotificationInputViewModelTest: XCTestCase {
         notificationInputViewModel.update(text: cycleName, type: .cycle)
     }
     
-//    func test_URL() {
-//        notificationInputViewModel.update(text: "123", type: .basePrice)
-//        notificationInputViewModel.update(text: "한번만 알림", type: .cycle)
-//        let token = "fakeToken"
-//        notificationInputViewModel.makeRequestNotification(priceType: "up", uuid: "fakeUUID", formStyle: .create)
-//        notificationInputViewModel.requestCreateNotification(type: "test", uuid: "fakeUUID")
-//        notificationInputViewModel.requestUpdateNotification(type: "test", uuid: "fakeUUID")
-//        let completePathComponents = notificationInputServiceSpy.completeURLPathComponents ?? []
-//        XCTAssertTrue(completePathComponents.contains(token))
-//        XCTAssertEqual(notificationInputServiceSpy.completeHTTPMethod, .post)
-//    }
+    func test_WrongInputNotificationObject() {
+        notificationInputViewModel.update(text: "NotNumber", type: .basePrice)
+        notificationInputViewModel.makeRequestNotification(priceType: "fakePriceType", uuid: "", formStyle: .create)
+    
+        XCTAssertEqual(notificationInputServiceSpy.completeBodyPriceType, "")
+        XCTAssertEqual(notificationInputServiceSpy.completeBodyNotificationCycleUUID, "")
+        XCTAssertEqual(notificationInputServiceSpy.completeBodyBasePrice, 0)
+    }
+    
+    func test_RequestNotificationCreateParameter() {
+        let token = "fakeToken"
+        let fakeType = "fakeUp"
+        let fakeTickerUUID = "fakeTickerUUID"
+        let fakeCycleName = "fakeCycleUUID"
+        
+        // given
+        notificationInputViewModel.update(text: "123,123", type: .basePrice)
+        notificationInputViewModel.update(text: "dummyCycleName1", type: .cycle)
+        let priceTpye = "dummyPriceType1"
+        
+        // when
+        notificationInputViewModel.makeRequestNotification(priceType: priceTpye, uuid: fakeTickerUUID, formStyle: .create)
+
+        // then
+        let completePathComponents = notificationInputServiceSpy.completeURLPathComponents ?? []
+        XCTAssertTrue(completePathComponents.contains(token))
+        XCTAssertEqual(notificationInputServiceSpy.completeHTTPMethod, .post)
+        XCTAssertEqual(notificationInputServiceSpy.completeBodyPriceType, fakeType)
+        XCTAssertEqual(notificationInputServiceSpy.completeBodyBasePrice, 123123)
+        XCTAssertEqual(notificationInputServiceSpy.completeBodyTickerUUID, fakeTickerUUID)
+        XCTAssertEqual(notificationInputServiceSpy.completeBodyNotificationCycleUUID, fakeCycleName)
+    }
+    
+    func test_RequestNotificationCreate() {
+        
+    }
 }

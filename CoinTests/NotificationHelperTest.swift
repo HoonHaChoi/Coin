@@ -22,12 +22,23 @@ class NotificationHelperTest: XCTestCase {
         notificationCycleServiceSpy = nil
     }
 
-    func test_CycleUUIDsCount() throws {
+    func test_RequestCyclePath() throws {
+        let cyclePath = "cycles"
+        XCTAssertEqual(notificationCycleServiceSpy.cycleURLPath, cyclePath)
+    }
+    
+    func test_SuccessRequestCycleUUIDs() {
+        XCTAssertEqual(notificationHelper.cycleUUIDs.count, 8)
+        XCTAssertEqual(notificationHelper.cycleUUIDs.first, "fakeCycleUUID0")
+        XCTAssertEqual(notificationHelper.cycleUUIDs.last, "fakeCycleUUID7")
+    }
+    
+    func test_WrongTypeName() {
+        let emptyTypeName = notificationHelper.mapping(typeName: "")
+        let wrongTypeName = notificationHelper.mapping(typeName: "test")
         
-        notificationCycleServiceSpy.requestNotificationCycle(url: nil)
-        
-        XCTAssertEqual(notificationHelper.cycleUUIDs.count,4)
-        
+        XCTAssertTrue(emptyTypeName.isEmpty)
+        XCTAssertTrue(wrongTypeName.isEmpty)
     }
 
 }

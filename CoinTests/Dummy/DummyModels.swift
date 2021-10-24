@@ -31,8 +31,8 @@ struct DummyModels {
     func createDummyNotificationCycle() -> [NotificationCycle] {
         
         var notificationCycles: [NotificationCycle] = .init()
-        for i in 0...3 {
-            let notificationCycle: NotificationCycle = .init(uuid: "fakeUUID"+"\(i)", displayCycle: "fakeDisplayCycle"+"\(i)")
+        for i in 0...7 {
+            let notificationCycle: NotificationCycle = .init(uuid: "fakeCycleUUID"+"\(i)", displayCycle: "fakeDisplayCycle"+"\(i)")
             notificationCycles.append(notificationCycle)
         }
         

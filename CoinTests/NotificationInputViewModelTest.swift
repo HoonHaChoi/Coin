@@ -54,8 +54,41 @@ class NotificationInputViewModelTest: XCTestCase {
         notificationInputViewModel.fetchSearchCoin(uuid: "")
     }
 
+    func test_BasePirceAndCycleNameTextInputIsFull() {
+        let price = "123,123"
+        let cycleName = "fakeCycleName"
+        notificationInputViewModel.update(text: price, type: .basePrice)
+        notificationInputViewModel.isValidCheckHandler = { state in
+            XCTAssertTrue(state)
+        }
+        notificationInputViewModel.update(text: cycleName, type: .cycle)
+    }
+    
+    func test_BasePriceTextIsEmpty() {
+        notificationInputViewModel.isValidCheckHandler = { state in
+            XCTAssertFalse(state)
+        }
+        let price = ""
+        let cycleName = "fakeCycleName"
+        notificationInputViewModel.update(text: price, type: .basePrice)
+        notificationInputViewModel.update(text: cycleName, type: .cycle)
+    }
+    
+    func test_CycleNameTextIsEmpty() {
+        notificationInputViewModel.isValidCheckHandler = { state in
+            XCTAssertFalse(state)
+        }
+        let price = "123,123"
+        let cycleName = ""
+        notificationInputViewModel.update(text: price, type: .basePrice)
+        notificationInputViewModel.update(text: cycleName, type: .cycle)
+    }
+    
 //    func test_URL() {
+//        notificationInputViewModel.update(text: "123", type: .basePrice)
+//        notificationInputViewModel.update(text: "한번만 알림", type: .cycle)
 //        let token = "fakeToken"
+//        notificationInputViewModel.makeRequestNotification(priceType: "up", uuid: "fakeUUID", formStyle: .create)
 //        notificationInputViewModel.requestCreateNotification(type: "test", uuid: "fakeUUID")
 //        notificationInputViewModel.requestUpdateNotification(type: "test", uuid: "fakeUUID")
 //        let completePathComponents = notificationInputServiceSpy.completeURLPathComponents ?? []

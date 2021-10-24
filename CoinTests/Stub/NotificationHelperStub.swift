@@ -10,11 +10,11 @@ import Foundation
 final class NotificationHelperStub: NotificationHelp {
     
     func mapping(typeName: String) -> String {
-        return "fakeTypeName"
+        return typeName
     }
     
     func mapping(cycleName: String) -> String {
-        return "fakeCycleUUID"
+        return cycleName
     }
     
     func findTypeIndex(type: String) -> Int {

@@ -40,7 +40,7 @@ class NetworkManagerTest: XCTestCase {
     
     func test_FailureRequestFavoriteCoin() {
         requestableSpy.isRequestSuccess = false
-
+        
         networkManager.requestFavoriteCoins(uuidString: "fake").sink { fail in
             if case .failure(let error) = fail {
                 XCTAssertEqual(error, NetworkError.invalidResponse)
@@ -64,7 +64,7 @@ class NetworkManagerTest: XCTestCase {
     
     func test_FailureRequestSearchCoins() {
         requestableSpy.isRequestSuccess = false
-
+        
         networkManager.requestSearchCoins(url: nil).sink { fail in
             if case .failure(let error) = fail {
                 XCTAssertEqual(error, NetworkError.invalidResponse)
@@ -89,7 +89,7 @@ class NetworkManagerTest: XCTestCase {
     
     func test_FailureRequestNotifications() {
         requestableSpy.isRequestSuccess = false
-
+        
         networkManager.requestNotifications(url: nil).sink { fail in
             if case .failure(let error) = fail {
                 XCTAssertEqual(error, NetworkError.invalidResponse)
@@ -111,7 +111,7 @@ class NetworkManagerTest: XCTestCase {
     
     func test_FailureRequestNotificationCycle() {
         requestableSpy.isRequestSuccess = false
-
+        
         networkManager.requestNotificationCycle(url: nil).sink { fail in
             if case .failure(let error) = fail {
                 XCTAssertEqual(error, NetworkError.invalidResponse)
@@ -131,7 +131,7 @@ class NetworkManagerTest: XCTestCase {
     
     func test_FailureRequestAppStoreVersion() {
         requestableSpy.isRequestSuccess = false
-
+        
         networkManager.requestAppStoreVersion(url: nil).sink { fail in
             if case .failure(let error) = fail {
                 XCTAssertEqual(error, NetworkError.invalidResponse)
@@ -170,34 +170,48 @@ class NetworkManagerTest: XCTestCase {
         XCTAssertNotNil(requestableSpy.deleteURLRequest)
         XCTAssertEqual(requestableSpy.deleteHTTPMethod, "DELETE")
     }
-
-    func test_RequestComplete() {
-//        // given
-////        let network = NetworkManager(session: successStub)
-//
-//        // when
+    
+    func test_SuccessRequestCompleteNotification() {
         networkManager.requestCompleteNotification(
             url: URL(string: "fakeURL"),
             method: .post,
             body: .init()).sink { _ in }
-                receiveValue: { _ in }
+                receiveValue: { _ in
+                    XCTAssertNotNil(self.requestableSpy.completeResponse)
+                }
             .store(in: &cancellable)
     }
-//
-//    func test_RequestDelete() {
-//        // given
-////        let network = NetworkManager(session: successStub)
-//
-//        // when
-//        networkManager.requestDeleteNotification(url: nil,
-//                                          method: .delete)
-//            .sink { fail in
-//                if case .failure(_) = fail {
-//                    XCTFail("test Fail")
-//                }
-//            } receiveValue: { result in
-//                // then
-//                XCTAssertEqual("Success", result)
-//            }.store(in: &cancellable)
-//    }
+    
+    func test_FailureRequestCompleteNotification() {
+        requestableSpy.isRequestSuccess = false
+        
+        networkManager.requestCompleteNotification(
+            url: URL(string: "fakeURL"),
+            method: .post,
+            body: .init()).sink { fail in
+                if case .failure(let error) = fail {
+                    XCTAssertEqual(error, NetworkError.invalidResponse)
+                }
+            } receiveValue: { _ in }
+            .store(in: &cancellable)
+    }
+    
+    func test_VaildURLRequestRequestCompleteNotification() {
+        networkManager.requestCompleteNotification(url: URL(string: "fakeURL"),
+                                                   method: .post, body: .init()).sink { _ in }
+                                                    receiveValue: { _ in }.store(in: &cancellable)
+        XCTAssertNotNil(requestableSpy.completeBody)
+        XCTAssertEqual(requestableSpy.completeHTTPMethod, "POST")
+        XCTAssertEqual(requestableSpy.urlRequestContentType, "application/json")
+    }
+    
+    func test_URLNilRequestCompleteNotification() {
+        networkManager.requestCompleteNotification(url: nil,
+                                                   method: .post,body: .init()).sink { _ in }
+                                                    receiveValue: { _ in }.store(in: &cancellable)
+        XCTAssertNil(requestableSpy.completeURLRequest)
+        XCTAssertNil(requestableSpy.completeBody)
+        XCTAssertNil(requestableSpy.completeHTTPMethod)
+        XCTAssertNil(requestableSpy.urlRequestContentType)
+    }
 }

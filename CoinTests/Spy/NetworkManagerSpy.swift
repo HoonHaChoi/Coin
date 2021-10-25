@@ -14,6 +14,7 @@ final class RequestableSpy: Requestable {
     
     var isRequestSuccess: Bool
     
+    var completeURLRequest: URLRequest?
     var completeHTTPMethod: String?
     var completeBody: Data?
     var urlRequestContentType: String?
@@ -49,10 +50,11 @@ final class RequestableSpy: Requestable {
     }
     
     func completeResponsePublisher(for urlRequest: URLRequest?) -> AnyPublisher<Void, NetworkError> {
+        completeURLRequest = urlRequest
         completeBody = urlRequest?.httpBody
         completeHTTPMethod = urlRequest?.httpMethod
         urlRequestContentType = urlRequest?.allHTTPHeaderFields?["Content-Type"]
-        //application/json
+        
         let completeStateAction: () = { self.completeResponse = true }()
         return Future<Void, NetworkError> { promise in
             self.isRequestSuccess ?

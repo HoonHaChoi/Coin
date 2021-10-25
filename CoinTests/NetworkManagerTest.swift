@@ -26,49 +26,29 @@ class NetworkManagerTest: XCTestCase {
         cancellable = nil
     }
     
-    func test_RequestCoin() {
-        // given
-//        let network = NetworkManager(session: successStub)
+    func test_SuccessRequestFavoriteCoin() {
+        let fakeUUID = "fakeUUID"
+        let fakeTicker = "fakeTicker"
         
-        // when
-        networkManager.requestFavoriteCoins(uuidString: "fake").sink { _ in
-        } receiveValue: { coin in
-            XCTAssertEqual("", coin.uuid)
-            XCTAssertEqual("", coin.ticker)
-            XCTAssertNil(coin.logo)
+        networkManager.requestFavoriteCoins(uuidString: "fake").sink { _ in }
+            receiveValue: { coin in
+            XCTAssertEqual(coin.uuid, fakeUUID)
+            XCTAssertEqual(coin.ticker, fakeTicker)
+            XCTAssertEqual(coin.meta.tradePrice, "0")
         }.store(in: &cancellable)
-
-//        networkManager.requestFavoriteCoins(uuidString: "fake").sink { fail in
-//            if case .failure(let error) = fail {
-//                XCTFail(error.description)
-//            }
-//        } receiveValue: { coin in
-//            // then
-//            XCTAssertEqual("", coin.uuid)
-//            XCTAssertEqual("", coin.ticker)
-//            XCTAssertNil(coin.logo)
-//        }.store(in: &cancellable)
     }
     
-    func test_RequestCoinFail() {
-//        // given
-////        let network = NetworkManager(session: failStub)
-//        requestableStub.isRequestSuccess = true
-//        let rr = networkManager.requestFavoriteCoins(uuidString: "")
-//        rr.sink { _ in } receiveValue: { c in
-//            print(c)
-//        }.store(in: &cancellable)
+    func test_FailureRequestFavoriteCoin() {
+        requestableStub.isRequestSuccess = true
 
-//        // when
-//        networkManager.requestFavoriteCoins(uuidString: "fake").sink { fail in
-////            // then
-//            if case .failure(let error) = fail {
-//                XCTAssertEqual(error, NetworkError.invalidResponse)
-//            }
-//            print(fail)
-//        } receiveValue: { _ in }
-//        .store(in: &cancellable)
+        networkManager.requestFavoriteCoins(uuidString: "fake").sink { fail in
+            if case .failure(let error) = fail {
+                XCTAssertEqual(error, NetworkError.invalidResponse)
+            }
+        } receiveValue: { _ in }
+        .store(in: &cancellable)
     }
+    
 //
 //    func test_RequestComplete() {
 //        // given

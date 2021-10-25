@@ -52,10 +52,10 @@ struct DummyModels {
             return [createDummyNotice()] as! T
         } else if T.self == AppInfo.self {
             return createDummyAppInfo() as! T
-        } else if T.self == NotificationCycle.self {
+        } else if T.self == [NotificationCycle].self {
             return createDummyNotificationCycle() as! T
         } else {
-            return String.self as! T
+            return "dummyString" as! T
         }
     }
 }

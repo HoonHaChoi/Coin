@@ -12,16 +12,16 @@ class NetworkManagerTest: XCTestCase {
     
     var cancellable: Set<AnyCancellable>!
     var networkManager: NetworkManager!
-    var requestableStub: RequestableSpy!
+    var requestableSpy: RequestableSpy!
     
     override func setUp() {
-        requestableStub = RequestableSpy(isSuccess: true)
-        networkManager = NetworkManager(session: requestableStub)
+        requestableSpy = RequestableSpy(isSuccess: true)
+        networkManager = NetworkManager(session: requestableSpy)
         cancellable = .init()
     }
     
     override func tearDown() {
-        requestableStub = nil
+        requestableSpy = nil
         networkManager = nil
         cancellable = nil
     }
@@ -39,7 +39,7 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func test_FailureRequestFavoriteCoin() {
-        requestableStub.isRequestSuccess = false
+        requestableSpy.isRequestSuccess = false
 
         networkManager.requestFavoriteCoins(uuidString: "fake").sink { fail in
             if case .failure(let error) = fail {
@@ -63,7 +63,7 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func test_FailureRequestSearchCoins() {
-        requestableStub.isRequestSuccess = false
+        requestableSpy.isRequestSuccess = false
 
         networkManager.requestSearchCoins(url: nil).sink { fail in
             if case .failure(let error) = fail {
@@ -88,7 +88,7 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func test_FailureRequestNotifications() {
-        requestableStub.isRequestSuccess = false
+        requestableSpy.isRequestSuccess = false
 
         networkManager.requestNotifications(url: nil).sink { fail in
             if case .failure(let error) = fail {
@@ -110,7 +110,7 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func test_FailureRequestNotificationCycle() {
-        requestableStub.isRequestSuccess = false
+        requestableSpy.isRequestSuccess = false
 
         networkManager.requestNotificationCycle(url: nil).sink { fail in
             if case .failure(let error) = fail {
@@ -130,7 +130,7 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func test_FailureRequestAppStoreVersion() {
-        requestableStub.isRequestSuccess = false
+        requestableSpy.isRequestSuccess = false
 
         networkManager.requestAppStoreVersion(url: nil).sink { fail in
             if case .failure(let error) = fail {
@@ -141,23 +141,34 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func test_SuccessRequestDeleteNotification() {
-        let fakeAppVersion = "0"
-        
-        networkManager.requestAppStoreVersion(url: nil).sink { _ in }
-            receiveValue: { appInfo in
-                XCTAssertEqual(appInfo.results.first?.version, fakeAppVersion)
+        networkManager.requestDeleteNotification(url: nil, method: .delete).sink { _ in }
+            receiveValue: { resultString in
+                XCTAssertEqual(resultString, "dummyString")
             }.store(in: &cancellable)
     }
     
     func test_FailureRequestDeleteNotification() {
-        requestableStub.isRequestSuccess = false
-
-        networkManager.requestAppStoreVersion(url: nil).sink { fail in
+        requestableSpy.isRequestSuccess = false
+        
+        networkManager.requestDeleteNotification(url: nil, method: .delete).sink { fail in
             if case .failure(let error) = fail {
                 XCTAssertEqual(error, NetworkError.invalidResponse)
             }
         } receiveValue: { _ in }
         .store(in: &cancellable)
+    }
+    
+    func test_URLNotExistRequestDeleteNotification() {
+        networkManager.requestDeleteNotification(url: nil, method: .delete).sink { _ in }
+            receiveValue: { _ in }.store(in: &cancellable)
+        XCTAssertNil(requestableSpy.deleteURLRequest)
+    }
+    
+    func test_URLExistRequestDeleteNotification() {
+        networkManager.requestDeleteNotification(url: URL(string: "fakeURL"), method: .delete).sink { _ in }
+            receiveValue: { _ in }.store(in: &cancellable)
+        XCTAssertNotNil(requestableSpy.deleteURLRequest)
+        XCTAssertEqual(requestableSpy.deleteHTTPMethod, "DELETE")
     }
 
     func test_RequestComplete() {

@@ -19,6 +19,7 @@ final class RequestableSpy: Requestable {
     var urlRequestContentType: String?
     var completeResponse: Bool?
     
+    var deleteURLRequest: URLRequest?
     var deleteHTTPMethod: String?
     
     
@@ -38,6 +39,7 @@ final class RequestableSpy: Requestable {
     
     func requestResource<T: Decodable>(for urlRequest: URLRequest?) -> AnyPublisher<T, NetworkError> {
         let dummy = dummyModels.makeDummyFactory(type: T.self)
+        deleteURLRequest = urlRequest
         deleteHTTPMethod = urlRequest?.httpMethod
         return Future<T, NetworkError> { promise in
             self.isRequestSuccess ?

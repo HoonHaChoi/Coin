@@ -32,16 +32,40 @@ class NetworkManagerTest: XCTestCase {
         
         networkManager.requestFavoriteCoins(uuidString: "fake").sink { _ in }
             receiveValue: { coin in
-            XCTAssertEqual(coin.uuid, fakeUUID)
-            XCTAssertEqual(coin.ticker, fakeTicker)
-            XCTAssertEqual(coin.meta.tradePrice, "0")
-        }.store(in: &cancellable)
+                XCTAssertEqual(coin.uuid, fakeUUID)
+                XCTAssertEqual(coin.ticker, fakeTicker)
+                XCTAssertEqual(coin.meta.tradePrice, "0")
+            }.store(in: &cancellable)
     }
     
     func test_FailureRequestFavoriteCoin() {
-        requestableStub.isRequestSuccess = true
+        requestableStub.isRequestSuccess = false
 
         networkManager.requestFavoriteCoins(uuidString: "fake").sink { fail in
+            if case .failure(let error) = fail {
+                XCTAssertEqual(error, NetworkError.invalidResponse)
+            }
+        } receiveValue: { _ in }
+        .store(in: &cancellable)
+    }
+    
+    func test_SuccessRequestSearchCoins() {
+        let fakeUUID = "fakeUUID"
+        let fakeTicker = "fakeTicker"
+        
+        networkManager.requestSearchCoins(url: nil).sink { _ in }
+            receiveValue: { coins in
+                
+                XCTAssertEqual(coins.first?.uuid, fakeUUID)
+                XCTAssertEqual(coins.first?.ticker, fakeTicker)
+                XCTAssertEqual(coins.first?.meta.tradePrice, "0")
+            }.store(in: &cancellable)
+    }
+    
+    func test_FailureRequestSearchCoins() {
+        requestableStub.isRequestSuccess = false
+
+        networkManager.requestSearchCoins(url: nil).sink { fail in
             if case .failure(let error) = fail {
                 XCTAssertEqual(error, NetworkError.invalidResponse)
             }

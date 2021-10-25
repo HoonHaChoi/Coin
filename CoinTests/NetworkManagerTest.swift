@@ -12,10 +12,10 @@ class NetworkManagerTest: XCTestCase {
     
     var cancellable: Set<AnyCancellable>!
     var networkManager: NetworkManager!
-    var requestableStub: RequestableStub!
+    var requestableStub: RequestableSpy!
     
     override func setUp() {
-        requestableStub = RequestableStub(isSuccess: true)
+        requestableStub = RequestableSpy(isSuccess: true)
         networkManager = NetworkManager(session: requestableStub)
         cancellable = .init()
     }
@@ -120,24 +120,58 @@ class NetworkManagerTest: XCTestCase {
         .store(in: &cancellable)
     }
     
-//
-//    func test_RequestComplete() {
+    func test_SuccessRequestAppStoreVersion() {
+        let fakeAppVersion = "0"
+        
+        networkManager.requestAppStoreVersion(url: nil).sink { _ in }
+            receiveValue: { appInfo in
+                XCTAssertEqual(appInfo.results.first?.version, fakeAppVersion)
+            }.store(in: &cancellable)
+    }
+    
+    func test_FailureRequestAppStoreVersion() {
+        requestableStub.isRequestSuccess = false
+
+        networkManager.requestAppStoreVersion(url: nil).sink { fail in
+            if case .failure(let error) = fail {
+                XCTAssertEqual(error, NetworkError.invalidResponse)
+            }
+        } receiveValue: { _ in }
+        .store(in: &cancellable)
+    }
+    
+    func test_SuccessRequestDeleteNotification() {
+        let fakeAppVersion = "0"
+        
+        networkManager.requestAppStoreVersion(url: nil).sink { _ in }
+            receiveValue: { appInfo in
+                XCTAssertEqual(appInfo.results.first?.version, fakeAppVersion)
+            }.store(in: &cancellable)
+    }
+    
+    func test_FailureRequestDeleteNotification() {
+        requestableStub.isRequestSuccess = false
+
+        networkManager.requestAppStoreVersion(url: nil).sink { fail in
+            if case .failure(let error) = fail {
+                XCTAssertEqual(error, NetworkError.invalidResponse)
+            }
+        } receiveValue: { _ in }
+        .store(in: &cancellable)
+    }
+
+    func test_RequestComplete() {
 //        // given
 ////        let network = NetworkManager(session: successStub)
 //
 //        // when
-//        networkManager.requestCompleteNotification(
-//            url: nil,
-//            method: .post,
-//            body: .init()).sink { fail in
-//                if case .failure(_) = fail {
-//                    XCTFail("Test Fail")
-//                }
-//        } receiveValue: { result in
-//            // then
-//            XCTAssertTrue(() == result)
-//        }.store(in: &cancellable)
-//    }
+        networkManager.requestCompleteNotification(
+            url: URL(string: "fakeURL"),
+            method: .post,
+            body: .init()).sink { _ in }
+                receiveValue: { _ in }
+            .store(in: &cancellable)
+    }
 //
 //    func test_RequestDelete() {
 //        // given

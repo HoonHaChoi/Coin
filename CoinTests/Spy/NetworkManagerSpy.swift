@@ -8,11 +8,19 @@
 import Foundation
 import Combine
 
-final class RequestableStub: Requestable {
+final class RequestableSpy: Requestable {
     
     let dummyModels: DummyModels
-    let successString = "Success"
+    
     var isRequestSuccess: Bool
+    
+    var completeHTTPMethod: String?
+    var completeBody: Data?
+    var urlRequestContentType: String?
+    var completeResponse: Bool?
+    
+    var deleteHTTPMethod: String?
+    
     
     init(isSuccess: Bool) {
         self.isRequestSuccess = isSuccess
@@ -30,6 +38,7 @@ final class RequestableStub: Requestable {
     
     func requestResource<T: Decodable>(for urlRequest: URLRequest?) -> AnyPublisher<T, NetworkError> {
         let dummy = dummyModels.makeDummyFactory(type: T.self)
+        deleteHTTPMethod = urlRequest?.httpMethod
         return Future<T, NetworkError> { promise in
             self.isRequestSuccess ?
                 promise(.success(dummy)) :
@@ -38,9 +47,14 @@ final class RequestableStub: Requestable {
     }
     
     func completeResponsePublisher(for urlRequest: URLRequest?) -> AnyPublisher<Void, NetworkError> {
+        completeBody = urlRequest?.httpBody
+        completeHTTPMethod = urlRequest?.httpMethod
+        urlRequestContentType = urlRequest?.allHTTPHeaderFields?["Content-Type"]
+        //application/json
+        let completeStateAction: () = { self.completeResponse = true }()
         return Future<Void, NetworkError> { promise in
             self.isRequestSuccess ?
-                promise(.success(())) :
+                promise(.success(completeStateAction)) :
                 promise(.failure(.invalidResponse))
         }.eraseToAnyPublisher()
     }

@@ -12,7 +12,7 @@ struct DummyModels {
     func createDummyCoin() -> Coin {
         let meta: Meta = .init(tradePrice: "0", changePrice: "0",
                                changeRate: "0%", accTradePrice24H: "", change: .even)
-        let coin: Coin = .init(uuid: "uuid", exchange: .upbit, ticker: "ticker",
+        let coin: Coin = .init(uuid: "fakeUUID", exchange: .upbit, ticker: "fakeTicker",
                                market: "krw", englishName: "fakeName", meta: meta, logo: nil)
         return coin
     }
@@ -37,5 +37,25 @@ struct DummyModels {
         }
         
         return notificationCycles
+    }
+    
+    func createDummyAppInfo() -> AppInfo {
+        return AppInfo.init(results: [AppInfoResult.init(version: "0")])
+    }
+    
+    func makeDummyFactory<T: Decodable>(type: T.Type) -> T {
+        if T.self == [Coin].self {
+            return [createDummyCoin()] as! T
+        } else if T.self == Coin.self {
+            return createDummyCoin() as! T
+        } else if T.self == [Notice].self {
+            return [createDummyNotice()] as! T
+        } else if T.self == AppInfo.self {
+            return createDummyAppInfo() as! T
+        } else if T.self == NotificationCycle.self {
+            return createDummyNotificationCycle() as! T
+        } else {
+            return String.self as! T
+        }
     }
 }

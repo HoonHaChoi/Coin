@@ -8,28 +8,31 @@
 import Foundation
 import Combine
 
-final class NetworkManagerStub: Requestable {
+final class RequestableStub: Requestable {
     
-    private let dummyCoin = Coin(uuid: "", exchange: .bithumb, ticker: "", market: "", englishName: "", meta: .init(tradePrice: "", changePrice: "", changeRate: "", accTradePrice24H: "", change: .even), logo: nil)
-    private let successString = "Success"
-    private let isRequestSuccess: Bool
+    let dummyModels: DummyModels
+    let successString = "Success"
+    var isRequestSuccess: Bool
     
     init(isSuccess: Bool) {
         self.isRequestSuccess = isSuccess
+        dummyModels = .init()
     }
     
     func requestResource<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError> {
+        let dummy = dummyModels.makeDummyFactory(type: T.self)
         return Future<T, NetworkError> { promise in
             self.isRequestSuccess ?
-                promise(.success(self.dummyCoin as! T)) :
+                promise(.success(dummy)) :
                 promise(.failure(.invalidResponse))
         }.eraseToAnyPublisher()
     }
     
     func requestResource<T: Decodable>(for urlRequest: URLRequest?) -> AnyPublisher<T, NetworkError> {
+        let dummy = dummyModels.makeDummyFactory(type: T.self)
         return Future<T, NetworkError> { promise in
             self.isRequestSuccess ?
-                promise(.success(self.successString as! T)) :
+                promise(.success(dummy)) :
                 promise(.failure(.invalidResponse))
         }.eraseToAnyPublisher()
     }

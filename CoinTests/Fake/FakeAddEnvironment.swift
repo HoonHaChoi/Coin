@@ -5,27 +5,22 @@
 //  Created by HOONHA CHOI on 2021/11/07.
 //
 
-import UIKit
+import Foundation
 import Combine
 
 struct FakeAddEnvironment {
-    var subject: PassthroughSubject<TradingLog, Never>
-    var findLog: (Date) -> TradingLogMO?
-    var existDate: (Date) -> Bool
-    var alert: UIAlertController
-
-    init() {
-        subject = .init()
-        alert = .init()
-        findLog = fakeFindLog
-        existDate = fakeExistDate
+    
+    var isSuccess: Bool
+    
+    init(isSuccessState: Bool) {
+        isSuccess = isSuccessState
     }
     
-    var fakeExistDate: (Date) -> Bool = { _ in
-        return false
+    func fakeExistDate(date: Date) -> Bool {
+        return isSuccess
     }
     
-    var fakeFindLog: (Date) -> TradingLogMO? = { _ in
+    func fakeFindLog(date: Date) -> TradingLogMO? {
         return nil
     }
 }

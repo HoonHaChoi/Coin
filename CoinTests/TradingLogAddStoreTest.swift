@@ -14,11 +14,12 @@ class TradingLogAddStoreTest: XCTestCase {
     var fakeAddEnvironment: FakeAddEnvironment!
     
     override func setUpWithError() throws {
-        fakeAddEnvironment = .init()
+        fakeAddEnvironment = .init(isSuccessState: true)
         tradingLogAddStore =
             .init(state: .empty,
                 environment: .init(onDismissSubject: .init(),
-                                   findLog: fakeAddEnvironment.findLog, existDate: fakeAddEnvironment.existDate,
+                                   findLog: fakeAddEnvironment.fakeFindLog(date:),
+                                   existDate: fakeAddEnvironment.fakeExistDate(date:),
                                    alert: .init()))
     }
 
@@ -27,9 +28,30 @@ class TradingLogAddStoreTest: XCTestCase {
         tradingLogAddStore = nil
     }
 
-    func testExample() throws {
+    func test_CorrectStartAmountInput() throws {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.startAmountInput("123123"))
+        XCTAssertEqual(store?.state.startAmount, "123,123")
     }
 
+    func test_StringStartAmountInput() throws {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.startAmountInput("Not Number"))
+        XCTAssertEqual(store?.state.startAmount, "0")
+    }
+    
+    func test_ManyNumberStartAmountInput() throws {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.startAmountInput("1000000000000000"))
+        XCTAssertEqual(store?.state.startAmount, "9,999,999,999")
+    }
+    
+    func test_WrongStartAmountInput() throws {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.startAmountInput("123abc456"))
+        XCTAssertEqual(store?.state.startAmount, "123,456")
+    }
+    
 }
 
 

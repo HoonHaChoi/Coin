@@ -32,43 +32,43 @@ class TradingLogAddStoreTest: XCTestCase {
 
     func test_CorrectStartAmountInput() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.startAmountInput("123123"))
+        store?.dispatch(.startAmountInput("123123"))
         XCTAssertEqual(store?.state.startAmount, "123,123")
     }
 
     func test_StringStartAmountInput() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.startAmountInput("Not Number"))
+        store?.dispatch(.startAmountInput("Not Number"))
         XCTAssertEqual(store?.state.startAmount, "0")
     }
     
     func test_ManyNumberStartAmountInput() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.startAmountInput("1000000000000000"))
+        store?.dispatch(.startAmountInput("1000000000000000"))
         XCTAssertEqual(store?.state.startAmount, "9,999,999,999")
     }
     
     func test_WrongStartAmountInput() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.startAmountInput("123abc456"))
+        store?.dispatch(.startAmountInput("123abc456"))
         XCTAssertEqual(store?.state.startAmount, "123,456")
     }
     
     func test_CorrectEndAmountInput() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.endAmountInput("5555555"))
+        store?.dispatch(.endAmountInput("5555555"))
         XCTAssertEqual(store?.state.endAmount, "5,555,555")
     }
     
     func test_MemoInput() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.memoInput("memoTest"))
+        store?.dispatch(.memoInput("memoTest"))
         XCTAssertEqual(store?.state.memo, "memoTest")
     }
    
     func test_ExistDateTrue() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.dateInput(.init()))
+        store?.dispatch(.dateInput(.init()))
         XCTAssertEqual(store?.state.selectDate, "")
         XCTAssertNotNil(store?.state.errorAlert)
     }
@@ -88,29 +88,31 @@ class TradingLogAddStoreTest: XCTestCase {
     
     func test_AlertDismiss() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.alertDismiss)
+        store?.dispatch(.alertDismiss)
         XCTAssertNil(store?.state.errorAlert)
     }
     
     func test_IsFormValidState() throws {
         let fakeEnvironment = FakeAddEnvironment(isSuccessState: false)
         tradingLogAddStore = .init(state: .empty,
-                                   environment: .init(onDismissSubject: fakeEnvironment.subject,
+                                   environment: .init(onDismissSubject: .init(),
                                         findLog: fakeEnvironment.fakeFindLog(date:),
                                         existDate: fakeEnvironment.fakeExistDate(date:),
                                         alert: .init()))
         
         tradingLogAddStore.dispatch(.dateInput(.init()))
         XCTAssertFalse(tradingLogAddStore.state.isFormValid)
+        
         tradingLogAddStore.dispatch(.startAmountInput("123"))
         XCTAssertFalse(tradingLogAddStore.state.isFormValid)
+        
         tradingLogAddStore.dispatch(.endAmountInput("321"))
         XCTAssertTrue(tradingLogAddStore.state.isFormValid)
     }
     
     func test_fakeEditInput() throws {
         let store = tradingLogAddStore
-        tradingLogAddStore.dispatch(.editInput(.init()))
+        store?.dispatch(.editInput(.init()))
         XCTAssertEqual(store?.state.selectDate, "")
         XCTAssertEqual(store?.state.startAmount, "")
         XCTAssertEqual(store?.state.endAmount, "")

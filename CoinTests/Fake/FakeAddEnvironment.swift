@@ -11,9 +11,11 @@ import Combine
 struct FakeAddEnvironment {
     
     var isSuccess: Bool
+    var subject: PassthroughSubject<TradingLog, Never>
     
     init(isSuccessState: Bool) {
         isSuccess = isSuccessState
+        subject = .init()
     }
     
     func fakeExistDate(date: Date) -> Bool {

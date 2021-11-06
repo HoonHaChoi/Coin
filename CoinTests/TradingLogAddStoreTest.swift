@@ -12,12 +12,13 @@ class TradingLogAddStoreTest: XCTestCase {
 
     var tradingLogAddStore: TradingLogAddStore!
     var fakeAddEnvironment: FakeAddEnvironment!
+    var cancell: AnyCancellable?
     
     override func setUpWithError() throws {
         fakeAddEnvironment = .init(isSuccessState: true)
         tradingLogAddStore =
             .init(state: .empty,
-                environment: .init(onDismissSubject: .init(),
+                  environment: .init(onDismissSubject: fakeAddEnvironment.subject,
                                    findLog: fakeAddEnvironment.fakeFindLog(date:),
                                    existDate: fakeAddEnvironment.fakeExistDate(date:),
                                    alert: .init()))
@@ -26,6 +27,7 @@ class TradingLogAddStoreTest: XCTestCase {
     override func tearDownWithError() throws {
         fakeAddEnvironment = nil
         tradingLogAddStore = nil
+        cancell = nil
     }
 
     func test_CorrectStartAmountInput() throws {
@@ -93,7 +95,7 @@ class TradingLogAddStoreTest: XCTestCase {
     func test_IsFormValidState() throws {
         let fakeEnvironment = FakeAddEnvironment(isSuccessState: false)
         tradingLogAddStore = .init(state: .empty,
-                            environment: .init(onDismissSubject: .init(),
+                                   environment: .init(onDismissSubject: fakeEnvironment.subject,
                                         findLog: fakeEnvironment.fakeFindLog(date:),
                                         existDate: fakeEnvironment.fakeExistDate(date:),
                                         alert: .init()))
@@ -114,6 +116,38 @@ class TradingLogAddStoreTest: XCTestCase {
         XCTAssertEqual(store?.state.endAmount, "")
         XCTAssertEqual(store?.state.isFormValid, false)
         XCTAssertEqual(store?.state.memo, "")
+    }
+    
+    func test_CorrectAddTradingLog() throws {
+        let store = tradingLogAddStore
+        let memo = "AddAction"
+        
+        store?.dispatch(.startAmountInput("123"))
+        store?.dispatch(.endAmountInput("456"))
+            
+        cancell = fakeAddEnvironment.subject.sink { log in
+            XCTAssertEqual(log.startPrice, 123)
+            XCTAssertEqual(log.endPrice, 456)
+            XCTAssertEqual(log.memo, memo)
+        }
+        
+        store?.dispatch(.addTradingLog(memo))
+    }
+    
+    func test_WrongAddTradingLog() throws {
+        let store = tradingLogAddStore
+        let memo = "AddAction"
+        
+        store?.dispatch(.startAmountInput("12300000000000000"))
+        store?.dispatch(.endAmountInput("qweqwe"))
+            
+        cancell = fakeAddEnvironment.subject.sink { log in
+            XCTAssertEqual(log.startPrice, 9999999999)
+            XCTAssertEqual(log.endPrice, 0)
+            XCTAssertEqual(log.memo, memo)
+        }
+        
+        store?.dispatch(.addTradingLog(memo))
     }
 }
 

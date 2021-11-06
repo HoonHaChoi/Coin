@@ -73,21 +73,47 @@ class TradingLogAddStoreTest: XCTestCase {
     
     func test_NotExistDate() throws {
         let fakeEnvironment = FakeAddEnvironment(isSuccessState: false)
-        let addStore = TradingLogAddStore(state: .empty,
-                environment: .init(onDismissSubject: .init(),
-                                   findLog: fakeEnvironment.fakeFindLog(date:),
-                                   existDate: fakeEnvironment.fakeExistDate(date:),
-                                   alert: .init()))
+        tradingLogAddStore = .init(state: .empty,
+                            environment: .init(onDismissSubject: .init(),
+                                        findLog: fakeEnvironment.fakeFindLog(date:),
+                                        existDate: fakeEnvironment.fakeExistDate(date:),
+                                        alert: .init()))
     
-        addStore.dispatch(.dateInput(.init()))
-        XCTAssertFalse(addStore.state.selectDate.isEmpty)
-        XCTAssertFalse(addStore.state.isFormValid)
+        tradingLogAddStore.dispatch(.dateInput(.init()))
+        XCTAssertFalse(tradingLogAddStore.state.selectDate.isEmpty)
+        XCTAssertFalse(tradingLogAddStore.state.isFormValid)
     }
     
-    func test_AlertDismiss() {
+    func test_AlertDismiss() throws {
         let store = tradingLogAddStore
         tradingLogAddStore.dispatch(.alertDismiss)
         XCTAssertNil(store?.state.errorAlert)
+    }
+    
+    func test_IsFormValidState() throws {
+        let fakeEnvironment = FakeAddEnvironment(isSuccessState: false)
+        tradingLogAddStore = .init(state: .empty,
+                            environment: .init(onDismissSubject: .init(),
+                                        findLog: fakeEnvironment.fakeFindLog(date:),
+                                        existDate: fakeEnvironment.fakeExistDate(date:),
+                                        alert: .init()))
+        
+        tradingLogAddStore.dispatch(.dateInput(.init()))
+        XCTAssertFalse(tradingLogAddStore.state.isFormValid)
+        tradingLogAddStore.dispatch(.startAmountInput("123"))
+        XCTAssertFalse(tradingLogAddStore.state.isFormValid)
+        tradingLogAddStore.dispatch(.endAmountInput("321"))
+        XCTAssertTrue(tradingLogAddStore.state.isFormValid)
+    }
+    
+    func test_fakeEditInput() throws {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.editInput(.init()))
+        XCTAssertEqual(store?.state.selectDate, "")
+        XCTAssertEqual(store?.state.startAmount, "")
+        XCTAssertEqual(store?.state.endAmount, "")
+        XCTAssertEqual(store?.state.isFormValid, false)
+        XCTAssertEqual(store?.state.memo, "")
     }
 }
 

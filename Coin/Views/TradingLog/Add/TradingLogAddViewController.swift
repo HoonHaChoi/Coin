@@ -192,7 +192,7 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         
         if let alert = state.alert {
             self?.present(alert, animated: true) { [weak self] in
-                self?.dispatch?(.alertDissmiss)
+                self?.dispatch?(.alertDismiss)
             }
         }
     }

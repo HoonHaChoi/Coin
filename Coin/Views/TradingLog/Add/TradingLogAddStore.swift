@@ -61,7 +61,7 @@ final class TradingLogAddStore {
                                      endPrice: state.endAmount.convertRegexInt(),
                                      date: state.selectDate.convertDate(),
                                      memo: memo))
-            case .alertDissmiss:
+            case .alertDismiss:
                 state.errorAlert = nil
             case let .editInput(date):
                 guard let log = environment.findLog(date.removeTimeStamp()) else {

@@ -15,7 +15,7 @@ extension TradingLogAddViewController {
         case endAmountInput(String)
         case memoInput(String)
         case addTradingLog(String)
-        case alertDissmiss
+        case alertDismiss
         case editInput(Date)
     }
     

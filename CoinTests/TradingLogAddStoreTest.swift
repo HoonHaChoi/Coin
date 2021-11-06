@@ -63,6 +63,32 @@ class TradingLogAddStoreTest: XCTestCase {
         tradingLogAddStore.dispatch(.memoInput("memoTest"))
         XCTAssertEqual(store?.state.memo, "memoTest")
     }
+   
+    func test_ExistDateTrue() throws {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.dateInput(.init()))
+        XCTAssertEqual(store?.state.selectDate, "")
+        XCTAssertNotNil(store?.state.errorAlert)
+    }
+    
+    func test_NotExistDate() throws {
+        let fakeEnvironment = FakeAddEnvironment(isSuccessState: false)
+        let addStore = TradingLogAddStore(state: .empty,
+                environment: .init(onDismissSubject: .init(),
+                                   findLog: fakeEnvironment.fakeFindLog(date:),
+                                   existDate: fakeEnvironment.fakeExistDate(date:),
+                                   alert: .init()))
+    
+        addStore.dispatch(.dateInput(.init()))
+        XCTAssertFalse(addStore.state.selectDate.isEmpty)
+        XCTAssertFalse(addStore.state.isFormValid)
+    }
+    
+    func test_AlertDismiss() {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.alertDismiss)
+        XCTAssertNil(store?.state.errorAlert)
+    }
 }
 
 

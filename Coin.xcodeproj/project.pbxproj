@@ -141,7 +141,12 @@
 		BFC8240127367B7F00CD62C0 /* TradingLogAddViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */; };
 		BFC8240227367C0A00CD62C0 /* TradingLogAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AC926BBE01C003B801A /* TradingLogAddViewController.swift */; };
 		BFC8240327367C2B00CD62C0 /* UIToolBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB7530726BEAA8E0013B65A /* UIToolBar+Extension.swift */; };
-		BFC8240427367C4900CD62C0 /* MenuDisableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427EE26CCC6C5001D4C91 /* MenuDisableTextField.swift */; };
+		BFC8240527368A2500CD62C0 /* MenuDisableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB427EE26CCC6C5001D4C91 /* MenuDisableTextField.swift */; };
+		BFC8240627368A3300CD62C0 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FA62E269B2FBD00AC1AC2 /* Storyboarded.swift */; };
+		BFC8240727368A4F00CD62C0 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD526BD2438003B801A /* UITextView+Extension.swift */; };
+		BFC8240827368A6F00CD62C0 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD326BC843E003B801A /* UITextField+Extension.swift */; };
+		BFC8240A27368B5B00CD62C0 /* TradingLogAddStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */; };
+		BFC8240C2736D1E000CD62C0 /* FakeAddEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8240B2736D1E000CD62C0 /* FakeAddEnvironment.swift */; };
 		BFCBED3A26FADF8E00BFE297 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3926FADF8E00BFE297 /* SetViewController.swift */; };
 		BFCBED3C26FAE73300BFE297 /* SetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */; };
 		BFCBED4426FC698800BFE297 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED4326FC698800BFE297 /* NetworkManagerTest.swift */; };
@@ -356,6 +361,8 @@
 		BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
+		BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogAddStoreTest.swift; sourceTree = "<group>"; };
+		BFC8240B2736D1E000CD62C0 /* FakeAddEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAddEnvironment.swift; sourceTree = "<group>"; };
 		BFCBED3926FADF8E00BFE297 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCoordinator.swift; sourceTree = "<group>"; };
 		BFCBED4126FC698800BFE297 /* CoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -628,6 +635,7 @@
 				BFB427E826CB257C001D4C91 /* ChartView.swift */,
 				BFBA25A126CE99F50088D26B /* ChartContainerView.swift */,
 				BFB7954026D0A89B00A89BC7 /* PageSegmentControl.swift */,
+				BFB427EE26CCC6C5001D4C91 /* MenuDisableTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -685,7 +693,6 @@
 				BF4F3AC926BBE01C003B801A /* TradingLogAddViewController.swift */,
 				BF4F3ACD26BC34F0003B801A /* TradingLogAddViewController+Extension.swift */,
 				BF4F3ACB26BC2B92003B801A /* TradingLogAddStore.swift */,
-				BFB427EE26CCC6C5001D4C91 /* MenuDisableTextField.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -744,6 +751,7 @@
 				BFE330F32722A7FF00005746 /* SearchViewModelTest.swift */,
 				BFB4C0092722D61000A11805 /* NotificationViewModelTest.swift */,
 				BFB4C00F2723EAB300A11805 /* NotificationInputViewModelTest.swift */,
+				BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */,
 				BFCBED4526FC698800BFE297 /* Info.plist */,
 			);
 			path = CoinTests;
@@ -785,6 +793,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE330F12722A7C500005746 /* FakeFavoriteCoinRepository.swift */,
+				BFC8240B2736D1E000CD62C0 /* FakeAddEnvironment.swift */,
 			);
 			path = Fake;
 			sourceTree = "<group>";
@@ -1176,16 +1185,19 @@
 				BF214F5C27254AEA00CCF84C /* NotificationCycleServiceSpy.swift in Sources */,
 				BFEB71CE2709A20500B888CD /* CoreDataStorage.swift in Sources */,
 				BFCBED4D26FC6CE600BFE297 /* HTTPMethod.swift in Sources */,
+				BFC8240727368A4F00CD62C0 /* UITextView+Extension.swift in Sources */,
 				BFCBED5326FC702100BFE297 /* TradingLog.swift in Sources */,
 				BF239858270159510020089F /* NetworkManagerSpy.swift in Sources */,
 				BF3E13AC2717C8ED00DE4423 /* AppInfo.swift in Sources */,
-				BFC8240427367C4900CD62C0 /* MenuDisableTextField.swift in Sources */,
+				BFC8240527368A2500CD62C0 /* MenuDisableTextField.swift in Sources */,
 				BFCBED5626FC702100BFE297 /* CoinMeta.swift in Sources */,
 				BF239859270159830020089F /* Requestable.swift in Sources */,
 				BF8DCD65272119A3002F8F5A /* SearchCoinsViewModel.swift in Sources */,
 				BFCBED5226FC702100BFE297 /* NotificationObject.swift in Sources */,
+				BFC8240C2736D1E000CD62C0 /* FakeAddEnvironment.swift in Sources */,
 				BFCBED5426FC702100BFE297 /* StatsDTO.swift in Sources */,
 				BFB4C0122723EC2E00A11805 /* NotificationHelper.swift in Sources */,
+				BFC8240627368A3300CD62C0 /* Storyboarded.swift in Sources */,
 				BFC823FF273674D100CD62C0 /* UIColor+Extension.swift in Sources */,
 				BFCBED4F26FC6F7100BFE297 /* URLSession+Extension.swift in Sources */,
 				BFCBED5E26FC72FA00BFE297 /* Int64+Extension.swift in Sources */,
@@ -1198,9 +1210,11 @@
 				BF8DCD602720658F002F8F5A /* SearchServiceSpy.swift in Sources */,
 				BFCBED6626FC72FA00BFE297 /* Date+Extension.swift in Sources */,
 				BFE330F22722A7C500005746 /* FakeFavoriteCoinRepository.swift in Sources */,
+				BFC8240827368A6F00CD62C0 /* UITextField+Extension.swift in Sources */,
 				BFB4C0102723EAB300A11805 /* NotificationInputViewModelTest.swift in Sources */,
 				BFB4C01C27244D9A00A11805 /* FavoriteCoinStorage.swift in Sources */,
 				BFB4C00B2722D6E300A11805 /* NotificationsViewModel.swift in Sources */,
+				BFC8240A27368B5B00CD62C0 /* TradingLogAddStoreTest.swift in Sources */,
 				BFB4C00E2723E75400A11805 /* NotificationInputServiceSpy.swift in Sources */,
 				BFCBED5026FC702100BFE297 /* Coins.swift in Sources */,
 				BFCBED4C26FC6CE600BFE297 /* EndPoint.swift in Sources */,

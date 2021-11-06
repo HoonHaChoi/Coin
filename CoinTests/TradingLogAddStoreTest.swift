@@ -52,6 +52,17 @@ class TradingLogAddStoreTest: XCTestCase {
         XCTAssertEqual(store?.state.startAmount, "123,456")
     }
     
+    func test_CorrectEndAmountInput() throws {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.endAmountInput("5555555"))
+        XCTAssertEqual(store?.state.endAmount, "5,555,555")
+    }
+    
+    func test_MemoInput() throws {
+        let store = tradingLogAddStore
+        tradingLogAddStore.dispatch(.memoInput("memoTest"))
+        XCTAssertEqual(store?.state.memo, "memoTest")
+    }
 }
 
 

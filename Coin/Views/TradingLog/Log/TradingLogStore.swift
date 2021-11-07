@@ -61,7 +61,7 @@ class TradingLogStore {
     }
     
     struct Environment {
-        var dateManager: DateManager
+        var dateManager: DateManagerProtocol
         var coreDataManager: CoreDataStorage
         var addTradingView: UIViewController
     }

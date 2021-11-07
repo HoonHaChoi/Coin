@@ -2,8 +2,7 @@ import Foundation
 import Combine
 import SwiftyJSON
 
-struct NetworkManager: SearchService, FavortieService, AppStoreService,
-                       NotificationService, NotificationInputService, NotificationCycleService {
+struct NetworkManager {
     
     private let session: Requestable
     
@@ -56,6 +55,13 @@ struct NetworkManager: SearchService, FavortieService, AppStoreService,
         return nil
     }
 }
+
+extension NetworkManager: SearchService {}
+extension NetworkManager: FavortieService {}
+extension NetworkManager: AppStoreService {}
+extension NetworkManager: NotificationService {}
+extension NetworkManager: NotificationInputService {}
+extension NetworkManager: NotificationCycleService {}
 
 protocol SearchService {
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>

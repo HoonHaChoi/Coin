@@ -10,8 +10,11 @@ import CoreData
 
 protocol CoreDataStorage {
     func fetch(dates: (start: Date,end: Date)) -> [TradingLogMO]
+    @discardableResult
     func insert(tradingLog: TradingLog) -> Bool
+    @discardableResult
     func update(tradingLog: TradingLog) -> Bool
+    @discardableResult
     func delete(date: Date) -> Bool
     func findTradingLog(date: Date) -> TradingLogMO?
     func isExistLog(date: Date) -> Bool

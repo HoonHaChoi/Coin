@@ -165,6 +165,8 @@
 		BFC824252737AF2200CD62C0 /* StatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42026C8767B0077A521 /* StatsStackView.swift */; };
 		BFC824262737AF2F00CD62C0 /* StatsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBCE42226C8804E0077A521 /* StatsTextView.swift */; };
 		BFC824272737AF5100CD62C0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB4C018272421C200A11805 /* UIView+Extension.swift */; };
+		BFC824292737B35E00CD62C0 /* TradingLogStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC824282737B35E00CD62C0 /* TradingLogStoreTest.swift */; };
+		BFC8242B2737B54C00CD62C0 /* CoreDataStorageSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8242A2737B54C00CD62C0 /* CoreDataStorageSpy.swift */; };
 		BFCBED3A26FADF8E00BFE297 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3926FADF8E00BFE297 /* SetViewController.swift */; };
 		BFCBED3C26FAE73300BFE297 /* SetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */; };
 		BFCBED4426FC698800BFE297 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED4326FC698800BFE297 /* NetworkManagerTest.swift */; };
@@ -382,6 +384,8 @@
 		BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogAddStoreTest.swift; sourceTree = "<group>"; };
 		BFC8240B2736D1E000CD62C0 /* AddEnvironmentStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvironmentStub.swift; sourceTree = "<group>"; };
 		BFC8241427379E8700CD62C0 /* DateManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManagerStub.swift; sourceTree = "<group>"; };
+		BFC824282737B35E00CD62C0 /* TradingLogStoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogStoreTest.swift; sourceTree = "<group>"; };
+		BFC8242A2737B54C00CD62C0 /* CoreDataStorageSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageSpy.swift; sourceTree = "<group>"; };
 		BFCBED3926FADF8E00BFE297 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCoordinator.swift; sourceTree = "<group>"; };
 		BFCBED4126FC698800BFE297 /* CoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -773,6 +777,7 @@
 				BFB4C0092722D61000A11805 /* NotificationViewModelTest.swift */,
 				BFB4C00F2723EAB300A11805 /* NotificationInputViewModelTest.swift */,
 				BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */,
+				BFC824282737B35E00CD62C0 /* TradingLogStoreTest.swift */,
 				BFCBED4526FC698800BFE297 /* Info.plist */,
 			);
 			path = CoinTests;
@@ -792,12 +797,13 @@
 		BFE330EE2722A6B400005746 /* Spy */ = {
 			isa = PBXGroup;
 			children = (
+				BFB4C0072722CDD600A11805 /* BaseSpy.swift */,
 				BF8DCD5F2720658E002F8F5A /* SearchServiceSpy.swift */,
 				BF239857270159510020089F /* NetworkManagerSpy.swift */,
 				BFB4C0052722CA1500A11805 /* NotificationServiceSpy.swift */,
 				BF214F5B27254AEA00CCF84C /* NotificationCycleServiceSpy.swift */,
 				BFB4C00D2723E75400A11805 /* NotificationInputServiceSpy.swift */,
-				BFB4C0072722CDD600A11805 /* BaseSpy.swift */,
+				BFC8242A2737B54C00CD62C0 /* CoreDataStorageSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -1200,6 +1206,7 @@
 				BFB4C0082722CDD600A11805 /* BaseSpy.swift in Sources */,
 				BF3E13AB2717C8E700DE4423 /* URLRouter.swift in Sources */,
 				BFCBED6926FC73E100BFE297 /* ImageRequest.swift in Sources */,
+				BFC824292737B35E00CD62C0 /* TradingLogStoreTest.swift in Sources */,
 				BFCBED4E26FC6CE600BFE297 /* NetwokManager.swift in Sources */,
 				BFC824242737AF0F00CD62C0 /* TradingLogDetailViewController.swift in Sources */,
 				BFCBED5F26FC72FA00BFE297 /* Int+Extension.swift in Sources */,
@@ -1244,6 +1251,7 @@
 				BFC8240827368A6F00CD62C0 /* UITextField+Extension.swift in Sources */,
 				BFC824272737AF5100CD62C0 /* UIView+Extension.swift in Sources */,
 				BFB4C0102723EAB300A11805 /* NotificationInputViewModelTest.swift in Sources */,
+				BFC8242B2737B54C00CD62C0 /* CoreDataStorageSpy.swift in Sources */,
 				BFC824252737AF2200CD62C0 /* StatsStackView.swift in Sources */,
 				BFB4C01C27244D9A00A11805 /* FavoriteCoinStorage.swift in Sources */,
 				BFC8241B2737AD5800CD62C0 /* EmptyView.swift in Sources */,

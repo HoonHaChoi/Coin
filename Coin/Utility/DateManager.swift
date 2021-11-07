@@ -7,7 +7,16 @@
 
 import Foundation
 
-final class DateManager {
+protocol DateManagerProtocol {
+    func currentDateString() -> String
+    func turnOfBackward()
+    func turnOfForward()
+    func calculateMonthStartOfEnd() -> (start: Date, end: Date)
+    func confirmNextMonth() -> Bool
+    func confirmPreviousMonth() -> Bool
+}
+
+final class DateManager: DateManagerProtocol {
     
     private(set) var currentDate: Date
     private let calendar: Calendar

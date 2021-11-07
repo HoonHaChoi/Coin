@@ -147,8 +147,6 @@
 		BFC8240827368A6F00CD62C0 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD326BC843E003B801A /* UITextField+Extension.swift */; };
 		BFC8240A27368B5B00CD62C0 /* TradingLogAddStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */; };
 		BFC8240C2736D1E000CD62C0 /* FakeAddEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8240B2736D1E000CD62C0 /* FakeAddEnvironment.swift */; };
-		BFC824102737965800CD62C0 /* TradingLogDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9326B86B30003B801A /* TradingLogDataSource.swift */; };
-		BFC824112737965B00CD62C0 /* TradingLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92D7E126B57DF20033B773 /* TradingLogViewController.swift */; };
 		BFC824122737969500CD62C0 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9726B94C50003B801A /* DateManager.swift */; };
 		BFC8241527379E8700CD62C0 /* DateManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8241427379E8700CD62C0 /* DateManagerTest.swift */; };
 		BFCBED3A26FADF8E00BFE297 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3926FADF8E00BFE297 /* SetViewController.swift */; };
@@ -1189,7 +1187,6 @@
 				BFCBED4E26FC6CE600BFE297 /* NetwokManager.swift in Sources */,
 				BFCBED5F26FC72FA00BFE297 /* Int+Extension.swift in Sources */,
 				BF214F5C27254AEA00CCF84C /* NotificationCycleServiceSpy.swift in Sources */,
-				BFC824112737965B00CD62C0 /* TradingLogViewController.swift in Sources */,
 				BFEB71CE2709A20500B888CD /* CoreDataStorage.swift in Sources */,
 				BFCBED4D26FC6CE600BFE297 /* HTTPMethod.swift in Sources */,
 				BFC8240727368A4F00CD62C0 /* UITextView+Extension.swift in Sources */,
@@ -1199,7 +1196,6 @@
 				BFC8240527368A2500CD62C0 /* MenuDisableTextField.swift in Sources */,
 				BFCBED5626FC702100BFE297 /* CoinMeta.swift in Sources */,
 				BF239859270159830020089F /* Requestable.swift in Sources */,
-				BFC824102737965800CD62C0 /* TradingLogDataSource.swift in Sources */,
 				BF8DCD65272119A3002F8F5A /* SearchCoinsViewModel.swift in Sources */,
 				BFC8241527379E8700CD62C0 /* DateManagerTest.swift in Sources */,
 				BFC824122737969500CD62C0 /* DateManager.swift in Sources */,

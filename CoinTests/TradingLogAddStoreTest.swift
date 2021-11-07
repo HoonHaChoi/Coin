@@ -11,21 +11,21 @@ import Combine
 class TradingLogAddStoreTest: XCTestCase {
 
     var tradingLogAddStore: TradingLogAddStore!
-    var fakeAddEnvironment: FakeAddEnvironment!
+    var addEnvironmentStub: AddEnvironmentStub!
     var cancell: AnyCancellable?
     
     override func setUpWithError() throws {
-        fakeAddEnvironment = .init(isSuccessState: true)
+        addEnvironmentStub = .init(isSuccessState: true)
         tradingLogAddStore =
             .init(state: .empty,
-                  environment: .init(onDismissSubject: fakeAddEnvironment.subject,
-                                   findLog: fakeAddEnvironment.fakeFindLog(date:),
-                                   existDate: fakeAddEnvironment.fakeExistDate(date:),
+                  environment: .init(onDismissSubject: addEnvironmentStub.subject,
+                                   findLog: addEnvironmentStub.fakeFindLog(date:),
+                                   existDate: addEnvironmentStub.fakeExistDate(date:),
                                    alert: .init()))
     }
 
     override func tearDownWithError() throws {
-        fakeAddEnvironment = nil
+        addEnvironmentStub = nil
         tradingLogAddStore = nil
         cancell = nil
     }
@@ -74,7 +74,7 @@ class TradingLogAddStoreTest: XCTestCase {
     }
     
     func test_NotExistDate() throws {
-        let fakeEnvironment = FakeAddEnvironment(isSuccessState: false)
+        let fakeEnvironment = AddEnvironmentStub(isSuccessState: false)
         tradingLogAddStore = .init(state: .empty,
                             environment: .init(onDismissSubject: .init(),
                                         findLog: fakeEnvironment.fakeFindLog(date:),
@@ -93,7 +93,7 @@ class TradingLogAddStoreTest: XCTestCase {
     }
     
     func test_IsFormValidState() throws {
-        let fakeEnvironment = FakeAddEnvironment(isSuccessState: false)
+        let fakeEnvironment = AddEnvironmentStub(isSuccessState: false)
         tradingLogAddStore = .init(state: .empty,
                                    environment: .init(onDismissSubject: .init(),
                                         findLog: fakeEnvironment.fakeFindLog(date:),
@@ -127,7 +127,7 @@ class TradingLogAddStoreTest: XCTestCase {
         store?.dispatch(.startAmountInput("123"))
         store?.dispatch(.endAmountInput("456"))
             
-        cancell = fakeAddEnvironment.subject.sink { log in
+        cancell = addEnvironmentStub.subject.sink { log in
             XCTAssertEqual(log.startPrice, 123)
             XCTAssertEqual(log.endPrice, 456)
             XCTAssertEqual(log.memo, memo)
@@ -143,7 +143,7 @@ class TradingLogAddStoreTest: XCTestCase {
         store?.dispatch(.startAmountInput("12300000000000000"))
         store?.dispatch(.endAmountInput("qweqwe"))
             
-        cancell = fakeAddEnvironment.subject.sink { log in
+        cancell = addEnvironmentStub.subject.sink { log in
             XCTAssertEqual(log.startPrice, 9999999999)
             XCTAssertEqual(log.endPrice, 0)
             XCTAssertEqual(log.memo, memo)

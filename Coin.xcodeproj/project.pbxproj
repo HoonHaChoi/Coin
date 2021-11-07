@@ -146,9 +146,9 @@
 		BFC8240727368A4F00CD62C0 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD526BD2438003B801A /* UITextView+Extension.swift */; };
 		BFC8240827368A6F00CD62C0 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3AD326BC843E003B801A /* UITextField+Extension.swift */; };
 		BFC8240A27368B5B00CD62C0 /* TradingLogAddStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */; };
-		BFC8240C2736D1E000CD62C0 /* FakeAddEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8240B2736D1E000CD62C0 /* FakeAddEnvironment.swift */; };
+		BFC8240C2736D1E000CD62C0 /* AddEnvironmentStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8240B2736D1E000CD62C0 /* AddEnvironmentStub.swift */; };
 		BFC824122737969500CD62C0 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3A9726B94C50003B801A /* DateManager.swift */; };
-		BFC8241527379E8700CD62C0 /* DateManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8241427379E8700CD62C0 /* DateManagerTest.swift */; };
+		BFC8241527379E8700CD62C0 /* DateManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC8241427379E8700CD62C0 /* DateManagerStub.swift */; };
 		BFCBED3A26FADF8E00BFE297 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3926FADF8E00BFE297 /* SetViewController.swift */; };
 		BFCBED3C26FAE73300BFE297 /* SetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */; };
 		BFCBED4426FC698800BFE297 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCBED4326FC698800BFE297 /* NetworkManagerTest.swift */; };
@@ -364,8 +364,8 @@
 		BFBCE42026C8767B0077A521 /* StatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackView.swift; sourceTree = "<group>"; };
 		BFBCE42226C8804E0077A521 /* StatsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTextView.swift; sourceTree = "<group>"; };
 		BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingLogAddStoreTest.swift; sourceTree = "<group>"; };
-		BFC8240B2736D1E000CD62C0 /* FakeAddEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAddEnvironment.swift; sourceTree = "<group>"; };
-		BFC8241427379E8700CD62C0 /* DateManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManagerTest.swift; sourceTree = "<group>"; };
+		BFC8240B2736D1E000CD62C0 /* AddEnvironmentStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnvironmentStub.swift; sourceTree = "<group>"; };
+		BFC8241427379E8700CD62C0 /* DateManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManagerStub.swift; sourceTree = "<group>"; };
 		BFCBED3926FADF8E00BFE297 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		BFCBED3B26FAE73300BFE297 /* SetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCoordinator.swift; sourceTree = "<group>"; };
 		BFCBED4126FC698800BFE297 /* CoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -543,6 +543,8 @@
 		BF2398562701593E0020089F /* Stub */ = {
 			isa = PBXGroup;
 			children = (
+				BFC8240B2736D1E000CD62C0 /* AddEnvironmentStub.swift */,
+				BFC8241427379E8700CD62C0 /* DateManagerStub.swift */,
 				BFB4C0142723ECF700A11805 /* NotificationHelperStub.swift */,
 			);
 			path = Stub;
@@ -755,7 +757,6 @@
 				BFB4C0092722D61000A11805 /* NotificationViewModelTest.swift */,
 				BFB4C00F2723EAB300A11805 /* NotificationInputViewModelTest.swift */,
 				BFC8240927368B5B00CD62C0 /* TradingLogAddStoreTest.swift */,
-				BFC8241427379E8700CD62C0 /* DateManagerTest.swift */,
 				BFCBED4526FC698800BFE297 /* Info.plist */,
 			);
 			path = CoinTests;
@@ -797,7 +798,6 @@
 			isa = PBXGroup;
 			children = (
 				BFE330F12722A7C500005746 /* FakeFavoriteCoinRepository.swift */,
-				BFC8240B2736D1E000CD62C0 /* FakeAddEnvironment.swift */,
 			);
 			path = Fake;
 			sourceTree = "<group>";
@@ -1197,10 +1197,10 @@
 				BFCBED5626FC702100BFE297 /* CoinMeta.swift in Sources */,
 				BF239859270159830020089F /* Requestable.swift in Sources */,
 				BF8DCD65272119A3002F8F5A /* SearchCoinsViewModel.swift in Sources */,
-				BFC8241527379E8700CD62C0 /* DateManagerTest.swift in Sources */,
+				BFC8241527379E8700CD62C0 /* DateManagerStub.swift in Sources */,
 				BFC824122737969500CD62C0 /* DateManager.swift in Sources */,
 				BFCBED5226FC702100BFE297 /* NotificationObject.swift in Sources */,
-				BFC8240C2736D1E000CD62C0 /* FakeAddEnvironment.swift in Sources */,
+				BFC8240C2736D1E000CD62C0 /* AddEnvironmentStub.swift in Sources */,
 				BFCBED5426FC702100BFE297 /* StatsDTO.swift in Sources */,
 				BFB4C0122723EC2E00A11805 /* NotificationHelper.swift in Sources */,
 				BFC8240627368A3300CD62C0 /* Storyboarded.swift in Sources */,

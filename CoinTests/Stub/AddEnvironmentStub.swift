@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-struct FakeAddEnvironment {
+struct AddEnvironmentStub {
     
     var isSuccess: Bool
     var subject: PassthroughSubject<TradingLog, Never>

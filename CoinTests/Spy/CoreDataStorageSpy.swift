@@ -50,10 +50,14 @@ class CoreDataStorageSpy: BaseSpy, CoreDataStorage {
     }
     
     func update(tradingLog: TradingLog) -> Bool {
+        var log = dummyData.first { $0.date == tradingLog.date }
+        log?.startPrice = 1000
+        log?.endPrice = 3000
         return true
     }
     
     func delete(date: Date) -> Bool {
+        dummyData = dummyData.filter { $0.date != date.removeTimeStamp() }
         return true
     }
     
@@ -66,12 +70,11 @@ class CoreDataStorageSpy: BaseSpy, CoreDataStorage {
     }
     
     private func dummyInsert() {
-        let calendar = Calendar.current
         for i in 0..<3 {
-            let date = calendar.date(byAdding: .month, value: 0 - i, to: Date()) ?? .init()
+            let date = Calendar.current.date(byAdding: .day, value: 0 - i, to: Date()) ?? .init()
             let log: TradingLog = .init(startPrice: 0,
                                         endPrice: i,
-                                        date: date,
+                                        date: date.removeTimeStamp(),
                                         memo: "")
             dummyData.append(log)
         }

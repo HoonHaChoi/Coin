@@ -23,7 +23,8 @@ class DateManagerStub: DateManagerProtocol {
     func turnOfForward() {}
     
     func calculateMonthStartOfEnd() -> (start: Date, end: Date) {
-        return (start: .init(), end: .init())
+        let beforeDay = Calendar.current.date(byAdding: .day, value: -2, to: .init())!
+        return (start: beforeDay.removeTimeStamp(), end: .init())
     }
     
     func confirmNextMonth() -> Bool {

@@ -24,11 +24,19 @@ class TradingLogStoreTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        tradingLogStore = nil
+        dateManagerStub = nil
+        coreDateStorageSpy = nil
     }
 
-    func testExample() throws {
+    func test_InitialLoadAction() throws {
+        XCTAssertEqual(tradingLogStore.state.tradlog.count, 0)
+        tradingLogStore.dispatch(.loadInitialData)
+        XCTAssertEqual(tradingLogStore.state.tradlog.count, 3)
     }
-
+    
+    
+    
     
     lazy var mockPersistentContainer: NSPersistentContainer = {
         let managedObjectModel = NSManagedObjectModel.mergedModel(from: [Bundle(for: type(of: self))])!

@@ -35,8 +35,25 @@ class TradingLogStoreTest: XCTestCase {
         XCTAssertEqual(tradingLogStore.state.tradlog.count, 3)
     }
     
+    func test_AddLogAction() throws {
+        let log: TradingLog = .init(startPrice: 333, endPrice: 444, date: .init(), memo: nil)
+        tradingLogStore.dispatch(.addTradingLog(log))
+        XCTAssertEqual(tradingLogStore.state.tradlog.count, 4)
+    }
     
+    func test_DeleteLogAction() throws {
+        tradingLogStore.dispatch(.deleteTradingLog(.init()))
+        XCTAssertEqual(tradingLogStore.state.tradlog.count, 2)
+    }
     
+    func test_UpdateLogAction() throws {
+        let log: TradingLog = .init(startPrice: 1000, endPrice: 3000, date: .init().removeTimeStamp(), memo: nil)
+        tradingLogStore.dispatch(.editTradingLog(log))
+        
+        let firstLog = tradingLogStore.state.tradlog.first
+        XCTAssertEqual(firstLog?.startPrice, 1000)
+        XCTAssertEqual(firstLog?.endPrice, 3000)
+    }
     
     lazy var mockPersistentContainer: NSPersistentContainer = {
         let managedObjectModel = NSManagedObjectModel.mergedModel(from: [Bundle(for: type(of: self))])!

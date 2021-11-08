@@ -50,9 +50,13 @@ class CoreDataStorageSpy: BaseSpy, CoreDataStorage {
     }
     
     func update(tradingLog: TradingLog) -> Bool {
-        var log = dummyData.first { $0.date == tradingLog.date }
-        log?.startPrice = 1000
-        log?.endPrice = 3000
+        dummyData = dummyData.map {
+            var log = $0
+            if log.date == tradingLog.date {
+                log = tradingLog
+            }
+            return log
+        }
         return true
     }
     
@@ -75,7 +79,7 @@ class CoreDataStorageSpy: BaseSpy, CoreDataStorage {
             let log: TradingLog = .init(startPrice: 0,
                                         endPrice: i,
                                         date: date.removeTimeStamp(),
-                                        memo: "")
+                                        memo: "\(i)")
             dummyData.append(log)
         }
     }

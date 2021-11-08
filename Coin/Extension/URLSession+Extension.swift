@@ -19,7 +19,7 @@ extension URLSession: Requestable {
                     return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
                 }
                 guard 200..<300 ~= httpresponse.statusCode else {
-                    return Fail(error: NetworkError.invalidStatusCode(httpresponse.statusCode)).eraseToAnyPublisher()
+                    return Fail(error: NetworkError.invalidStatusCode(data)).eraseToAnyPublisher()
                 }
                 return Just(data)
                     .decode(type: T.self, decoder: decode)
@@ -46,7 +46,7 @@ extension URLSession: Requestable {
                     return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
                 }
                 guard 200..<300 ~= httpresponse.statusCode else {
-                    return Fail(error: NetworkError.invalidStatusCode(httpresponse.statusCode)).eraseToAnyPublisher()
+                    return Fail(error: NetworkError.invalidStatusCode(data)).eraseToAnyPublisher()
                 }
                 return Just(data)
                     .decode(type: T.self, decoder: decode)
@@ -64,12 +64,12 @@ extension URLSession: Requestable {
             .mapError { _ in
                 NetworkError.invalidRequest
             }
-            .flatMap { (_, response) -> AnyPublisher<Void, NetworkError> in
+            .flatMap { (data, response) -> AnyPublisher<Void, NetworkError> in
                 guard let httpresponse = response as? HTTPURLResponse else {
                     return Fail(error: NetworkError.invalidResponse).eraseToAnyPublisher()
                 }
                 guard 200..<300 ~= httpresponse.statusCode else {
-                    return Fail(error: NetworkError.invalidStatusCode(httpresponse.statusCode)).eraseToAnyPublisher()
+                    return Fail(error: NetworkError.invalidStatusCode(data)).eraseToAnyPublisher()
                 }
                 return Just(()).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
             }.eraseToAnyPublisher()

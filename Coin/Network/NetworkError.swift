@@ -11,7 +11,7 @@ enum NetworkError: Error, CustomStringConvertible, Equatable {
     case invalidURL
     case invalidRequest
     case invalidResponse
-    case invalidStatusCode(Int)
+    case invalidStatusCode(Data)
     case emptyData
     case failParsing
 
@@ -23,8 +23,9 @@ enum NetworkError: Error, CustomStringConvertible, Equatable {
             return "요청에 실패하였습니다 잠시 후에 시도해주세요."
         case .invalidResponse:
             return "올바르지 않은 응답입니다"
-        case .invalidStatusCode(let code):
-            return "올바르지 않은 응답 코드입니다 \(code)"
+        case .invalidStatusCode(let data):
+            let error = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            return "\(error?["message"] ?? "")"
         case .emptyData:
             return "올바르지 않은 데이터입니다"
         case .failParsing:

@@ -9,18 +9,24 @@ import Foundation
 class DateManagerStub: DateManagerProtocol {
     
     var isSuccess: Bool
+    var dateString: String
     
     init(succeeState: Bool) {
         isSuccess = succeeState
+        dateString = ""
     }
     
     func currentDateString() -> String {
-        return ""
+        return dateString
     }
     
-    func turnOfBackward() {}
+    func turnOfBackward() {
+        dateString = "Move Backward"
+    }
     
-    func turnOfForward() {}
+    func turnOfForward() {
+        dateString = "Move Forward"
+    }
     
     func calculateMonthStartOfEnd() -> (start: Date, end: Date) {
         let beforeDay = Calendar.current.date(byAdding: .day, value: -2, to: .init())!

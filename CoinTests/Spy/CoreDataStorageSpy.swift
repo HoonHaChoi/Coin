@@ -29,7 +29,7 @@ class CoreDataStorageSpy: BaseSpy, CoreDataStorage {
                                              dates.start as NSDate,
                                              dates.end as NSDate)
         
-        _ = dummyData.map { log in
+        dummyData.forEach { log in
             let object = NSEntityDescription.insertNewObject(forEntityName: "TradingLog",
                                                              into: context) as? TradingLogMO
             object?.startPrice = Int64(log.startPrice)
@@ -50,12 +50,8 @@ class CoreDataStorageSpy: BaseSpy, CoreDataStorage {
     }
     
     func update(tradingLog: TradingLog) -> Bool {
-        dummyData = dummyData.map {
-            var log = $0
-            if log.date == tradingLog.date {
-                log = tradingLog
-            }
-            return log
+        if let index = dummyData.firstIndex(where: { log in log.date == tradingLog.date }) {
+            dummyData[index] = tradingLog
         }
         return true
     }

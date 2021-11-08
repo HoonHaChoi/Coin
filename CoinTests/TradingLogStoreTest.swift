@@ -50,9 +50,21 @@ class TradingLogStoreTest: XCTestCase {
         let log: TradingLog = .init(startPrice: 1000, endPrice: 3000, date: .init().removeTimeStamp(), memo: nil)
         tradingLogStore.dispatch(.editTradingLog(log))
         
-        let firstLog = tradingLogStore.state.tradlog.first
-        XCTAssertEqual(firstLog?.startPrice, 1000)
-        XCTAssertEqual(firstLog?.endPrice, 3000)
+        let findLog = tradingLogStore.state.tradlog.first { $0.date == .init().removeTimeStamp() }
+        XCTAssertEqual(findLog?.startPrice, 1000)
+        XCTAssertEqual(findLog?.endPrice, 3000)
+    }
+    
+    func test_ForwardTapAction() throws {
+        XCTAssertTrue(tradingLogStore.state.currentDateString.isEmpty)
+        tradingLogStore.dispatch(.didTapForWardMonth)
+        XCTAssertEqual(tradingLogStore.state.currentDateString, "Move Forward")
+    }
+    
+    func test_BackwardTapAction() throws {
+        XCTAssertTrue(tradingLogStore.state.currentDateString.isEmpty)
+        tradingLogStore.dispatch(.didTapBackWardMonth)
+        XCTAssertEqual(tradingLogStore.state.currentDateString, "Move Backward")
     }
     
     lazy var mockPersistentContainer: NSPersistentContainer = {

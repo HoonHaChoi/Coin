@@ -190,8 +190,16 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
             self?.memoTextView.text = state.memo
         }
         
-        if let alert = state.alert {
-            self?.present(alert, animated: true) { [weak self] in
+        if state.errorAlertState {
+            self?.showErrorAlert()
+        }
+    }
+    
+    private func showErrorAlert() {
+        DispatchQueue.main.async { [weak self] in
+            let errorAlert = UIAlertController(title: "이미 해당 날에 일지가 존재합니다",
+                                               message: "다른 날을 선택해주세요!")
+            self?.present(errorAlert, animated: true) {
                 self?.dispatch?(.alertDismiss)
             }
         }

@@ -26,7 +26,7 @@ extension TradingLogAddViewController {
         var endAmount: String?
         var memo: String
         var isFormValid: Bool
-        var alert: UIAlertController?
+        var errorAlertState: Bool
     }
 }
 

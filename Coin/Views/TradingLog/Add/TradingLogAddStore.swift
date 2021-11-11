@@ -15,20 +15,20 @@ final class TradingLogAddStore {
                                 startAmount: "",
                                 endAmount: "",
                                 memo: "",
-                                isFormValid: false
+                                isFormValid: false,
+                                errorAlertState: false
                                 )
         var selectDate: String
         var startAmount: String
         var endAmount: String
         var memo: String
         var isFormValid: Bool
-        var errorAlert: UIAlertController?
+        var errorAlertState: Bool
     }
     
     struct Environment {
         let onDismissSubject: PassthroughSubject<TradingLog, Never>
         let existDate: (Date) -> Bool
-        let alert: UIAlertController
     }
     
     struct Reducer {
@@ -43,7 +43,7 @@ final class TradingLogAddStore {
             case let .dateInput(date):
                 if environment.existDate(date.removeTimeStamp()) {
                     state.selectDate = ""
-                    state.errorAlert = environment.alert
+                    state.errorAlertState = true
                 } else {
                     state.selectDate = date.convertString()
                     state.isFormValid = isFormValidCheck(state)
@@ -63,7 +63,7 @@ final class TradingLogAddStore {
                                      date: state.selectDate.convertDate(),
                                      memo: memo))
             case .alertDismiss:
-                state.errorAlert = nil
+                state.errorAlertState = false
             case let .editViewDidLoad(log):
                 state.selectDate = log.date.convertString()
                 state.startAmount = "\(log.startPrice)".limitTextCount()
@@ -110,6 +110,6 @@ private extension TradingLogAddViewController.ViewState {
         self.endAmount = state.endAmount
         self.memo = state.memo
         self.isFormValid = state.isFormValid
-        self.alert = state.errorAlert
+        self.errorAlertState = state.errorAlertState
     }
 }

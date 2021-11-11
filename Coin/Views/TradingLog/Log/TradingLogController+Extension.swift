@@ -15,7 +15,7 @@ extension TradingLogViewController {
         case didTapAddTradingLog
         case addTradingLog(TradingLog)
         case deleteTradingLog(Date)
-        case didTapEditTradingLog(Date)
+        case didTapEditTradingLog(TradingLog)
         case editTradingLog(TradingLog)
         case didTapDateAscending
     }

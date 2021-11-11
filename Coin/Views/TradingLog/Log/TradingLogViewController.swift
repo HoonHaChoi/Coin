@@ -35,16 +35,20 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tradingLogTableView.register(cell: TradingLogCell.self)
-        tradingLogTableView.dataSource = dataSource
-        tradingLogTableView.delegate = self
-        tradingLogTableView.rowHeight = UITableView.automaticDimension
-        tradingLogTableView.estimatedRowHeight = 200
+        configureTableView()
         dispatch?(.loadInitialData)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    private func configureTableView() {
+        tradingLogTableView.register(cell: TradingLogCell.self)
+        tradingLogTableView.dataSource = dataSource
+        tradingLogTableView.delegate = self
+        tradingLogTableView.rowHeight = UITableView.automaticDimension
+        tradingLogTableView.estimatedRowHeight = 200
     }
     
     func updateState(state: ViewState) {
@@ -79,20 +83,16 @@ final class TradingLogViewController: UIViewController, Storyboarded {
 extension TradingLogViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let row = self.dataSource.fetchTradingLog(index: indexPath.row)
-        guard let tradinglogDate = row.date else {
-            return nil
-        }
         
         let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, _  in
-            
             let alert = UIAlertController { _ in
-                self?.dispatch?(.deleteTradingLog(tradinglogDate))
+                self?.dispatch?(.deleteTradingLog(row.date))
             }
             self?.present(alert, animated: true, completion: nil)
         }
         
         let editAction = UIContextualAction(style: .normal, title: "") { [weak self] _, _, _ in
-            self?.dispatch?(.didTapEditTradingLog(tradinglogDate))
+            self?.dispatch?(.didTapEditTradingLog(row))
         }
         
         deleteAction.backgroundColor = .systemBackground
@@ -105,14 +105,8 @@ extension TradingLogViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let row = self.dataSource.fetchTradingLog(index: indexPath.row)
-        let selectLog = TradingLog(startPrice: Int(row.startPrice),
-                                  endPrice: Int(row.endPrice),
-                                  date: row.date!,
-                                  memo: row.memo)
-        
-        let detailView = UINavigationController(rootViewController: TradingLogDetailViewController(log: selectLog))
+        let detailView = TradingLogDetailViewController(log: row)
         self.present(detailView, animated: true, completion: nil)
     }
 }

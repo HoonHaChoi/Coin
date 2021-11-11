@@ -23,7 +23,6 @@ class TradingLogStore {
     
     struct Navigator {
         let viewController: UIViewController
-        let findLogHandler: (Date) -> TradingLogMO?
         let isExistHandler: (Date) -> Bool
         
         func pushTradingLogAddView(style: FormStyle) -> AnyPublisher<TradingLog, Never> {
@@ -34,10 +33,8 @@ class TradingLogStore {
                 message: "다른 날을 선택해주세요!")
             
             let tradingLogAddStore =
-                TradingLogAddStore(state: .empty,
-                                   environment:
+                TradingLogAddStore(environment:
                                     .init(onDismissSubject: subject,
-                                          findLog: findLogHandler,
                                           existDate: isExistHandler,
                                           alert: tradingErrorAlert)
                 )
@@ -84,7 +81,6 @@ class TradingLogStore {
                 updateState(state: &state)
             case .didTapAddTradingLog:
                 return Navigator(viewController: environment.addTradingView,
-                                 findLogHandler: environment.coreDataManager.findTradingLog(date:),
                                  isExistHandler: environment.coreDataManager.isExistLog(date:))
                     .pushTradingLogAddView(style: .add)
                     .map { log in Action.addTradingLog(log) }
@@ -98,11 +94,10 @@ class TradingLogStore {
                 environment.coreDataManager.delete(date: date)
                 updateState(state: &state)
                 
-            case let .didTapEditTradingLog(date):
+            case let .didTapEditTradingLog(log):
                 return Navigator(viewController: environment.addTradingView,
-                                 findLogHandler: environment.coreDataManager.findTradingLog(date:),
                                  isExistHandler: environment.coreDataManager.isExistLog(date:))
-                    .pushTradingLogAddView(style: .edit(date))
+                    .pushTradingLogAddView(style: .edit(log))
                     .map { log in Action.editTradingLog(log) }
                     .eraseToAnyPublisher()
                 

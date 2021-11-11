@@ -10,7 +10,7 @@ import Combine
 
 enum FormStyle {
     case add
-    case edit(Date)
+    case edit(TradingLog)
 }
 
 class TradingLogAddViewController: UIViewController, Storyboarded {
@@ -91,12 +91,12 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
         switch viewForm {
         case .add:
             self.title = "일지 작성"
-            break
-        case .edit(let date):
+            dispatch?(.createViewDidLoad)
+        case .edit(let log):
             self.title = "일지 수정"
             dateTextField.isEnabled = false
             dateTextField.textColor = .lightGray
-            dispatch?(.editInput(date))
+            dispatch?(.editViewDidLoad(log))
         }
     }
     

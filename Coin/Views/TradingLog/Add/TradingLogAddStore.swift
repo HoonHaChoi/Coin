@@ -27,7 +27,6 @@ final class TradingLogAddStore {
     
     struct Environment {
         let onDismissSubject: PassthroughSubject<TradingLog, Never>
-        let findLog: (Date) -> TradingLogMO?
         let existDate: (Date) -> Bool
         let alert: UIAlertController
     }
@@ -39,6 +38,8 @@ final class TradingLogAddStore {
         
         func reduce(_ action: Action, state: inout State) {
             switch action {
+            case .createViewDidLoad:
+                state = .empty
             case let .dateInput(date):
                 if environment.existDate(date.removeTimeStamp()) {
                     state.selectDate = ""
@@ -63,11 +64,8 @@ final class TradingLogAddStore {
                                      memo: memo))
             case .alertDismiss:
                 state.errorAlert = nil
-            case let .editInput(date):
-                guard let log = environment.findLog(date.removeTimeStamp()) else {
-                    return
-                }
-                state.selectDate = log.date?.convertString() ?? ""
+            case let .editViewDidLoad(log):
+                state.selectDate = log.date.convertString()
                 state.startAmount = "\(log.startPrice)".limitTextCount()
                 state.endAmount = "\(log.endPrice)".limitTextCount()
                 state.isFormValid = isFormValidCheck(state)
@@ -91,11 +89,10 @@ final class TradingLogAddStore {
     private var environment: Environment
     var updateView: ((TradingLogAddViewController.ViewState) -> ())?
     
-    init(state: State,
-         environment: Environment) {
-        self.state = state
+    init(environment: Environment) {
+        self.state = .empty
         self.environment = environment
-        
+    
         cancellable = $state.sink(receiveValue: { [weak self] state in
             self?.updateView?(TradingLogAddViewController.ViewState(state: state))
         })

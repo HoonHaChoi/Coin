@@ -43,8 +43,13 @@ class TradingLogDataSource: NSObject, UITableViewDataSource {
         self.tradingLogs = logs
     }
     
-    func fetchTradingLog(index: Int) -> TradingLogMO {
-        return tradingLogs[index]
+    func fetchTradingLog(index: Int) -> TradingLog {
+        let log = tradingLogs[index]
+        
+        return .init(startPrice: Int(log.startPrice),
+                     endPrice: Int(log.endPrice),
+                     date: log.date!,
+                     memo: log.memo)
     }
 }
 

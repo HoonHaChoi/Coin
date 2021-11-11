@@ -10,13 +10,14 @@ import UIKit
 extension TradingLogAddViewController {
     
     enum Action {
+        case createViewDidLoad
         case dateInput(Date)
         case startAmountInput(String)
         case endAmountInput(String)
         case memoInput(String)
         case addTradingLog(String)
         case alertDismiss
-        case editInput(Date)
+        case editViewDidLoad(TradingLog)
     }
     
     struct ViewState {

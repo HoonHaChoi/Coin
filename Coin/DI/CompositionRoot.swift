@@ -206,11 +206,10 @@ struct AppDependency {
         }
         
         let tradingLogStore = TradingLogStore(
-            state: .empty,
             environment: .init(dateManager: dateManager,
-                               coreDataManager: tradingLogCoreData,
-                               addTradingView: tradingLogViewController))
-        
+                               coreDataManager: tradingLogCoreData),
+            navigator: .init(viewController: tradingLogViewController,
+                             isExistLogHandler: tradingLogCoreData.isExistLog(date:)))
         
         tradingLogViewController.dispatch = tradingLogStore.dispatch(_:)
         tradingLogStore.updateState = tradingLogViewController.updateState(state:)

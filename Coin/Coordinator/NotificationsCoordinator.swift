@@ -35,7 +35,7 @@ final class NotificationsCoordinator: NSObject, Coordinator {
     func start() {
         navigationController.delegate = self
         notificationsViewController.title = "알림"
-        navigationController.tabBarItem = UITabBarItem(title: "알림", image: UIImage(systemName: "bell"), selectedImage: UIImage(systemName: "bell.fill"))
+        navigationController.tabBarItem = UITabBarItem(title: "알림", image: UIImage(systemName: "bell"), selectedImage: UIImage(systemName: ""))
         notificationsViewController.coordinator = self
         navigationController.pushViewController(notificationsViewController, animated: true)
     }

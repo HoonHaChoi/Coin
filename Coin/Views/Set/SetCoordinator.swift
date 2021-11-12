@@ -25,7 +25,7 @@ final class SetCoordinator: Coordinator {
     
     func start() {
         setViewController.title = "설정"
-        navigationController.tabBarItem = UITabBarItem(title: "설정", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: "gearshape.fill"))
+        navigationController.tabBarItem = UITabBarItem(title: "설정", image: UIImage(systemName: "gearshape"), selectedImage: UIImage(systemName: ""))
         navigationController.pushViewController(setViewController, animated: true)
     }
 }

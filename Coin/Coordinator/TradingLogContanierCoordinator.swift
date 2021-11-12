@@ -24,7 +24,7 @@ final class TradingLogContanierCoordinator: Coordinator {
     }
     
     func start() {
-        navigationController.tabBarItem = UITabBarItem(title: "일지", image: UIImage(systemName: "doc"), selectedImage: UIImage(systemName: "doc.fill"))
+        navigationController.tabBarItem = UITabBarItem(title: "일지", image: UIImage(named: "Does"), selectedImage: UIImage(systemName: ""))
         navigationController.pushViewController(tradingLogContainerViewController, animated: true)
     }
     

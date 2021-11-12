@@ -35,7 +35,7 @@ final class MainCoordinator: Coordinator {
     func start() {
         mainContainerViewController.navigationItem.backButtonTitle = ""
         mainContainerViewController.coordinator = self
-        navigationController.tabBarItem = UITabBarItem(title: "시세", image: UIImage(systemName: "chart.bar"), selectedImage: UIImage(systemName: "chart.bar.fill"))
+        navigationController.tabBarItem = UITabBarItem(title: "시세", image: UIImage(named: "TredingUp"), selectedImage: UIImage(systemName: ""))
         navigationController.pushViewController(mainContainerViewController, animated: true)
     }
     

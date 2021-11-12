@@ -36,6 +36,7 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        setOrderButtonImage()
         dispatch?(.loadInitialData)
     }
     
@@ -75,7 +76,16 @@ final class TradingLogViewController: UIViewController, Storyboarded {
     
     @IBAction func changeOrderAction(_ sender: UIButton) {
         userSettingChange.changeAsceding()
+        setOrderButtonImage()
         dispatch?(.didTapDateAscending)
+    }
+    
+    private func setOrderButtonImage() {
+        DispatchQueue.main.async { [weak self] in
+            let toggle = UserDefaults.standard.value(forKey: "ascending") as? Bool ?? true
+            let image = toggle ? UIImage(named: "ascendingImage") : UIImage(named: "descendingImage")
+            self?.orderChangeButton.setImage(image, for: .normal)
+        }
     }
     
 }

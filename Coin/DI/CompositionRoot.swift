@@ -15,7 +15,6 @@ struct AppDependency {
     let socket = Socket(url: Endpoint.socketURL)
     let networkManager = NetworkManager(session: URLSession.shared)
     let coinSortHelper = CoinSortHelper()
-    let dateManager = DateManager()
     
     var socketRepository: SocketRepository {
         return SocketRepository(socket: socket)
@@ -198,6 +197,7 @@ struct AppDependency {
     }
     
     private func makeTradingLogViewController() -> TradingLogViewController {
+        let dateManager = DateManager()
         let tradingLogDataSource = TradingLogDataSource()
         let tradingLogViewController = TradingLogViewController.instantiate { coder in
             return TradingLogViewController(coder: coder,
@@ -217,6 +217,7 @@ struct AppDependency {
     }
     
     private func makeTradingLogStatsViewController() -> TradingLogStatsViewController {
+        let dateManager = DateManager()
         let chartHelper = ChartHelper(manager: tradingLogCoreData)
         let tradingLogStatsViewModel = TradingLogStatsViewModel(dateManager: dateManager,
                                                                 coreDataManager: tradingLogCoreData,

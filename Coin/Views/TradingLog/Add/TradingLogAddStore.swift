@@ -16,8 +16,8 @@ final class TradingLogAddStore {
                                 endAmount: "",
                                 memo: "",
                                 isFormValid: false,
-                                errorAlertState: false
-                                )
+                                errorAlertState: false)
+        
         var selectDate: String
         var startAmount: String
         var endAmount: String

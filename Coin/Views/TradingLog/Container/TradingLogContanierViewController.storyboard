@@ -24,16 +24,16 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZW-8Q-R5h">
-                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="109" width="414" height="753"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6N-63-hRs" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="828" height="748"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="828" height="753"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMu-lG-BbQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="748"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="753"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3p-zM-T9T">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="748"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="753"/>
                                                     </containerView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,10 +45,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voY-zQ-K7x">
-                                                <rect key="frame" x="414" y="0.0" width="414" height="748"/>
+                                                <rect key="frame" x="414" y="0.0" width="414" height="753"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ0-JK-DCj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="748"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="753"/>
                                                     </containerView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -97,7 +97,7 @@
                             <constraint firstItem="bZW-8Q-R5h" firstAttribute="leading" secondItem="ggp-dB-0zG" secondAttribute="leading" id="Xse-7F-5N7"/>
                             <constraint firstItem="Y6N-63-hRs" firstAttribute="width" secondItem="LTL-G7-X75" secondAttribute="width" multiplier="2" id="aw4-Fo-uPF"/>
                             <constraint firstItem="ggp-dB-0zG" firstAttribute="trailing" secondItem="bZW-8Q-R5h" secondAttribute="trailing" id="jlq-Tn-jrh"/>
-                            <constraint firstItem="bZW-8Q-R5h" firstAttribute="top" secondItem="9PC-UM-CJu" secondAttribute="bottom" constant="15" id="qKr-iO-0Jk"/>
+                            <constraint firstItem="bZW-8Q-R5h" firstAttribute="top" secondItem="9PC-UM-CJu" secondAttribute="bottom" constant="10" id="qKr-iO-0Jk"/>
                             <constraint firstItem="9PC-UM-CJu" firstAttribute="top" secondItem="ggp-dB-0zG" secondAttribute="top" constant="15" id="sXf-7m-lWa"/>
                             <constraint firstItem="voY-zQ-K7x" firstAttribute="width" secondItem="LTL-G7-X75" secondAttribute="width" id="sce-TF-xIj"/>
                         </constraints>

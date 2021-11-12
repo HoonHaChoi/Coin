@@ -145,6 +145,9 @@ class TradingLogAddViewController: UIViewController, Storyboarded {
     }
     
     @objc func addDoneButtonPressed() {
+        if memoTextView.text == textViewPlaceHolderText {
+            memoTextView.text = ""
+        }
         dispatch?(.addTradingLog(memoTextView.text))
     }
     

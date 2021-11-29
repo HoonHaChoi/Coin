@@ -106,14 +106,87 @@
 
 
 ---
-
 ## 진행 과정에서의 이슈
 
-> ### [앱 제작시 작성한 트러블 슈팅 및 고민,간단 회고](https://adorable-jar-904.notion.site/c33d5911400c41ec8fd3e0af7b0d17b6)
+> #####  [앱 제작시 작성한 트러블 슈팅 및 고민,간단 회고](https://adorable-jar-904.notion.site/c33d5911400c41ec8fd3e0af7b0d17b6)
 
 위의 링크를 통해 앱을 제작하면서 경험한 이슈 목록을 보실 수 있습니다.
 
 
+
+#### 거래소 요청에 대한 다형성 적용하기
+
+<img width="450" alt="스크린샷 2021-11-05 오후 10 25 16" src="https://user-images.githubusercontent.com/33626693/143849967-5c94c55a-9b7f-4a52-bc32-40271deb7dbd.jpeg">
+
+#### 문제: 확장,수정이 어려운 코드 (OCP 규칙 위반)
+
+```swift
+// 거래소 네트워크 요청 메소드 
+@objc private func selectExchangeItem(_ sender: UISegmentedControl) {
+	switch sender.selectedSegmentIndex {
+		case 0:
+			requestExchangeSocket?("Upbit")
+          	case 1:
+			requestExchangeSocket?("Bithumb")
+          	case 2:	
+			requestExchangeSocket?("Coinone")
+        }
+}
+```
+
+
+
+#### 개선과정 
+
+```swift
+enum Exchange: CaseIterable{
+  case Upbit
+  case Bithumb
+  case Coinone
+}
+```
+
+- 거래소 타입을 집합 시킨 Exchange 열거형, CaseIterable 선언하여 AllCase 활용
+
+```swift
+struct EnumMapper<key: Hashable, item> {
+
+    private let map: [key: item]
+    
+    init(key: [key], item: [item]) {
+        self.map = Dictionary(uniqueKeysWithValues: zip(key, item))
+    }
+    
+    subscript(key: key) -> item? {
+        return map[key]
+    }
+}
+```
+
+- key와 value를 묶어주는 Mapper 객체 생성 및 활용
+
+
+
+#### 해결 
+
+```swift
+private let exchangeMapper = EnumMapper(key: Array(0..<Exchange.allCases.count),
+                                      item: Exchange.allCases)
+
+@objc private func selectExchangeItem(_ sender: UISegmentedControl) {
+ 	guard let exchange = exchangeMapper[sender.selectedSegmentIndex] else {
+            return
+        }
+        requestExchangeSocket?(exchange)
+	.... 
+}
+
+```
+
+- exchangeMapper를 통해 해당 Int 값을 넘겨주면 해당 거래소 값을 가져올수 있다.
+- 또한 확장, 수정이 보다 유연하게 되었다.
+
+---
 
 #### 이미지 캐시처리 
 
@@ -144,9 +217,12 @@
 <img width="687" alt="스크린샷 2021-11-05 오후 10 25 16" src="https://user-images.githubusercontent.com/33626693/140517278-30a910db-d96e-4c68-b259-7b542debed17.png">
 
 ---
+
 ### 개발 후기
 
 - 소켓으로 들어오는 데이터 수신 용량을 줄이기 위해 백엔드와 함께 의논하며 클라이언트에서 최소한 데이터 소비를 목표로 진행 했던 것이 기억에 남습니다.
 - 제네릭 Mapping 객체를 만들고 거래소 추가,삭제에 대해 다형성을 줌으로 확장성이 좋은 코드를 만들 수 있었습니다.
 - Composition Root 패턴을 적용시켜 의존성 주입을 한 곳에서 처리 할수 있었고, 적절한 protocol 사용과 의존성 주입이 유연한 코드 작성에 효과적인지 직접 느낄 수 있었습니다.
+
+
 

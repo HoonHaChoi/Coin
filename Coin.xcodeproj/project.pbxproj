@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1AF0692777958600AD8E78 /* ResponseNotifiaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1AF0682777958600AD8E78 /* ResponseNotifiaction.swift */; };
 		BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049A26AF494800BC0A6B /* Socket.swift */; };
 		BF1C049D26AFD63900BC0A6B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */; };
 		BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049E26AFF84B00BC0A6B /* SocketRepository.swift */; };
@@ -261,6 +262,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BF1AF0682777958600AD8E78 /* ResponseNotifiaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseNotifiaction.swift; sourceTree = "<group>"; };
 		BF1C049A26AF494800BC0A6B /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		BF1C049E26AFF84B00BC0A6B /* SocketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketRepository.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 				BFB427DB26C9BCFB001D4C91 /* StatsDTO.swift */,
 				BFFE180C26F12B3A00F4FD1A /* Notifications.swift */,
 				BFCD91DB2711FF6700AF33CA /* AppInfo.swift */,
+				BF1AF0682777958600AD8E78 /* ResponseNotifiaction.swift */,
 				BF92D7D326B4386D0033B773 /* CoreDataStorage */,
 			);
 			path = Model;
@@ -1075,6 +1078,7 @@
 				BF1FA62C269B2B7D00AC1AC2 /* SearchViewController.swift in Sources */,
 				BFA1541326A152BB00341A6D /* ImageRequest.swift in Sources */,
 				BF4F3A9426B86B30003B801A /* TradingLogDataSource.swift in Sources */,
+				BF1AF0692777958600AD8E78 /* ResponseNotifiaction.swift in Sources */,
 				BFFE180F26F1317400F4FD1A /* NotificationsViewModel.swift in Sources */,
 				BF9570B426A224E8000BBAE9 /* UISearchController+Extension.swift in Sources */,
 				BFCD91D82711AC3400AF33CA /* NWMonitor.swift in Sources */,

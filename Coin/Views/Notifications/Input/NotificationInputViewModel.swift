@@ -22,17 +22,17 @@ final class NotificationInputViewModel {
     
     private var basePriceText: String
     private var cycleText: String
-    private let notificationInputService: NotificationInputService
+    private let notificationInputService: NotificationNetworkService
     private var notificationHelper: NotificationHelp
     private var cancell: Set<AnyCancellable>
     private let token: String
     
-    init(usecase: NotificationInputService,
+    init(service: NotificationNetworkService,
          notificationHelper: NotificationHelp,
          fcmToken: String) {
         basePriceText = ""
         cycleText = ""
-        self.notificationInputService = usecase
+        self.notificationInputService = service
         self.notificationHelper = notificationHelper
         cancell = .init()
         token = fcmToken
@@ -46,7 +46,7 @@ final class NotificationInputViewModel {
     var updateNotificationInputViewHandler: ((Int, String, String) -> ())?
     
     func fetchSearchCoin(uuid: String) {
-        notificationInputService.requestFavoriteCoins(url: Endpoint.tickerURL(type: .favorite(uuid)))
+        requestFavoriteCoins(uuid: uuid)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -71,9 +71,7 @@ final class NotificationInputViewModel {
             !cycleText.isEmpty
     }
         
-    func makeRequestNotification(priceType: String,
-                             uuid: String,
-                             formStyle: NotificationInputFormStyle) {
+    func makeRequestNotification(priceType: String, uuid: String, formStyle: NotificationInputFormStyle) {
         switch formStyle {
         case .create:
             let url = Endpoint.notificationURL(type: .create(token))
@@ -87,13 +85,12 @@ final class NotificationInputViewModel {
     }
  
     private func requestNotification(url: URL?, method: HTTPMethod, body: Data) {
-        notificationInputService.requestCompleteNotification(url: url, method: method,
-                                                  body: body)
+        requestCompleteNotification(url: url, method: method, body: body)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
                 }
-            } receiveValue: { [weak self]  in
+            } receiveValue: { [weak self] _ in
                 self?.successHandler?()
             }.store(in: &cancell)
     }
@@ -128,4 +125,12 @@ final class NotificationInputViewModel {
     }
 }
 
-
+extension NotificationInputViewModel {
+    private func requestFavoriteCoins(uuid: String) -> AnyPublisher<Coin, NetworkError> {
+        return notificationInputService.requestPublisher(url: Endpoint.tickerURL(type: .favorite(uuid)))
+    }
+    
+    private func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<ResponseNotifiaction, NetworkError> {
+        return notificationInputService.requestPublisher(url: url, method: method, body: body)
+    }
+}

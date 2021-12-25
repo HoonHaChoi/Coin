@@ -5,6 +5,10 @@ protocol NetworkService {
     func requestPublisher<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError>
 }
 
+protocol NotificationNetworkService: NetworkService {
+    func requestPublisher<T: Decodable>(url: URL?, method: HTTPMethod, body: Data?) -> AnyPublisher<T, NetworkError>
+}
+
 struct NetworkManager {
     
     private let session: Requestable
@@ -15,6 +19,11 @@ struct NetworkManager {
     
     func requestPublisher<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError> {
         return session.requestResource(url: url)
+    }
+    
+    func requestPublisher<T: Decodable>(url: URL?, method: HTTPMethod, body: Data?) -> AnyPublisher<T, NetworkError> {
+        let urlRequest = makeURLRequest(url: url, method: method, body: body)
+        return self.session.requestResource(for: urlRequest)
     }
     
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError> {
@@ -58,20 +67,11 @@ struct NetworkManager {
     
 }
 extension NetworkManager: NetworkService {}
-extension NetworkManager: SearchService {}
-extension NetworkManager: FavortieService {}
+extension NetworkManager: NotificationNetworkService {}
 extension NetworkManager: AppStoreService {}
 extension NetworkManager: NotificationService {}
 extension NetworkManager: NotificationInputService {}
 extension NetworkManager: NotificationCycleService {}
-
-protocol SearchService {
-    func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError>
-}
-
-protocol FavortieService: SearchService {
-    func requestFavoriteCoins(url: URL?) -> AnyPublisher<Coin, NetworkError>
-}
 
 protocol AppStoreService {
     func requestAppStoreVersion(url: URL?) -> AnyPublisher<AppInfo, NetworkError>

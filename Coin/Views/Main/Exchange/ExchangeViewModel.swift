@@ -11,11 +11,7 @@ import Combine
 final class ExchangeViewModel: CryptoBaseViewModel {
     
     func fetchCoins(from exchange: Exchange) {
-        guard let url = Endpoint.tickerURL(type: .exchange(exchange.title)) else {
-            return
-        }
-        
-        cancell = service.requestSearchCoins(url: url)
+        cancell = requestExchangeCoins(from: exchange)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.failErrorHandler?(error)
@@ -26,10 +22,7 @@ final class ExchangeViewModel: CryptoBaseViewModel {
     }
     
     func fetchCoinsSocket(from exchange: Exchange) {
-        guard let url = Endpoint.tickerURL(type: .exchange(exchange.title)) else {
-            return
-        }
-        cancell = service.requestSearchCoins(url: url)
+        cancell = requestExchangeCoins(from: exchange)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.failErrorHandler?(error)
@@ -59,4 +52,10 @@ final class ExchangeViewModel: CryptoBaseViewModel {
         socketUseCase.removeCurrentEmit(complete: complete)
     }
     
+}
+
+extension ExchangeViewModel {
+    private func requestExchangeCoins(from exchange: Exchange) -> AnyPublisher<[Coin], NetworkError> {
+        return service.requestPublisher(url: Endpoint.tickerURL(type: .exchange(exchange.title)))
+    }
 }

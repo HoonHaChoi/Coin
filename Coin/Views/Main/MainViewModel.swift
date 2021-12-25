@@ -13,7 +13,7 @@ final class MainViewModel: CryptoBaseViewModel {
     private let favoriteCoinRepository: FavoriteCoinRepository
     
     init(repository: FavoriteCoinRepository,
-         service: FavortieService,
+         service: NetworkService,
          socketUseCase: SocketUseCase) {
         self.favoriteCoinRepository = repository
         super.init(service: service,
@@ -23,7 +23,7 @@ final class MainViewModel: CryptoBaseViewModel {
     func fetchFavoriteCoins() {
         let uuids = favoriteCoinRepository.fetch()
         let requests = uuids.map { uuid in
-            return service.requestFavoriteCoins(uuidString: uuid)
+            requestFavoriteCoins(uuid: uuid)
         }
         
         cancell = Publishers.MergeMany(requests)
@@ -64,5 +64,11 @@ final class MainViewModel: CryptoBaseViewModel {
     func leaveEvent() {
         let favoriteUUID = favoriteCoinRepository.fetch()
         socketUseCase.removeEmitHandler(from: favoriteUUID)
+    }
+}
+
+extension MainViewModel {
+    private func requestFavoriteCoins(uuid: String) -> AnyPublisher<Coin, NetworkError> {
+        return service.requestPublisher(url: Endpoint.tickerURL(type: .favorite(uuid)))
     }
 }

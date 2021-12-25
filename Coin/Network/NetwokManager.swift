@@ -1,6 +1,9 @@
 import Foundation
 import Combine
-import SwiftyJSON
+
+protocol NetworkService {
+    func requestPublisher<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError>
+}
 
 struct NetworkManager {
     
@@ -10,24 +13,24 @@ struct NetworkManager {
         self.session = session
     }
     
+    func requestPublisher<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError> {
+        return session.requestResource(url: url)
+    }
+    
     func requestSearchCoins(url: URL?) -> AnyPublisher<[Coin], NetworkError> {
         return self.session.requestResource(url: url)
     }
     
-    func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError> {
-        return self.session.requestResource(url: Endpoint.tickerURL(type: .favorite(uuidString)))
+    func requestFavoriteCoins(url: URL?) -> AnyPublisher<Coin, NetworkError> {
+        return self.session.requestResource(url: url)
     }
     
     func requestNotifications(url: URL?) -> AnyPublisher<[Notice], NetworkError> {
         return self.session.requestResource(url: url)
     }
     
-    func requestCompleteNotification(url: URL?,
-                                   method: HTTPMethod,
-                                   body: Data) -> AnyPublisher<Void, NetworkError> {
-        let urlRequest = makeURLRequest(url: url,
-                                              method: method,
-                                              body: body)
+    func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<Void, NetworkError> {
+        let urlRequest = makeURLRequest(url: url, method: method, body: body)
         return self.session.completeResponsePublisher(for: urlRequest)
     }
     
@@ -45,17 +48,16 @@ struct NetworkManager {
     }
     
     private func makeURLRequest(url: URL?, method: HTTPMethod, body: Data? = nil) -> URLRequest? {
-        if let url = url {
-            var urlRequest = URLRequest(url: url)
-            urlRequest.httpBody = body
-            urlRequest.httpMethod = method.rawValue
-            urlRequest.addValue("application/json",forHTTPHeaderField: "Content-Type")
-            return urlRequest
-        }
-        return nil
+        guard let url = url else { return nil }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpBody = body
+        urlRequest.httpMethod = method.rawValue
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        return urlRequest
     }
+    
 }
-
+extension NetworkManager: NetworkService {}
 extension NetworkManager: SearchService {}
 extension NetworkManager: FavortieService {}
 extension NetworkManager: AppStoreService {}
@@ -68,7 +70,7 @@ protocol SearchService {
 }
 
 protocol FavortieService: SearchService {
-    func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
+    func requestFavoriteCoins(url: URL?) -> AnyPublisher<Coin, NetworkError>
 }
 
 protocol AppStoreService {
@@ -84,7 +86,7 @@ protocol NotificationService: NotificationBaseService {
 }
 
 protocol NotificationInputService: NotificationBaseService {
-    func requestFavoriteCoins(uuidString: String) -> AnyPublisher<Coin, NetworkError>
+    func requestFavoriteCoins(url: URL?) -> AnyPublisher<Coin, NetworkError>
 }
 
 protocol NotificationCycleService {

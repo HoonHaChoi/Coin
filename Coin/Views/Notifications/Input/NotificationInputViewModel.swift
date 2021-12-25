@@ -46,7 +46,7 @@ final class NotificationInputViewModel {
     var updateNotificationInputViewHandler: ((Int, String, String) -> ())?
     
     func fetchSearchCoin(uuid: String) {
-        notificationInputService.requestFavoriteCoins(uuidString: uuid)
+        notificationInputService.requestFavoriteCoins(url: Endpoint.tickerURL(type: .favorite(uuid)))
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)

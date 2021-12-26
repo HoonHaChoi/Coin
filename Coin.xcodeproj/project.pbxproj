@@ -462,6 +462,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF1AF06E277882C900AD8E78 /* BaseViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF1AF06C2778788400AD8E78 /* BaseViewModel.swift */,
+				BFB0A52B26D86CCB004F04AE /* CryptoBaseViewModel.swift */,
+				BF1AF06A277867D500AD8E78 /* NotificationBaseViewModel.swift */,
+			);
+			path = BaseViewModel;
+			sourceTree = "<group>";
+		};
 		BF1C04B426B0682000BC0A6B /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,7 +480,6 @@
 				BFB7954626D2006A00A89BC7 /* Exchange */,
 				BF8736092651697A00C3FAD0 /* MainViewController.swift */,
 				BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */,
-				BFB0A52B26D86CCB004F04AE /* CryptoBaseViewModel.swift */,
 				BF2F9D7B26D366CA006A0077 /* TableDataSource.swift */,
 				BFB7954226D1232B00A89BC7 /* SegmentContainer.swift */,
 				BFB7954426D1B10900A89BC7 /* MainContainerViewController.swift */,
@@ -863,7 +872,7 @@
 				BFA1541A26A160C100341A6D /* Search */,
 				BFF72DDF26E8A6A300FBC13C /* Notifications */,
 				BFCBED3826FADF4F00BFE297 /* Set */,
-				BF1AF06C2778788400AD8E78 /* BaseViewModel.swift */,
+				BF1AF06E277882C900AD8E78 /* BaseViewModel */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -894,7 +903,6 @@
 				BFFE180E26F1317400F4FD1A /* NotificationsViewModel.swift */,
 				BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */,
 				BF778EBB2702E582004BF282 /* NotificationDataSource.swift */,
-				BF1AF06A277867D500AD8E78 /* NotificationBaseViewModel.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";

@@ -148,8 +148,7 @@ struct AppDependency {
     
     typealias SearchDataSource = TableDataSource<SearchCoinCell, Coin>
     private func makeSearchViewController(style: SearchStyle) -> SearchViewController {
-        let viewModel = SearchViewModel(usecase: networkManager,
-                                        repository: favoriteCoinCoreData)
+        let viewModel = SearchViewModel(service: networkManager, repository: favoriteCoinCoreData)
         let searchDataSource = SearchTableDataSource { cell, coin, state in
             cell.configure(coin: coin,
                            imageLoader: imageLoader,

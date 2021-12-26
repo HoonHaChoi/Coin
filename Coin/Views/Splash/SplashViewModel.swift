@@ -8,27 +8,25 @@
 import Foundation
 import Combine
 
-final class VersionManager {
+final class SplashViewModel: BaseViewModel {
     
     private let nowVersion: String
     private let appBundle: String
-    private let service: NetworkService
-    private var cancell: AnyCancellable?
     
     var failRequestHandler: (() -> ())?
     var unequalVersionHandler: (() -> ())?
     var successHandler: (() -> ())?
     var loadingStateHandler: ((Bool) -> ())?
     
-    init(service: NetworkService) {
+    override init(service: NetworkService) {
         self.nowVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Not Found App Version"
         self.appBundle = Bundle.main.bundleIdentifier ?? "Not Found App Bundle"
-        self.service = service
+        super.init(service: service)
     }
     
     func fetchAppStoreVersion() {
         loadingStateHandler?(false)
-        cancell = requestAppStoreVersion()
+        requestAppStoreVersion()
             .sink { [weak self] fail in
             if case .failure(_) = fail {
                 self?.failRequestHandler?()
@@ -37,7 +35,7 @@ final class VersionManager {
         } receiveValue: { [weak self] appInfo in
             self?.compareVersion(appinfo: appInfo)
             self?.loadingStateHandler?(true)
-        }
+        }.store(in: &cancellable)
     }
 
     private func compareVersion(appinfo: AppInfo) {

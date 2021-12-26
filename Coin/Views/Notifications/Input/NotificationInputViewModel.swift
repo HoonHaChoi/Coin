@@ -18,31 +18,22 @@ enum NotificationInputFormStyle {
     case update
 }
 
-final class NotificationInputViewModel {
+final class NotificationInputViewModel: NotificationBaseViewModel {
     
     private var basePriceText: String
     private var cycleText: String
-    private let notificationInputService: NotificationNetworkService
     private var notificationHelper: NotificationHelp
-    private var cancellable: Set<AnyCancellable>
-    private let token: String
     
-    init(service: NotificationNetworkService,
-         notificationHelper: NotificationHelp,
-         fcmToken: String) {
-        basePriceText = ""
-        cycleText = ""
-        self.notificationInputService = service
+    init(service: NotificationNetworkService, notificationHelper: NotificationHelp, fcmToken: String) {
+        self.basePriceText = ""
+        self.cycleText = ""
         self.notificationHelper = notificationHelper
-        cancellable = .init()
-        token = fcmToken
+        super.init(service: service, fcmToken: fcmToken)
     }
     
     var isValidCheckHandler: ((Bool) -> ())?
     var coinHandler: ((Coin) -> Void)?
-    var errorHandler: ((NetworkError) -> Void)?
     var successHandler: (() -> ())?
-    
     var updateNotificationInputViewHandler: ((Int, String, String) -> ())?
     
     func fetchSearchCoin(uuid: String) {
@@ -125,10 +116,10 @@ final class NotificationInputViewModel {
 
 extension NotificationInputViewModel {
     private func requestCoin(uuid: String) -> AnyPublisher<Coin, NetworkError> {
-        return notificationInputService.requestPublisher(url: Endpoint.tickerURL(type: .favorite(uuid)))
+        return notificationService.requestPublisher(url: Endpoint.tickerURL(type: .favorite(uuid)))
     }
     
     private func requestCompleteNotification(url: URL?, method: HTTPMethod, body: Data) -> AnyPublisher<ResponseNotifiaction, NetworkError> {
-        return notificationInputService.requestPublisher(url: url, method: method, body: body)
+        return notificationService.requestPublisher(url: url, method: method, body: body)
     }
 }

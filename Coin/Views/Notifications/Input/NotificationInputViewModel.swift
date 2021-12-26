@@ -24,7 +24,7 @@ final class NotificationInputViewModel {
     private var cycleText: String
     private let notificationInputService: NotificationNetworkService
     private var notificationHelper: NotificationHelp
-    private var cancell: Set<AnyCancellable>
+    private var cancellable: Set<AnyCancellable>
     private let token: String
     
     init(service: NotificationNetworkService,
@@ -34,7 +34,7 @@ final class NotificationInputViewModel {
         cycleText = ""
         self.notificationInputService = service
         self.notificationHelper = notificationHelper
-        cancell = .init()
+        cancellable = .init()
         token = fcmToken
     }
     
@@ -53,7 +53,7 @@ final class NotificationInputViewModel {
                 }
             } receiveValue: { [weak self] (coin) in
                 self?.coinHandler?(coin)
-            }.store(in: &cancell)
+            }.store(in: &cancellable)
     }
     
     func update(text: String, type: NotificationInputType) {
@@ -84,6 +84,7 @@ final class NotificationInputViewModel {
     }
  
     private func requestNotification(url: URL?, method: HTTPMethod, body: Data) {
+        
         requestCompleteNotification(url: url, method: method, body: body)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
@@ -91,11 +92,10 @@ final class NotificationInputViewModel {
                 }
             } receiveValue: { [weak self] _ in
                 self?.successHandler?()
-            }.store(in: &cancell)
+            }.store(in: &cancellable)
     }
     
     private func makeNotificationObject(type: String, uuid: String) -> Data {
-        
         let notificationObject =
             NotificationObject(type: notificationHelper.mapping(typeName: type),
                                basePrice: basePriceText.convertRegexInt(),
@@ -109,8 +109,7 @@ final class NotificationInputViewModel {
         return data
     }
     
-    func configureNotificationInputView(notiObject:NotificationObject,
-                                        style:NotificationInputFormStyle) {
+    func configureNotificationInputView(notiObject:NotificationObject, style:NotificationInputFormStyle) {
         switch style {
         case .create:
             break

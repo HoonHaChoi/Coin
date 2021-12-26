@@ -8,22 +8,10 @@
 import Foundation
 import Combine
 
-final class NotificationsViewModel {
-    
-    private let notificationService: NotificationNetworkService
-    private let token: String
-    private var cancell: Set<AnyCancellable>
-    
-    init(service: NotificationNetworkService,
-         fcmToken: String) {
-        self.notificationService = service
-        self.token = fcmToken
-        self.cancell = .init()
-    }
+final class NotificationsViewModel: NotificationBaseViewModel {
     
     var notificationsHandler: (([Notice]) -> ())?
     var loadingHiddenStateHandler: ((Bool) -> Void)?
-    var errorHandler: ((NetworkError) -> ())?
     var completeMessageHanlder: ((String) -> ())?
     var failureIndexHandler: ((IndexPath) -> ())?
     
@@ -38,7 +26,7 @@ final class NotificationsViewModel {
             } receiveValue: { [weak self] notifications in
                 self?.notificationsHandler?(notifications)
                 self?.loadingHiddenStateHandler?(true)
-            }.store(in: &cancell)
+            }.store(in: &cancellable)
     }
     
     func deleteNotification(uuid: String) {
@@ -52,7 +40,7 @@ final class NotificationsViewModel {
             } receiveValue: { [weak self] message in
                 self?.completeMessageHanlder?(message)
                 self?.fetchNotifications()
-            }.store(in: &cancell)
+            }.store(in: &cancellable)
     }
     
     func updateNotificationSwitch(uuid: String, state: Bool, indexPath: IndexPath) {
@@ -66,7 +54,7 @@ final class NotificationsViewModel {
                 }
             } receiveValue: { [weak self] _ in
                 self?.loadingHiddenStateHandler?(true)
-            }.store(in: &cancell)
+            }.store(in: &cancellable)
     }
     
     private func makeJsonData(state: Bool) -> Data {

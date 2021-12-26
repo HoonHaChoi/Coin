@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF1AF0692777958600AD8E78 /* ResponseNotifiaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1AF0682777958600AD8E78 /* ResponseNotifiaction.swift */; };
+		BF1AF06B277867D500AD8E78 /* NotificationBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1AF06A277867D500AD8E78 /* NotificationBaseViewModel.swift */; };
 		BF1C049B26AF494800BC0A6B /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049A26AF494800BC0A6B /* Socket.swift */; };
 		BF1C049D26AFD63900BC0A6B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */; };
 		BF1C049F26AFF84B00BC0A6B /* SocketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1C049E26AFF84B00BC0A6B /* SocketRepository.swift */; };
@@ -263,6 +264,7 @@
 
 /* Begin PBXFileReference section */
 		BF1AF0682777958600AD8E78 /* ResponseNotifiaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseNotifiaction.swift; sourceTree = "<group>"; };
+		BF1AF06A277867D500AD8E78 /* NotificationBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBaseViewModel.swift; sourceTree = "<group>"; };
 		BF1C049A26AF494800BC0A6B /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		BF1C049C26AFD63900BC0A6B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		BF1C049E26AFF84B00BC0A6B /* SocketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketRepository.swift; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 				BFFE180E26F1317400F4FD1A /* NotificationsViewModel.swift */,
 				BFBCC58F26EF5CC100B878F1 /* NotificationHelper.swift */,
 				BF778EBB2702E582004BF282 /* NotificationDataSource.swift */,
+				BF1AF06A277867D500AD8E78 /* NotificationBaseViewModel.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -1090,6 +1093,7 @@
 				BFCD91DC2711FF6700AF33CA /* AppInfo.swift in Sources */,
 				BFDD489226E5CF4D00AFCA7C /* DetailViewModel.swift in Sources */,
 				BFBA259E26CDED960088D26B /* TradingLogDetailViewController.swift in Sources */,
+				BF1AF06B277867D500AD8E78 /* NotificationBaseViewModel.swift in Sources */,
 				BFBCC56F26EB1A6500B878F1 /* NotificationTextField.swift in Sources */,
 				BF92D7D226B4385F0033B773 /* CoreDataStorage.swift in Sources */,
 				BF4F3A9826B94C50003B801A /* DateManager.swift in Sources */,

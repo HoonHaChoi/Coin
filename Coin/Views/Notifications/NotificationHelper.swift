@@ -14,7 +14,7 @@ protocol NotificationHelp {
     func findTypeIndex(type: String) -> Int
 }
 
-final class NotificationHelper: NotificationHelp {
+final class NotificationHelper: BaseViewModel, NotificationHelp {
        
     private(set) var notificationTypeNames = ["상승","하락"]
     private(set) var notificationType = ["up","down"]
@@ -31,26 +31,20 @@ final class NotificationHelper: NotificationHelp {
     ]
     
     private(set) var cycleUUIDs: [String] = []
-    
-    private let service: NetworkService
-    private var cancell: AnyCancellable?
-    
     private(set) lazy var typeMapper = EnumMapper(key: notificationTypeNames, item: notificationType)
     private(set) lazy var cycleMapper = EnumMapper(key: cycleNames, item: cycleUUIDs)
     
-    init(service: NetworkService) {
-        self.service = service
+    override init(service: NetworkService) {
+        super.init(service: service)
         configue()
     }
     
     private func configue() {
-        cancell = requestNotificationCycle()
+        requestNotificationCycle()
             .sink { _ in }
-                receiveValue: { [weak self] cycles in
-                    cycles.forEach { cycle in
-                        self?.cycleUUIDs.append(cycle.uuid)
-                    }
-                }
+            receiveValue: { [weak self] cycles in
+                self?.cycleUUIDs = cycles.map { cycle in cycle.uuid }
+            }.store(in: &cancellable)
     }
     
     private func requestNotificationCycle() -> AnyPublisher<[NotificationCycle], NetworkError> {

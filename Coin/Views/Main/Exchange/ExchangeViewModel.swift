@@ -10,7 +10,7 @@ import Combine
 
 final class ExchangeViewModel: CryptoBaseViewModel {
     
-    func fetchCoins(from exchange: Exchange) {
+    func fetchCoins(from exchange: Exchange, isSocketConnect: Bool) {
         cancell = requestExchangeCoins(from: exchange)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
@@ -18,18 +18,9 @@ final class ExchangeViewModel: CryptoBaseViewModel {
                 }
             } receiveValue: { [weak self] (coins) in
                 self?.coinsHandler?(coins)
-            }
-    }
-    
-    func fetchCoinsSocket(from exchange: Exchange) {
-        cancell = requestExchangeCoins(from: exchange)
-            .sink { [weak self] (fail) in
-                if case .failure(let error) = fail {
-                    self?.failErrorHandler?(error)
+                if isSocketConnect {
+                    self?.fetchSocketExchangeMeta(from: exchange)
                 }
-            } receiveValue: { [weak self] (coins) in
-                self?.coinsHandler?(coins)
-                self?.fetchSocketExchangeMeta(from: exchange)
             }
     }
     

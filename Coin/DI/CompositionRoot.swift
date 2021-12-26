@@ -118,16 +118,15 @@ struct AppDependency {
         let exchangeViewController = ExchangeViewController(dataSource: coinDataSource,
                                                             coinSortHelper: coinSortHelper)
         
-        exchangeViewController.requestExchange = exchangeViewModel.fetchCoins(from:)
+        exchangeViewController.requestExchange = exchangeViewModel.fetchCoins(from:isSocketConnect:)
+        exchangeViewController.requestLeaveEvent = exchangeViewModel.leaveEvent(from:)
+        exchangeViewController.requestSocketMeta = exchangeViewModel.fetchSocketExchangeMeta(from:)
+        exchangeViewController.requestLeaveCurrentEvent = exchangeViewModel.leaveCurrentEvent(complete:)
+        
         exchangeViewModel.coinsHandler = exchangeViewController.updateTableView(coins:)
         exchangeViewModel.metaHandler = exchangeViewController.updateMeta(metaList:)
         exchangeViewModel.failErrorHandler = exchangeViewController.onAlertError(message:)
         
-        exchangeViewController.requestLeaveEvent = exchangeViewModel.leaveEvent(from:)
-        exchangeViewController.requestSocketMeta = exchangeViewModel.fetchSocketExchangeMeta(from:)
-        
-        exchangeViewController.requestLeaveCurrentEvent = exchangeViewModel.leaveCurrentEvent(complete:)
-        exchangeViewController.requestExchangeSocket = exchangeViewModel.fetchCoinsSocket(from:)
         return exchangeViewController
     }
     

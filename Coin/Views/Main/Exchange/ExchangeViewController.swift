@@ -43,9 +43,8 @@ class ExchangeViewController: UIViewController {
         return view
     }()
     
-    var requestExchange: ((Exchange)->Void)?
+    var requestExchange: ((Exchange, Bool)->Void)?
     var requestSocketMeta: ((Exchange)->Void)?
-    var requestExchangeSocket: ((Exchange)->Void)?
     var requestLeaveEvent: ((String)->Void)?
     var requestLeaveCurrentEvent: ((()->Void)->Void)?
     var didCellTapped: ((Coin)->Void)?
@@ -54,7 +53,7 @@ class ExchangeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configure()
-        requestExchange?(.upbit)
+        requestExchange?(.upbit, false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -118,7 +117,7 @@ class ExchangeViewController: UIViewController {
             return
         }
         requestLeaveCurrentEvent? {
-            requestExchangeSocket?(exchange)
+            requestExchange?(exchange, true)
         }
         reloadHeaderView()
     }

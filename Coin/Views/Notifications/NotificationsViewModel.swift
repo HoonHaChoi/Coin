@@ -10,13 +10,13 @@ import Combine
 
 final class NotificationsViewModel {
     
-    private let notificationService: NotificationService
+    private let notificationService: NotificationNetworkService
     private let token: String
     private var cancell: Set<AnyCancellable>
     
-    init(usecase: NotificationService,
+    init(service: NotificationNetworkService,
          fcmToken: String) {
-        self.notificationService = usecase
+        self.notificationService = service
         self.token = fcmToken
         self.cancell = .init()
     }
@@ -29,7 +29,7 @@ final class NotificationsViewModel {
     
     func fetchNotifications() {
         loadingHiddenStateHandler?(false)
-        notificationService.requestNotifications(url: Endpoint.notificationURL(type: .api(token)))
+        requestNotifications()
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -43,7 +43,7 @@ final class NotificationsViewModel {
     
     func deleteNotification(uuid: String) {
         loadingHiddenStateHandler?(false)
-        notificationService.requestDeleteNotification(url: Endpoint.notificationURL(type: .api(uuid)), method: .delete)
+        requestDeleteNotification(uuid: uuid)
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -57,16 +57,14 @@ final class NotificationsViewModel {
     
     func updateNotificationSwitch(uuid: String, state: Bool, indexPath: IndexPath) {
         loadingHiddenStateHandler?(false)
-        notificationService.requestCompleteNotification(url: Endpoint.notificationURL(type: .active(uuid)),
-                                                  method: .put,
-                                                  body: makeJsonData(state: state))
+        requestUpdateNotificationSwitch(uuid: uuid, state: state)
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
                     self?.loadingHiddenStateHandler?(true)
                     self?.failureIndexHandler?(indexPath)
                 }
-            } receiveValue: { [weak self] in
+            } receiveValue: { [weak self] _ in
                 self?.loadingHiddenStateHandler?(true)
             }.store(in: &cancell)
     }
@@ -75,5 +73,19 @@ final class NotificationsViewModel {
         let dictionary = ["active": state]
         let json = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
         return json ?? .init()
+    }
+}
+
+extension NotificationsViewModel {
+    private func requestNotifications() -> AnyPublisher<[Notice], NetworkError> {
+        return notificationService.requestPublisher(url: Endpoint.notificationURL(type: .api(token)))
+    }
+    
+    private func requestDeleteNotification(uuid: String) -> AnyPublisher<String, NetworkError> {
+        return notificationService.requestPublisher(url: Endpoint.notificationURL(type: .api(uuid)), method: .delete, body: nil)
+    }
+    
+    private func requestUpdateNotificationSwitch(uuid: String, state: Bool) -> AnyPublisher<String, NetworkError>{
+        return notificationService.requestPublisher(url: Endpoint.notificationURL(type: .active(uuid)), method: .put, body: makeJsonData(state: state))
     }
 }

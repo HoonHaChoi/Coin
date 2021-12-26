@@ -46,7 +46,7 @@ final class NotificationInputViewModel {
     var updateNotificationInputViewHandler: ((Int, String, String) -> ())?
     
     func fetchSearchCoin(uuid: String) {
-        requestFavoriteCoins(uuid: uuid)
+        requestCoin(uuid: uuid)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
                     self?.errorHandler?(error)
@@ -67,8 +67,7 @@ final class NotificationInputViewModel {
     }
     
     private func isFormValidCheck() -> Bool {
-        return !basePriceText.isEmpty &&
-            !cycleText.isEmpty
+        return !basePriceText.isEmpty && !cycleText.isEmpty
     }
         
     func makeRequestNotification(priceType: String, uuid: String, formStyle: NotificationInputFormStyle) {
@@ -126,7 +125,7 @@ final class NotificationInputViewModel {
 }
 
 extension NotificationInputViewModel {
-    private func requestFavoriteCoins(uuid: String) -> AnyPublisher<Coin, NetworkError> {
+    private func requestCoin(uuid: String) -> AnyPublisher<Coin, NetworkError> {
         return notificationInputService.requestPublisher(url: Endpoint.tickerURL(type: .favorite(uuid)))
     }
     

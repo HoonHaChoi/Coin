@@ -249,7 +249,7 @@ struct AppDependency {
     
     private func makeNotificationsViewController() -> NotificationsViewController {
 
-        let viewmodel = NotificationsViewModel(usecase: networkManager, fcmToken: fcmToken)
+        let viewmodel = NotificationsViewModel(service: networkManager, fcmToken: fcmToken)
         let notificationDataSource = NotificationDataSource()
         let notificationsViewController = NotificationsViewController(dataSource: notificationDataSource,
                                                                       imageLoader: imageLoader)

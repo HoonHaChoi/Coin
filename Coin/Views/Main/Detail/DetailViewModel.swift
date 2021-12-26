@@ -11,12 +11,9 @@ final class DetailViewModel: CryptoBaseViewModel {
     
     private let favoriteCoinRepository: FavoriteCoinRepository
     
-    init(repository: FavoriteCoinRepository,
-         service: NetworkService,
-         socketUseCase: SocketUseCase) {
+    init(repository: FavoriteCoinRepository, service: NetworkService, socketUseCase: SocketUseCase) {
         self.favoriteCoinRepository = repository
-        super.init(service: service,
-                   socketUsecase: socketUseCase)
+        super.init(service: service, socketUsecase: socketUseCase)
     }
     
     func findFavoriteCoin(from uuid: String) -> Bool {
@@ -37,7 +34,7 @@ final class DetailViewModel: CryptoBaseViewModel {
             case .success(let meta):
                 self?.metaHandler?(meta)
             case .failure(let error):
-                self?.failErrorHandler?(error)
+                self?.errorHandler?(error)
             }
         }
     }

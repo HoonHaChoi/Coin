@@ -11,17 +11,17 @@ import Combine
 final class ExchangeViewModel: CryptoBaseViewModel {
     
     func fetchCoins(from exchange: Exchange, isSocketConnect: Bool) {
-        cancell = requestExchangeCoins(from: exchange)
+        requestExchangeCoins(from: exchange)
             .sink { [weak self] (fail) in
                 if case .failure(let error) = fail {
-                    self?.failErrorHandler?(error)
+                    self?.errorHandler?(error)
                 }
             } receiveValue: { [weak self] (coins) in
                 self?.coinsHandler?(coins)
                 if isSocketConnect {
                     self?.fetchSocketExchangeMeta(from: exchange)
                 }
-            }
+            }.store(in: &cancellable)
     }
     
     func fetchSocketExchangeMeta(from exchange: Exchange) {
@@ -30,7 +30,7 @@ final class ExchangeViewModel: CryptoBaseViewModel {
             case .success(let meta):
                 self?.metaHandler?(meta)
             case .failure(let error):
-                self?.failErrorHandler?(error)
+                self?.errorHandler?(error)
             }
         }
     }

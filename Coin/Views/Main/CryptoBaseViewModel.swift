@@ -8,19 +8,16 @@
 import Foundation
 import Combine
 
-class CryptoBaseViewModel {
+class CryptoBaseViewModel: BaseViewModel {
     
-    let service: NetworkService
-    let socketUseCase: SocketUseCase
-    var cancell: AnyCancellable?
+    private(set) var socketUseCase: SocketUseCase
     
     var coinsHandler: (([Coin]) -> Void)?
-    var failErrorHandler: ((NetworkError) -> Void)?
+    var errorHandler: ((NetworkError) -> Void)?
     var metaHandler: (([CoinMeta]) -> Void)?
     
-    init(service: NetworkService,
-         socketUsecase : SocketUseCase) {
-        self.service = service
+    init(service: NetworkService, socketUsecase : SocketUseCase) {
         self.socketUseCase = socketUsecase
+        super.init(service: service)
     }
 }

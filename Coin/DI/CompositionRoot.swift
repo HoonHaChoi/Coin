@@ -125,7 +125,7 @@ struct AppDependency {
         
         exchangeViewModel.coinsHandler = exchangeViewController.updateTableView(coins:)
         exchangeViewModel.metaHandler = exchangeViewController.updateMeta(metaList:)
-        exchangeViewModel.failErrorHandler = exchangeViewController.onAlertError(message:)
+        exchangeViewModel.errorHandler = exchangeViewController.onAlertError(message:)
         
         return exchangeViewController
     }
@@ -137,7 +137,7 @@ struct AppDependency {
                                           socketUseCase: socketRepository)
         let mainViewController = MainViewController(dataSource: coinDataSource)
         
-        mainViewModel.failErrorHandler = mainViewController.showError
+        mainViewModel.errorHandler = mainViewController.showError
         mainViewModel.coinsHandler = mainViewController.updateCoinList
         mainViewController.fetchCoinsHandler = mainViewModel.fetchFavoriteCoins
         
@@ -190,7 +190,7 @@ struct AppDependency {
         detailViewController.requestLeaveEvent = viewModel.leaveEvent(from:)
         
         viewModel.metaHandler = detailViewController.updateInfoUI
-        viewModel.failErrorHandler = detailViewController.showError
+        viewModel.errorHandler = detailViewController.showError
         
         return detailViewController
     }

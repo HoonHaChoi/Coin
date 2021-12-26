@@ -12,12 +12,9 @@ final class MainViewModel: CryptoBaseViewModel {
     
     private let favoriteCoinRepository: FavoriteCoinRepository
     
-    init(repository: FavoriteCoinRepository,
-         service: NetworkService,
-         socketUseCase: SocketUseCase) {
+    init(repository: FavoriteCoinRepository, service: NetworkService, socketUseCase: SocketUseCase) {
         self.favoriteCoinRepository = repository
-        super.init(service: service,
-                   socketUsecase: socketUseCase)
+        super.init(service: service, socketUsecase: socketUseCase)
     }
     
     func fetchFavoriteCoins() {
@@ -26,17 +23,16 @@ final class MainViewModel: CryptoBaseViewModel {
             requestFavoriteCoins(uuid: uuid)
         }
         
-        cancell = Publishers.MergeMany(requests)
+        Publishers.MergeMany(requests)
             .collect()
             .sink { [weak self] fail in
                 if case .failure(let error) = fail {
-                    self?.failErrorHandler?(error)
+                    self?.errorHandler?(error)
                 }
             } receiveValue: { [weak self] coins in
-                self?.coinsHandler?(self?.sortCoins(uuids: uuids,
-                                                    coins: coins) ?? [])
+                self?.coinsHandler?(self?.sortCoins(uuids: uuids, coins: coins) ?? [])
                 self?.fetchSocketFavoriteMeta(uuids: uuids)
-            }
+            }.store(in: &cancellable)
     }
     
     // 무작위로 온 코인리스트를 정렬
@@ -56,7 +52,7 @@ final class MainViewModel: CryptoBaseViewModel {
             case .success(let meta):
                 self?.metaHandler?(meta)
             case .failure(let error):
-                self?.failErrorHandler?(error)
+                self?.errorHandler?(error)
             }
         }
     }

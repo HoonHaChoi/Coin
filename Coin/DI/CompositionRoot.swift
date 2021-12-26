@@ -271,7 +271,7 @@ struct AppDependency {
     }
     
     private func makeNotificationsInputViewController(notiObject: NotificationObject, formStyle: NotificationInputFormStyle) -> NotificationInputViewController {
-        let notificationHelper = NotificationHelper(usecase: networkManager)
+        let notificationHelper = NotificationHelper(service: networkManager)
         let viewModel = NotificationInputViewModel(service: networkManager,
                                                    notificationHelper: notificationHelper,
                                                    fcmToken: fcmToken)

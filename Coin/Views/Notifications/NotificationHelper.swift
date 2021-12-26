@@ -32,25 +32,29 @@ final class NotificationHelper: NotificationHelp {
     
     private(set) var cycleUUIDs: [String] = []
     
-    private let usecase: NotificationCycleService
+    private let service: NetworkService
     private var cancell: AnyCancellable?
     
     private(set) lazy var typeMapper = EnumMapper(key: notificationTypeNames, item: notificationType)
     private(set) lazy var cycleMapper = EnumMapper(key: cycleNames, item: cycleUUIDs)
     
-    init(usecase: NotificationCycleService) {
-        self.usecase = usecase
+    init(service: NetworkService) {
+        self.service = service
         configue()
     }
     
     private func configue() {
-        cancell = usecase.requestNotificationCycle(url: Endpoint.notificationURL(type: .cycle))
+        cancell = requestNotificationCycle()
             .sink { _ in }
                 receiveValue: { [weak self] cycles in
                     cycles.forEach { cycle in
                         self?.cycleUUIDs.append(cycle.uuid)
                     }
                 }
+    }
+    
+    private func requestNotificationCycle() -> AnyPublisher<[NotificationCycle], NetworkError> {
+        return service.requestPublisher(url: Endpoint.notificationURL(type: .cycle))
     }
     
     func mapping(typeName: String) -> String {

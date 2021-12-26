@@ -18,16 +18,13 @@ struct NetworkManager: NetworkService, NotificationNetworkService {
     }
     
     func requestPublisher<T: Decodable>(url: URL?) -> AnyPublisher<T, NetworkError> {
-        return session.requestResource(url: url)
+        let urlRequest = makeURLRequest(url: url, method: .get)
+        return session.requestResource(for: urlRequest)
     }
     
     func requestPublisher<T: Decodable>(url: URL?, method: HTTPMethod, body: Data?) -> AnyPublisher<T, NetworkError> {
         let urlRequest = makeURLRequest(url: url, method: method, body: body)
         return self.session.requestResource(for: urlRequest)
-    }
-    
-    func requestAppStoreVersion(url: URL?) -> AnyPublisher<AppInfo, NetworkError> {
-        return self.session.requestResource(url: url)
     }
     
     private func makeURLRequest(url: URL?, method: HTTPMethod, body: Data? = nil) -> URLRequest? {
@@ -39,10 +36,4 @@ struct NetworkManager: NetworkService, NotificationNetworkService {
         return urlRequest
     }
     
-}
-
-extension NetworkManager: AppStoreService {}
-
-protocol AppStoreService {
-    func requestAppStoreVersion(url: URL?) -> AnyPublisher<AppInfo, NetworkError>
 }

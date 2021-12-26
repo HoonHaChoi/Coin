@@ -12,7 +12,7 @@ final class VersionManager {
     
     private let nowVersion: String
     private let appBundle: String
-    private let usecase: AppStoreService
+    private let service: NetworkService
     private var cancell: AnyCancellable?
     
     var failRequestHandler: (() -> ())?
@@ -20,15 +20,15 @@ final class VersionManager {
     var successHandler: (() -> ())?
     var loadingStateHandler: ((Bool) -> ())?
     
-    init(usecase: AppStoreService) {
+    init(service: NetworkService) {
         self.nowVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Not Found App Version"
         self.appBundle = Bundle.main.bundleIdentifier ?? "Not Found App Bundle"
-        self.usecase = usecase
+        self.service = service
     }
     
     func fetchAppStoreVersion() {
         loadingStateHandler?(false)
-        cancell = usecase.requestAppStoreVersion(url: Endpoint.appStoreInfoURL(bundle: appBundle))
+        cancell = requestAppStoreVersion()
             .sink { [weak self] fail in
             if case .failure(_) = fail {
                 self?.failRequestHandler?()
@@ -53,5 +53,9 @@ final class VersionManager {
         } else {
             unequalVersionHandler?()
         }
+    }
+    
+    private func requestAppStoreVersion() -> AnyPublisher<AppInfo, NetworkError> {
+        return service.requestPublisher(url: Endpoint.appStoreInfoURL(bundle: appBundle))
     }
 }

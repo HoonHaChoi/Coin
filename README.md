@@ -6,7 +6,7 @@
 
 <img src="https://img.shields.io/badge/Language-Swift-red?style=flat&logo=swift&logoColor=white/"><img src="https://img.shields.io/badge/Platform-iOS-blue?style=flat&logo=ios&logoColor=white/">
 
-- 기간 : 2021.07.16 - 2021.10.7(출시) ~ing
+- 기간 : 2021.07.16 - 2021.10.7(출시 후 게시종료)
 
 - 사용 언어 : Swift
 

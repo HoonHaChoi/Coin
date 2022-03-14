@@ -41,7 +41,7 @@
 
 <img alt="스크린샷 2021-11-05 오후 10 25 16" src="https://user-images.githubusercontent.com/33626693/142800567-91ae4fb3-4d98-4752-8d93-f6dbf4ce886f.png">
 
-### AppStore: [코일 앱스토어](https://apps.apple.com/kr/app/코일/id1586982814)
+### AppStore: [~~코일 앱스토어~~]()
 
 ---
 
